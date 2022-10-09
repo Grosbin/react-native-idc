@@ -1,0 +1,1 @@
+npx react-native-asset usar en ves de npx react-native link

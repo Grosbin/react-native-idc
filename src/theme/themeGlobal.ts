@@ -1,0 +1,16 @@
+export const gbColor = {
+  background: '#F2F5FF',
+  foco: 'white',
+  // primary: '#2D7AFF',
+  // primary: '#3b46f1',
+  secundary: '#2256F2',
+  // secundary: '#F2EA77',
+  primary: '#3b46f1',
+  fontPrimary: '#020052',
+  // fontPrimary: '#011126',
+  fontSecundary: 'white',
+  // blueSecundary: '#c8e1ff',
+  blueSecundary: '#5E83F2',
+  yellowSecundary: '#F2EA77',
+  close: '#88A2F2',
+};
