@@ -36,7 +36,7 @@ export const NewTestament = () => {
   return (
     <ScrollSelectBook
       testament={newTestamentData}
-      style={{alignItems: 'flex-end', marginRight: 10}}
+      style={{alignItems: 'flex-end', marginRight: 15}}
     />
   );
 };

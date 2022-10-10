@@ -5,6 +5,8 @@ import Animated, {withSpring} from 'react-native-reanimated';
 import {BibleContext} from '../../context/BibleContext';
 import {useBibleAnimation} from '../../hooks/useButtonAnimation';
 import {ButtonBible} from './ButtonBible';
+import {gbColor} from '../../theme/themeGlobal';
+import {color} from 'react-native-reanimated';
 
 interface Props {
   style?: StyleProp<ViewStyle>;
@@ -24,7 +26,14 @@ export const FloatButtonBible = ({
     onPressBookHandler,
     onPressChapterHandler,
     onPressVerseHandler,
-    bibleState: {bookText, activeCard, bookOnPress},
+    bibleState: {
+      bookText,
+      activeCard,
+      chapter,
+      bookOnPress,
+      verseOnPress,
+      chapterOnPress,
+    },
   } = useContext(BibleContext);
 
   const {
@@ -69,9 +78,10 @@ export const FloatButtonBible = ({
       <ButtonBible
         disabled={disabledButton}
         onPress={onChangeBook}
-        onPressBook={activeCard}
+        activeCard={activeCard}
         text={bookText}
         style={style}
+        onActive={bookOnPress}
         flex={2}
         buttonScaleAnimation={buttonBookScaleStyle}
       />
@@ -79,9 +89,10 @@ export const FloatButtonBible = ({
       <ButtonBible
         disabled={disabledButton}
         onPress={onChangeChapter}
-        onPressBook={activeCard}
-        text={1}
+        activeCard={activeCard}
+        text={chapter}
         style={style}
+        onActive={chapterOnPress}
         flex={1}
         buttonScaleAnimation={buttonChapterScaleStyle}
       />
@@ -89,9 +100,10 @@ export const FloatButtonBible = ({
       <ButtonBible
         disabled={disabledButton}
         onPress={onChangeVerse}
-        onPressBook={activeCard}
+        activeCard={activeCard}
         text={1}
         style={style}
+        onActive={verseOnPress}
         flex={1}
         buttonScaleAnimation={buttonVerseScaleStyle}
       />

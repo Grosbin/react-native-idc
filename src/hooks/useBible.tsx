@@ -9,10 +9,11 @@ import Animated, {
 import {BibleContext} from '../context/BibleContext';
 
 export const useBible = () => {
-  const [numChapter, setNumChapter] = useState<number>(1);
   const {
+    onChangeChapter,
     bibleState: {book, chapter, verse},
   } = useContext(BibleContext);
+
   let data: Object;
   if (book === 'genesis' || book !== 'exodo') {
     data = genesis;
@@ -36,45 +37,45 @@ export const useBible = () => {
     };
   });
 
-  const validateBible = (num: number) => {
-    return data.hasOwnProperty(num);
+  const validateBible = () => {
+    if (chapter > 1) previousOpacityButtonOffset.value = 1;
+    if (chapter <= 1) previousOpacityButtonOffset.value = 0;
+
+    return data.hasOwnProperty(chapter);
   };
 
-  const getChapter = (num: number = 1) => {
-    if (validateBible(num)) {
-      return data[num]['chapter'];
+  const getChapter = () => {
+    if (validateBible()) {
+      return data[chapter]['chapter'];
     }
-    setNumChapter(1);
+
+    onChangeChapter(1);
     previousOpacityButtonOffset.value = 0;
     return data[1]['chapter'];
   };
 
-  const getVerses = (num: number = 1) => {
-    if (validateBible(num)) {
-      return data[num]['verses'];
+  const getVerses = () => {
+    if (validateBible()) {
+      return data[chapter]['verses'];
     }
-    setNumChapter(1);
+
+    onChangeChapter(1);
     previousOpacityButtonOffset.value = 0;
     return data[1]['verses'];
   };
 
   const nextChapter = () => {
-    setNumChapter(numChapter + 1);
+    onChangeChapter(chapter + 1);
     previousOpacityButtonOffset.value = 1;
   };
 
   const previousChapter = () => {
-    setNumChapter(numChapter - 1);
-    if (numChapter === 2) {
-      previousOpacityButtonOffset.value = 0;
-    }
+    onChangeChapter(chapter - 1);
   };
 
   return {
     getChapter,
     getVerses,
-    numChapter,
-    setNumChapter,
     nextChapter,
     previousChapter,
     bibleOpacityButtonOffset,

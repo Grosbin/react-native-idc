@@ -11,35 +11,56 @@ interface Props {
 }
 
 export const ItemBook = ({bookText, book}: Props) => {
-  const {onChangeBook} = useContext(BibleContext);
+  const {
+    onChangeBook,
+    bibleState: {book: bookData},
+  } = useContext(BibleContext);
 
   return (
     <TouchableHighlight
-      underlayColor={'#78A0FF'}
-      style={[styles.container]}
+      underlayColor={gbColor.foco}
+      style={[
+        styles.container,
+        // bookData === book && {backgroundColor: gbColor.},
+      ]}
       onPress={() => {
         onChangeBook(bookText, book);
-        console.log(book);
       }}>
-      <Text style={styles.text}>{bookText}</Text>
+      <Text
+        style={[
+          styles.text,
+          bookData === book && {color: gbColor.blueSecundary},
+        ]}>
+        {bookText}
+      </Text>
     </TouchableHighlight>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: gbColor.primary,
-    width: 180,
-    height: 50,
+    backgroundColor: gbColor.foco,
+    width: 171,
+    height: 60,
     borderRadius: 10,
     marginVertical: 5,
-    marginLeft: 10,
+    // marginHorizontal: 14,
+    marginLeft: 15,
     justifyContent: 'center',
+
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 3,
+    },
+    shadowOpacity: 0.27,
+    shadowRadius: 4.65,
+    elevation: 6,
   },
   text: {
     fontSize: 16,
     fontFamily: 'Poppins-Bold',
-    color: gbColor.foco,
+    color: gbColor.fontPrimary,
     textAlign: 'center',
   },
 });

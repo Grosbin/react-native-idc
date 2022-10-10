@@ -1,8 +1,9 @@
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
-import {Text} from 'react-native';
+import {StyleSheet, Text} from 'react-native';
 import {NewTestament} from '../components/bible/NewTestament';
 import {gbColor} from '../theme/themeGlobal';
 import {OldTestament} from '../components/bible/OldTestament';
+import {color} from 'react-native-reanimated';
 
 const Tab = createMaterialTopTabNavigator();
 
@@ -14,8 +15,28 @@ export const TopTabsBible = () => {
         borderBottomEndRadius: 10,
         borderBottomStartRadius: 10,
       }}
-      screenOptions={{
-        tabBarIndicatorStyle: {backgroundColor: gbColor.secundary},
+      screenOptions={({route}) => ({
+        tabBarLabel({focused}) {
+          let title: string = '';
+          switch (route.name) {
+            case 'OldTestament':
+              title = 'Antiguo';
+              break;
+            case 'NewTestament':
+              title = 'Nuevo';
+              break;
+          }
+          return (
+            <Text
+              style={[
+                styles.textTitle,
+                !focused && {color: 'rgba(34,86,242,0.5)'},
+              ]}>
+              {title}
+            </Text>
+          );
+        },
+        tabBarIndicatorStyle: {backgroundColor: gbColor.secundary, height: 3},
         tabBarPressColor: 'transparent',
         tabBarStyle: {
           backgroundColor: gbColor.background,
@@ -23,7 +44,7 @@ export const TopTabsBible = () => {
           elevation: 0,
           borderRadius: 10,
         },
-      }}>
+      })}>
       <Tab.Screen
         name="OldTestament"
         component={OldTestament}
@@ -41,3 +62,11 @@ export const TopTabsBible = () => {
     </Tab.Navigator>
   );
 };
+
+const styles = StyleSheet.create({
+  textTitle: {
+    fontSize: 16,
+    fontFamily: 'Poppins-Bold',
+    color: gbColor.primary,
+  },
+});

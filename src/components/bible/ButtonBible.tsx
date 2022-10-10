@@ -12,7 +12,8 @@ import {gbColor} from '../../theme/themeGlobal';
 interface Props {
   onPress: () => void;
   text: string | number;
-  onPressBook: boolean;
+  activeCard: boolean;
+  onActive?: boolean;
   style?: StyleProp<ViewStyle>;
   buttonOpacityAnimation?: any;
   buttonScaleAnimation?: any;
@@ -22,7 +23,8 @@ interface Props {
 
 export const ButtonBible = ({
   text,
-  onPressBook,
+  activeCard,
+  onActive,
   style,
   buttonOpacityAnimation,
   buttonScaleAnimation,
@@ -39,12 +41,11 @@ export const ButtonBible = ({
       <Animated.View
         style={[
           styles.button,
-          !onPressBook && styles.buttonShadow,
-          onPressBook && {
+          styles.buttonShadow,
+          activeCard && {
             backgroundColor: gbColor.foco,
-            borderColor: gbColor.secundary,
-            borderWidth: 1,
           },
+          onActive && {backgroundColor: gbColor.blueSecundary},
           style,
           buttonScaleAnimation,
           buttonOpacityAnimation,
@@ -52,7 +53,8 @@ export const ButtonBible = ({
         <Text
           style={[
             styles.buttonText,
-            onPressBook && {color: gbColor.secundary},
+            activeCard && {color: gbColor.fontPrimary},
+            onActive && {color: gbColor.foco},
           ]}>
           {text}
         </Text>
@@ -66,7 +68,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: gbColor.primary,
+    backgroundColor: gbColor.blueSecundary,
     height: 60,
     marginHorizontal: 10,
   },

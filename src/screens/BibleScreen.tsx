@@ -22,10 +22,11 @@ import {CloseCard} from '../components/bible/CloseCard';
 
 export const BibleScreen = () => {
   const [disabledButton, setDisabledButton] = useState(false);
+
   const {
     getChapter,
     getVerses,
-    numChapter,
+    // numChapter,
     nextChapter,
     previousChapter,
     bibleOpacityButtonOffset,
@@ -35,7 +36,7 @@ export const BibleScreen = () => {
   const lastContentOffset = useRef(0);
 
   const {
-    bibleState: {activeCard},
+    bibleState: {activeCard, chapter},
   } = useContext(BibleContext);
 
   const showButton = () => {
@@ -70,16 +71,16 @@ export const BibleScreen = () => {
   return (
     <View style={styles.container}>
       <View style={styles.titleContainer}>
-        <Text style={styles.titleText}>{getChapter(numChapter)}</Text>
+        <Text style={styles.titleText}>{getChapter()}</Text>
         <View style={styles.buttonContainer}>
           <Animated.View style={[buttonOpacityPreviousStyle]}>
             <TouchableOpacity
-              disabled={numChapter === 1 || activeCard}
+              disabled={chapter === 1 || activeCard}
               activeOpacity={0.8}
               onPress={previousChapter}
               style={[styles.button, styles.previousButton]}>
-              <Icon name="caret-back" size={20} color={gbColor.secundary} />
-              <Text style={styles.textButtonPrevious}>Anterior</Text>
+              <Icon name="caret-back" size={20} color={gbColor.primary} />
+              {/* <Text style={styles.textButtonPrevious}>Anterior</Text> */}
             </TouchableOpacity>
           </Animated.View>
 
@@ -88,7 +89,7 @@ export const BibleScreen = () => {
             activeOpacity={0.8}
             style={styles.button}
             onPress={nextChapter}>
-            <Text style={styles.textButton}>Siguiente</Text>
+            {/* <Text style={styles.textButton}>Siguiente</Text> */}
             <Icon
               name="caret-forward"
               size={20}
@@ -101,7 +102,7 @@ export const BibleScreen = () => {
       <FlatList
         scrollEnabled={!activeCard}
         showsVerticalScrollIndicator={false}
-        data={getVerses(numChapter)}
+        data={getVerses()}
         renderItem={({item, index}) => (
           <View key={index} style={styles.containerVerse}>
             <Text style={styles.numVerse}>{index + 1}</Text>
@@ -138,8 +139,8 @@ const styles = StyleSheet.create({
   },
   titleText: {
     fontFamily: 'Poppins-ExtraBold',
-    fontSize: 20,
-    color: gbColor.fontPrimary,
+    fontSize: 24,
+    color: gbColor.primary,
   },
   containerVerse: {
     flexDirection: 'row',
@@ -164,7 +165,8 @@ const styles = StyleSheet.create({
   },
   button: {
     flexDirection: 'row',
-    width: 120,
+    // width: 120,
+    width: 80,
     height: 40,
     backgroundColor: gbColor.primary,
     borderRadius: 10,
@@ -180,13 +182,13 @@ const styles = StyleSheet.create({
   textButtonPrevious: {
     fontFamily: 'Poppins-ExtraBold',
     paddingTop: 3,
-    color: gbColor.secundary,
+    color: gbColor.fontPrimary,
     alignSelf: 'center',
   },
   previousButton: {
-    borderWidth: 1,
-    borderColor: gbColor.secundary,
+    // borderWidth: 1,
+    // borderColor: gbColor.terthiary,
     marginRight: 10,
-    backgroundColor: gbColor.foco,
+    backgroundColor: gbColor.background,
   },
 });
