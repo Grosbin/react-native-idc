@@ -1,4 +1,4 @@
-import React, {useContext, useRef, useState} from 'react';
+import React, {useContext, useEffect, useRef, useState} from 'react';
 import {
   NativeScrollEvent,
   NativeSyntheticEvent,
@@ -22,11 +22,11 @@ import {CloseCard} from '../components/bible/CloseCard';
 
 export const BibleScreen = () => {
   const [disabledButton, setDisabledButton] = useState(false);
+  const ref = useRef<FlatList>(null);
 
   const {
     getChapter,
     getVerses,
-    // numChapter,
     nextChapter,
     previousChapter,
     bibleOpacityButtonOffset,
@@ -36,8 +36,9 @@ export const BibleScreen = () => {
   const lastContentOffset = useRef(0);
 
   const {
-    bibleState: {activeCard, chapter},
+    bibleState: {activeCard, chapter, verse},
   } = useContext(BibleContext);
+  const [index, setIndex] = useState(0);
 
   const showButton = () => {
     bibleOpacityButtonOffset.value = 1;
@@ -50,12 +51,16 @@ export const BibleScreen = () => {
   };
 
   const onScroll = (e: NativeSyntheticEvent<NativeScrollEvent>) => {
-    let y = e.nativeEvent.contentOffset.y;
-    let previousY = lastContentOffset.current;
-    previousY > y && showButton();
-    previousY < y && removeButton();
-    y === 0 && showButton();
-    lastContentOffset.current = e.nativeEvent.contentOffset.y;
+    if (!activeCard) {
+      let y = e.nativeEvent.contentOffset.y;
+      let previousY = lastContentOffset.current;
+      previousY > y && showButton();
+      if (Math.sign(previousY) === 1) {
+        previousY < y && removeButton();
+      }
+      y === 0 && showButton();
+      lastContentOffset.current = e.nativeEvent.contentOffset.y;
+    }
   };
 
   const widthOffset = useSharedValue('0%');
@@ -67,6 +72,21 @@ export const BibleScreen = () => {
       height: heightOffset.value,
     };
   });
+
+  // useEffect(() => {
+  //   if (getVerses().length >= verse) {
+  //     setIndex(verse - 1);
+  //   }
+  //   if (getVerses().length < verse) {
+  //     setIndex(0);
+  //   }
+  // }, [verse]);
+
+  // useEffect(() => {
+  //   ref.current?.scrollToIndex({index, animated: true});
+  // }, [index]);
+
+  const versesData: [] = getVerses();
 
   return (
     <View style={styles.container}>
@@ -100,9 +120,16 @@ export const BibleScreen = () => {
       </View>
 
       <FlatList
+        ListFooterComponent={<View style={{height: 90}} />}
+        ref={ref}
+        initialScrollIndex={index}
+        onScrollToIndexFailed={() => {
+          setIndex(0);
+        }}
+        keyExtractor={index => index.toString()}
         scrollEnabled={!activeCard}
         showsVerticalScrollIndicator={false}
-        data={getVerses()}
+        data={versesData}
         renderItem={({item, index}) => (
           <View key={index} style={styles.containerVerse}>
             <Text style={styles.numVerse}>{index + 1}</Text>

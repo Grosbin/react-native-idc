@@ -30,6 +30,7 @@ export const FloatButtonBible = ({
       bookText,
       activeCard,
       chapter,
+      verse,
       bookOnPress,
       verseOnPress,
       chapterOnPress,
@@ -101,7 +102,7 @@ export const FloatButtonBible = ({
         disabled={disabledButton}
         onPress={onChangeVerse}
         activeCard={activeCard}
-        text={1}
+        text={verse}
         style={style}
         onActive={verseOnPress}
         flex={1}

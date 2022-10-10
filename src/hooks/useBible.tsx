@@ -11,6 +11,7 @@ import {BibleContext} from '../context/BibleContext';
 export const useBible = () => {
   const {
     onChangeChapter,
+    onChangeVerse,
     bibleState: {book, chapter, verse},
   } = useContext(BibleContext);
 
@@ -66,11 +67,13 @@ export const useBible = () => {
 
   const nextChapter = () => {
     onChangeChapter(chapter + 1);
+    onChangeVerse(1);
     previousOpacityButtonOffset.value = 1;
   };
 
   const previousChapter = () => {
     onChangeChapter(chapter - 1);
+    onChangeVerse(1);
   };
 
   return {

@@ -4,50 +4,35 @@ import {ItemChapterVerse} from './ItemChapterVerse';
 
 import {useContext} from 'react';
 import {BibleContext} from '../../context/BibleContext';
+import {useBible} from '../../hooks/useBible';
 
 interface Props {
   testament: {};
   style?: StyleProp<ViewStyle>;
 }
 
-export const ScrollChapter = ({testament, style}: Props) => {
+export const ScrollVerse = ({testament, style}: Props) => {
   const {
-    onChangeChapter,
-    bibleState: {book, chapter},
+    onChangeVerse,
+    bibleState: {book, chapter, verse},
   } = useContext(BibleContext);
 
-  // const {
-  //   onChangeChapter,
-  //   bibleState: {chapter},
-  // } = useContext(BibleContext);
+  const {getVerses} = useBible();
 
-  // const onPressChapter = (chapterText: number) => {
-  //   onChangeChapter(chapterText);
-  // };
-
-  const getChapter = (item: number) => {
-    let data: number[] = [];
-    for (let i = 0; i < item; i++) {
-      data[i] = i + 1;
-    }
-
-    return data;
-  };
-
-  const chapterLength = getChapter(testament[book][1]);
+  const verses: [] = getVerses();
 
   return (
     <View style={styles.container}>
       <FlatList
         showsVerticalScrollIndicator={false}
         numColumns={4}
-        keyExtractor={index => index.toString()}
-        data={chapterLength}
+        keyExtractor={index => index}
+        data={verses}
         style={{marginBottom: 150}}
         renderItem={({index}) => (
           <ItemChapterVerse
             chapterNum={index + 1}
-            onPress={() => onChangeChapter(index + 1)}
+            onPress={() => onChangeVerse(index + 1)}
           />
         )}
       />

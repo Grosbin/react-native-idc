@@ -3,6 +3,7 @@ import {ScrollSelectBook} from './ScrollBook';
 import {useContext} from 'react';
 import {BibleContext} from '../../context/BibleContext';
 import {ScrollChapter} from './ScrollChapter';
+import {ScrollVerse} from './ScrollVerse';
 
 const oldTestamentData = {
   genesis: ['Génesis', 50],
@@ -48,11 +49,15 @@ const oldTestamentData = {
 
 export const OldTestament = () => {
   const {
-    bibleState: {chapterOnPress},
+    bibleState: {chapterOnPress, verseOnPress},
   } = useContext(BibleContext);
 
   if (chapterOnPress) {
     return <ScrollChapter testament={oldTestamentData} />;
+  }
+
+  if (verseOnPress) {
+    return <ScrollVerse testament={oldTestamentData} />;
   }
 
   return (

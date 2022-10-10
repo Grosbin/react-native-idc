@@ -12,23 +12,29 @@ import {BibleContext} from '../../context/BibleContext';
 import {useBible} from '../../hooks/useBible';
 
 interface Props {
-  chapterText: number;
+  chapterNum: number;
+  onPress: (num: number) => void;
 }
 
-export const ItemChapter = ({chapterText}: Props) => {
-  const {onChangeChapter} = useContext(BibleContext);
-  // const {setNumChapter} = useBible();
+export const ItemChapterVerse = ({chapterNum, onPress}: Props) => {
+  const {
+    bibleState: {chapter, verse, chapterOnPress},
+  } = useContext(BibleContext);
 
-  const onPressChapter = () => {
-    onChangeChapter(chapterText);
-  };
+  const validateChapterVerse = chapterOnPress ? chapter : verse;
 
   return (
     <TouchableHighlight
-      underlayColor={'#78A0FF'}
+      underlayColor={gbColor.foco}
       style={styles.container}
-      onPress={() => onPressChapter()}>
-      <Text style={styles.chapterText}>{chapterText}</Text>
+      onPress={() => onPress(chapterNum)}>
+      <Text
+        style={[
+          styles.chapterText,
+          chapterNum === validateChapterVerse && {color: gbColor.blueSecundary},
+        ]}>
+        {chapterNum}
+      </Text>
     </TouchableHighlight>
   );
 };
