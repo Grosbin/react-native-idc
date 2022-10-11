@@ -19,14 +19,14 @@ export const ScrollVerse = ({testament, style}: Props) => {
 
   const {getVerses} = useBible();
 
-  const verses: [] = getVerses();
+  const verses = getVerses();
 
   return (
     <View style={styles.container}>
       <FlatList
         showsVerticalScrollIndicator={false}
         numColumns={4}
-        keyExtractor={index => index}
+        keyExtractor={(item, index) => index + item.toString()}
         data={verses}
         style={{marginBottom: 150}}
         renderItem={({index}) => (

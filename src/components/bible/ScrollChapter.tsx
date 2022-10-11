@@ -41,7 +41,7 @@ export const ScrollChapter = ({testament, style}: Props) => {
       <FlatList
         showsVerticalScrollIndicator={false}
         numColumns={4}
-        keyExtractor={index => index.toString()}
+        keyExtractor={(item, index) => index + item.toString()}
         data={chapterLength}
         style={{marginBottom: 150}}
         renderItem={({index}) => (

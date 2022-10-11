@@ -73,20 +73,24 @@ export const BibleScreen = () => {
     };
   });
 
-  // useEffect(() => {
-  //   if (getVerses().length >= verse) {
-  //     setIndex(verse - 1);
-  //   }
-  //   if (getVerses().length < verse) {
-  //     setIndex(0);
-  //   }
-  // }, [verse]);
+  useEffect(() => {
+    if (getVerses().length >= verse) {
+      setIndex(verse - 1);
+    }
+    if (getVerses().length < verse) {
+      setIndex(0);
+    }
+  }, [verse]);
+
+  useEffect(() => {
+    ref.current?.scrollToIndex({index, animated: true});
+  }, [index, chapter]);
 
   // useEffect(() => {
   //   ref.current?.scrollToIndex({index, animated: true});
-  // }, [index]);
+  // }, [chapter]);
 
-  const versesData: [] = getVerses();
+  // const versesData: [] = getVerses();
 
   return (
     <View style={styles.container}>
@@ -126,10 +130,12 @@ export const BibleScreen = () => {
         onScrollToIndexFailed={() => {
           setIndex(0);
         }}
-        keyExtractor={index => index.toString()}
+        // keyExtractor={(item, index) => index + item.toString()}
+        // TODO: Valida Versiculos duplicados
+          keyExtractor={(index) => index.toString()}
         scrollEnabled={!activeCard}
         showsVerticalScrollIndicator={false}
-        data={versesData}
+        data={getVerses()}
         renderItem={({item, index}) => (
           <View key={index} style={styles.containerVerse}>
             <Text style={styles.numVerse}>{index + 1}</Text>

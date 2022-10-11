@@ -1,12 +1,14 @@
 import {useContext, useState} from 'react';
 import genesis from '../data/ntv/genesis.json';
 import exodo from '../data/ntv/exodo.json';
+import levitico from '../data/ntv/levitico.json';
 import Animated, {
   useAnimatedStyle,
   useSharedValue,
   withTiming,
 } from 'react-native-reanimated';
 import {BibleContext} from '../context/BibleContext';
+import { getBook } from '../helpers/getBook';
 
 export const useBible = () => {
   const {
@@ -15,66 +17,80 @@ export const useBible = () => {
     bibleState: {book, chapter, verse},
   } = useContext(BibleContext);
 
-  let data: Object;
-  if (book === 'genesis' || book !== 'exodo') {
-    data = genesis;
-  }
-  if (book === 'exodo') {
-    data = exodo;
-  }
+  // let data: Object = {};
 
+  // if (book === 'genesis' || book !== 'exodo') {
+  //   data = genesis;
+  // }
+  // if (book === 'exodo') {
+  //   data = exodo;
+  // }
+  // if(book === 'levitico'){
+  //   data = levitico;
+  // }
+
+  let data = getBook(book);
+  // console.log(JSON.stringify(data));
+
+  
   const bibleOpacityButtonOffset = useSharedValue(1);
   const previousOpacityButtonOffset = useSharedValue(0);
-
+  
   const buttonOpacityBibleStyle = useAnimatedStyle(() => {
     return {
       opacity: withTiming(bibleOpacityButtonOffset.value, {duration: 300}),
     };
   });
-
+  
   const buttonOpacityPreviousStyle = useAnimatedStyle(() => {
     return {
       opacity: withTiming(previousOpacityButtonOffset.value, {duration: 300}),
     };
   });
-
-  const validateBible = () => {
+  
+  const validateBible = (chapterNum: number) => {
     if (chapter > 1) previousOpacityButtonOffset.value = 1;
     if (chapter <= 1) previousOpacityButtonOffset.value = 0;
-
-    return data.hasOwnProperty(chapter);
+    
+    return data.hasOwnProperty(chapterNum);
   };
-
+  
   const getChapter = () => {
-    if (validateBible()) {
+    if (validateBible(chapter)) {
       return data[chapter]['chapter'];
     }
-
+    
     onChangeChapter(1);
     previousOpacityButtonOffset.value = 0;
     return data[1]['chapter'];
   };
-
+  
   const getVerses = () => {
-    if (validateBible()) {
+    if (validateBible(chapter)) {
       return data[chapter]['verses'];
     }
-
+    
     onChangeChapter(1);
     previousOpacityButtonOffset.value = 0;
     return data[1]['verses'];
   };
-
+  
   const nextChapter = () => {
-    onChangeChapter(chapter + 1);
+    if (!validateBible(chapter + 1)) {
+      onChangeChapter(1);
+    }
+    if (validateBible(chapter + 1)) {
+      onChangeChapter(chapter + 1);
+    }
     onChangeVerse(1);
     previousOpacityButtonOffset.value = 1;
   };
-
+  
   const previousChapter = () => {
     onChangeChapter(chapter - 1);
     onChangeVerse(1);
   };
+  
 
   return {
     getChapter,
