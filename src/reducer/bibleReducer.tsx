@@ -41,6 +41,8 @@ export const bibleReducer = (
         ...state,
         bookText: action.payload.bookText,
         book: action.payload.book,
+        chapter: 1,
+        verse: 1,
       };
     case 'onChangeChapter':
       return {

@@ -17,22 +17,8 @@ export const useBible = () => {
     bibleState: {book, chapter, verse},
   } = useContext(BibleContext);
 
-  // let data: Object = {};
-
-  // if (book === 'genesis' || book !== 'exodo') {
-  //   data = genesis;
-  // }
-  // if (book === 'exodo') {
-  //   data = exodo;
-  // }
-  // if(book === 'levitico'){
-  //   data = levitico;
-  // }
-
   let data = getBook(book);
-  // console.log(JSON.stringify(data));
 
-  
   const bibleOpacityButtonOffset = useSharedValue(1);
   const previousOpacityButtonOffset = useSharedValue(0);
   
@@ -76,19 +62,19 @@ export const useBible = () => {
   };
   
   const nextChapter = () => {
-    if (!validateBible(chapter + 1)) {
-      onChangeChapter(1);
-    }
+    onChangeVerse(1);
     if (validateBible(chapter + 1)) {
       onChangeChapter(chapter + 1);
     }
-    onChangeVerse(1);
+    if (!validateBible(chapter + 1)) {
+      onChangeChapter(1);
+    }
     previousOpacityButtonOffset.value = 1;
   };
   
   const previousChapter = () => {
-    onChangeChapter(chapter - 1);
     onChangeVerse(1);
+    onChangeChapter(chapter - 1);
   };
   
 

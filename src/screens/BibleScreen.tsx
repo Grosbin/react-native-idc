@@ -84,11 +84,11 @@ export const BibleScreen = () => {
 
   useEffect(() => {
     ref.current?.scrollToIndex({index, animated: true});
-  }, [index, chapter]);
-
-  // useEffect(() => {
-  //   ref.current?.scrollToIndex({index, animated: true});
-  // }, [chapter]);
+  }, [index]);
+  
+  useEffect(() => {
+    ref.current?.scrollToIndex({index: 0, animated: true});
+  }, [chapter]);
 
   // const versesData: [] = getVerses();
 
@@ -130,9 +130,9 @@ export const BibleScreen = () => {
         onScrollToIndexFailed={() => {
           setIndex(0);
         }}
-        // keyExtractor={(item, index) => index + item.toString()}
+        keyExtractor={(item, index) => index + item.toString()}
         // TODO: Valida Versiculos duplicados
-          keyExtractor={(index) => index.toString()}
+          // keyExtractor={(index) => index.toString()}
         scrollEnabled={!activeCard}
         showsVerticalScrollIndicator={false}
         data={getVerses()}
@@ -172,7 +172,7 @@ const styles = StyleSheet.create({
   },
   titleText: {
     fontFamily: 'Poppins-ExtraBold',
-    fontSize: 24,
+    fontSize: 22,
     color: gbColor.primary,
   },
   containerVerse: {
