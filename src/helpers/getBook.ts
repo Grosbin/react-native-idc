@@ -19,6 +19,16 @@ import ester from '../data/ntv/ester.json';
 import job from '../data/ntv/job.json';
 import salmos from '../data/ntv/salmos.json';
 import proverbios from '../data/ntv/proverbios.json';
+import eclesiastes from '../data/ntv/eclesiastes.json';
+import cantares from '../data/ntv/cantares.json';
+import isaias from '../data/ntv/isaias.json';
+import jeremias from '../data/ntv/jeremias.json';
+import lamentaciones from '../data/ntv/lamentaciones.json';
+import ezequiel from '../data/ntv/ezequiel.json';
+import daniel from '../data/ntv/daniel.json';
+import oseas from '../data/ntv/oseas.json';
+
+
 
 
 
@@ -85,6 +95,30 @@ export const getBook = (book: string) => {
 			return bookData;
 		case 'proverbios':
 			bookData = proverbios;
+			return bookData;
+		case 'eclesiastes':
+			bookData = eclesiastes;
+			return bookData;
+		case 'cantares':
+			bookData = cantares;
+			return bookData;
+		case 'isaias':
+			bookData = isaias;
+			return bookData;
+		case 'jeremias':
+			bookData = jeremias;
+			return bookData;
+		case 'lamentaciones':
+			bookData = lamentaciones;
+			return bookData;
+		case 'ezequiel':
+			bookData = ezequiel;
+			return bookData;
+		case 'daniel':
+			bookData = daniel;
+			return bookData;
+		case 'oseas':
+			bookData = oseas;
 			return bookData;
 		default:
 			bookData = genesis;

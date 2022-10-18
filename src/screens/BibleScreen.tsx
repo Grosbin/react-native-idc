@@ -90,7 +90,6 @@ export const BibleScreen = () => {
     ref.current?.scrollToIndex({index: 0, animated: true});
   }, [chapter]);
 
-  // const versesData: [] = getVerses();
 
   return (
     <View style={styles.container}>
