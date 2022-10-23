@@ -1,6 +1,9 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
 import {ScrollSelectBook} from './ScrollBook';
+import {useContext} from 'react';
+import {BibleContext} from '../../context/BibleContext';
+import {ScrollChapter} from './ScrollChapter';
+import {ScrollVerse} from './ScrollVerse';
 
 const newTestamentData = {
   mateo: ['Mateo', 28],
@@ -33,6 +36,18 @@ const newTestamentData = {
 };
 
 export const NewTestament = () => {
+  const {
+    bibleState: {chapterOnPress, verseOnPress},
+  } = useContext(BibleContext);
+
+  if (chapterOnPress) {
+    return <ScrollChapter />;
+  }
+
+  if (verseOnPress) {
+    return <ScrollVerse testament={newTestamentData} />;
+  }
+
   return (
     <ScrollSelectBook
       testament={newTestamentData}

@@ -51,9 +51,11 @@ export const OldTestament = () => {
   const {
     bibleState: {chapterOnPress, verseOnPress},
   } = useContext(BibleContext);
+  
+  // console.log(oldTestamentData, " oldTestamentData");
 
   if (chapterOnPress) {
-    return <ScrollChapter testament={oldTestamentData} />;
+    return <ScrollChapter />;
   }
 
   if (verseOnPress) {

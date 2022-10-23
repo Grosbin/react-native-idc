@@ -1,7 +1,6 @@
 import React from 'react';
 import {ScrollView, StyleProp, View, ViewStyle} from 'react-native';
 import {ItemBook} from './ItemBook';
-import {Bible} from '../../types/bible';
 
 interface Props {
   testament: {};

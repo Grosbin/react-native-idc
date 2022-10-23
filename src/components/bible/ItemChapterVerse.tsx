@@ -1,15 +1,8 @@
 import React from 'react';
-import {
-  StyleSheet,
-  Text,
-  View,
-  TouchableOpacity,
-  TouchableHighlight,
-} from 'react-native';
+import {StyleSheet, Text, TouchableHighlight} from 'react-native';
 import {gbColor} from '../../theme/themeGlobal';
 import {useContext} from 'react';
 import {BibleContext} from '../../context/BibleContext';
-import {useBible} from '../../hooks/useBible';
 
 interface Props {
   chapterNum: number;

@@ -1,10 +1,9 @@
-import React, {useContext, useEffect} from 'react';
-import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
+import React, {useContext} from 'react';
+import {StyleSheet, Text, TouchableOpacity} from 'react-native';
 import Animated, {
   useAnimatedStyle,
   useSharedValue,
   withSpring,
-  withTiming,
 } from 'react-native-reanimated';
 import {BibleContext} from '../../context/BibleContext';
 import {gbColor} from '../../theme/themeGlobal';

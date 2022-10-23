@@ -4,26 +4,20 @@ import {ItemChapterVerse} from './ItemChapterVerse';
 
 import {useContext} from 'react';
 import {BibleContext} from '../../context/BibleContext';
+import { useBible } from '../../hooks/useBible';
 
-interface Props {
-  testament: {};
-  style?: StyleProp<ViewStyle>;
-}
+// interface Props {
+//   testament: {};
+//   style?: StyleProp<ViewStyle>;
+// }
 
-export const ScrollChapter = ({testament, style}: Props) => {
+export const ScrollChapter = () => {
   const {
     onChangeChapter,
     bibleState: {book, chapter},
   } = useContext(BibleContext);
 
-  // const {
-  //   onChangeChapter,
-  //   bibleState: {chapter},
-  // } = useContext(BibleContext);
-
-  // const onPressChapter = (chapterText: number) => {
-  //   onChangeChapter(chapterText);
-  // };
+  const {getLengthChapter} = useBible();
 
   const getChapter = (item: number) => {
     let data: number[] = [];
@@ -34,7 +28,10 @@ export const ScrollChapter = ({testament, style}: Props) => {
     return data;
   };
 
-  const chapterLength = getChapter(testament[book][1]);
+  const chapterLength = getChapter(getLengthChapter());
+  // console.log(testament[book][1], " Estamento");
+  // console.log(chapterLength, ' Longitud');
+  // console.log(testament, ' Testamento');
 
   return (
     <View style={styles.container}>

@@ -4,12 +4,20 @@ import {NewTestament} from '../components/bible/NewTestament';
 import {gbColor} from '../theme/themeGlobal';
 import {OldTestament} from '../components/bible/OldTestament';
 import {color} from 'react-native-reanimated';
+import {useContext} from 'react';
+import {BibleContext} from '../context/BibleContext';
+import {newTestament, oldTestament} from '../types/bible';
 
 const Tab = createMaterialTopTabNavigator();
 
 export const TopTabsBible = () => {
+  const {
+    bibleState: {bookOnPress, verseOnPress, chapterOnPress, book},
+  } = useContext(BibleContext);
+
   return (
     <Tab.Navigator
+      showPageIndicator={false}
       sceneContainerStyle={{
         backgroundColor: gbColor.background,
         borderBottomEndRadius: 10,
@@ -18,25 +26,47 @@ export const TopTabsBible = () => {
       screenOptions={({route}) => ({
         tabBarLabel({focused}) {
           let title: string = '';
-          switch (route.name) {
-            case 'OldTestament':
-              title = 'Antiguo';
-              break;
-            case 'NewTestament':
-              title = 'Nuevo';
-              break;
+          if (bookOnPress) {
+            switch (route.name) {
+              case 'OldTestament':
+                title = 'Antiguo';
+                break;
+              case 'NewTestament':
+                title = 'Nuevo';
+                break;
+            }
           }
+
+          if (chapterOnPress) {
+            title = 'Capítulos';
+          }
+
+          if (verseOnPress) {
+            title = 'Versículos';
+          }
+
           return (
             <Text
               style={[
                 styles.textTitle,
-                !focused && {color: 'rgba(34,86,242,0.5)'},
+                // !focused && {color: 'rgba(34,86,242,0.5)'},
               ]}>
               {title}
             </Text>
           );
         },
-        tabBarIndicatorStyle: {backgroundColor: gbColor.secundary, height: 3},
+        swipeEnabled: bookOnPress,
+        tabBarIndicatorStyle: [{backgroundColor: gbColor.secundary, height: 3}],
+        tabBarIndicator: () => (
+          <Text
+            style={[
+              {
+                opacity: 0,
+              },
+            ]}
+          />
+        ),
+
         tabBarPressColor: 'transparent',
         tabBarStyle: {
           backgroundColor: gbColor.background,
@@ -45,28 +75,27 @@ export const TopTabsBible = () => {
           borderRadius: 10,
         },
       })}>
-      <Tab.Screen
-        name="OldTestament"
-        component={OldTestament}
-        options={{
-          title: 'Antiguo Testamento',
-        }}
-      />
-      <Tab.Screen
-        name="NewTestament"
-        component={NewTestament}
-        options={{
-          title: 'Nuevo Testamento',
-        }}
-      />
+      {bookOnPress && (
+        <>
+          <Tab.Screen name="OldTestament" component={OldTestament} />
+          <Tab.Screen name="NewTestament" component={NewTestament} />
+        </>
+      )}
+
+      {oldTestament.includes(book) && !bookOnPress && (
+        <Tab.Screen name="OldTestament" component={OldTestament} />
+      )}
+      {newTestament.includes(book) && !bookOnPress && (
+        <Tab.Screen name="NewTestament" component={NewTestament} />
+      )}
     </Tab.Navigator>
   );
 };
 
 const styles = StyleSheet.create({
   textTitle: {
-    fontSize: 16,
-    fontFamily: 'Poppins-Bold',
+    fontSize: 18,
+    fontFamily: 'Poppins-ExtraBold',
     color: gbColor.primary,
   },
 });

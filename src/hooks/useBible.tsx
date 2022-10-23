@@ -18,7 +18,8 @@ export const useBible = () => {
   } = useContext(BibleContext);
 
   let data = getBook(book);
-
+  
+  
   const bibleOpacityButtonOffset = useSharedValue(1);
   const previousOpacityButtonOffset = useSharedValue(0);
   
@@ -76,6 +77,10 @@ export const useBible = () => {
     onChangeVerse(1);
     onChangeChapter(chapter - 1);
   };
+
+  const getLengthChapter = () => {
+    return Object.keys(data).length;
+  };
   
 
   return {
@@ -83,6 +88,7 @@ export const useBible = () => {
     getVerses,
     nextChapter,
     previousChapter,
+    getLengthChapter,
     bibleOpacityButtonOffset,
     previousOpacityButtonOffset,
     buttonOpacityBibleStyle,

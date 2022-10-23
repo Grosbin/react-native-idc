@@ -85,11 +85,10 @@ export const BibleScreen = () => {
   useEffect(() => {
     ref.current?.scrollToIndex({index, animated: true});
   }, [index]);
-  
+
   useEffect(() => {
     ref.current?.scrollToIndex({index: 0, animated: true});
   }, [chapter]);
-
 
   return (
     <View style={styles.container}>
@@ -131,7 +130,7 @@ export const BibleScreen = () => {
         }}
         keyExtractor={(item, index) => index + item.toString()}
         // TODO: Valida Versiculos duplicados
-          // keyExtractor={(index) => index.toString()}
+        // keyExtractor={(index) => index.toString()}
         scrollEnabled={!activeCard}
         showsVerticalScrollIndicator={false}
         data={getVerses()}
@@ -171,7 +170,7 @@ const styles = StyleSheet.create({
   },
   titleText: {
     fontFamily: 'Poppins-ExtraBold',
-    fontSize: 22,
+    fontSize: 20,
     color: gbColor.primary,
   },
   containerVerse: {
@@ -197,7 +196,6 @@ const styles = StyleSheet.create({
   },
   button: {
     flexDirection: 'row',
-    // width: 120,
     width: 80,
     height: 40,
     backgroundColor: gbColor.primary,
@@ -218,8 +216,6 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
   },
   previousButton: {
-    // borderWidth: 1,
-    // borderColor: gbColor.terthiary,
     marginRight: 10,
     backgroundColor: gbColor.background,
   },

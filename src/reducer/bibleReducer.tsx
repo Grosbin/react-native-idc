@@ -1,5 +1,4 @@
 import {BibleState} from '../context/BibleContext';
-import {Bible} from '../types/bible';
 
 type BibleAction =
   | {type: 'onPressBook'; payload: boolean}

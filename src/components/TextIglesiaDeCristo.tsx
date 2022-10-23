@@ -11,9 +11,6 @@ export const TextIglesiaDeCristo = () => {
           source={require('../assets/logo/Logo_Azul.png')}
         />
       </View>
-      {/* <View style={styles.textContainer}>
-        <Text style={styles.title}>Iglesia de Cristo</Text>
-      </View> */}
     </View>
   );
 };

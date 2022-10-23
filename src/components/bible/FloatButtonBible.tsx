@@ -1,12 +1,9 @@
 import React, {useContext} from 'react';
 import {StyleProp, StyleSheet, ViewStyle} from 'react-native';
-
 import Animated, {withSpring} from 'react-native-reanimated';
 import {BibleContext} from '../../context/BibleContext';
 import {useBibleAnimation} from '../../hooks/useButtonAnimation';
 import {ButtonBible} from './ButtonBible';
-import {gbColor} from '../../theme/themeGlobal';
-import {color} from 'react-native-reanimated';
 
 interface Props {
   style?: StyleProp<ViewStyle>;

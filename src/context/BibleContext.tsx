@@ -1,6 +1,5 @@
 import {createContext, useReducer} from 'react';
 import {bibleReducer} from '../reducer/bibleReducer';
-import {Bible} from '../types/bible';
 
 export interface BibleState {
   book: string;

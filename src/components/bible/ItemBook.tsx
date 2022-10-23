@@ -2,7 +2,6 @@ import React, {useContext} from 'react';
 import {StyleSheet, Text, TouchableHighlight} from 'react-native';
 import {BibleContext} from '../../context/BibleContext';
 import {gbColor} from '../../theme/themeGlobal';
-import {Bible} from '../../types/bible';
 
 interface Props {
   book: string;
