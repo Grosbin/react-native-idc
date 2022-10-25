@@ -1,27 +1,69 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {StyleSheet, Text, View, SafeAreaView, ScrollView} from 'react-native';
-import {ItemActivitie} from '../components/ItemActivitie';
-import {NowActivitie} from '../components/NowActivitie';
 import {gbColor} from '../theme/themeGlobal';
+import SplashScreen from 'react-native-splash-screen';
+import {HorizontalActivities} from '../components/home/HorizontalActivities';
+import {ListPrayers} from '../components/home/ListPrayers';
+import {Header} from '../components/Header';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 export const ActivitiesScreen = () => {
+  useEffect(() => {
+    SplashScreen.hide();
+  }, []);
+
   return (
     <SafeAreaView>
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style={styles.container}>
-          <View style={styles.nowActivitie}>
-            <NowActivitie />
-          </View>
+          <Header />
           <View style={styles.itemSeparator}>
-            <Text style={styles.textHeader}>Actividades</Text>
-
-            <ItemActivitie />
-            <ItemActivitie />
-            <ItemActivitie />
+            <HorizontalActivities />
           </View>
 
-          <View style={styles.itemSeparator}>
-            <Text style={styles.textHeader}>Oraciones por Salud</Text>
+          <View style={[styles.itemSeparator, {paddingBottom: 10}]}>
+            <View style={{flexDirection: 'row'}}>
+              <Text style={styles.textHeader}>
+                <Icon name={'fitness'} size={20} color={gbColor.fontPrimary} />
+                {' Salud'}
+              </Text>
+              {/* <Text style={styles.textHeader}>Oraciones por Salud</Text> */}
+            </View>
+            <ListPrayers />
+          </View>
+
+          <View style={[styles.itemSeparator, {paddingBottom: 10}]}>
+            <View style={{flexDirection: 'row'}}>
+              <Text style={styles.textHeader}>
+                <Icon name={'people'} size={20} color={gbColor.fontPrimary} />
+                {' Familias'}
+              </Text>
+            </View>
+            <ListPrayers />
+          </View>
+
+          <View style={[styles.itemSeparator, {paddingBottom: 10}]}>
+            <View style={{flexDirection: 'row'}}>
+              <Text style={styles.textHeader}>
+                <Icon
+                  name={'lock-closed'}
+                  size={20}
+                  color={gbColor.fontPrimary}
+                />
+                {' Seguridad'}
+              </Text>
+            </View>
+            <ListPrayers />
+          </View>
+
+          <View style={[styles.itemSeparator, {paddingBottom: 10}]}>
+            <View style={{flexDirection: 'row'}}>
+              <Text style={styles.textHeader}>
+                <Icon name={'sad'} size={20} color={gbColor.fontPrimary} />
+                {' Fortaleza'}
+              </Text>
+            </View>
+            <ListPrayers />
           </View>
         </View>
       </ScrollView>
@@ -40,15 +82,16 @@ const styles = StyleSheet.create({
   itemSeparator: {
     backgroundColor: gbColor.background,
     borderRadius: 15,
-    paddingBottom: 10,
     marginBottom: 15,
+    marginHorizontal: 9,
   },
   textHeader: {
     fontFamily: 'Poppins-Bold',
-    fontSize: 18,
+    fontSize: 16,
     color: gbColor.fontPrimary,
     top: 10,
     left: 10,
     marginBottom: 10,
+    opacity: 0.7,
   },
 });

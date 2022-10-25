@@ -1,19 +1,22 @@
 import React from 'react';
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {gbColor} from '../theme/themeGlobal';
+import Icon from 'react-native-vector-icons/Ionicons';
 
-export const ItemActivitie = () => {
+interface Props {
+  title: string;
+  day: string;
+  hour: string;
+}
+
+export const ItemActivitie = ({title, day, hour}: Props) => {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Clase Biblica</Text>
-
-      <View style={styles.date}>
-        <Text style={styles.day}>Miercoles 12</Text>
-        <Text style={styles.hour}>6:00 PM</Text>
+      <View style={styles.hourContainer}>
+        <Text style={styles.hour}>{hour}</Text>
       </View>
-      <TouchableOpacity style={styles.button} activeOpacity={0.8}>
-        <Text style={styles.textButton}>Asistire</Text>
-      </TouchableOpacity>
+      <Text style={styles.title}>{title}</Text>
+      <Text style={styles.day}>{day}</Text>
     </View>
   );
 };
@@ -21,8 +24,9 @@ export const ItemActivitie = () => {
 const styles = StyleSheet.create({
   container: {
     marginHorizontal: 10,
-    height: 120,
-    backgroundColor: 'white',
+    height: 100,
+    width: 200,
+    backgroundColor: gbColor.foco,
     borderRadius: 10,
     marginVertical: 8,
     shadowColor: '#000',
@@ -36,29 +40,37 @@ const styles = StyleSheet.create({
     elevation: 6,
   },
   title: {
-    fontFamily: 'Poppins-SemiBold',
-    fontSize: 15,
-    position: 'absolute',
+    fontFamily: 'Poppins-ExtraBold',
+    fontSize: 18,
     top: 10,
     left: 10,
+    color: gbColor.primary,
+  },
+
+  day: {
+    marginHorizontal: 10,
+    fontFamily: 'Poppins-Bold',
+    fontSize: 14,
+    marginBottom: -5,
     color: gbColor.fontPrimary,
   },
-  date: {
+  hourContainer: {
+    width: 90,
+    height: 40,
+    borderRadius: 10,
+    backgroundColor: gbColor.blueSecundary,
     position: 'absolute',
-    top: 10,
-    right: 15,
-  },
-  day: {
-    fontFamily: 'Poppins-Medium',
-    fontSize: 12,
-    textAlign: 'right',
-    color: gbColor.secundary,
+    bottom: 10,
+    right: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   hour: {
-    fontFamily: 'Poppins-Medium',
-    fontSize: 11,
-    textAlign: 'right',
-    color: gbColor.fontPrimary,
+    color: 'white',
+    fontFamily: 'Poppins-ExtraBold',
+    alignSelf: 'center',
+    textAlign: 'center',
+    paddingTop: 3,
   },
   button: {
     position: 'absolute',

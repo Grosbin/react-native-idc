@@ -9,8 +9,8 @@ export const NowActivitie = () => {
     <View style={styles.conteiner}>
       <TextIglesiaDeCristo />
       <View style={styles.textContainer}>
-        <Text style={styles.title}>Culto Dominical</Text>
-        <Text style={styles.hour}>10:00 AM</Text>
+        <Text style={styles.title}>San José de la Vega</Text>
+        {/* <Text style={styles.hour}>San José De La Vega</Text> */}
       </View>
       <CircleHour />
     </View>
@@ -21,8 +21,9 @@ const styles = StyleSheet.create({
   conteiner: {
     backgroundColor: gbColor.secundary,
     marginVertical: 10,
-    marginLeft: 10,
-    marginRight: 60,
+    marginHorizontal: 10,
+    // marginLeft: 10,
+    // marginRight: 60,
     borderRadius: 12,
     height: '88%',
   },
@@ -34,12 +35,12 @@ const styles = StyleSheet.create({
   title: {
     fontFamily: 'Poppins-ExtraBold',
     fontSize: 25,
-    color: gbColor.fontPrimary,
+    color: gbColor.foco,
     marginBottom: -15,
   },
   hour: {
-    fontFamily: 'Poppins-ExtraBold',
-    fontSize: 25,
+    fontFamily: 'Poppins-Bold',
+    fontSize: 20,
     color: gbColor.foco,
   },
 });
