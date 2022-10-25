@@ -35,11 +35,12 @@ export const ItemChapterVerse = ({chapterNum, onPress}: Props) => {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: gbColor.foco,
-    width: 75,
-    height: 75,
+    width: 65,
+    height: 65,
     justifyContent: 'center',
-    marginHorizontal: 8,
-    marginVertical: 8,
+    // alignItems: 'center',
+    marginHorizontal: 9,
+    marginVertical: 7,
     borderRadius: 10,
 
     shadowColor: '#000',

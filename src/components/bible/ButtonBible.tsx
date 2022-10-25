@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {
   StyleProp,
   StyleSheet,
@@ -7,6 +7,7 @@ import {
   ViewStyle,
 } from 'react-native';
 import Animated from 'react-native-reanimated';
+import {BibleContext} from '../../context/BibleContext';
 import {gbColor} from '../../theme/themeGlobal';
 
 interface Props {
@@ -32,6 +33,9 @@ export const ButtonBible = ({
   onPress,
   disabled,
 }: Props) => {
+  const {
+    bibleState: {book},
+  } = useContext(BibleContext);
   return (
     <TouchableOpacity
       disabled={disabled}
@@ -45,7 +49,8 @@ export const ButtonBible = ({
           activeCard && {
             backgroundColor: gbColor.foco,
           },
-          onActive && {backgroundColor: gbColor.blueSecundary},
+          onActive && {backgroundColor: gbColor.green},
+          // onActive && {backgroundColor: gbColor.blueSecundary},
           style,
           buttonScaleAnimation,
           buttonOpacityAnimation,
@@ -55,6 +60,7 @@ export const ButtonBible = ({
             styles.buttonText,
             activeCard && {color: gbColor.fontPrimary},
             onActive && {color: gbColor.foco},
+            book.length > 11 && {fontSize: 14},
           ]}>
           {text}
         </Text>
@@ -68,7 +74,8 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: gbColor.blueSecundary,
+    backgroundColor: gbColor.green,
+    // backgroundColor: gbColor.blueSecundary,
     height: 60,
     marginHorizontal: 10,
   },

@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     zIndex: 999,
     bottom: 0,
-    marginHorizontal: 20,
+    // marginHorizontal: 20,
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
 

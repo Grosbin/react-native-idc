@@ -13,6 +13,7 @@ export const ItemActivitie = ({title, day, hour}: Props) => {
   return (
     <View style={styles.container}>
       <View style={styles.hourContainer}>
+        <Icon name="time" size={20} color={gbColor.foco} />
         <Text style={styles.hour}>{hour}</Text>
       </View>
       <Text style={styles.title}>{title}</Text>
@@ -55,6 +56,7 @@ const styles = StyleSheet.create({
     color: gbColor.fontPrimary,
   },
   hourContainer: {
+    flexDirection: 'row',
     width: 90,
     height: 40,
     borderRadius: 10,

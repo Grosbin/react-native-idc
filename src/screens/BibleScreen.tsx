@@ -36,7 +36,7 @@ export const BibleScreen = () => {
   const lastContentOffset = useRef(0);
 
   const {
-    bibleState: {activeCard, chapter, verse},
+    bibleState: {activeCard, chapter, verse, book},
   } = useContext(BibleContext);
   const [index, setIndex] = useState(0);
 
@@ -93,7 +93,9 @@ export const BibleScreen = () => {
   return (
     <View style={styles.container}>
       <View style={styles.titleContainer}>
-        <Text style={styles.titleText}>{getChapter()}</Text>
+        <Text style={[styles.titleText, book.length > 11 && {fontSize: 19}]}>
+          {getChapter()}
+        </Text>
         <View style={styles.buttonContainer}>
           <Animated.View style={[buttonOpacityPreviousStyle]}>
             <TouchableOpacity

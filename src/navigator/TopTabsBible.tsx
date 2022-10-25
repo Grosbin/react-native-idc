@@ -96,6 +96,6 @@ const styles = StyleSheet.create({
   textTitle: {
     fontSize: 18,
     fontFamily: 'Poppins-ExtraBold',
-    color: gbColor.primary,
+    color: gbColor.fontPrimary,
   },
 });

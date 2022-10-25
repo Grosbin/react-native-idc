@@ -6,6 +6,7 @@ import {HorizontalActivities} from '../components/home/HorizontalActivities';
 import {ListPrayers} from '../components/home/ListPrayers';
 import {Header} from '../components/Header';
 import Icon from 'react-native-vector-icons/Ionicons';
+import {TouchableOpacity} from 'react-native-gesture-handler';
 
 export const ActivitiesScreen = () => {
   useEffect(() => {
@@ -17,17 +18,46 @@ export const ActivitiesScreen = () => {
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style={styles.container}>
           <Header />
+
           <View style={styles.itemSeparator}>
             <HorizontalActivities />
           </View>
 
           <View style={[styles.itemSeparator, {paddingBottom: 10}]}>
-            <View style={{flexDirection: 'row'}}>
+            <View
+              style={{flexDirection: 'row', justifyContent: 'space-between'}}>
               <Text style={styles.textHeader}>
-                <Icon name={'fitness'} size={20} color={gbColor.fontPrimary} />
+                <Icon
+                  name={'fitness'}
+                  size={20}
+                  color={gbColor.blueSecundary}
+                />
                 {' Salud'}
               </Text>
-              {/* <Text style={styles.textHeader}>Oraciones por Salud</Text> */}
+              <TouchableOpacity
+                style={{
+                  width: 85,
+                  height: 29,
+                  borderRadius: 10,
+                  backgroundColor: gbColor.green,
+                  marginRight: 10,
+                  marginTop: 10,
+                  flexDirection: 'row',
+                  justifyContent: 'space-evenly',
+                  alignItems: 'center',
+                }}>
+                <Text
+                  style={{
+                    textAlign: 'center',
+                    fontFamily: 'Poppins-Bold',
+                    color: gbColor.foco,
+                    fontSize: 11,
+                    marginLeft: 5,
+                  }}>
+                  Ver todas
+                </Text>
+                <Icon name="chevron-forward" size={19} color={gbColor.foco} />
+              </TouchableOpacity>
             </View>
             <ListPrayers />
           </View>
@@ -35,7 +65,7 @@ export const ActivitiesScreen = () => {
           <View style={[styles.itemSeparator, {paddingBottom: 10}]}>
             <View style={{flexDirection: 'row'}}>
               <Text style={styles.textHeader}>
-                <Icon name={'people'} size={20} color={gbColor.fontPrimary} />
+                <Icon name={'people'} size={20} color={gbColor.blueSecundary} />
                 {' Familias'}
               </Text>
             </View>
@@ -48,7 +78,7 @@ export const ActivitiesScreen = () => {
                 <Icon
                   name={'lock-closed'}
                   size={20}
-                  color={gbColor.fontPrimary}
+                  color={gbColor.blueSecundary}
                 />
                 {' Seguridad'}
               </Text>
@@ -59,7 +89,7 @@ export const ActivitiesScreen = () => {
           <View style={[styles.itemSeparator, {paddingBottom: 10}]}>
             <View style={{flexDirection: 'row'}}>
               <Text style={styles.textHeader}>
-                <Icon name={'sad'} size={20} color={gbColor.fontPrimary} />
+                <Icon name={'sad'} size={20} color={gbColor.blueSecundary} />
                 {' Fortaleza'}
               </Text>
             </View>

@@ -7,6 +7,7 @@ import Animated, {
 } from 'react-native-reanimated';
 import {BibleContext} from '../../context/BibleContext';
 import {gbColor} from '../../theme/themeGlobal';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 interface Props {
   widthOffset?: any;
@@ -43,7 +44,8 @@ export const CloseCard = ({widthOffset, heightOffset}: Props) => {
       activeOpacity={0.9}
       onPress={onClosedCard}>
       <Animated.View style={[styles.containerText, closedScaleStyle]}>
-        <Text style={styles.closeText}>Cerrar</Text>
+        <Icon name="close-circle" size={20} color={gbColor.foco} />
+        <Text style={styles.closeText}> Cerrar</Text>
       </Animated.View>
     </TouchableOpacity>
   );
@@ -51,21 +53,20 @@ export const CloseCard = ({widthOffset, heightOffset}: Props) => {
 
 const styles = StyleSheet.create({
   container: {
-    alignItems: 'center',
-    position: 'absolute',
+    // alignItems: 'center',
+    // position: 'absolute',
     zIndex: 999,
-    bottom: 0,
-    marginHorizontal: 30,
-    width: '85%',
+    // bottom: 0,
+    // marginHorizontal: 30,
+    // width: '100%',
+    // flex: 1,
   },
   containerText: {
     backgroundColor: gbColor.secundary,
-    // borderColor: gbColor.primary,
-    // borderWidth: 1,
+    flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
     height: 60,
-    width: '100%',
     bottom: 0,
     marginHorizontal: 30,
     borderRadius: 10,

@@ -4,7 +4,7 @@ import {ItemChapterVerse} from './ItemChapterVerse';
 
 import {useContext} from 'react';
 import {BibleContext} from '../../context/BibleContext';
-import { useBible } from '../../hooks/useBible';
+import {useBible} from '../../hooks/useBible';
 
 // interface Props {
 //   testament: {};
@@ -35,19 +35,24 @@ export const ScrollChapter = () => {
 
   return (
     <View style={styles.container}>
-      <FlatList
-        showsVerticalScrollIndicator={false}
-        numColumns={4}
-        keyExtractor={(item, index) => index + item.toString()}
-        data={chapterLength}
-        style={{marginBottom: 150}}
-        renderItem={({index}) => (
-          <ItemChapterVerse
-            chapterNum={index + 1}
-            onPress={() => onChangeChapter(index + 1)}
-          />
-        )}
-      />
+      <View>
+        <FlatList
+          showsVerticalScrollIndicator={false}
+          numColumns={4}
+          keyExtractor={(item, index) => index + item.toString()}
+          data={chapterLength}
+          columnWrapperStyle={{justifyContent: 'flex-start'}}
+          style={{
+            marginBottom: 150,
+          }}
+          renderItem={({index}) => (
+            <ItemChapterVerse
+              chapterNum={index + 1}
+              onPress={() => onChangeChapter(index + 1)}
+            />
+          )}
+        />
+      </View>
     </View>
   );
 };

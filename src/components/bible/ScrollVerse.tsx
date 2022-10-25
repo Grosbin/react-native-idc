@@ -26,6 +26,9 @@ export const ScrollVerse = ({testament, style}: Props) => {
       <FlatList
         showsVerticalScrollIndicator={false}
         numColumns={4}
+        columnWrapperStyle={{
+          justifyContent: 'flex-start',
+        }}
         keyExtractor={(item, index) => index + item.toString()}
         data={verses}
         style={{marginBottom: 150}}
