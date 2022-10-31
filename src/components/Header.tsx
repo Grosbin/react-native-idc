@@ -1,9 +1,12 @@
+import {DrawerScreenProps} from '@react-navigation/drawer';
 import React from 'react';
-import {Image, StyleSheet, Text, View} from 'react-native';
+import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {gbColor} from '../theme/themeGlobal';
 
-export const Header = () => {
+interface Props extends DrawerScreenProps<any, any> {}
+
+export const Header = ({navigation}: Props) => {
   return (
     <View style={styles.container}>
       <View style={styles.containerIcon}>
@@ -24,11 +27,17 @@ export const Header = () => {
         /> */}
         <Text style={styles.nameProfile}> Grosbin Rivera</Text>
       </View>
-      <Icon
-        name={'ellipsis-horizontal'}
-        size={30}
-        color={gbColor.fontPrimary}
-      />
+
+      <TouchableOpacity onPress={() => navigation.toggleDrawer()}>
+        <Text>
+          {' '}
+          <Icon
+            name={'ellipsis-horizontal'}
+            size={30}
+            color={gbColor.fontPrimary}
+          />
+        </Text>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -38,7 +47,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     marginHorizontal: 20,
-    marginBottom: 8,
+    marginVertical: 8,
   },
 
   containerIcon: {

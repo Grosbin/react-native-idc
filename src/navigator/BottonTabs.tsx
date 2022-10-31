@@ -1,7 +1,7 @@
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {BibleScreen} from '../screens/BibleScreen';
 import {ChantsScreen} from '../screens/ChantsScreen';
-import {ActivitiesScreen} from '../screens/ActivitiesScreen';
+import {HomeScreen} from '../screens/HomeScreen';
 import {NoticesScreen} from '../screens/NoticesScreen';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {ParamListBase, RouteProp} from '@react-navigation/native';
@@ -50,7 +50,7 @@ export const BottonTabs = () => {
       case 'ChantsScreen':
         iconName = 'musical-notes';
         break;
-      case 'ActivitiesScreen':
+      case 'HomeScreen':
         iconName = 'home';
         break;
       case 'NoticesScreen':
@@ -97,8 +97,8 @@ export const BottonTabs = () => {
         tabBarShowLabel: false,
       })}>
       <Tab.Screen
-        name="ActivitiesScreen"
-        component={ActivitiesScreen}
+        name="HomeScreen"
+        component={HomeScreen}
         listeners={{
           tabPress: () => onPress(),
         }}

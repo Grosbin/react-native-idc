@@ -25,11 +25,11 @@ export const ItemActivitie = ({title, day, hour}: Props) => {
 const styles = StyleSheet.create({
   container: {
     marginHorizontal: 10,
-    height: 100,
+    height: 110,
     width: 200,
-    backgroundColor: gbColor.foco,
+    backgroundColor: gbColor.primary,
     borderRadius: 10,
-    marginVertical: 8,
+    // marginVertical: 8,
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
@@ -45,22 +45,22 @@ const styles = StyleSheet.create({
     fontSize: 18,
     top: 10,
     left: 10,
-    color: gbColor.primary,
+    color: gbColor.foco,
   },
 
   day: {
     marginHorizontal: 10,
-    fontFamily: 'Poppins-Bold',
+    fontFamily: 'Poppins-Medium',
     fontSize: 14,
     marginBottom: -5,
-    color: gbColor.fontPrimary,
+    color: gbColor.foco,
   },
   hourContainer: {
     flexDirection: 'row',
     width: 90,
     height: 40,
     borderRadius: 10,
-    backgroundColor: gbColor.blueSecundary,
+    backgroundColor: gbColor.green,
     position: 'absolute',
     bottom: 10,
     right: 10,

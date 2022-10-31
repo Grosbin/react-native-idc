@@ -7,8 +7,10 @@ import {
   ViewStyle,
 } from 'react-native';
 import Animated from 'react-native-reanimated';
+import Icon from 'react-native-vector-icons/Ionicons';
 import {BibleContext} from '../../context/BibleContext';
 import {gbColor} from '../../theme/themeGlobal';
+import {View} from 'react-native';
 
 interface Props {
   onPress: () => void;
@@ -20,6 +22,7 @@ interface Props {
   buttonScaleAnimation?: any;
   flex: number;
   disabled?: boolean;
+  iconSearch?: true;
 }
 
 export const ButtonBible = ({
@@ -32,6 +35,7 @@ export const ButtonBible = ({
   flex,
   onPress,
   disabled,
+  iconSearch,
 }: Props) => {
   const {
     bibleState: {book},
@@ -50,20 +54,27 @@ export const ButtonBible = ({
             backgroundColor: gbColor.foco,
           },
           onActive && {backgroundColor: gbColor.green},
-          // onActive && {backgroundColor: gbColor.blueSecundary},
           style,
           buttonScaleAnimation,
           buttonOpacityAnimation,
         ]}>
-        <Text
-          style={[
-            styles.buttonText,
-            activeCard && {color: gbColor.fontPrimary},
-            onActive && {color: gbColor.foco},
-            book.length > 11 && {fontSize: 14},
-          ]}>
-          {text}
-        </Text>
+        <View
+          style={{
+            flexDirection: 'row',
+            // alignItems: 'center',
+            // justifyContent: 'center',
+          }}>
+          {iconSearch && <Icon name="search" size={20} color={gbColor.foco} />}
+          <Text
+            style={[
+              styles.buttonText,
+              activeCard && {color: gbColor.fontPrimary},
+              onActive && {color: gbColor.foco},
+              book.length > 11 && {fontSize: 14},
+            ]}>
+            {text}
+          </Text>
+        </View>
       </Animated.View>
     </TouchableOpacity>
   );

@@ -82,6 +82,7 @@ export const FloatButtonBible = ({
         onActive={bookOnPress}
         flex={2}
         buttonScaleAnimation={buttonBookScaleStyle}
+        iconSearch
       />
 
       <ButtonBible

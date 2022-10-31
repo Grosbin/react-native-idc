@@ -7,6 +7,7 @@ import {color} from 'react-native-reanimated';
 import {useContext} from 'react';
 import {BibleContext} from '../context/BibleContext';
 import {newTestament, oldTestament} from '../types/bible';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 const Tab = createMaterialTopTabNavigator();
 
@@ -51,6 +52,9 @@ export const TopTabsBible = () => {
                 styles.textTitle,
                 // !focused && {color: 'rgba(34,86,242,0.5)'},
               ]}>
+              {(chapterOnPress || verseOnPress) && (
+                <Icon name="search" size={20} color={gbColor.fontPrimary} />
+              )}
               {title}
             </Text>
           );
