@@ -3,13 +3,18 @@ export const gbColor = {
   foco: 'white',
   // primary: '#2256f2',
   primary: '#3b46f1',
-  secundary: '#2256F2',
+  secondary: '#2256F2',
   terthiary: '#AABCF2',
   fontPrimary: '#020052',
-  fontSecundary: 'white',
-  blueSecundary: '#5E83F2',
-  yellowSecundary: '#F2EA77',
+  fontSecondary: 'white',
+  blueSecondary: '#5E83F2',
+  yellowSecondary: '#F2EA77',
   close: '#88A2F2',
   green: '#0dc4ae',
   yellow: '#ffd554',
+};
+
+const darkMode = {
+  foco: '#2f3136',
+  background: '#36393f',
 };

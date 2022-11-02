@@ -19,10 +19,20 @@ import Animated, {
 import {CardBook} from '../components/CardBook';
 import {BibleContext} from '../context/BibleContext';
 import {CloseCard} from '../components/bible/CloseCard';
+import {ButtonPressIcon} from '../components/ui/ButtonPressIcon';
+import {color} from 'react-native-reanimated';
+import {ThemeContex} from '../context/ThemeContex';
+import {useLocalStorage} from '../hooks/useLocalStorage';
 
 export const BibleScreen = () => {
   const [disabledButton, setDisabledButton] = useState(false);
   const ref = useRef<FlatList>(null);
+
+  const {
+    theme: {colors},
+  } = useContext(ThemeContex);
+
+  const {getData} = useLocalStorage();
 
   const {
     getChapter,
@@ -93,33 +103,36 @@ export const BibleScreen = () => {
   return (
     <View style={styles.container}>
       <View style={styles.titleContainer}>
-        <Text style={[styles.titleText, book.length > 11 && {fontSize: 19}]}>
+        <Text
+          style={[
+            styles.titleText,
+            book.length > 11 && {fontSize: 19},
+            {color: colors.primary},
+          ]}>
           {getChapter()}
         </Text>
         <View style={styles.buttonContainer}>
           <Animated.View style={[buttonOpacityPreviousStyle]}>
-            <TouchableOpacity
-              disabled={chapter === 1 || activeCard}
-              activeOpacity={0.8}
-              onPress={previousChapter}
-              style={[styles.button, styles.previousButton]}>
-              <Icon name="caret-back" size={20} color={gbColor.primary} />
-              {/* <Text style={styles.textButtonPrevious}>Anterior</Text> */}
-            </TouchableOpacity>
+            <ButtonPressIcon
+              activeCard={chapter === 1 || activeCard}
+              style={[
+                styles.button,
+                styles.previousButton,
+                {backgroundColor: colors.foco},
+              ]}
+              PressFuntion={previousChapter}
+              nameIcon={'caret-back'}
+              colorIcon={gbColor.primary}
+            />
           </Animated.View>
 
-          <TouchableOpacity
-            disabled={activeCard}
-            activeOpacity={0.8}
+          <ButtonPressIcon
+            activeCard={activeCard}
             style={styles.button}
-            onPress={nextChapter}>
-            {/* <Text style={styles.textButton}>Siguiente</Text> */}
-            <Icon
-              name="caret-forward"
-              size={20}
-              color={gbColor.fontSecundary}
-            />
-          </TouchableOpacity>
+            PressFuntion={nextChapter}
+            nameIcon={'caret-forward'}
+            colorIcon={gbColor.fontSecondary}
+          />
         </View>
       </View>
 
@@ -138,8 +151,12 @@ export const BibleScreen = () => {
         data={getVerses()}
         renderItem={({item, index}) => (
           <View key={index} style={styles.containerVerse}>
-            <Text style={styles.numVerse}>{index + 1}</Text>
-            <Text style={styles.texVerse}>{item}</Text>
+            <Text style={[styles.numVerse, {color: colors.fontPrimary}]}>
+              {index + 1}
+            </Text>
+            <Text style={[styles.texVerse, {color: colors.fontPrimary}]}>
+              {item}
+            </Text>
           </View>
         )}
         onScroll={e => onScroll(e)}
@@ -173,7 +190,7 @@ const styles = StyleSheet.create({
   titleText: {
     fontFamily: 'Poppins-ExtraBold',
     fontSize: 20,
-    color: gbColor.primary,
+    // color: gbColor.primary,
   },
   containerVerse: {
     flexDirection: 'row',
@@ -184,13 +201,13 @@ const styles = StyleSheet.create({
   numVerse: {
     fontFamily: 'Poppins-ExtraBold',
     fontSize: 16,
-    color: gbColor.fontPrimary,
+    // color: gbColor.fontPrimary,
     marginRight: 10,
   },
   texVerse: {
     fontFamily: 'Poppins-Regular',
     fontSize: 16,
-    color: gbColor.fontPrimary,
+    // color: gbColor.fontPrimary,
   },
   buttonContainer: {
     flexDirection: 'row',
@@ -208,7 +225,7 @@ const styles = StyleSheet.create({
   textButton: {
     fontFamily: 'Poppins-ExtraBold',
     paddingTop: 3,
-    color: 'white',
+    color: gbColor.fontSecondary,
     alignSelf: 'center',
   },
   textButtonPrevious: {
@@ -219,6 +236,6 @@ const styles = StyleSheet.create({
   },
   previousButton: {
     marginRight: 10,
-    backgroundColor: gbColor.background,
+    // backgroundColor: gbColor.background,
   },
 });

@@ -3,6 +3,7 @@ import {StyleSheet, Text, TouchableHighlight} from 'react-native';
 import {gbColor} from '../../theme/themeGlobal';
 import {useContext} from 'react';
 import {BibleContext} from '../../context/BibleContext';
+import {ThemeContex} from '../../context/ThemeContex';
 
 interface Props {
   chapterNum: number;
@@ -14,17 +15,24 @@ export const ItemChapterVerse = ({chapterNum, onPress}: Props) => {
     bibleState: {chapter, verse, chapterOnPress},
   } = useContext(BibleContext);
 
+  const {
+    theme: {colors},
+  } = useContext(ThemeContex);
+
   const validateChapterVerse = chapterOnPress ? chapter : verse;
 
   return (
     <TouchableHighlight
-      underlayColor={gbColor.foco}
-      style={styles.container}
+      underlayColor={colors.background}
+      style={[styles.container, {backgroundColor: colors.background}]}
       onPress={() => onPress(chapterNum)}>
       <Text
         style={[
           styles.chapterText,
-          chapterNum === validateChapterVerse && {color: gbColor.blueSecundary},
+          {
+            color: colors.fontPrimary,
+          },
+          chapterNum === validateChapterVerse && {color: colors.blueSecondary},
         ]}>
         {chapterNum}
       </Text>
@@ -34,11 +42,9 @@ export const ItemChapterVerse = ({chapterNum, onPress}: Props) => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: gbColor.foco,
     width: 65,
     height: 65,
     justifyContent: 'center',
-    // alignItems: 'center',
     marginHorizontal: 9,
     marginVertical: 7,
     borderRadius: 10,
@@ -55,7 +61,6 @@ const styles = StyleSheet.create({
   chapterText: {
     fontSize: 19,
     fontFamily: 'Poppins-Bold',
-    color: gbColor.fontPrimary,
     textAlign: 'center',
   },
 });

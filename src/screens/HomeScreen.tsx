@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import {StyleSheet, Text, View, SafeAreaView, ScrollView} from 'react-native';
 import {gbColor} from '../theme/themeGlobal';
 import SplashScreen from 'react-native-splash-screen';
@@ -9,6 +9,8 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import {ItemPrayers} from '../components/home/ItemPrayers';
 import {StackScreenProps} from '@react-navigation/stack';
 import {DrawerScreenProps} from '@react-navigation/drawer';
+import {ThemeContex} from '../context/ThemeContex';
+import {useLocalStorage} from '../hooks/useLocalStorage';
 
 // Generar objeto con id y nombre aleatorios
 const listPrayers = [
@@ -36,8 +38,27 @@ const listLastNames = [
 interface Props extends DrawerScreenProps<any, any> {}
 
 export const HomeScreen = ({navigation, route}: Props) => {
-  useEffect(() => {
+  const {getData} = useLocalStorage();
+  const {
+    theme: {colors},
+    setDarkTheme,
+    setLightTheme,
+  } = useContext(ThemeContex);
+
+  const getDataStorage = async () => {
+    const data = await getData('@theme');
+    if (data === 'dark') {
+      setDarkTheme();
+    }
+
+    if (data === 'light') {
+      setLightTheme();
+    }
     SplashScreen.hide();
+  };
+
+  useEffect(() => {
+    getDataStorage();
   }, []);
 
   return (
@@ -45,7 +66,12 @@ export const HomeScreen = ({navigation, route}: Props) => {
       <ScrollView showsVerticalScrollIndicator={false}>
         <Header navigation={navigation} route={route} />
         <HorizontalActivities />
-        <View style={[styles.container, styles.itemSeparator]}>
+        <View
+          style={[
+            styles.container,
+            styles.itemSeparator,
+            {backgroundColor: colors.foco},
+          ]}>
           {/* <View style={styles.itemSeparator}> */}
           {/* </View> */}
 
@@ -54,7 +80,7 @@ export const HomeScreen = ({navigation, route}: Props) => {
               // styles.itemSeparator,
               {
                 padding: 18,
-                backgroundColor: '#ffd554',
+                backgroundColor: colors.yellow,
                 borderRadius: 10,
                 marginHorizontal: 10,
                 marginVertical: 10,
@@ -65,8 +91,8 @@ export const HomeScreen = ({navigation, route}: Props) => {
                 textAlign: 'center',
                 fontFamily: 'Poppins-Medium',
                 fontSize: 14,
-                color: gbColor.fontPrimary,
-                opacity: 0.5,
+                color: colors.fontTertiary,
+                opacity: 0.7,
               }}>
               Las oraciones se actualizan todos los domingos
             </Text>
@@ -101,24 +127,24 @@ export const HomeScreen = ({navigation, route}: Props) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: gbColor.foco,
+    // backgroundColor: gbColor.foco,
   },
   nowActivitie: {
     height: 175,
   },
   itemSeparator: {
-    backgroundColor: gbColor.background,
+    // backgroundColor: gbColor.background,
     borderRadius: 10,
     marginBottom: 15,
     marginHorizontal: 9,
   },
-  textHeader: {
-    fontFamily: 'Poppins-Bold',
-    fontSize: 16,
-    color: gbColor.fontPrimary,
-    top: 10,
-    left: 10,
-    marginBottom: 10,
-    opacity: 0.7,
-  },
+  // textHeader: {
+  //   fontFamily: 'Poppins-Bold',
+  //   fontSize: 16,
+  //   color: gbColor.fontPrimary,
+  //   top: 10,
+  //   left: 10,
+  //   marginBottom: 10,
+  //   opacity: 0.7,
+  // },
 });

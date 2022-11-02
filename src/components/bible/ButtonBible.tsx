@@ -11,6 +11,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import {BibleContext} from '../../context/BibleContext';
 import {gbColor} from '../../theme/themeGlobal';
 import {View} from 'react-native';
+import {ThemeContex} from '../../context/ThemeContex';
 
 interface Props {
   onPress: () => void;
@@ -40,6 +41,11 @@ export const ButtonBible = ({
   const {
     bibleState: {book},
   } = useContext(BibleContext);
+
+  const {
+    theme: {colors},
+  } = useContext(ThemeContex);
+
   return (
     <TouchableOpacity
       disabled={disabled}
@@ -51,9 +57,9 @@ export const ButtonBible = ({
           styles.button,
           styles.buttonShadow,
           activeCard && {
-            backgroundColor: gbColor.foco,
+            backgroundColor: colors.background,
           },
-          onActive && {backgroundColor: gbColor.green},
+          onActive && {backgroundColor: colors.green},
           style,
           buttonScaleAnimation,
           buttonOpacityAnimation,
@@ -64,12 +70,17 @@ export const ButtonBible = ({
             // alignItems: 'center',
             // justifyContent: 'center',
           }}>
-          {iconSearch && <Icon name="search" size={20} color={gbColor.foco} />}
+          {iconSearch && (
+            <Icon name="search" size={20} color={colors.background} />
+          )}
           <Text
             style={[
               styles.buttonText,
-              activeCard && {color: gbColor.fontPrimary},
-              onActive && {color: gbColor.foco},
+              {
+                color: colors.background,
+              },
+              activeCard && {color: colors.fontPrimary},
+              onActive && {color: colors.background},
               book.length > 11 && {fontSize: 14},
             ]}>
             {text}
@@ -86,14 +97,12 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: gbColor.green,
-    // backgroundColor: gbColor.blueSecundary,
     height: 60,
     marginHorizontal: 10,
   },
   buttonText: {
     fontFamily: 'Poppins-ExtraBold',
     fontSize: 16,
-    color: gbColor.foco,
   },
   buttonShadow: {
     shadowColor: '#000',

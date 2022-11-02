@@ -1,6 +1,7 @@
 import React, {useContext} from 'react';
 import {StyleSheet, Text, TouchableHighlight} from 'react-native';
 import {BibleContext} from '../../context/BibleContext';
+import {ThemeContex} from '../../context/ThemeContex';
 import {gbColor} from '../../theme/themeGlobal';
 
 interface Props {
@@ -11,16 +12,23 @@ interface Props {
 
 export const ItemBook = ({bookText, book}: Props) => {
   const {
+    theme: {colors},
+  } = useContext(ThemeContex);
+
+  const {
     onChangeBook,
     bibleState: {book: bookData},
   } = useContext(BibleContext);
 
   return (
     <TouchableHighlight
-      underlayColor={gbColor.foco}
+      underlayColor={colors.background}
       style={[
         styles.container,
         // bookData === book && {backgroundColor: gbColor.},
+        {
+          backgroundColor: colors.background,
+        },
       ]}
       onPress={() => {
         onChangeBook(bookText, book);
@@ -28,7 +36,10 @@ export const ItemBook = ({bookText, book}: Props) => {
       <Text
         style={[
           styles.text,
-          bookData === book && {color: gbColor.blueSecundary},
+          {
+            color: colors.fontPrimary,
+          },
+          bookData === book && {color: colors.blueSecondary},
         ]}>
         {bookText}
       </Text>
@@ -38,7 +49,7 @@ export const ItemBook = ({bookText, book}: Props) => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: gbColor.foco,
+    // backgroundColor: gbColor.foco,
     width: 171,
     height: 60,
     borderRadius: 10,
@@ -59,7 +70,7 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 16,
     fontFamily: 'Poppins-Bold',
-    color: gbColor.fontPrimary,
+    // color: gbColor.fontPrimary,
     textAlign: 'center',
   },
 });

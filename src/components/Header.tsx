@@ -1,12 +1,16 @@
 import {DrawerScreenProps} from '@react-navigation/drawer';
-import React from 'react';
+import React, {useContext} from 'react';
 import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
+import {ThemeContex} from '../context/ThemeContex';
 import {gbColor} from '../theme/themeGlobal';
 
 interface Props extends DrawerScreenProps<any, any> {}
 
 export const Header = ({navigation}: Props) => {
+  const {
+    theme: {colors},
+  } = useContext(ThemeContex);
   return (
     <View style={styles.container}>
       <View style={styles.containerIcon}>
@@ -20,12 +24,11 @@ export const Header = ({navigation}: Props) => {
           }}
           source={require('../assets/logo/Logo_Azul.png')}
         />
-        {/* <Icon
-          name={'person-circle-outline'}
-          size={30}
-          color={gbColor.fontPrimary}
-        /> */}
-        <Text style={styles.nameProfile}> Grosbin Rivera</Text>
+
+        <Text style={[styles.nameProfile, {color: colors.fontPrimary}]}>
+          {' '}
+          Grosbin Rivera
+        </Text>
       </View>
 
       <TouchableOpacity onPress={() => navigation.toggleDrawer()}>
@@ -34,7 +37,7 @@ export const Header = ({navigation}: Props) => {
           <Icon
             name={'ellipsis-horizontal'}
             size={30}
-            color={gbColor.fontPrimary}
+            color={colors.fontPrimary}
           />
         </Text>
       </TouchableOpacity>

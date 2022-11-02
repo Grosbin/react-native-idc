@@ -4,24 +4,28 @@ import {BottonTabs} from './BottonTabs';
 import {DetailPrayers} from '../screens/DetailPrayers';
 import {MenuLateral} from './DrawerNavigator';
 import {gbColor} from '../theme/themeGlobal';
+import {useContext} from 'react';
+import {ThemeContex} from '../context/ThemeContex';
 
 export type RootStackParams = {
   BottonTabs: undefined;
-  DetailPrayers: undefined;
+  MenuLateral: undefined;
+  DetailPrayers: {title: string; data: {id: number; name: string}[]};
 };
 
-const Stack = createStackNavigator();
+const Stack = createStackNavigator<RootStackParams>();
 
 export const StackNavigator = () => {
+  const {
+    theme: {colors},
+  } = useContext(ThemeContex);
+
   return (
     <Stack.Navigator
       screenOptions={{
         headerShown: false,
         headerStyle: {
           elevation: 0,
-        },
-        cardStyle: {
-          backgroundColor: gbColor.foco,
         },
       }}>
       <Stack.Screen name="BottonTabs" component={BottonTabs} />

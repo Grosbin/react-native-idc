@@ -13,17 +13,22 @@ import Animated, {
   withSpring,
   withTiming,
 } from 'react-native-reanimated';
+import {useContext} from 'react';
+import {ThemeContex} from '../context/ThemeContex';
 
 const Tab = createBottomTabNavigator();
 
 export const BottonTabs = () => {
+  const {
+    theme: {colors},
+  } = useContext(ThemeContex);
   const widthOffset = useSharedValue(90);
   const opacityOffset = useSharedValue(1);
 
   const focusedIconStyle = useAnimatedStyle(() => {
     return {
       width: withSpring(widthOffset.value, {damping: 10}),
-      backgroundColor: gbColor.primary,
+      backgroundColor: colors.primary,
       opacity: withTiming(opacityOffset.value, {duration: 300}),
     };
   });
@@ -65,7 +70,7 @@ export const BottonTabs = () => {
           <Icon
             name={`${iconName}`}
             size={30}
-            color={focused ? 'white' : gbColor.fontPrimary}
+            color={focused ? colors.foco : colors.fontPrimary}
           />
         </Text>
       </Animated.View>
@@ -76,14 +81,14 @@ export const BottonTabs = () => {
   return (
     <Tab.Navigator
       sceneContainerStyle={{
-        backgroundColor: gbColor.foco,
+        backgroundColor: colors.background,
       }}
       screenOptions={({route}) => ({
         headerShown: false,
         // tabBarActiveBackgroundColor: gbColor.primary,
         tabBarIcon: ({color, focused}) => tabBarIcon(route, focused),
         tabBarStyle: {
-          backgroundColor: gbColor.foco,
+          backgroundColor: colors.background,
           elevation: 0,
           borderTopWidth: 0,
           height: 70,

@@ -1,1 +1,6 @@
 npx react-native-asset usar en ves de npx react-native link
+
+
+
+// Para compilar la app cuando sale error en los assets
+./gradlew assembleRelease -x bundleReleaseJsAndAsset

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import {
   createDrawerNavigator,
   DrawerContentComponentProps,
@@ -11,40 +11,91 @@ import {
   useWindowDimensions,
   View,
   TouchableOpacity,
+  Switch,
+  StatusBar,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {HomeScreen} from '../screens/HomeScreen';
 import {gbColor} from '../theme/themeGlobal';
 import {StackNavigator} from './StackNavigator';
+import {ThemeContex} from '../context/ThemeContex';
+import {NavigationContainer} from '@react-navigation/native';
+import {useLocalStorage} from '../hooks/useLocalStorage';
 
 const Drawer = createDrawerNavigator();
 
 export const MenuLateral = () => {
   const dimension = useWindowDimensions();
-  return (
-    <Drawer.Navigator
-      drawerContent={props => <MenuInterno {...props} />}
-      screenOptions={{
-        headerShown: false,
-        // drawerType: dimension.width >= 768 ? 'permanent' : 'front',
-        drawerType: 'back',
-        drawerActiveBackgroundColor: gbColor.blueSecundary,
-        drawerPosition: 'right',
-        overlayColor: 'transparent',
+  const {theme} = useContext(ThemeContex);
 
-        drawerStyle: {
-          backgroundColor: gbColor.primary,
-          borderTopLeftRadius: 10,
-        },
-      }}>
-      <Drawer.Screen name="StackNavigator" component={StackNavigator} />
-    </Drawer.Navigator>
+  return (
+    <NavigationContainer theme={theme}>
+      <Drawer.Navigator
+        drawerContent={props => <MenuInterno {...props} />}
+        screenOptions={{
+          headerShown: false,
+          drawerType: 'back',
+          drawerActiveBackgroundColor: theme.colors.blueSecondary,
+          drawerPosition: 'right',
+          overlayColor: 'transparent',
+
+          drawerStyle: {
+            backgroundColor: theme.colors.background,
+            backfaceVisibility: 'visible',
+          },
+        }}>
+        <Drawer.Screen name="StackNavigator" component={StackNavigator} />
+      </Drawer.Navigator>
+    </NavigationContainer>
   );
 };
 
 const MenuInterno = (props: DrawerContentComponentProps) => {
+  const {
+    theme: {colors, dark},
+    setDarkTheme,
+    setLightTheme,
+  } = useContext(ThemeContex);
+
+  const {storeData, getData} = useLocalStorage();
+
+  const [isEnabled, setIsEnabled] = useState(false);
+  const toggleSwitch = () => {
+    setIsEnabled(!isEnabled);
+    if (isEnabled) {
+      setLightTheme();
+      storeData('@theme', 'light');
+    } else {
+      setDarkTheme();
+      storeData('@theme', 'dark');
+    }
+  };
+
+  const getDataTheme = async () => {
+    const data = await getData('@theme');
+    if (data === 'dark') {
+      setIsEnabled(true);
+    } else {
+      setIsEnabled(false);
+    }
+  };
+
+  useEffect(() => {
+    getDataTheme();
+  }, []);
+
   return (
-    <DrawerContentScrollView>
+    // <DrawerContentScrollView>
+    <View
+      style={{
+        flex: 1,
+        backgroundColor: gbColor.primary,
+        borderTopLeftRadius: 10,
+      }}>
+      <StatusBar
+        backgroundColor={colors.background}
+        barStyle={dark ? 'light-content' : 'dark-content'}
+      />
       <View style={{alignItems: 'center'}}>
         <Image
           source={require('../assets/logo/Logo_Blanco.png')}
@@ -59,31 +110,54 @@ const MenuInterno = (props: DrawerContentComponentProps) => {
       <View
         style={{
           paddingTop: 20,
+          flex: 1,
         }}>
+        <View
+          style={{
+            width: '100%',
+            height: 50,
+            paddingTop: 10,
+            paddingHorizontal: 20,
+            flexDirection: 'row',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+          }}>
+          <Text
+            style={{
+              fontFamily: 'Poppins-Medium',
+              textAlign: 'center',
+              fontSize: 15,
+              color: gbColor.foco,
+            }}>
+            {' '}
+            Tema oscuro
+          </Text>
+          <Switch
+            trackColor={{false: gbColor.close, true: gbColor.green}}
+            thumbColor={isEnabled ? gbColor.foco : gbColor.foco}
+            onValueChange={toggleSwitch}
+            value={isEnabled}
+          />
+        </View>
+
         <TouchableOpacity
           style={{
             width: '100%',
             height: 50,
-            // backgroundColor: '#3498bc',
-            // justifyContent: 'center',
-            // alignItems: 'center',
             paddingTop: 10,
             paddingHorizontal: 20,
             flexDirection: 'row',
           }}
-          onPress={() => props.navigation.navigate('Tabs')}>
-          <Text>
-            <Icon name="globe-outline" size={30} color={gbColor.fontPrimary} />
-          </Text>
+          onPress={() => props.navigation.navigate('BottonTabs')}>
           <Text
             style={{
+              fontFamily: 'Poppins-Medium',
               textAlign: 'center',
-              fontSize: 20,
-              fontWeight: 'bold',
-              color: 'white',
+              fontSize: 15,
+              color: gbColor.foco,
             }}>
             {' '}
-            Navegacion
+            Versión de la Biblia
           </Text>
         </TouchableOpacity>
 
@@ -91,33 +165,38 @@ const MenuInterno = (props: DrawerContentComponentProps) => {
           style={{
             width: '100%',
             height: 50,
-            // backgroundColor: '#3498bc',
-            // justifyContent: 'center',
-            // alignItems: 'center',
             paddingTop: 10,
             paddingHorizontal: 20,
             flexDirection: 'row',
           }}
-          onPress={() => props.navigation.navigate('SettingsScreen')}>
-          <Text>
-            <Icon
-              name="settings-outline"
-              size={30}
-              color={gbColor.fontPrimary}
-            />
-          </Text>
+          onPress={() => props.navigation.navigate('BottonTabs')}>
           <Text
             style={{
+              fontFamily: 'Poppins-Medium',
               textAlign: 'center',
-              fontSize: 20,
-              fontWeight: 'bold',
-              color: 'white',
+              fontSize: 15,
+              color: gbColor.foco,
             }}>
             {' '}
-            Settings
+            Acerca de la app
           </Text>
         </TouchableOpacity>
       </View>
-    </DrawerContentScrollView>
+      <View
+        style={{
+          justifyContent: 'center',
+          alignItems: 'center',
+          marginBottom: 20,
+        }}>
+        <Text
+          style={{
+            textAlign: 'center',
+            color: gbColor.foco,
+          }}>
+          Desarrollada por el ministerio de medios, 2022
+        </Text>
+      </View>
+    </View>
+    // </DrawerContentScrollView>
   );
 };

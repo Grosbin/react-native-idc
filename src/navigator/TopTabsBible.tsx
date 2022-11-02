@@ -8,10 +8,15 @@ import {useContext} from 'react';
 import {BibleContext} from '../context/BibleContext';
 import {newTestament, oldTestament} from '../types/bible';
 import Icon from 'react-native-vector-icons/Ionicons';
+import {ThemeContex} from '../context/ThemeContex';
 
 const Tab = createMaterialTopTabNavigator();
 
 export const TopTabsBible = () => {
+  const {
+    theme: {colors},
+  } = useContext(ThemeContex);
+
   const {
     bibleState: {bookOnPress, verseOnPress, chapterOnPress, book},
   } = useContext(BibleContext);
@@ -20,7 +25,7 @@ export const TopTabsBible = () => {
     <Tab.Navigator
       showPageIndicator={false}
       sceneContainerStyle={{
-        backgroundColor: gbColor.background,
+        backgroundColor: colors.foco,
         borderBottomEndRadius: 10,
         borderBottomStartRadius: 10,
       }}
@@ -51,16 +56,19 @@ export const TopTabsBible = () => {
               style={[
                 styles.textTitle,
                 // !focused && {color: 'rgba(34,86,242,0.5)'},
+                {
+                  color: colors.fontPrimary,
+                },
               ]}>
               {(chapterOnPress || verseOnPress) && (
-                <Icon name="search" size={20} color={gbColor.fontPrimary} />
+                <Icon name="search" size={20} color={colors.fontPrimary} />
               )}
               {title}
             </Text>
           );
         },
         swipeEnabled: bookOnPress,
-        tabBarIndicatorStyle: [{backgroundColor: gbColor.secundary, height: 3}],
+        tabBarIndicatorStyle: [{backgroundColor: colors.secondary, height: 3}],
         tabBarIndicator: () => (
           <Text
             style={[
@@ -73,7 +81,7 @@ export const TopTabsBible = () => {
 
         tabBarPressColor: 'transparent',
         tabBarStyle: {
-          backgroundColor: gbColor.background,
+          backgroundColor: colors.foco,
           borderTopWidth: 0,
           elevation: 0,
           borderRadius: 10,
@@ -100,6 +108,6 @@ const styles = StyleSheet.create({
   textTitle: {
     fontSize: 18,
     fontFamily: 'Poppins-ExtraBold',
-    color: gbColor.fontPrimary,
+    // color: gbColor.fontPrimary,
   },
 });
