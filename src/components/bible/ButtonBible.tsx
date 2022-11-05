@@ -105,7 +105,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   buttonShadow: {
-    shadowColor: '#000',
+    shadowColor: '#020052',
     shadowOffset: {
       width: 0,
       height: 3,

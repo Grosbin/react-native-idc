@@ -15,6 +15,7 @@ export const useLocalStorage = () => {
       if (value !== null) {
         return value;
       }
+      return '';
     } catch (e) {
       console.log(e);
     }

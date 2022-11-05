@@ -58,14 +58,15 @@ const styles = StyleSheet.create({
     marginLeft: 15,
     justifyContent: 'center',
 
-    shadowColor: '#000',
+    shadowColor: '#020052',
     shadowOffset: {
       width: 0,
-      height: 3,
+      height: 0,
     },
-    shadowOpacity: 0.27,
-    shadowRadius: 4.65,
-    elevation: 6,
+    shadowOpacity: 0.25,
+    shadowRadius: 2,
+
+    elevation: 2,
   },
   text: {
     fontSize: 16,

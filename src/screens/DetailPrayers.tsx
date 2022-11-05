@@ -7,6 +7,7 @@ import {gbColor} from '../theme/themeGlobal';
 import {ScrollView} from 'react-native-gesture-handler';
 import {ButtonPressIcon} from '../components/ui/ButtonPressIcon';
 import {ThemeContex} from '../context/ThemeContex';
+import {ButtonPrevious} from '../components/ui/ButtonPrevious';
 
 interface Props extends StackScreenProps<RootStackParams, 'DetailPrayers'> {}
 
@@ -19,17 +20,24 @@ export const DetailPrayers = ({route, navigation}: Props) => {
   return (
     <View style={[styles.container, {backgroundColor: colors.background}]}>
       <ScrollView style={{width: '100%'}}>
-        <View style={styles.containerButton}>
+        {/* <View style={styles.containerButton}>
           <ButtonPressIcon
             style={styles.button}
             PressFuntion={() => navigation.pop()}
             nameIcon={'caret-back'}
-            colorIcon={gbColor.fontSecondary}
+            colorIcon={colors.white}
           />
           <Text style={[styles.title, {color: colors.fontPrimary}]}>
             {listPrayers.title}
           </Text>
-        </View>
+        </View> */}
+
+        <ButtonPrevious
+          navigation={navigation}
+          title={listPrayers.title}
+          sizeTitle={20}
+        />
+
         {listPrayers.data.map(item => (
           <View
             key={item.id}
@@ -57,41 +65,28 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderRadius: 10,
 
-    shadowColor: '#000',
+    // shadowColor: '#000',
+    // shadowOffset: {
+    //   width: 0,
+    //   height: 3,
+    // },
+    // shadowOpacity: 0.27,
+    // shadowRadius: 4.65,
+
+    // elevation: 6,
+
+    shadowColor: '#020052',
     shadowOffset: {
       width: 0,
-      height: 3,
+      height: 0,
     },
-    shadowOpacity: 0.27,
-    shadowRadius: 4.65,
+    shadowOpacity: 0.25,
+    shadowRadius: 2,
 
-    elevation: 6,
+    elevation: 2,
   },
   text: {
     fontFamily: 'Poppins-Medium',
     fontSize: 16,
-  },
-  button: {
-    flexDirection: 'row',
-    width: 80,
-    height: 40,
-    backgroundColor: gbColor.primary,
-    borderRadius: 10,
-    justifyContent: 'space-evenly',
-    alignItems: 'center',
-  },
-
-  containerButton: {
-    marginHorizontal: 15,
-    marginTop: 15,
-    marginBottom: 20,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-  },
-
-  title: {
-    fontFamily: 'Poppins-Bold',
-    fontSize: 20,
   },
 });

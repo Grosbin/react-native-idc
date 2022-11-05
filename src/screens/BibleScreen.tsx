@@ -7,6 +7,7 @@ import {
   Text,
   TouchableOpacity,
   View,
+  ActivityIndicator,
 } from 'react-native';
 import {gbColor} from '../theme/themeGlobal';
 import {FloatButtonBible} from '../components/bible/FloatButtonBible';
@@ -26,13 +27,12 @@ import {useLocalStorage} from '../hooks/useLocalStorage';
 
 export const BibleScreen = () => {
   const [disabledButton, setDisabledButton] = useState(false);
+  const [loading, setLoading] = useState(true);
   const ref = useRef<FlatList>(null);
 
   const {
     theme: {colors},
   } = useContext(ThemeContex);
-
-  const {getData} = useLocalStorage();
 
   const {
     getChapter,
@@ -99,6 +99,20 @@ export const BibleScreen = () => {
   useEffect(() => {
     ref.current?.scrollToIndex({index: 0, animated: true});
   }, [chapter]);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 100);
+  }, []);
+
+  if (loading) {
+    return (
+      <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+        <ActivityIndicator size={50} color={'#3b46f1'} />
+      </View>
+    );
+  }
 
   return (
     <View style={styles.container}>

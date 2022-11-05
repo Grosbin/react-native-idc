@@ -15,6 +15,7 @@ import Animated, {
 } from 'react-native-reanimated';
 import {useContext} from 'react';
 import {ThemeContex} from '../context/ThemeContex';
+import {ContentView} from '../screens/ContentView';
 
 const Tab = createBottomTabNavigator();
 

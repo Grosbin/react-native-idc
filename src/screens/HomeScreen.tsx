@@ -11,6 +11,7 @@ import {StackScreenProps} from '@react-navigation/stack';
 import {DrawerScreenProps} from '@react-navigation/drawer';
 import {ThemeContex} from '../context/ThemeContex';
 import {useLocalStorage} from '../hooks/useLocalStorage';
+import {ContentView} from './ContentView';
 
 // Generar objeto con id y nombre aleatorios
 const listPrayers = [
@@ -54,6 +55,9 @@ export const HomeScreen = ({navigation, route}: Props) => {
     if (data === 'light') {
       setLightTheme();
     }
+    if (data === '') {
+      setLightTheme();
+    }
     SplashScreen.hide();
   };
 
@@ -62,7 +66,7 @@ export const HomeScreen = ({navigation, route}: Props) => {
   }, []);
 
   return (
-    <SafeAreaView>
+    <View>
       <ScrollView showsVerticalScrollIndicator={false}>
         <Header navigation={navigation} route={route} />
         <HorizontalActivities />
@@ -120,7 +124,7 @@ export const HomeScreen = ({navigation, route}: Props) => {
           />
         </View>
       </ScrollView>
-    </SafeAreaView>
+    </View>
   );
 };
 

@@ -1,6 +1,28 @@
 npx react-native-asset usar en ves de npx react-native link
 
-
-
 // Para compilar la app cuando sale error en los assets
-./gradlew assembleRelease -x bundleReleaseJsAndAsset
+./gradlew app:assembleRelease -x bundleReleaseJsAndAssets
+./gradlew assembleRelease -x bundleReleaseJsAndAssets
+./gradlew bundleRelease -x :app:bundleReleaseJsAndAssets
+
+
+// Error de Change System Bar Colors react native
+https://github.com/thebylito/react-native-navigation-bar-color#example
+
+
+// Error de compilación Task :react-native-reanimated:compileDebugJavaWithJavac FAILED
+https://github.com/facebook/react-native/issues/35204#issuecomment-1304099109
+
+allprojects {
+    configurations.all {
+        resolutionStrategy {
+            force 'com.facebook.react:react-native:<your version>'
+        }
+    }
+    repositories {
+    // ...
+    }
+}
+
+// Error de compilacion <nombre libreria>:verifyReleaseResources
+./gradlew app:assembleRelease -x bundleReleaseJsAndAssets

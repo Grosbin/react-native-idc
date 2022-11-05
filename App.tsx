@@ -8,6 +8,7 @@ import {color} from 'react-native-reanimated';
 import {StackNavigator} from './src/navigator/StackNavigator';
 import {MenuLateral} from './src/navigator/DrawerNavigator';
 import {ThemeContex, ThemeProvider} from './src/context/ThemeContex';
+import {ContentView} from './src/screens/ContentView';
 
 const BibleState = ({children}: any) => {
   // return <BibleProvider>{children}</BibleProvider>;

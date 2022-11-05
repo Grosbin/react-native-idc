@@ -1,6 +1,10 @@
 import React, {createContext, useEffect, useReducer, useState} from 'react';
 import {Appearance, AppState, useColorScheme} from 'react-native';
 import {useLocalStorage} from '../hooks/useLocalStorage';
+import changeNavigationBarColor, {
+  hideNavigationBar,
+  showNavigationBar,
+} from 'react-native-navigation-bar-color';
 
 import {
   ThemeState,
@@ -25,10 +29,12 @@ export const ThemeProvider = ({children}: any) => {
 
   const setDarkTheme = () => {
     dispatch({type: 'set_dark_theme'});
+    changeNavigationBarColor('#2f3136', false, true);
     return console.log('SetDarkTheme Activado');
   };
   const setLightTheme = () => {
     dispatch({type: 'set_lingt_theme'});
+    changeNavigationBarColor('#ffffff', true, true);
     return console.log('SetLingtTheme Activado');
   };
 

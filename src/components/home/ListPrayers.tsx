@@ -43,7 +43,7 @@ export const ListPrayers = ({listPrayers, titleDetail}: Props) => {
             height: 35,
             borderRadius: 10,
             backgroundColor: colors.green,
-            // marginRight: 10,
+
             marginTop: 5,
             flexDirection: 'row',
             justifyContent: 'space-evenly',
@@ -70,41 +70,25 @@ export const ListPrayers = ({listPrayers, titleDetail}: Props) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    // width: 200,
+
     flexDirection: 'row',
     justifyContent: 'space-between',
     marginHorizontal: 10,
     marginVertical: 5,
-    // backgroundColor: gbColor.foco,
+
     borderRadius: 10,
     padding: 10,
 
-    shadowColor: '#000',
+    shadowColor: '#020052',
     shadowOffset: {
       width: 0,
-      height: 3,
+      height: 0,
     },
-    shadowOpacity: 0.27,
-    shadowRadius: 4.65,
+    shadowOpacity: 0.25,
+    shadowRadius: 2,
 
-    elevation: 6,
+    elevation: 2,
   },
-  // containerText: {
-  //   backgroundColor: gbColor.foco,
-  //   borderRadius: 12,
-  //   marginVertical: 4,
-  //   padding: 10,
-
-  //   shadowColor: '#000',
-  //   shadowOffset: {
-  //     width: 0,
-  //     height: 3,
-  //   },
-  //   shadowOpacity: 0.27,
-  //   shadowRadius: 4.65,
-
-  //   elevation: 6,
-  // },
 
   name: {
     fontFamily: 'Poppins-Medium',
