@@ -1,5 +1,5 @@
 import React, {useContext, useEffect, useState} from 'react';
-import {StyleSheet, View} from 'react-native';
+import {Keyboard, StyleSheet, View} from 'react-native';
 import {TextInput} from 'react-native-gesture-handler';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {ThemeContex} from '../../context/ThemeContex';
@@ -24,6 +24,7 @@ export const SearchInput = ({onChange}: Props) => {
   return (
     <View style={[styles.textBackground, {backgroundColor: colors.foco}]}>
       <TextInput
+        onSubmitEditing={Keyboard.dismiss}
         placeholder="Buscar Canto"
         placeholderTextColor={colors.blueSecondary}
         autoCapitalize="none"
@@ -45,6 +46,16 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'row',
+
+    shadowColor: '#020052',
+    shadowOffset: {
+      width: 0,
+      height: 0,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 2,
+
+    elevation: 2,
   },
   textInput: {
     flex: 1,

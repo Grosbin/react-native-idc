@@ -85,6 +85,7 @@ export const BottonTabs = () => {
         backgroundColor: colors.background,
       }}
       screenOptions={({route}) => ({
+        lazy: false,
         headerShown: false,
         // tabBarActiveBackgroundColor: gbColor.primary,
         tabBarIcon: ({color, focused}) => tabBarIcon(route, focused),

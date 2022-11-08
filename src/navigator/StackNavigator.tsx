@@ -10,7 +10,7 @@ import {ThemeContex} from '../context/ThemeContex';
 
 export type RootStackParams = {
   BottonTabs: undefined;
-  MenuLateral: undefined;
+  // MenuLateral: undefined;
   DetailPrayers: {title: string; data: {id: number; name: string}[]};
   ContentChants: {id: string; name: string; lyrics: string[]};
 };
@@ -31,7 +31,7 @@ export const StackNavigator = () => {
         },
       }}>
       <Stack.Screen name="BottonTabs" component={BottonTabs} />
-      <Stack.Screen name="MenuLateral" component={MenuLateral} />
+      {/* <Stack.Screen name="MenuLateral" component={MenuLateral} /> */}
       <Stack.Screen name="DetailPrayers" component={DetailPrayers} />
       <Stack.Screen name="ContentChants" component={ContentChants} />
     </Stack.Navigator>

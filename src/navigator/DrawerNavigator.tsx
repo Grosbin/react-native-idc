@@ -31,6 +31,8 @@ export const MenuLateral = () => {
   return (
     <NavigationContainer theme={theme}>
       <Drawer.Navigator
+        detachInactiveScreens={false}
+        defaultStatus="closed"
         drawerContent={props => <MenuInterno {...props} />}
         screenOptions={{
           headerShown: false,

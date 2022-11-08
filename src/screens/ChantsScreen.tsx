@@ -1,5 +1,11 @@
-import React from 'react';
-import {SafeAreaView, StyleSheet, Text, View} from 'react-native';
+import React, {useEffect, useState} from 'react';
+import {
+  KeyboardAvoidingView,
+  SafeAreaView,
+  StyleSheet,
+  Text,
+  View,
+} from 'react-native';
 import {FlatList} from 'react-native-gesture-handler';
 import {SearchInput} from '../components/chants/SearchInput';
 import {gbColor} from '../theme/themeGlobal';
@@ -8,13 +14,34 @@ import {chants} from '../data/chant/chants';
 import {ItemChants} from '../components/chants/ItemChants';
 
 export const ChantsScreen = () => {
+  const [term, setTerm] = useState('');
+  const [chantsFiltered, setChantsFiltered] = useState(chants);
+
+  useEffect(() => {
+    if (term.length === 0) return setChantsFiltered(chants);
+
+    if (isNaN(Number(term))) {
+      setChantsFiltered(
+        chants.filter(chant =>
+          chant.name.toLocaleLowerCase().includes(term.toLocaleLowerCase()),
+        ),
+      );
+    } else {
+      const chantById = chants.find(chant => chant.id === term);
+      setChantsFiltered(chantById ? [chantById] : []);
+    }
+  }, [term]);
+
   return (
-    <View style={[styles.container]}>
-      <SearchInput onChange={() => {}} />
+    <KeyboardAvoidingView
+      // behavior="padding"
+      // keyboardVerticalOffset={10}
+      style={[styles.container]}>
+      <SearchInput onChange={setTerm} />
 
       {/* <View style={{alignItems: 'center', zIndex: 999}}> */}
       <FlatList
-        data={chants}
+        data={chantsFiltered}
         keyExtractor={(item, index) => index + item.toString()}
         renderItem={({item}) => (
           <ItemChants id={item.id} name={item.name} lyrics={item.lyrics} />
@@ -25,7 +52,7 @@ export const ChantsScreen = () => {
         ListFooterComponent={() => <View style={{marginBottom: 50}}></View>}
       />
       {/* </View> */}
-    </View>
+    </KeyboardAvoidingView>
   );
 };
 

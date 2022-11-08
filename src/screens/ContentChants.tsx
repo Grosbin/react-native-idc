@@ -36,7 +36,7 @@ export const ContentChants = ({route, navigation}: Props) => {
 
 const styles = StyleSheet.create({
   container: {
-    marginHorizontal: 50,
+    marginHorizontal: 30,
     marginVertical: 10,
   },
   text: {

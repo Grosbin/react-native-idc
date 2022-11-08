@@ -27,7 +27,7 @@ import {useLocalStorage} from '../hooks/useLocalStorage';
 
 export const BibleScreen = () => {
   const [disabledButton, setDisabledButton] = useState(false);
-  const [loading, setLoading] = useState(true);
+  // const [loading, setLoading] = useState(true);
   const ref = useRef<FlatList>(null);
 
   const {
@@ -100,19 +100,19 @@ export const BibleScreen = () => {
     ref.current?.scrollToIndex({index: 0, animated: true});
   }, [chapter]);
 
-  useEffect(() => {
-    setTimeout(() => {
-      setLoading(false);
-    }, 100);
-  }, []);
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     setLoading(false);
+  //   }, 100);
+  // }, []);
 
-  if (loading) {
-    return (
-      <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-        <ActivityIndicator size={50} color={'#3b46f1'} />
-      </View>
-    );
-  }
+  // if (loading) {
+  //   return (
+  //     <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+  //       <ActivityIndicator size={50} color={'#3b46f1'} />
+  //     </View>
+  //   );
+  // }
 
   return (
     <View style={styles.container}>
