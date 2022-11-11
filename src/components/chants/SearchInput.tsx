@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     flexDirection: 'row',
 
-    shadowColor: '#020052',
+    shadowColor: '#000',
     shadowOffset: {
       width: 0,
       height: 0,

@@ -33,7 +33,7 @@ export const ChantsScreen = () => {
   }, [term]);
 
   return (
-    <KeyboardAvoidingView
+    <View
       // behavior="padding"
       // keyboardVerticalOffset={10}
       style={[styles.container]}>
@@ -52,7 +52,7 @@ export const ChantsScreen = () => {
         ListFooterComponent={() => <View style={{marginBottom: 50}}></View>}
       />
       {/* </View> */}
-    </KeyboardAvoidingView>
+    </View>
   );
 };
 
