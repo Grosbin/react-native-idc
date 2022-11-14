@@ -15,7 +15,7 @@ export const ItemPrayers = ({title, iconName, listPrayers}: Props) => {
   const {
     theme: {colors},
   } = useContext(ThemeContex);
-  const titleDetail = `Oracines por ${title}`;
+  const titleDetail = `Oraciones por ${title}`;
   // console.log(colors.blueSecundary);
   return (
     <View

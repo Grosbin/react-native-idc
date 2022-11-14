@@ -29,26 +29,26 @@ export const MenuLateral = () => {
   const {theme} = useContext(ThemeContex);
 
   return (
-    <NavigationContainer theme={theme}>
-      <Drawer.Navigator
-        detachInactiveScreens={false}
-        defaultStatus="closed"
-        drawerContent={props => <MenuInterno {...props} />}
-        screenOptions={{
-          headerShown: false,
-          drawerType: 'back',
-          drawerActiveBackgroundColor: theme.colors.blueSecondary,
-          drawerPosition: 'right',
-          overlayColor: 'transparent',
+    // <NavigationContainer theme={theme}>
+    <Drawer.Navigator
+      // detachInactiveScreens={false}
+      // defaultStatus="closed"
+      drawerContent={props => <MenuInterno {...props} />}
+      screenOptions={{
+        headerShown: false,
+        drawerType: 'back',
+        drawerActiveBackgroundColor: theme.colors.blueSecondary,
+        drawerPosition: 'right',
+        overlayColor: 'transparent',
 
-          drawerStyle: {
-            backgroundColor: theme.colors.background,
-            backfaceVisibility: 'visible',
-          },
-        }}>
-        <Drawer.Screen name="StackNavigator" component={StackNavigator} />
-      </Drawer.Navigator>
-    </NavigationContainer>
+        drawerStyle: {
+          backgroundColor: theme.colors.background,
+          backfaceVisibility: 'visible',
+        },
+      }}>
+      <Drawer.Screen name="HomeScreen" component={HomeScreen} />
+    </Drawer.Navigator>
+    // </NavigationContainer>
   );
 };
 
@@ -150,7 +150,7 @@ const MenuInterno = (props: DrawerContentComponentProps) => {
             paddingHorizontal: 20,
             flexDirection: 'row',
           }}
-          onPress={() => props.navigation.navigate('BottonTabs')}>
+          onPress={() => props.navigation.navigate('HomeScreen')}>
           <Text
             style={{
               fontFamily: 'Poppins-Medium',
@@ -171,7 +171,7 @@ const MenuInterno = (props: DrawerContentComponentProps) => {
             paddingHorizontal: 20,
             flexDirection: 'row',
           }}
-          onPress={() => props.navigation.navigate('BottonTabs')}>
+          onPress={() => props.navigation.navigate('HomeScreen')}>
           <Text
             style={{
               fontFamily: 'Poppins-Medium',

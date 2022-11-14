@@ -16,6 +16,7 @@ import Animated, {
 import {useContext} from 'react';
 import {ThemeContex} from '../context/ThemeContex';
 import {ContentView} from '../screens/ContentView';
+import {MenuLateral} from './DrawerNavigator';
 
 const Tab = createBottomTabNavigator();
 
@@ -56,7 +57,7 @@ export const BottonTabs = () => {
       case 'ChantsScreen':
         iconName = 'musical-notes';
         break;
-      case 'HomeScreen':
+      case 'MenuLateral':
         iconName = 'home';
         break;
       case 'NoticesScreen':
@@ -103,9 +104,16 @@ export const BottonTabs = () => {
         },
         tabBarShowLabel: false,
       })}>
-      <Tab.Screen
+      {/* <Tab.Screen
         name="HomeScreen"
         component={HomeScreen}
+        listeners={{
+          tabPress: () => onPress(),
+        }}
+      /> */}
+      <Tab.Screen
+        name="MenuLateral"
+        component={MenuLateral}
         listeners={{
           tabPress: () => onPress(),
         }}
