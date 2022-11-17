@@ -5,21 +5,29 @@ import {ItemChapterVerse} from './ItemChapterVerse';
 import {useContext} from 'react';
 import {BibleContext} from '../../context/BibleContext';
 import {useBible} from '../../hooks/useBible';
-
+import {useCardAnimation} from '../../hooks/useCardAnimation';
+import {withSpring} from 'react-native-reanimated';
 interface Props {
-  testament: {};
-  style?: StyleProp<ViewStyle>;
+  widthOffset: any;
+  heightOffset: any;
 }
-
-export const ScrollVerse = ({testament, style}: Props) => {
+export const ScrollVerse = ({widthOffset, heightOffset}: Props) => {
   const {
     onChangeVerse,
+    onActiveCard,
     bibleState: {book, chapter, verse},
   } = useContext(BibleContext);
 
   const {getVerses} = useBible();
 
   const verses = getVerses();
+
+  const onChange = (item: number) => {
+    onChangeVerse(item);
+    widthOffset.value = '100%';
+    heightOffset.value = withSpring('0%', {damping: 20});
+    onActiveCard(false);
+  };
 
   return (
     <View style={styles.container}>
@@ -35,7 +43,7 @@ export const ScrollVerse = ({testament, style}: Props) => {
         renderItem={({index}) => (
           <ItemChapterVerse
             chapterNum={index + 1}
-            onPress={() => onChangeVerse(index + 1)}
+            onPress={() => onChange(index + 1)}
           />
         )}
       />

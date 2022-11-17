@@ -42,8 +42,8 @@ export const ItemChapterVerse = ({chapterNum, onPress}: Props) => {
 
 const styles = StyleSheet.create({
   container: {
-    width: 65,
-    height: 65,
+    width: 70,
+    height: 70,
     justifyContent: 'center',
     marginHorizontal: 9,
     marginVertical: 7,

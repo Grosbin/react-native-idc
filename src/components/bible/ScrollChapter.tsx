@@ -14,6 +14,7 @@ import {useBible} from '../../hooks/useBible';
 export const ScrollChapter = () => {
   const {
     onChangeChapter,
+    onPressVerseHandler,
     bibleState: {book, chapter},
   } = useContext(BibleContext);
 
@@ -32,6 +33,10 @@ export const ScrollChapter = () => {
   // console.log(testament[book][1], " Estamento");
   // console.log(chapterLength, ' Longitud');
   // console.log(testament, ' Testamento');
+  const onChange = (item: number) => {
+    onChangeChapter(item);
+    onPressVerseHandler(true);
+  };
 
   return (
     <View style={styles.container}>
@@ -48,7 +53,7 @@ export const ScrollChapter = () => {
           renderItem={({index}) => (
             <ItemChapterVerse
               chapterNum={index + 1}
-              onPress={() => onChangeChapter(index + 1)}
+              onPress={() => onChange(index + 1)}
             />
           )}
         />

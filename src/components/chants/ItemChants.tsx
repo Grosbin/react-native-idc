@@ -20,9 +20,12 @@ export const ItemChants = ({id, name, lyrics}: Props) => {
     theme: {colors},
   } = useContext(ThemeContex);
 
+  const handleNavigate = () =>
+    navigate.navigate('ContentChants', {id, name, lyrics});
+
   return (
     <TouchableOpacity
-      onPress={() => navigate.navigate('ContentChants', {id, name, lyrics})}
+      onPress={handleNavigate}
       activeOpacity={0.8}
       style={[styles.container, {backgroundColor: colors.foco}]}>
       <Text style={[styles.text, {color: colors.fontPrimary}]}>{id}</Text>
@@ -41,7 +44,6 @@ const styles = StyleSheet.create({
     height: 55,
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginHorizontal: 5,
     paddingHorizontal: 15,
 
     shadowColor: '#000',

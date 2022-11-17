@@ -24,6 +24,7 @@ import {ButtonPressIcon} from '../components/ui/ButtonPressIcon';
 import {color} from 'react-native-reanimated';
 import {ThemeContex} from '../context/ThemeContex';
 import {useLocalStorage} from '../hooks/useLocalStorage';
+import {useCardAnimation} from '../hooks/useCardAnimation';
 
 export const BibleScreen = () => {
   const [disabledButton, setDisabledButton] = useState(false);
@@ -43,6 +44,10 @@ export const BibleScreen = () => {
     buttonOpacityBibleStyle,
     buttonOpacityPreviousStyle,
   } = useBible();
+
+  const {widthOffsetCard, heightOffsetCard, cardScaleStyle} =
+    useCardAnimation();
+
   const lastContentOffset = useRef(0);
 
   const {
@@ -73,15 +78,15 @@ export const BibleScreen = () => {
     }
   };
 
-  const widthOffset = useSharedValue('0%');
-  const heightOffset = useSharedValue('0%');
+  // const widthOffset = useSharedValue('0%');
+  // const heightOffset = useSharedValue('0%');
 
-  const cardScaleStyle = useAnimatedStyle(() => {
-    return {
-      width: widthOffset.value,
-      height: heightOffset.value,
-    };
-  });
+  // const cardScaleStyle = useAnimatedStyle(() => {
+  //   return {
+  //     width: widthOffset.value,
+  //     height: heightOffset.value,
+  //   };
+  // });
 
   useEffect(() => {
     if (getVerses().length >= verse) {
@@ -132,11 +137,11 @@ export const BibleScreen = () => {
               style={[
                 styles.button,
                 styles.previousButton,
-                {backgroundColor: colors.foco},
+                // {backgroundColor: colors.foco},
               ]}
               PressFuntion={previousChapter}
               nameIcon={'caret-back'}
-              colorIcon={gbColor.primary}
+              colorIcon={colors.primary}
             />
           </Animated.View>
 
@@ -145,7 +150,7 @@ export const BibleScreen = () => {
             style={styles.button}
             PressFuntion={nextChapter}
             nameIcon={'caret-forward'}
-            colorIcon={gbColor.fontSecondary}
+            colorIcon={colors.fontPrimary}
           />
         </View>
       </View>
@@ -175,16 +180,23 @@ export const BibleScreen = () => {
         )}
         onScroll={e => onScroll(e)}
       />
-      <CardBook style={cardScaleStyle} />
+      <CardBook
+        style={cardScaleStyle}
+        widthOffset={widthOffsetCard}
+        heightOffset={heightOffsetCard}
+      />
 
       <FloatButtonBible
         style={buttonOpacityBibleStyle}
-        widthOffset={widthOffset}
-        heightOffset={heightOffset}
+        widthOffset={widthOffsetCard}
+        heightOffset={heightOffsetCard}
         disabledButton={disabledButton}
       />
       {activeCard && (
-        <CloseCard widthOffset={widthOffset} heightOffset={heightOffset} />
+        <CloseCard
+          widthOffset={widthOffsetCard}
+          heightOffset={heightOffsetCard}
+        />
       )}
     </View>
   );
@@ -229,12 +241,14 @@ const styles = StyleSheet.create({
   },
   button: {
     flexDirection: 'row',
-    width: 80,
+    // width: 35,
     height: 40,
-    backgroundColor: gbColor.primary,
+    marginRight: 10,
+    marginLeft: 15,
+    // backgroundColor: gbColor.primary,
     borderRadius: 10,
-    justifyContent: 'space-evenly',
-    alignItems: 'center',
+    // justifyContent: 'center',
+    // alignItems: 'center',
   },
   textButton: {
     fontFamily: 'Poppins-ExtraBold',

@@ -17,8 +17,14 @@ export const ItemBook = ({bookText, book}: Props) => {
 
   const {
     onChangeBook,
+    onPressChapterHandler,
     bibleState: {book: bookData},
   } = useContext(BibleContext);
+
+  const onChange = (bookText: string, book: string) => {
+    onChangeBook(bookText, book);
+    onPressChapterHandler(true);
+  };
 
   return (
     <TouchableHighlight
@@ -31,7 +37,7 @@ export const ItemBook = ({bookText, book}: Props) => {
         },
       ]}
       onPress={() => {
-        onChangeBook(bookText, book);
+        onChange(bookText, book);
       }}>
       <Text
         style={[
@@ -55,7 +61,8 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     marginVertical: 5,
     // marginHorizontal: 14,
-    marginLeft: 15,
+    // marginLeft: 15,
+    marginHorizontal: 10,
     justifyContent: 'center',
 
     shadowColor: '#000',

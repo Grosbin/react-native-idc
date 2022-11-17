@@ -20,7 +20,7 @@ export const ItemPrayers = ({title, iconName, listPrayers}: Props) => {
   return (
     <View
       style={[
-        styles.itemSeparator,
+        // styles.itemSeparator,
         {paddingBottom: 10},
         // {backgroundColor: colors.background},
       ]}>
@@ -38,9 +38,9 @@ export const ItemPrayers = ({title, iconName, listPrayers}: Props) => {
 const styles = StyleSheet.create({
   itemSeparator: {
     // backgroundColor: gbColor.background,
-    borderRadius: 10,
-    marginBottom: 15,
-    marginHorizontal: 9,
+    // borderRadius: 10,
+    // marginBottom: 15,
+    // marginHorizontal: 2,
   },
   textHeader: {
     fontFamily: 'Poppins-Bold',

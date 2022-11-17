@@ -11,8 +11,11 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import {ThemeContex} from '../context/ThemeContex';
 
 const Tab = createMaterialTopTabNavigator();
-
-export const TopTabsBible = () => {
+interface Props {
+  widthOffset: any;
+  heightOffset: any;
+}
+export const TopTabsBible = ({widthOffset, heightOffset}: Props) => {
   const {
     theme: {colors},
   } = useContext(ThemeContex);
@@ -89,16 +92,44 @@ export const TopTabsBible = () => {
       })}>
       {bookOnPress && (
         <>
-          <Tab.Screen name="OldTestament" component={OldTestament} />
-          <Tab.Screen name="NewTestament" component={NewTestament} />
+          <Tab.Screen name="OldTestament">
+            {() => (
+              <OldTestament
+                widthOffset={widthOffset}
+                heightOffset={heightOffset}
+              />
+            )}
+          </Tab.Screen>
+          <Tab.Screen name="NewTestament">
+            {() => (
+              <NewTestament
+                widthOffset={widthOffset}
+                heightOffset={heightOffset}
+              />
+            )}
+          </Tab.Screen>
         </>
       )}
 
       {oldTestament.includes(book) && !bookOnPress && (
-        <Tab.Screen name="OldTestament" component={OldTestament} />
+        <Tab.Screen name="OldTestament">
+          {() => (
+            <OldTestament
+              widthOffset={widthOffset}
+              heightOffset={heightOffset}
+            />
+          )}
+        </Tab.Screen>
       )}
       {newTestament.includes(book) && !bookOnPress && (
-        <Tab.Screen name="NewTestament" component={NewTestament} />
+        <Tab.Screen name="NewTestament">
+          {() => (
+            <NewTestament
+              widthOffset={widthOffset}
+              heightOffset={heightOffset}
+            />
+          )}
+        </Tab.Screen>
       )}
     </Tab.Navigator>
   );

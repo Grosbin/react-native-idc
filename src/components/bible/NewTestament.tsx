@@ -34,8 +34,11 @@ const newTestamentData = {
   judas: ['Judas', 1],
   apocalipsis: ['Apocalipsis', 22],
 };
-
-export const NewTestament = () => {
+interface Props {
+  widthOffset: any;
+  heightOffset: any;
+}
+export const NewTestament = ({widthOffset, heightOffset}: Props) => {
   const {
     bibleState: {chapterOnPress, verseOnPress},
   } = useContext(BibleContext);
@@ -45,13 +48,15 @@ export const NewTestament = () => {
   }
 
   if (verseOnPress) {
-    return <ScrollVerse testament={newTestamentData} />;
+    return (
+      <ScrollVerse widthOffset={widthOffset} heightOffset={heightOffset} />
+    );
   }
 
   return (
     <ScrollSelectBook
       testament={newTestamentData}
-      style={{alignItems: 'flex-end', marginRight: 15}}
+      // style={{alignItems: 'flex-end', marginRight: 15}}
     />
   );
 };

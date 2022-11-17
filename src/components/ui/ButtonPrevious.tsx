@@ -18,10 +18,10 @@ export const ButtonPrevious = ({navigation, title, sizeTitle}: Props) => {
   return (
     <View style={styles.containerButton}>
       <ButtonPressIcon
-        style={styles.button}
+        // style={styles.button}
         PressFuntion={() => navigation.pop()}
         nameIcon={'caret-back'}
-        colorIcon={colors.white}
+        colorIcon={colors.fontPrimary}
       />
       <View style={{width: 250}}>
         <Text

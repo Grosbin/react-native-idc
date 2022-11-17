@@ -70,9 +70,9 @@ export const ButtonBible = ({
             // alignItems: 'center',
             // justifyContent: 'center',
           }}>
-          {iconSearch && (
+          {/* {iconSearch && (
             <Icon name="search" size={20} color={colors.background} />
-          )}
+          )} */}
           <Text
             style={[
               styles.buttonText,

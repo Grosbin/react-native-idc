@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, {useContext, useEffect} from 'react';
 import {StyleSheet, Text, TouchableOpacity} from 'react-native';
 import Animated, {
   useAnimatedStyle,
@@ -8,6 +8,7 @@ import Animated, {
 import {BibleContext} from '../../context/BibleContext';
 import {gbColor} from '../../theme/themeGlobal';
 import Icon from 'react-native-vector-icons/Ionicons';
+import {useCardAnimation} from '../../hooks/useCardAnimation';
 
 interface Props {
   widthOffset?: any;
@@ -17,23 +18,26 @@ interface Props {
 export const CloseCard = ({widthOffset, heightOffset}: Props) => {
   const {
     onActiveCard,
-    bibleState: {activeCard},
+    bibleState: {activeCard, verseOnPress},
   } = useContext(BibleContext);
-  const closedOffset = useSharedValue(1);
 
-  const closedScaleStyle = useAnimatedStyle(() => {
-    closedOffset.value = withSpring(1, {damping: 10});
-    return {
-      transform: [{scale: withSpring(closedOffset.value)}],
-    };
-  });
+  const {closedCardOffset, closedCardScaleStyle} = useCardAnimation();
+
+  // const closedOffset = useSharedValue(1);
+
+  // const closedScaleStyle = useAnimatedStyle(() => {
+  //   closedOffset.value = withSpring(1, {damping: 20});
+  //   return {
+  //     transform: [{scale: withSpring(closedOffset.value)}],
+  //   };
+  // });
 
   const onClosedCard = () => {
-    closedOffset.value = 0.8;
+    closedCardOffset.value = 0.8;
 
     if (activeCard) {
-      widthOffset.value = withSpring('95%');
-      heightOffset.value = withSpring('0%', {damping: 30});
+      widthOffset.value = '100%';
+      heightOffset.value = withSpring('0%', {damping: 20});
       onActiveCard(false);
     }
   };
@@ -43,7 +47,7 @@ export const CloseCard = ({widthOffset, heightOffset}: Props) => {
       style={styles.container}
       activeOpacity={0.9}
       onPress={onClosedCard}>
-      <Animated.View style={[styles.containerText, closedScaleStyle]}>
+      <Animated.View style={[styles.containerText, closedCardScaleStyle]}>
         <Icon name="close-circle" size={20} color={gbColor.foco} />
         <Text style={styles.closeText}> Cerrar</Text>
       </Animated.View>

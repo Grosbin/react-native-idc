@@ -7,22 +7,24 @@ import {gbColor} from '../theme/themeGlobal';
 
 interface Props {
   style?: any;
+  widthOffset?: any;
+  heightOffset?: any;
 }
-export const CardBook = ({style}: Props) => {
+export const CardBook = ({style, widthOffset, heightOffset}: Props) => {
   const {
     theme: {colors},
   } = useContext(ThemeContex);
   return (
     <Animated.View
       style={[styles.container, style, {backgroundColor: colors.foco}]}>
-      <TopTabsBible />
+      <TopTabsBible widthOffset={widthOffset} heightOffset={heightOffset} />
     </Animated.View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    alignSelf: 'center',
+    // alignSelf: 'center',
     position: 'absolute',
     zIndex: 999,
     bottom: 0,

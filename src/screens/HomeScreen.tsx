@@ -73,7 +73,10 @@ export const HomeScreen = ({navigation, route}: Props) => {
         <View
           style={[
             styles.container,
-            styles.itemSeparator,
+            {
+              borderTopRightRadius: 10,
+              borderTopLeftRadius: 10,
+            },
             {backgroundColor: colors.foco},
           ]}>
           {/* <View style={styles.itemSeparator}> */}

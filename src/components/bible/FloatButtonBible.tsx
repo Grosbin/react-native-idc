@@ -3,6 +3,7 @@ import {StyleProp, StyleSheet, ViewStyle} from 'react-native';
 import Animated, {withSpring} from 'react-native-reanimated';
 import {BibleContext} from '../../context/BibleContext';
 import {useBibleAnimation} from '../../hooks/useButtonAnimation';
+import {useCardAnimation} from '../../hooks/useCardAnimation';
 import {ButtonBible} from './ButtonBible';
 
 interface Props {
@@ -23,6 +24,7 @@ export const FloatButtonBible = ({
     onPressBookHandler,
     onPressChapterHandler,
     onPressVerseHandler,
+    onChangeVerse,
     bibleState: {
       bookText,
       activeCard,
@@ -45,8 +47,8 @@ export const FloatButtonBible = ({
 
   const handlerActiveCard = (active: boolean, subActive: boolean) => {
     if (!active) {
-      widthOffset.value = '95%';
-      heightOffset.value = withSpring('91%', {damping: 20});
+      widthOffset.value = '100%';
+      heightOffset.value = withSpring('100%', {damping: 20});
       onActiveCard(true);
     }
   };
@@ -57,14 +59,15 @@ export const FloatButtonBible = ({
     onPressBookHandler(true);
   };
 
-  const onChangeChapter = () => {
+  const onChangeChapterLocal = () => {
     chapterOffset.value = 0.8;
     onActiveCard(true);
     onPressChapterHandler(true);
+    onChangeVerse(1);
     handlerActiveCard(activeCard, false);
   };
 
-  const onChangeVerse = () => {
+  const onChangeVerseLocal = () => {
     verseOffset.value = 0.8;
     onActiveCard(true);
     onPressVerseHandler(true);
@@ -87,7 +90,7 @@ export const FloatButtonBible = ({
 
       <ButtonBible
         disabled={disabledButton}
-        onPress={onChangeChapter}
+        onPress={onChangeChapterLocal}
         activeCard={activeCard}
         text={chapter}
         style={style}
@@ -98,7 +101,7 @@ export const FloatButtonBible = ({
 
       <ButtonBible
         disabled={disabledButton}
-        onPress={onChangeVerse}
+        onPress={onChangeVerseLocal}
         activeCard={activeCard}
         text={verse}
         style={style}

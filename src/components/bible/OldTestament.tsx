@@ -47,11 +47,16 @@ const oldTestamentData = {
   malaquias: ['Malaquías', 4],
 };
 
-export const OldTestament = () => {
+interface Props {
+  widthOffset: any;
+  heightOffset: any;
+}
+
+export const OldTestament = ({widthOffset, heightOffset}: Props) => {
   const {
-    bibleState: {chapterOnPress, verseOnPress},
+    bibleState: {chapterOnPress, verseOnPress, book, chapter, verse},
   } = useContext(BibleContext);
-  
+
   // console.log(oldTestamentData, " oldTestamentData");
 
   if (chapterOnPress) {
@@ -59,7 +64,9 @@ export const OldTestament = () => {
   }
 
   if (verseOnPress) {
-    return <ScrollVerse testament={oldTestamentData} />;
+    return (
+      <ScrollVerse widthOffset={widthOffset} heightOffset={heightOffset} />
+    );
   }
 
   return (

@@ -1455,7 +1455,1058 @@ export const chants = [
   },
   {
     id: '151',
-    name: '',
-    lyrics: [],
+    name: 'El Mismo Amor',
+    lyrics: [
+      'El mismo amor hacia todos, la misma ofrenda al Maestro, en un vínculo que nos une al Señor.',
+      'Aliento igual al cansado, en todos una esperanza, un gozo igual en la misma verdad.',
+    ],
+  },
+  {
+    id: '152',
+    name: 'El Que Habita Al Abrigo',
+    lyrics: [
+      '//El que habita al abrigo del Altísimo, Morara bajo la sombra del Omnipotente Dios. Diré a Jehová, esperanza mía, castillo mío, mi Dios en Ti confiaré//.',
+    ],
+  },
+  {
+    id: '153',
+    name: 'El Señor Es Digno De Loor',
+    lyrics: [
+      '//El Señor es digno de loor, Vamos a darle gloria y honor, La Biblia nos enseña la forma de adorar, Debemos hacerlo en Espíritu y en verdad//.',
+      '//Vamos a dar a Cristo cantos de loor, Vamos a estar alegres de todo corazón//.',
+    ],
+  },
+  {
+    id: '154',
+    name: 'En El Calvario',
+    lyrics: [
+      'En el calvario mi Jesucristo, murió en la cruz por ti y por mi, ¿Cómo podríamos pagar por ello? ¿Cómo podríamos dímelo, si? ¿Cómo podríamos pagar por ello? ¿Cómo podríamos dímelo, si?',
+      'Pagar por ello, nunca podríamos, si El solo pide fidelidad, serle por siempre agradecido, sin ofenderle ya nunca más, serle por siempre agradecido, sin ofenderle ya nunca más.',
+    ],
+  },
+  {
+    id: '155',
+    name: 'En El Nombre De Jesús',
+    lyrics: [
+      'En el nombre de Jesús, me acerco ante tu presencia ¡Oh, Señor! En el nombre de Jesús, para darte mí ofrenda ¡Oh, Señor!',
+      'CORO: //Es alabanza y adoración, lo que te ofrezco ¡Oh, Señor! En el nombre maravilloso de Jesús//.',
+    ],
+  },
+  {
+    id: '156',
+    name: 'En El Principio',
+    lyrics: [
+      '//En el principio el Espíritu de Dios, se movía sobre las aguas// //Pero ahora se esta moviendo dentro de mi corazón//',
+      '//Oh Jerusalén que bonita eres calles de oro mar de cristal// //Por esas calles yo voy a caminar, calles de oro mar de cristal//',
+      '¿Dónde, dónde esta tú Dios? (4 veces) //Mi Dios esta en el cielo también en mi corazón, si el tuyo está muerto el mío resucito//.',
+    ],
+  },
+  {
+    id: '157',
+    name: 'En Ti Confía Mi Corazón',
+    lyrics: [
+      '//En Ti confía mi corazón, en Ti reposa mi alma; mi ser descansa en Ti y pueda ser feliz//.',
+      'Porque se que estas obrando tu perfecta voluntad, en mi vida estas obrando tu perfecta voluntad. ',
+    ],
+  },
+  {
+    id: '158',
+    name: 'Enviado Soy De Dios',
+    lyrics: [
+      'Enviado soy de Dios, mis manos listas están, para construir con El, un mundo fraternal.',
+      'Los ángeles no son, enviados a cambiar, un mundo de dolor, por un mundo de paz, me ha tocado a mi, hacerlo realidad, ayúdame Señor a hacer tu voluntad.',
+    ],
+  },
+  {
+    id: '159',
+    name: 'Eres Digno',
+    lyrics: [
+      '//Eres digno de abrir los sellos Señor//.',
+      'Porque fuiste inmolado, con tu poder me has levantado, porque fuiste inmolado y tu sangre me has salvado, Gloria a Dios, Gloria a Dios, Gloria a Dios, Gloria a Dios.',
+    ],
+  },
+  {
+    id: '160',
+    name: 'Esperar En Ti',
+    lyrics: [
+      'Esperar en Ti difícil se que es mi mente dice no; no es posible, pero mi corazón confiado esta en Ti, tu siempre has sido fiel me has sostenido.',
+      'CORO: Y esperaré pacientemente aunque la duda me atormente yo no confió con la mente lo hago con el corazón,',
+      'Y esperaré en la tormenta y aunque tardaré tu respuesta yo confiaré en tu providencia tu siempre tienes el control. ',
+    ],
+  },
+  {
+    id: '161',
+    name: 'Espíritu De Dios',
+    lyrics: [
+      '//Espíritu de Dios llena mi vida, llena mi alma, llena mi ser//.',
+      '//Lléname, lléname de Tu Presencia, lléname, lléname de Tu Amor, lléname, lléname de Tu Poder//.',
+      'Espíritu de Dios.',
+    ],
+  },
+  {
+    id: '162',
+    name: 'Estad Siempre Gozosos',
+    lyrics: [
+      '//Estad siempre gozosos, Orad sin cesar//. Dad gracias en todo, Porque esta es la voluntad.',
+      '//De Dios para con nosotros en Cristo Jesús//.',
+    ],
+  },
+  {
+    id: '163',
+    name: 'Este Es El Día',
+    lyrics: [
+      '//Este es el día//, //Que el Señor nos dio//, //Seré feliz// //Y le adoraré//.',
+      'CORO: Este es el día que el Señor nos dio seré feliz y le adoraré. //Este es el día//, que el Señor nos dio. ',
+      '//Este es el día//, //De obedecer?//, //No tardes más//, //Ven al Salvador//.',
+      'CORO: Este es el día de obedecer no tardes más ven al Salvador. //Este es el día//, de obedecer. ',
+      '//Este es el día//, //De encontrar la paz//, //Sólo en Jesús// //Hallarás perdón//.',
+      'CORO: Este es el día de encontrar la paz sólo en Jesús hallarás perdón. //Este es el día//, de encontrar la paz.',
+    ],
+  },
+  {
+    id: '164',
+    name: '¡Estoy Alegre!',
+    lyrics: [
+      '¡Estoy alegre, alegre, muy alegre! ¡Estoy alegre, porque Cristo me salvó! ¡Estoy alegre, alegre, muy alegre! ¡Estoy alegre, porque Cristo me salvó! ¡Gloria a Dios!',
+      'Por eso canto, yo canto ¡Aleluya! Por eso canto, ¡Aleluya! ¡Gloria a Dios! Por eso canto, yo canto ¡Aleluya! Por eso canto: ¡Aleluya! ¡Gloria a Dios!    ¡Gloria a Dios!',
+    ],
+  },
+  {
+    id: '165',
+    name: 'Estoy Confiando',
+    lyrics: [
+      'Estoy confiando, Señor en Ti, Tú eres fiel Señor, Tan fiel a mí, Nunca me has dejado, Aunque débil soy, Estoy confiando, Señor en Ti.',
+    ],
+  },
+  {
+    id: '166',
+    name: 'Fuiste A La Cruz',
+    lyrics: [
+      '//Fuiste a la cruz a morir por mí, Hoy te agradezco por amarme así. Le diste valor a mi vida Señor, Por eso te adoro, te adoro, Cristo//',
+      '//Te amo Jesús, me cambiaste Tú a mí Veo el antes y ahora y soy feliz//',
+    ],
+  },
+  {
+    id: '167',
+    name: 'Glorificad A Jehová',
+    lyrics: [
+      '//Glorificad a Jehová, porque su misericordia//.',
+      'CORO: ////Es para siempre amén, (es para siempre amén )////',
+      '¡Glorificad a Jehová!',
+    ],
+  },
+  {
+    id: '168',
+    name: 'Gracias',
+    lyrics: [
+      'Me has tomado en tus brazos y me has dado salvación, de tu amor has derramado en mi corazón, no sabré agradecerte lo que has hecho por mi, solo puedo darte ahora mi canción.',
+      'CORO: Y te doy gracias, gracias Señor, gracias mi Señor Jesús, gracias muchas gracias Señor, gracias mi Señor Jesús. ',
+      'En la cruz diste tu vida entregaste todo ahí, vida eterna regalaste al morir, por tu sangre tengo entrada ante el trono celestial, yo puedo entrar confiadamente ante Ti.',
+      'CORO: Para darte las gracias, gracias Señor, gracias mi Señor Jesús, gracias muchas gracias Señor, gracias mi Señor Jesús.',
+    ],
+  },
+  {
+    id: '169',
+    name: 'Gracias Dios Por Tu Bondad',
+    lyrics: [
+      'Gracias Dios por tu bondad, te alabo por tu majestad, gracias por tú inmenso amor que envió al Salvador.',
+      'CORO: Te damos gracias Dios por tu bondad (Aleluya) gracias por tu gran fidelidad.',
+      'Alabemos a una voz, el nombre del potente Dios, elevemos en su honor un canto de loor.',
+      'Muéstrame tu Santo ser, infunde en mi tu gran poder, quiero de tu amor hablar y por tu senda andar.',
+    ],
+  },
+  {
+    id: '170',
+    name: 'Gracias Señor Oh Mi Dios',
+    lyrics: [
+      'Gracias Señor Oh mi Dios, por permitirme alabarte. Gracias Señor Oh mi Dios, por permitirme adorarte.',
+      'Más como sé que no moriré allá también te alabaré, más como sé que no moriré allá también te adoraré.',
+    ],
+  },
+  {
+    id: '171',
+    name: 'Gracias Señor Te Damos Por Tu Presencia',
+    lyrics: [
+      'Gracias, Señor, te damos por tu presencia, Gracias, Señor, te damos por tu Poder. Gracias, Señor, te damos por tu Espíritu Santo, Gracias, gracias, gracias, Señor.',
+      'Satúrame, Señor, con tu presencia, Satúrame, Señor, con tu Poder. Satúrame, Señor, con tu Espíritu Santo, Gracias, gracias, gracias, Señor. Gracias, gracias, gracias, Señor.',
+    ],
+  },
+  {
+    id: '172',
+    name: 'Grande Es El Señor',
+    lyrics: [
+      '//¡Grande es el Señor creador del universo, Canta con gozo al Rey que viene pronto, De felicidad el corazón se llena, Grande es el Señor//.',
+      'OH, oh, oh, hosanna al Altísimo, OH, oh, oh, hosanna al Altísimo, OH, oh, oh, hosanna al Altísimo,',
+      'Grande es el Señor.',
+    ],
+  },
+  {
+    id: '173',
+    name: 'Grandes Y Maravillosas Son Tus Obras',
+    lyrics: [
+      'Grandes y maravillosas son tus obras, Señor Dios Todopoderoso, justos y verdaderos son tus caminos, Rey de los santos, Rey de los santos, Rey de los santos.',
+      'CORO: Aleluya amén, aleluya amén, aleluya amén, aleluya amén, amén, amén.',
+      '¿Quién no te temerá Oh Señor? Y glorificará tu nombre, ¡Pues solo tú eres Santo! Por lo cual, todas las naciones vendrán y te adorarán y te adorarán.',
+      'Temed a Dios y dadle gloria, Porque su juicio a llegado y adorad a Aquel que hizo El cielo y la tierra y el mar, y las fuentes de las aguas.',
+    ],
+  },
+  {
+    id: '174',
+    name: 'Hacemos Hoy',
+    lyrics: [
+      'Hacemos hoy ante tu altar, un compromiso de vivir en santidad, hacemos hoy ante tu altar, un pacto de hombres que te quieren agradar, con manos limpias, corazón puro para Ti.',
+      'Cuidaré mis ojos, cuidaré mis manos, cuidaré mi corazón, de todo lo malo, de todo lo vano, no te quiero fallar jamás.',
+    ],
+  },
+  {
+    id: '175',
+    name: 'Hay Momentos',
+    lyrics: [
+      '//Hay momentos, tan especiales, Junto a Ti, Señor//.',
+      '//En los que puedo sentir tu Presencia En los que puedo recostarme en Ti. En los que puedo yo tomar de tu amor//.',
+    ],
+  },
+  {
+    id: '176',
+    name: 'Hay Momentos Que!',
+    lyrics: [
+      'Hay momentos que no deberían terminar, Hay segundos que tendrían que ser eternidad, Cuando tu Espíritu, Señor, se toca con el mío, Y mi corazón estalla, en adoración.',
+      'CORO: Te amo mi Señor, se acaban las palabras, Solo me queda mi alma, para cantarte.',
+      'Te adoro mi Señor, no hay nada al rededor, Solo estamos Tú y yo, solo estamos Tú y yo.',
+    ],
+  },
+  {
+    id: '177',
+    name: 'He Decidido Seguir A Cristo',
+    lyrics: [
+      '///He decido seguir a Cristo/// No vuelvo atrás, no vuelvo atrás.',
+      '///Si otros vuelven, yo siempre sigo/// No vuelvo atrás, no vuelvo atrás.',
+      '////La vida vieja la he dejado/// No vuelvo atrás, no vuelvo atrás.',
+      '///El Rey de Gloria me ha transformado/// No vuelvo atrás, no vuelvo atrás.',
+      '///Cristo viene y yo le espero/// No vuelvo atrás, no vuelvo atrás.',
+      '///La cruz delante y el mundo atrás/// No vuelvo atrás, no vuelvo atrás.',
+    ],
+  },
+  {
+    id: '178',
+    name: 'Heme Aquí',
+    lyrics: [
+      'Heme aquí, yo iré Señor, heme aquí, yo iré Señor, envíame a mí que dispuesto estoy y llevare tu gloria a las naciones.',
+    ],
+  },
+  {
+    id: '179',
+    name: 'Jehová Esta En Su Templo',
+    lyrics: [
+      '//Jehová está en su templo alábale que El vive// //Alábale, alábale, alábale que El vive//.',
+      '//Al Señor Jesucristo alábale que El vive// //Alábale, alábale, alábale que El vive//.',
+      '//Al Espíritu Santo alábale que El vive// //Alábale, alábale, alábale que El vive//.',
+    ],
+  },
+  {
+    id: '180',
+    name: 'Jesús Haz Mi Carácter',
+    lyrics: [
+      '//Jesús haz mi carácter más como el tuyo, yo quiero ser//.',
+      '//Porque en esta vida hay cosas que pasan que yo no entiendo porque yo quiero demostrar tu amor a cada instante hazme hacer tu voluntad y morir a mi viejo hombre haz mi carácter más como el tuyo yo quiero ser//.',
+    ],
+  },
+  {
+    id: '181',
+    name: 'Jesús Me Pastorea',
+    lyrics: [
+      '//Jesús me pastorea. Yo voy con El hasta el fin//. //Yo voy con El, yo voy con El hasta el fin//.',
+      '//Me lleva a pastos verdes. Yo voy con El hasta el fin//. //Yo voy, con El yo voy con El hasta el fin//.',
+    ],
+  },
+  {
+    id: '182',
+    name: 'Jesús Señor De La Creación',
+    lyrics: [
+      'Jesús Señor de la creación, siendo en forma de Dios, Se despojo de si mismo, tomo la semejanza de hombre, Y siendo puro y sin mancha entre nosotros vivió y así mismo se humilló, Tomando forma de siervo y hasta su vida entregar y en una cruz terminar.',
+      'CORO: //Más Dios a lo sumo le exaltó y su nombre engrandeció para que ante su autoridad toda rodilla se doble y toda lengua confiese que Jesús es el Señor//.',
+    ],
+  },
+  {
+    id: '183',
+    name: 'Job 42',
+    lyrics: [
+      'Conozco que todo lo puedes, que mi pensamiento No lo puedo esconder. Hablaba lo que no entendía, Y de oídas te había oído.',
+      'CORO: Mas ahora mis ojos te ven; yo te preguntaré, Y Tú me enseñarás. Mas ahora mis ojos te ven; me rindo a tus pies, Y me arrepiento, Señor.',
+    ],
+  },
+  {
+    id: '184',
+    name: 'Juan Vio El Número',
+    lyrics: [
+      'Juan vio el número de los salvados, de los salvados por el Señor. Estaban todos con ropas blancas, y en ese número, y en ese número estaba yo. Y en ese número, y en ese número, y en ese número estaba yo.',
+      'Cristo es la roca de agua de vida, Cristo es la fuente de salvación. Si te arrepientes de tus pecados Cristo te da, Cristo te da, la salvación. Si te arrepientes de tus pecados Cristo te da la salvación.',
+    ],
+  },
+  {
+    id: '185',
+    name: 'La Fuente',
+    lyrics: [
+      'Hay una fuente de agua viva, Que siempre abierta está para ti, Es la fuente de amor que Jesús abrió, Al morir por nos en la cruz.',
+      'CORO: Ven a mí, dice el Salvador, Ven a mí, Él te llama hoy, Tú vendrás y vida tendrás, Es la fuente de salvación.',
+      'Una fuente que sacia y trae paz, Desde el cielo a Dios volverá, Donde puede aquel que sediento está, Beber gratis, saciar su sed.',
+      'Todos pueden ser rescatados hoy, De este mundo cruel y falaz, Este mundo está casi al perecer, Si eres fiel lugar tendrás.',
+    ],
+  },
+  {
+    id: '186',
+    name: 'La Roca',
+    lyrics: [
+      'Es.. la roca de mi ser, es el que da paz a mi corazón, Es el sol que ilumina mi vida si lo es, su dulce nombre es Jesús, Por siempre lo cantaré, lo esperaré, porque El es mi Salvador.',
+      'En mi corazón yo tengo a Cristo, de la mano voy con El hacia el cielo, Yo cantaré que tengo un amigo, cuyo nombre es Jesucristo hoy le doy mi corazón.',
+    ],
+  },
+  {
+    id: '187',
+    name: 'La Última Palabra',
+    lyrics: [
+      '//Dame de tu eterna paz Dame el don para esperar Ayúdame a confiar en Ti Porque en mis fuerzas no Puedo más//.',
+      'CORO: Tú eres mi sustento Y Tú mi creador Y la última palabra La tienes Tú.',
+      '//Has que brote en mí Tu respuesta Oh Dios No quiero ahogarme En mi humanidad//.',
+    ],
+  },
+  {
+    id: '188',
+    name: 'La Única Razón De Mí Adoración',
+    lyrics: [
+      'La única razón de mi adoración eres Tú mi Jesús, El único motivo para vivir eres Tú mi Señor.',
+      'La única verdad está en Ti eres mi luz y mi salvación, Mi único amor eres Tú Señor y por siempre te alabaré.',
+      '//Tú eres todo Poderoso eres Grande y Majestuoso, Eres fuerte, invencible y no hay nadie como Tú//.',
+    ],
+  },
+  {
+    id: '189',
+    name: 'Llena Mi Copa De Tu Amor',
+    lyrics: [
+      '//Llena mi copa de tu amor//. Que rebosé de tu amor.',
+      '///Llena mi copa de tu amor///. Que rebosé de tu amor.',
+      'Divina gracia cuán dulce es Sin merecer la salvación me dio Perdido fui pero me encontró Era ciego y puedo ver.',
+    ],
+  },
+  {
+    id: '190',
+    name: 'Llueve',
+    lyrics: [
+      'Llueve, ven llueve sobre mi Llueve, ven llueve sobre mi Llueve, ven llueve sobre mi Llueve, ven llueve sobre mi',
+      '//Quiero estar en las aguas De tu Presencia Y Refrescarme dentro de Ti He venido sediento Y tan solo anhelo Saciarme de Ti//',
+    ],
+  },
+  {
+    id: '191',
+    name: 'Los Cielos Cuentan',
+    lyrics: [
+      '//Los cielos cuentan Tú Gloria Señor, el firmamento anuncia tus obras, de día y noche es oída su voz, proclamando tu grandeza//.',
+      'CORO: //Y yo proclamaré Tu Grandeza y Tu Poder, anunciaré con mi vida que Tú eres el Rey, y como el cielo y las estrellas, portador de Tu Gloria seré//.',
+      'Y si Tu Poder y Tu Deidad son visibles en tu creación, quiero que sean visibles en mi vida Señor.',
+    ],
+  },
+  {
+    id: '192',
+    name: 'Más El Dios',
+    lyrics: [
+      '//Más el Dios de toda gracia que nos llamó a su gloria eterna; Os perfeccione y afirme, fortalezca y restablezca//.',
+      '//A El sea la Gloria, a El sea el Imperio por los siglos de los siglos a El//.',
+      'Amén, amén, amén y amén.',
+    ],
+  },
+  {
+    id: '193',
+    name: 'Mi Alabanza Es Para Ti',
+    lyrics: [
+      '////Mi alabanza es para Ti Señor////.',
+      'CORO: Porque Tú me has dado la vida, Porque Tú me has dado el existir, Porque Tú me has dado cariño, me has dado amor.',
+      'Por las mañanas canto a Ti Señor; Al mediodía canto a Ti Señor Y por las noches canto a Ti Señor, Mis alabanzas son a Ti.',
+    ],
+  },
+  {
+    id: '194',
+    name: 'Mi Pensamiento Eres Tú',
+    lyrics: [
+      '////Mi pensamiento eres Tú, Señor////.',
+      'CORO: Porque Tú me has dado la vida, Porque Tú me has dado el existir, Porque Tú me has dado cariño, me has dado amor.',
+      'Por las mañanas pienso en Ti Señor; Al mediodía pienso en Ti Señor Y por las noches pienso en Ti Señor, Mis alabanzas son a Ti.',
+    ],
+  },
+  {
+    id: '195',
+    name: 'Mirad Cual Amor',
+    lyrics: [
+      '//Mirad cuál amor nos ha dado el Padre, al hacernos hijos de Dios//.',
+      '//Para ser llamados hijos de Dios, para ser llamados hijos de Dios//.',
+    ],
+  },
+  {
+    id: '196',
+    name: 'Mirarte Solo A Ti Señor',
+    lyrics: [
+      '///Mirarte sólo a Ti, Señor///, y no mirar atrás, seguir tu caminar, Señor, Seguir sin desmayar, Señor, postrarme ante tú altar, Señor, y no mirar atrás.',
+      '///Amarte sólo Ti, Señor///, y no mirar atrás, seguir tu caminar, Señor, Seguir sin desmayar, Señor, postrarme ante tú altar, Señor, y no mirar atrás.',
+      '///Seguirte sólo Ti, Señor///, y no mirar atrás, seguir tu caminar, Señor, Seguir sin desmayar, Señor, postrarme ante tú altar, Señor, y no mirar atrás.',
+      '///Servirte sólo a Ti, Señor///, y no mirar atrás, seguir tu caminar, Señor, Seguir sin desmayar, Señor, postrarme ante tú altar, Señor, y no mirar atrás.',
+    ],
+  },
+  {
+    id: '197',
+    name: 'No Hay Dios Tan Grande Como Tú',
+    lyrics: [
+      '//No hay Dios tan grande como Tú, no lo hay, no lo hay//. //No hay Dios que pueda hacer las obras, como las que haces Tú//.',
+      '//No es con espada, ni con ejército, mas con su Santo Espíritu//. Y muchas almas se salvarán, y muchas almas se salvarán, Y muchas almas se salvarán con su Santo Espíritu.',
+    ],
+  },
+  {
+    id: '198',
+    name: 'No Puede Estar Triste',
+    lyrics: [
+      '//No puede estar triste Un corazón que tiene a Cristo. No puede estar triste Un corazón que tiene a Dios//.',
+      '//Canto con gozo a Jesucristo, El que tenga el gozo del Señor Que diga Amen//. //Santo. Santo. Santo es el Consolador//',
+      '//No vivo yo, más vive Cristo en mí Para mi el morir es vivir. Para mi el morir es vivir, Para mi el morir es vivir. Para el morir es Cristo/?.',
+    ],
+  },
+  {
+    id: '199',
+    name: 'Oh Dios Tu Eres Mi Dios',
+    lyrics: [
+      '//Oh Dios tu eres mi Dios y siempre te alabaré//',
+      'Yo te busco en la mañana aprenderé a andar en tus modos, Y te sigo en tus pasos, te seguiré con todo mí ser, Te seguiré con todo mí ser, te seguiré con todo mí ser, Y te sigo en tus pasos, te seguiré con todo mí ser.',
+    ],
+  },
+  {
+    id: '200',
+    name: 'Padre Nuestro',
+    lyrics: [
+      'Padre Nuestro que estas en los cielos, santificado sea tu nombre, Venga tu Reino sea tu voluntad en los cielos como en la tierra. Danos hoy el pan de cada día, y perdona nuestras deudas, No nos dejes caer en la tentación, más líbranos de todo mal.',
+      'CORO: //Porque tuyo, tuyo es el Reino, tuya toda la Gloria, tuyo, tuyo el Poder, por todos los siglos para siempre ¡Amen!//.',
+    ],
+  },
+  {
+    id: '201',
+    name: 'Porque Grande Es Jehová',
+    lyrics: [
+      '//Porque grande es Jehová, Y digno de suprema alabanza; Adorad a Jehová En la hermosura de su Santidad//.',
+      'CORO: //Y temed delante de Él, Toda la tierra///. ///Porque grande es Jehová/// Nuestro Dios.',
+    ],
+  },
+  {
+    id: '202',
+    name: 'Puedo Confiar',
+    lyrics: [
+      '//Puedo confiar en el Señor, no me va a fallar//.',
+      'CORO: Si el sol llegará a obscurecer ya no brillare nunca más, Yo igual confío en el Señor, no me va a fallar.',
+      'Puedo descansar (Puedo descansar), Puedo descansar (Puedo descansar), Que a su mansión (Que a su mansión), Cristo me guiará (Cristo me guiará).',
+    ],
+  },
+  {
+    id: '203',
+    name: '¿Qué Seria De Mí?',
+    lyrics: [
+      '¿Qué sería de mí sino me hubieras alcanzado?, ¿Dónde estaría hoy sino me hubieras perdonado?',
+      'Tendría un vacío en mí corazón, vagaría sin rumbo sin dirección, //Si no fuera por tu Gracia y por tu amor?//.',
+      'Sería como un pájaro herido que se muere en el suelo, Sería como un siervo que brama por agua en un desierto, //Si no fuera por tu Gracia y por tu amor?//.',
+    ],
+  },
+  {
+    id: '204',
+    name: '¿Quién Nos Separará Del Amor De Cristo?',
+    lyrics: [
+      '//¿Quién nos separara del amor de Cristo?, ¿Quién nos separara del amor de Dios?//.',
+      'CORO: //Ni la vida, ni la muerte, ni lo alto, ni lo profundo, ni ángeles, ni potestades. Nada nos podrá separar, nada nos podrá separar, nada nos podrá separar del amor de Dios//.',
+    ],
+  },
+  {
+    id: '205',
+    name: 'Quiero Alabarte Señor',
+    lyrics: [
+      'Quiero alabarte Señor más y más aun, yo quiero alabarte Señor más y más aun, tú voluntad hacer, tú Gracia conocer, yo quiero alabarte.',
+      'Las aves del cielo cantan para Ti, las bestias del campo demuestran tu Poder, quiero yo cantar, quiero levantar mi voz a Ti.',
+      'Quiero alabarte Señor más y más aun, yo quiero alabarte Señor más y más aun, tú voluntad hacer, tú Gracia conocer, yo quiero alabarte.',
+    ],
+  },
+  {
+    id: '206',
+    name: 'Quiero Cantar Una Linda Canción',
+    lyrics: [
+      'Quiero cantar una linda canción de un hombre que me transformo, Quiero cantar una linda canción de aquel que mi vida cambio. Es mi amigo Jesús, es mi amigo más fiel, Él es Dios, Él es Rey, Es amor y verdad, solo en Él encontré esa paz que busqué, Solo en Él encontré la felicidad.',
+      'Quiero que sepas amable oyente que Cristo te tiene amor, Él quiere darle sentido a tú vida, entrégate hoy al Señor, Cristo tiene Poder nada hay que temer, Él es Dios, Él es Rey, Es amor y verdad, solo en Él encontré esa paz que busqué, Solo en Él encontré la felicidad.',
+      'Unidos cantemos y Gloria entonemos al maravilloso Jesús, Unidos cantemos y Gloria entonemos al maravilloso Jesús. Religiones habrá, pero no salvarán, Solo Cristo Jesús, Puede dar libertad, solo en Él encontré esa paz que busqué, Solo en Él encontré la felicidad.',
+    ],
+  },
+  {
+    id: '207',
+    name: 'Quiero Levantar Mis Manos',
+    lyrics: [
+      'Quiero levantar mis manos, quiero levantar mi voz, Ofreciendo a Ti mi vida, en santidad y amor.',
+      'Padre solo a Ti te ofrezco, mi vida y mi corazón, Y me postro en tu presencia en adoración.',
+      'Hijo de Dios, recibe hoy, toda la Gloria, la Honra y el Honor.',
+    ],
+  },
+  {
+    id: '208',
+    name: 'Redimido Fui',
+    lyrics: [
+      '///Redimido fui... por la sangre de El...///, Lleno del Espíritu soy, Mis pecados han sido lavados, redimido soy.',
+      '///Así es como... El me salvo.../// Fui al río y se me bautizó, Mis pecados han sido lavados, redimido soy.',
+      '///Y no es todo... hay más todavía.../// Voy a seguirle fiel cada día, Mis pecados han sido lavados, redimido soy.',
+      '///Él va a volver... a llevarme allá.../// Porque mi hogar no está acá, Mis pecados han sido lavados, redimido soy,',
+      'Mis pecados han sido lavados, redimido soy.',
+    ],
+  },
+  {
+    id: '209',
+    name: 'Regocijaos En El Señor',
+    lyrics: [
+      '//Regocijaos en el Señor siempre, otra vez digo regocijaos// //Regocijaos, regocijaos, otra vez digo regocijaos//.',
+    ],
+  },
+  {
+    id: '210',
+    name: 'Renuévame Señor Jesús',
+    lyrics: [
+      'Renuévame Señor Jesús, ya no quiero ser igual, Renuévame Señor Jesús pon en mí tu corazón.',
+      '//Porque todo lo que hay dentro de mi, necesita ser cambiado Señor, Porque todo lo que hay, dentro de mi corazón, necesita más de Ti//.',
+    ],
+  },
+  {
+    id: '211',
+    name: 'Rey De Reyes',
+    lyrics: [
+      '//Rey de reyes, y Señor de señores, ¡Gloria!, ¡Aleluya!//.',
+      '//Cristo, Príncipe de Paz, ¡Gloria!, ¡Aleluya!//.',
+    ],
+  },
+  {
+    id: '212',
+    name: 'Sendas Dios Hará',
+    lyrics: [
+      'Sendas Dios hará donde piensas que no hay, Él obra en maneras que no podemos entender, Él me guiará a su lado estaré, valor y fuerzas me dará y un camino hará, donde no lo hay.',
+      'Por caminos en la soledad me guiará, y agua en el desierto encontraré, la tierra pasará, su palabra eterna es, El hará algo nuevo hoy.',
+    ],
+  },
+  {
+    id: '213',
+    name: 'Sentado En Su Trono',
+    lyrics: [
+      'Sentado en su trono rodeado de luz, a la diestra del Padre gobierna Jesús, con ojos de fuego, con rostro de sol, cuando abre su boca es trueno su voz.',
+      'CORO: Poderoso en majestad y reino poderoso, poderoso en potestad e imperio poderoso.',
+      'Un gran arco iris corona su Ser, Él es el Cordero que pudo vencer, Él es el primero, Él es el postrero, y arrojan coronas delante de ÉL.',
+    ],
+  },
+  {
+    id: '214',
+    name: 'Señor Eres Fiel',
+    lyrics: [
+      '//Señor eres fiel y tu misericordia eterna//.',
+      'CORO: Gente de toda lengua y nación de generación a generación, //Te adoramos hoy, ¡Aleluya, aleluya! Te adoramos hoy eres Señor//.',
+    ],
+  },
+  {
+    id: '215',
+    name: 'Señor Llévame A Tus Atrios',
+    lyrics: [
+      'Señor llévame a tus atrios, al lugar Santo, al altar de bronce, Señor tu rostro quiero ver, Pásame en la muchedumbre, por donde el sacerdote canta, tengo hambre y sed de justicia, y solo encuentro un lugar.',
+      'CORO: Llévame al lugar Santísimo, por la sangre del Cordero Redentor, llévame al lugar Santísimo, tócame, límpiame, heme aquí.',
+    ],
+  },
+  {
+    id: '216',
+    name: 'Sin Ti Nada Somos En El Mundo',
+    lyrics: [
+      'Sin Ti nada somos en el mundo, Sin Ti nada podemos hacer, //Ni las hojas de los árboles se mueven, sino es por tu Poder//.',
+      'CORO: //Cielos y tierra pasaran, más tus palabras no pasaran// //Oh Tu que eras, que eres y que serás//',
+      'Sin Ti nada somos en el mundo, Sin Ti nada podemos hacer, //Ni el corazón palpita en el pecho, sino es por tu Poder//.',
+      'Sin Ti no tenemos esperanza, Sin Ti no tenemos salvación, //Solo Tú puedes deshacer la muerte, dando vida y perdón//.',
+    ],
+  },
+  {
+    id: '217',
+    name: 'Soberano Dios',
+    lyrics: [
+      'Soberano Dios, Dios omnipotente, Rey de reyes, A Ti sea el honor, el imperio y la alabanza.',
+      'Desde ahora y para siempre, por los siglos de los siglos, Exaltado seas Tú, coronado seas Tú, ///Señor Jesús/// Amén.',
+    ],
+  },
+  {
+    id: '218',
+    name: 'Solamente En Cristo',
+    lyrics: [
+      'Solamente en Cristo, solamente en El, la salvación se encuentra en El, No hay otro nombre dado a los hombres, solamente en Cristo, solamente en El.',
+      'En San Juan catorce en el verso seis, ahí nos dice el Señor Jesús, yo soy el camino, la verdad y la vida, nadie viene al Padre sino es por Mí.',
+    ],
+  },
+  {
+    id: '219',
+    name: 'Solo Dios Hace Al Hombre Feliz',
+    lyrics: [
+      '//Solo Dios hace al hombre feliz//. La vida es nada todo se acaba solo Dios hace al hombre feliz.',
+      '///Soy feliz Cristo me salvó/// //Gloria ¡Aleluya! Cristo me salvó//.',
+    ],
+  },
+  {
+    id: '220',
+    name: 'Somos El Pueblo De Dios',
+    lyrics: [
+      'Somos el pueblo de Dios, somos un pueblo especial, Llamados para anunciar, las virtudes de aquel, que nos llamo a su luz.',
+      'Somos el pueblo de Dios, su sangre nos redimió y su Espíritu dio, Para darnos poder, y ser testigos de El.',
+      'CORO: Y llevaremos su Gloria a cada pueblo y nación, Trayéndoles esperanza y nuevas de salvación, Y su amor nos impulsa no nos podemos callar, Anunciaremos al mundo, de su amor y verdad.',
+    ],
+  },
+  {
+    id: '221',
+    name: 'Somos Pueblo',
+    lyrics: [
+      '//Somos pueblo, pueblo adquirido por Dios, Nación Santa, Real Sacerdocio, Linaje escogido por Dios//.',
+      '//Para anunciar las virtudes de aquel Que nos llamo de tinieblas a luz// ¡Admirable! Somos los hijos de luz.',
+      'CORO: Tiempo de vivir, tiempo de morir, Tiempo de llorar, tiempo de reír, Tiempo de animar y de redargüir Hoy es tiempo...',
+      'Tiempo de aprender, tiempo de enseñar Tiempo de hablar, tiempo de callar Tiempo de sembrar y de cosechar Hoy es tiempo...',
+      '//Hoy es tiempo que seamos, (oh, oh, oh) Ese pueblo glorioso, fiel y victorioso de Dios//.',
+      'HOY ES TIEMPO.',
+    ],
+  },
+  {
+    id: '222',
+    name: '¿Soy Yo Soldado De La Cruz?',
+    lyrics: [
+      '¿Soy yo soldado de la cruz y siervo del Señor? No temeré llevar su cruz, sufriendo por su amor.',
+      'CORO: Después de la batalla nos coronará, Dios nos coronará, Dios nos coronará, Después de la batalla nos coronará En aquella Santa Sión. Más allá, más allá En aquella Santa Sión. Después de la batalla nos coronará En aquella Santa Sión.',
+      'Lucharon otros por la fe cobarde no he de ser. Por mi Señor yo pelearé confiando en su poder.',
+      'Es menester que sea fiel, que nunca vuelva atrás, Que siga siempre en pos de él y me guiará en paz.',
+    ],
+  },
+  {
+    id: '223',
+    name: 'Subiendo Voy',
+    lyrics: [
+      'Subiendo voy si voy, subiendo voy Ha encontrarme con Jesús al cielo voy. Las trompetas oiré y este mundo dejaré, Transformado en Gloria voy subiendo voy. La gracia del Señor jamás me faltará Jamás me faltará en mi corazón.',
+      '//Yo canto noche y día, día y noche sin cesar, Con grande alegría y nunca desmayar La gracia del Señor jamás me faltará, Jamás me faltará en mi corazón//.',
+    ],
+  },
+  {
+    id: '224',
+    name: 'Sumérgeme',
+    lyrics: [
+      'Cansado del camino, sediento de Ti, Un desierto he cruzado sin fuerzas he quedado vengo a Ti. Luche como soldado y a veces sufrí, Y aunque la lucha he ganado mi armadura he desgastado, vengo a Tl.',
+      'CORO: //Sumérgeme en el rió de tu Espíritu, necesito refrescar este seco corazón sediento de Ti//.',
+    ],
+  },
+  {
+    id: '225',
+    name: 'Tal Como Soy Señor',
+    lyrics: [
+      'Tal como soy Señor, sin nada que ofrecer más que mi canción, No tengo más que darte pues todo es tuyo Señor.',
+      'Tal como soy Señor, sin nada que entregar más que el corazón, Me rindo ante Ti tómame Señor, tal como soy.',
+      'Acéptame como ofrenda de amor, Como un sacrificio agradable en tu honor, Grato perfume yo quiero ser Señor.',
+    ],
+  },
+  {
+    id: '226',
+    name: 'Te Alabarán Oh Jehová',
+    lyrics: [
+      'Te alabarán Oh Jehová todos los reyes, Todos los reyes de la tierra, Porque han oído los dichos de tu boca y Cantarán de los caminos de Jehová.',
+      '//Porque la Gloria de Jehová es grande, Porque Jehová es excelso en sus caminos, Porque Jehová atiende al humilde más Mira de lejos al altivo//.',
+    ],
+  },
+  {
+    id: '227',
+    name: 'Te Alabaré Oh Señor',
+    lyrics: [
+      'Te alabaré Oh Señor, invocaré tú Santo nombre, Siempre daré a conocer, en los pueblos tus obras.',
+      '//Grandes son, grandes son, grandes son tus maravillas//.',
+    ],
+  },
+  {
+    id: '228',
+    name: 'Te Alabaré Y Te Glorificaré',
+    lyrics: [
+      'Eres Tú la única razón de mi adoración ¡Oh Jesús! Eres Tú la esperanza que anhele tener ¡Oh Jesús!',
+      'Confié en ti me has ayudado, tu salvación me has regalado. Hoy hay gozo en mi corazón con mi canto te Alabaré.',
+      'CORO: //Te Alabaré, Te Glorificaré Te Alabaré, mi buen Jesús//.',
+      '//En todo tiempo te Alabaré// ',
+    ],
+  },
+  {
+    id: '229',
+    name: 'Te Amo En El Amor Del Señor',
+    lyrics: [
+      '//Te amo en el amor del Señor, te amo en el amor del Señor, Veo en ti la Gloria de Dios, y te amo en el amor del Señor//.',
+    ],
+  },
+  {
+    id: '230',
+    name: 'Te Daré Lo Mejor',
+    lyrics: [
+      'Traemos hoy ante tu altar nuestras coronas, queremos darte lo mejor de nuestras vidas, te entregare mi amor entero, los sueños que logre alcanzar.',
+      'CORO: Te daré lo mejor de mi vida, te daré lo mejor cada día, será mucho mas que una canción de obediencia es mi mejor adoración.',
+      'Traemos hoy ante tu altar nuestras coronas, queremos darte lo mejor de nuestras vidas, daremos solo las primicias pues Tú mereces lo mejor.',
+      'Daremos solo las primicias pues Tú mereces lo mejor.',
+      '///Te daré lo mejor de mi///.',
+    ],
+  },
+  {
+    id: '231',
+    name: 'Te Exaltare Mi Dios',
+    lyrics: [
+      'Te exaltaré mi Dios mi Rey, Y bendeciré tu nombre, Eternamente y para siempre Cada día te bendeciré,',
+      'CORO: Y alabaré tu nombre Eternamente y para siempre Grande es Jehová, Y digno de suprema alabanza; Y su grandeza es inescrutable Cada día te bendeciré.',
+      'Generación a generación, Celebraran tus obras; Y anunciarán tus poderosos hechos Cada día te bendeciré,',
+    ],
+  },
+  {
+    id: '232',
+    name: 'Te Vengo A Decir',
+    lyrics: [
+      'Te vengo a decir, te vengo a decir, Oh, mi Salvador, Que yo te amo a Ti, que yo te amo a Ti, con el corazón.',
+      'Te vengo a decir, te vengo a decir toda la verdad, Te quiero Señor, te amo Señor, con el corazón.',
+      'Yo quiero cantar, yo quiero cantar de gozo y de paz. Yo quiero llorar, yo quiero llorar de felicidad.',
+      'Te vengo a decir, te vengo a decir toda la verdad, Te quiero Señor, te amo Señor, con el corazón.',
+    ],
+  },
+  {
+    id: '233',
+    name: 'Tengo Libertad',
+    lyrics: [
+      '//Tengo libertad gloriosa libertad, Cristo me libró de toda mi maldad, Libre del dolor, pesares y temor, Ahora canto ¡Gloria, Aleluya!//.',
+    ],
+  },
+  {
+    id: '234',
+    name: 'Todavía Señor',
+    lyrics: [
+      'Todavía Señor, hay un gran conflicto en mi, Entre lados opuestos de mi ser. Hay un yo egoísta que no se rinde a Ti, Y otro yo que te quiere obedecer.',
+      'Todavía Señor, no soy lo que debo ser, Tú mereces de mi vida lo mejor. Pero gracias a Ti que por tu poder y amor, Ya no soy lo que era Señor.',
+    ],
+  },
+  {
+    id: '235',
+    name: 'Tu Eres Mi Puerta',
+    lyrics: [
+      '//Aunque no encuentre una puerta, Aunque no encuentre una salida, En Ti descansa mi espíritu, En Ti descansa mi alma//.',
+      '//Se mi puerta y mi salida, En todo tiempo se mi sostén, A quien tengo yo sino a Ti ¡Oh Jesús!//.',
+    ],
+  },
+  {
+    id: '236',
+    name: 'Tu Fidelidad Y Tu Amor Por Mi Es Grande',
+    lyrics: [
+      'Tu fidelidad es grande, Tu fidelidad incomparable es, Nadie es como Tu Bendito Dios, Grande es tu fidelidad.',
+      'Tu amor por mi es grande, Tu amor por mi incomparable es, Nadie es como Tu Bendito Dios, Grande es tu amor por mí.',
+    ],
+  },
+  {
+    id: '237',
+    name: 'Tu Misericordia',
+    lyrics: [
+      '¿Qué soy yo, para que me visites?, ¿Y te acuerdes de mi Señor Jesús? ¿Qué te movió a perdonarme? Tu misericordia, Oh Dios Me abrazó y el pasado olvidó.',
+      'CORO: Tu misericordia, es mejor que la vida. Tu misericordia, puso en mí una canción. Tu misericordia, vivifica al caído. Tu misericordia Oh Dios, Me alcanzó y mi vida coronó.',
+    ],
+  },
+  {
+    id: '238',
+    name: 'Tú Nombre Oh Dios Exaltare',
+    lyrics: [
+      'Tu Nombre Oh Dios exaltaré, Tu Majestad levantaré Y por siempre te proclamaré, Mi alabanza elevaré.',
+      'CORO: Por que digno, digno eres Tú A Tí sea Honor y Poder Digno, digno eres Tú Recibe adoración, Señor.',
+    ],
+  },
+  {
+    id: '239',
+    name: 'Tú Poder Anhelamos',
+    lyrics: [
+      '//Tú poder anhelamos en este lugar y tu victoria que nos da libertad, Tú poder anhelamos en este lugar y tu victoria que nos dará libertad//.',
+      'CORO: //Libertad que Tú ganaste con tu sangre redentora, Libertad que nos permite, adorarte en Espíritu y en verdad// Y en verdad y en verdad, ¡¡¡Libertad!!!',
+    ],
+  },
+  {
+    id: '240',
+    name: 'Una Mirada De Fe',
+    lyrics: [
+      '//Una mirada de fe, una mirada de fe Es la que puede salvar al pecador?//.',
+      '//Y sí tú vienes a Cristo Jesús, El te perdonará porque una mirada de fe Es la que puede salvar al pecador//.',
+    ],
+  },
+  {
+    id: '241',
+    name: 'Unidos',
+    lyrics: [
+      'Unidos, unidos, en su nombre unidos Unidos, unidos, en su nombre unidos. //Pues en este mundo Paz y amor tendremos//.',
+      'Unidos siempre unidos tomados de las manos, Iremos por el mundo cantándole a Dios, La Gloria de Jesús al fin resplandecerá, Y el mundo entero sabrá ///que Tú eres Dios///.',
+    ],
+  },
+  {
+    id: '242',
+    name: 'Vamos A Cantar',
+    lyrics: [
+      '//Vamos a cantar, cantar loores a nuestro Dios// Que nos creó y nos salvó, vamos a cantar sin cesar a nuestro eterno Dios.',
+      '//Vamos a orar, orar pidiendo el poder de Dios// Que nos creó y nos salvó, vamos a orar sin cesar a nuestro eterno Dios.',
+    ],
+  },
+  {
+    id: '243',
+    name: 'Ven Es Hora De Adorarle',
+    lyrics: [
+      '//Ven es hora de adorarle, ven abre tu corazón a El, Ven ante su trono estamos, ven ante la majestad de Dios//.',
+      'CORO: //Toda lengua confesará que El es Dios, Las rodillas se doblarán y un tesoro tendrás en El, Si escoges su amor//.',
+    ],
+  },
+  {
+    id: '244',
+    name: 'Veo Al Señor',
+    lyrics: [
+      '//Veo al Señor alto y sublime sentado sobre el trono de mí ser//.',
+      '//Él es Santo, Él es Santo, Él es Santo, sentado sobre el trono de mí ser//.',
+    ],
+  },
+  {
+    id: '245',
+    name: 'Vine Alabar A Dios',
+    lyrics: [
+      'Vine a alabar a Dios, vine a alabar a Dios, Vine a alabar su nombre, Señor, vine a alabar a Dios.',
+      'El vino a mi vida en un día muy especial, Cambio mi corazón y me mostró un camino mejor, Y esa es la razón por la que digo que... vine a alabar a Dios.',
+    ],
+  },
+  {
+    id: '246',
+    name: 'Yo Quiero Andar Por Las Calles De Oro',
+    lyrics: [
+      '//Yo quiero andar por las calles de oro con Jesús//. Yo quiero andar por las calles de oro. Quiero andar por las calles de oro. Quiero andar por las calles de oro con Jesús.',
+      '//Sin santidad nadie verá al Señor//. //Pero yo sé, pero yo sé que le veré, que le veré, Y con su Espíritu me santificaré//.',
+    ],
+  },
+  {
+    id: '247',
+    name: 'Yo Quiero Más De Ti',
+    lyrics: [
+      '//Yo quiero más de Ti y habitar en tu presencia, Menguar para que crezcas Tú y cada día ser mas como Tú//.',
+      'CORO: //Quebranta mi corazón, quebranta mi vida, Te entrego mi voluntad a Ti, Todo lo que soy Señor todo cuanto tengo es tuyo, Yo quiero menguar, para que crezcas Tú//.',
+    ],
+  },
+  {
+    id: '248',
+    name: 'Yo Quiero Ser Mas Como Tú',
+    lyrics: [
+      '//¡Yo! quiero ser más como Tú Señor//. //Yo quiero ser alguien que tú puedas usar ¡Yo! quiero ser más como Tú//.',
+    ],
+  },
+  {
+    id: '249',
+    name: 'Yo Se Que Cristo Viene',
+    lyrics: [
+      '//Yo se que Cristo viene Yo espero su venida//.',
+      'CORO: Aquel que este preparado Con El se irá para arriba, para arriba, Para arriba, para arriba y no para abajo, Subiendo, subiendo, subiendo y no bajando, Subiendo, subiendo, subiendo y no bajando.',
+    ],
+  },
+  {
+    id: '250',
+    name: 'Yo Se Que Estas Aquí',
+    lyrics: [
+      '//Yo se que estas aquí, siento tu caminar Te mueves entre el pueblo, trayendo sanidad//.',
+      '//Con mi fe te alcanzaré, con mi fe te tocaré, Mil milagros recibiré, y se que transformado yo seré//.',
+    ],
+  },
+  {
+    id: '251',
+    name: 'Yo Tengo Gozo, Paz Y A Cristo En Mi Alma',
+    lyrics: [
+      'Yo tengo ///gozo en mi alma/// y en mi ser. Es como ///ríos de agua viva/// en mí ser.',
+      'Yo tengo ///paz en mi alma/// y en mi ser. Es como ///ríos de agua viva/// en mí ser.',
+      'Yo tengo ///a Cristo en mi alma/// y en mi ser. Es como ///ríos de agua viva/// en mí ser.',
+    ],
+  },
+  {
+    id: '252',
+    name: 'Yo Tengo Gozo, Paz Y Alegría En Mi Corazón',
+    lyrics: [
+      'Yo tengo gozo, gozo En mi corazón.',
+      'CORO: ¿Dónde? En mi corazón ¿Dónde? En mi corazón. Yo tengo gozo, gozo en mi corazón. Gloria sea a nuestro Dios.',
+      'Yo tengo paz, paz, paz, paz En mi corazón.',
+      'Yo tengo alegría, alegría En mi corazón.',
+      'Yo tengo gozo, paz y alegría En mi corazón.',
+    ],
+  },
+  {
+    id: '253',
+    name: 'Yo Tengo Un Amigo Que Me Ama',
+    lyrics: [
+      'Yo tengo un amigo que me ama, me ama, me ama. Yo tengo un amigo que ama, su nombre es Jesús.',
+      '//Que me ama, que me ama, que me ama con su tierno amor//.',
+      'Tú tienes un amigo que te ama, te ama, te ama. Tú tienes un amigo que te ama, su nombre es Jesús.',
+      '//Que te ama, que te ama, que te ama con su tierno amor//.',
+      'Tenemos un amigo que nos ama, nos ama, nos ama. Tenemos un amigo que nos ama, su nombre es Jesús.',
+      '//Que nos ama, que nos ama, que nos ama con su tierno amor//.',
+    ],
+  },
+  {
+    id: '254',
+    name: 'Yo Vivo Señor Porque Tu Vives',
+    lyrics: [
+      'Yo vivo Señor, porque Tú vives. Porque Tú vives, Señor es que yo vivo, Me das consuelo, me das abrigo, Y en la aflicción, mi Señor estás conmigo.',
+      'Soy salvo, Señor, pues me salvaste, Pues me salvaste, Señor eternamente, Yo voy al cielo, voy a la Gloria, Porque Señor, Tú me diste la victoria.',
+    ],
+  },
+  {
+    id: '255',
+    name: 'Cuando Los Santos',
+    lyrics: [
+      'Cuando los santos marchen ya Hacia la patria celestial, Señor, yo quiero estar allá Cuando los santos marchen ya',
+      'CORO: //Nos vamos a gozar// A las bodas del Cordero Nos vamos a gozar',
+      '//Y luego nos iremos a la patria celestial A vivir con Jesucristo por la Eternidad//',
+    ],
+  },
+  {
+    id: '256',
+    name: 'Si En Verdad Eres Salvo',
+    lyrics: [
+      '//Si en verdad eres salvo di amén, amén// Si en verdad eres salvo, testifica con tu vida Si en verdad eres salvo di amén, amén.',
+      '//Si tú amas a tu hermano di amén, amén// Si tú amas a tu hermano, testifica con tu vida Si tú amas a tu hermano di amén, amén.',
+      '//Si tú quieres ir al cielo di amén, amén// Si tú quieres ir al cielo, testifica con tu vida Si tú quieres ir al cielo di amén, amén.',
+    ],
+  },
+  {
+    id: '257',
+    name: 'Yo Sembré',
+    lyrics: [
+      '//Yo sembré, y otro lo regó, Más el crecimiento lo da Dios//',
+      '//Siembra la semilla déjala crecer, Cuando Cristo venga El te pagará//',
+      '//Soy deudor, soy deudor, A las almas que van sin salvación//',
+      '//Y por ellas, yo me preparo, Heme aquí, envíame Señor//',
+    ],
+  },
+  {
+    id: '258',
+    name: 'Un Poco Más De Fe',
+    lyrics: [
+      '//Un poco más, un poco más de fe//',
+      '//Adelante hermanos, adelante hermanos, Que allá en el cielo nos espera un galardón//.',
+    ],
+  },
+  {
+    id: '259',
+    name: 'El Amor De Dios',
+    lyrics: [
+      '///El amor de Dios es maravilloso/// ¡Cuán grande es el amor de Dios!',
+      'Tan alto que no puedo ir arriba de Él, Tan profundo que no puedo ir abajo de Él, Tan ancho que no puedo ir afuera de Él, ¡Cuán grande es el amor de Dios!',
+    ],
+  },
+  {
+    id: '260',
+    name: 'La Cosecha',
+    lyrics: [
+      'Alza tus ojos y mira, la cosecha está lista, El tiempo ha llegado, la mies está madura. Esfuérzate y se valiente, levántate y predica, A todas las naciones que Cristo es la vida.',
+      '//Y será-aa llena la tierra de Su Gloria Se cubrirá-aa como las aguas cubren la mar.//',
+      'No, no hay otro nombre, dado a los hombres Jesucristo es el Señor.',
+      '//Y será-aa llena la tierra de Su Gloria Se cubrirá-aa como las aguas cubren la mar.//',
+    ],
+  },
+  {
+    id: '261',
+    name: 'Digno Eres Tú, Jehová',
+    lyrics: [
+      '//Digno, Digno, Digno, Digno, Digno Digno, Digno, Digno eres Tú Jehová//',
+      '//Jehová es la fortaleza de mi vida, De quién he de temer//',
+      '//Alzaré mis ojos a los montes, ¿De dónde vendrá mi socorro?//',
+      '//Mi socorro viene del Señor Que hizo los cielos, la tierra y el mar//',
+      '//Digno, Digno, Digno, Digno, Digno Digno, Digno, Digno eres Tú Jehová//',
+    ],
+  },
+  {
+    id: '262',
+    name: 'ÉL Es El Rey',
+    lyrics: [
+      'Él es el Rey infinito en Poder, Él es el Rey de los cielos, Seré para Él siervo fiel, Pues mi vida compró con su amor.',
+      'Él es el Rey lo confiesa mi ser, Él es el Rey de los siglos. Mi vida la rindo a sus pies, Él es el Rey sobre mi corazón.',
+      'CORO: ///Él es el Rey///, de mi vida //Él es el Rey//, reina con autoridad Su Reino Eterno es, Su Trono el cielo es. Él es el Rey que viene a su pueblo a llevar.',
+    ],
+  },
+  {
+    id: '263',
+    name: 'Tu Nombre Levantaré',
+    lyrics: [
+      'Tu nombre levantaré, me deleito en adorarte, Te agradezco que en mi vida estés, Que vinieras a salvarme.',
+      'CORO: Dejaste el trono para, mostrarnos la luz, De tu trono a la cruz, y mi deuda pagar, De la cruz a morir, de la muerte a tu trono, Tu nombre levantaré.',
+    ],
+  },
+  {
+    id: '264',
+    name: 'Hay Gran Voz',
+    lyrics: [
+      '//Hay gran voz, de júbilo y de salvación Entre los justos del Señor//',
+      'La diestra de Ashem poderosa es, la diestra del Señor. La diestra de Ashem poderosa es, //su mano reina en alto//',
+      'Todos juntos cantemos con gozo a Dios Regocíjate hoy con Él, Levantemos un canto nuevo. Glorifiquemos a Dios aquí, Y exaltemos a su nombre ///Bendecimos.///',
+    ],
+  },
+  {
+    id: '265',
+    name: 'Anciano De Días',
+    lyrics: [
+      'Bendición y Gloria, Poder y Honra, Al Anciano de Días serán, Toda nación y la creación, Al Anciano de Días se postrarán.',
+      'CORO: Toda lengua confesará, declarará Tu Gloria, Toda rodilla se doblará adorando, Tu nombre exaltado será, Y Tu Reino, Anciano de Días, ¡No pasará!',
+      '//Sobre la Tierra Tú Reinarás, Al Anciano de Días cantad, Tu gran dignidad Dios, es sin igual, Al Anciano de Días cantad.//',
+    ],
+  },
+  {
+    id: '266',
+    name: 'Sólo El Poder De Dios',
+    lyrics: [
+      'Sólo el Poder de Dios puede cambiar tu ser, La prueba yo te doy, Él me ha cambiado a mí. ¿No ves que soy feliz siguiendo al Señor? Nueva criatura soy, nueva soy.',
+    ],
+  },
+  {
+    id: '267',
+    name: 'Mi Dios Es Real',
+    lyrics: [
+      'Hay cosas que yo no comprendo Y hay lugares do yo no iré Pero sí sé, y es verdad, Que mi Dios es real, Porque lo siento en mí ser.',
+      'CORO: Mi Dios es real, real en mí ser Me ha lavado con su sangre carmesí Sí, si su dulce amor, es para mí. Sí, mi Dios es real, Porque lo siento en mí ser.',
+      'No puedo explicar como me sentí, Cuando Jesús me perdonó, Pero sí sé, y es verdad Que mi Dios real, Porque lo siento en mí ser.',
+      'Un día estaré en el cielo azul Con mi Jesús, mi Salvador, Pero sí sé, y es verdad, Que mi Dios es real, Porque lo siento en mí ser.',
+    ],
+  },
+  {
+    id: '268',
+    name: 'Hombres De Valor',
+    lyrics: [
+      '¿Quién irá, abriendo caminos, Forjando mejores destinos, con pautas de amor, Para la humanidad? ¿Quién dirá, asumo ese reto, Me entrego completo y me uno a la causa de Dios Que cambia el corazón?',
+      '¿Quién irá a esos hombres tan desesperados, O quién irá a esos matrimonios acabados, O a ese niño que está, solo y sin hogar, Esperando que alguien le ame, ooh?',
+      'CORO: Hombres de valor, necesita Dios. Hombres de valor, esforzados. Hombres de valor, que cumplan promesas, Que sigan la ruta trazada, con la mirada en su Salvador.',
+      'Heme aquí, Señor, rindo mis derechos, Hoy vengo dispuesto a trazar, pautas de amor Para la humanidad.',
+      'Hoy aquí, asumo ese reto, Me entrego completo Y me uno a la causa de Dios, Que cambia el corazón.',
+      'Hombres entregados, fieles al llamado, Todo por la causa del Señor.',
+    ],
+  },
+  {
+    id: '269',
+    name: 'Hay Una Unción',
+    lyrics: [
+      '//Hay una unción aquí, cayendo sobre mí, Sanándome, cambiando mi ser?//.',
+      '//Mi espíritu y mi alma, se están llenando, Con el Poder del Espíritu Santo, Mi vida nunca más, será igual//',
+    ],
+  },
+  {
+    id: '270',
+    name: 'Paz En La Tormenta',
+    lyrics: [
+      'Cuando lloras, por la veces que intestaste, Y tratas de olvidar las lágrimas que lloraste, Sólo tienes pena y tristeza, el futuro incierto espera, Puedes tener, paz en la tormenta.',
+      'CORO: Puedes tener, paz en la tormenta. Fe y esperanza, cuando no puedas seguir. Aun con tu mundo hecho pedazos, El Señor guiará tus pasos, En paz, en medio de la tormenta.',
+      'Muchas veces, yo me siento igual que tú, Mi corazón anhela algo real. El Señor viene a mí, y me ayuda a seguir, En paz, en medio de la tormenta.',
+    ],
+  },
+  {
+    id: '271',
+    name: 'Hijo De Dios',
+    lyrics: [
+      'Quiero levantar mis manos, quiero levantar mi voz, Ofreciendo a Ti mi vida, en santidad y amor. Padre, sólo a Ti te ofrezco mi vida y mi corazón, Y me postro en Tu Presencia en adoración.',
+      '//Hijo de Dios, recibe hoy, toda la Gloria, La Honra y Honor.//',
+    ],
+  },
+  {
+    id: '272',
+    name: 'Tu Mano Sobre Mí',
+    lyrics: [
+      'Tu mano sobre mí, Tú presencia esta aquí, Me abrazas con tu amor, Y me sientas junto a Ti.',
+      'Allí donde el tiempo no cuenta más, Te escucho decir, Que soy tu tesoro más especial, Con tu tierna voz.',
+      'Señor he venido con adoración, Desde mi corazón, Estoy anhelando y buscando de Ti, De tu unción y Poder Otra vez.',
+    ],
   },
 ];
