@@ -56,7 +56,8 @@ export const ItemBook = ({bookText, book}: Props) => {
 const styles = StyleSheet.create({
   container: {
     // backgroundColor: gbColor.foco,
-    width: 171,
+    width: '40%',
+    // flex: 1,
     height: 60,
     borderRadius: 10,
     marginVertical: 5,
@@ -76,7 +77,7 @@ const styles = StyleSheet.create({
     elevation: 2,
   },
   text: {
-    fontSize: 16,
+    fontSize: 15,
     fontFamily: 'Poppins-Bold',
     // color: gbColor.fontPrimary,
     textAlign: 'center',

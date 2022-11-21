@@ -1415,7 +1415,7 @@ export const chants = [
     name: 'Dios Tu Pueblo Canta',
     lyrics: [
       '//Dios tu pueblo canta Una misma alabanza Cantan para Ti El único y verdadero Dios//.',
-      'CORO: Ale, ale, alelu En la gloria moras Tú Tú eres único El único y verdadero Dios.',
+      'CORO: Ale, ale, alelu En la gloria moras Tú. Tú eres único El único y verdadero Dios.',
       '//Te amamos Cristo Porque nos amaste No hay nadie como Tú El único y verdadero Dios//.',
     ],
   },

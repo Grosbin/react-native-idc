@@ -11,12 +11,16 @@ import {gbColor} from '../theme/themeGlobal';
 import {useContext} from 'react';
 import {ThemeContex} from '../context/ThemeContex';
 import {NavigationContainer} from '@react-navigation/native';
+import {LoginScreen} from '../screens/LoginScreen';
+import {RegisterScreen} from '../screens/RegisterScreen';
 
 export type RootStackParams = {
   BottonTabs: undefined;
   // MenuLateral: undefined;
   DetailPrayers: {title: string; data: {id: number; name: string}[]};
   ContentChants: {id: string; name: string; lyrics: string[]};
+  LoginScreen: undefined;
+  RegisterScreen: undefined;
 };
 
 const Stack = createStackNavigator<RootStackParams>();
@@ -35,11 +39,22 @@ export const StackNavigator = () => {
           headerStyle: {
             elevation: 0,
           },
+          cardStyle: {
+            backgroundColor: theme.colors.background,
+          },
         }}>
-        {/* <Stack.Screen name="MenuLateral" component={MenuLateral} /> */}
-        <Stack.Screen name="BottonTabs" component={BottonTabs} />
-        <Stack.Screen name="DetailPrayers" component={DetailPrayers} />
-        <Stack.Screen name="ContentChants" component={ContentChants} />
+        {true ? (
+          <>
+            <Stack.Screen name="LoginScreen" component={LoginScreen} />
+            <Stack.Screen name="RegisterScreen" component={RegisterScreen} />
+          </>
+        ) : (
+          <>
+            <Stack.Screen name="BottonTabs" component={BottonTabs} />
+            <Stack.Screen name="DetailPrayers" component={DetailPrayers} />
+            <Stack.Screen name="ContentChants" component={ContentChants} />
+          </>
+        )}
       </Stack.Navigator>
     </NavigationContainer>
   );

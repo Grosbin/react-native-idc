@@ -20,8 +20,10 @@ export const ItemChants = ({id, name, lyrics}: Props) => {
     theme: {colors},
   } = useContext(ThemeContex);
 
-  const handleNavigate = () =>
+  const handleNavigate = () => {
+    Keyboard.dismiss();
     navigate.navigate('ContentChants', {id, name, lyrics});
+  };
 
   return (
     <TouchableOpacity
@@ -40,6 +42,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     // backgroundColor: gbColor.background,
     marginVertical: 5,
+    marginHorizontal: 5,
     borderRadius: 10,
     height: 55,
     justifyContent: 'space-between',
@@ -49,12 +52,12 @@ const styles = StyleSheet.create({
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
-      height: 0,
+      height: 2,
     },
     shadowOpacity: 0.25,
-    shadowRadius: 2,
+    shadowRadius: 3.84,
 
-    elevation: 2,
+    elevation: 5,
   },
   text: {
     fontFamily: 'Poppins-Medium',

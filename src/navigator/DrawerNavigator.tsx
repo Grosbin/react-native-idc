@@ -21,6 +21,7 @@ import {StackNavigator} from './StackNavigator';
 import {ThemeContex} from '../context/ThemeContex';
 import {NavigationContainer} from '@react-navigation/native';
 import {useLocalStorage} from '../hooks/useLocalStorage';
+import {SwitchFuntion} from '../components/ui/SwitchFuntion';
 
 const Drawer = createDrawerNavigator();
 
@@ -62,6 +63,7 @@ const MenuInterno = (props: DrawerContentComponentProps) => {
   const {storeData, getData} = useLocalStorage();
 
   const [isEnabled, setIsEnabled] = useState(false);
+
   const toggleSwitch = () => {
     setIsEnabled(!isEnabled);
     if (isEnabled) {
@@ -114,7 +116,7 @@ const MenuInterno = (props: DrawerContentComponentProps) => {
           paddingTop: 20,
           flex: 1,
         }}>
-        <View
+        {/* <View
           style={{
             width: '100%',
             height: 50,
@@ -140,7 +142,14 @@ const MenuInterno = (props: DrawerContentComponentProps) => {
             onValueChange={toggleSwitch}
             value={isEnabled}
           />
-        </View>
+        </View> */}
+
+        <SwitchFuntion
+          title="Tema Oscuro"
+          toggleSwitch={toggleSwitch}
+          isEnabled={isEnabled}
+          setIsEnabled={setIsEnabled}
+        />
 
         <TouchableOpacity
           style={{

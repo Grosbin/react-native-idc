@@ -12,7 +12,6 @@ import {gbColor} from '../theme/themeGlobal';
 
 import {chants} from '../data/chant/chants';
 import {ItemChants} from '../components/chants/ItemChants';
-import {RecyclerListView, DataProvider, LayoutProvider} from 'recyclerlistview';
 
 export const ChantsScreen = () => {
   const [term, setTerm] = useState('');
@@ -48,6 +47,8 @@ export const ChantsScreen = () => {
     <SafeAreaView style={[styles.container]}>
       <SearchInput onChange={setTerm} />
       <FlatList
+        keyboardShouldPersistTaps="always"
+        keyboardDismissMode="on-drag"
         data={chantsFiltered}
         keyExtractor={keyExtractor}
         renderItem={renderItem}

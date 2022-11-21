@@ -50,12 +50,12 @@ export const ScrollSelectBook = ({testament, style}: Props) => {
     <View
       style={{
         marginBottom: 150,
-        justifyContent: 'center',
-        alignItems: 'center',
+        // justifyContent: 'center',
+        // alignItems: 'center',
       }}>
       <FlatList
         numColumns={2}
-        columnWrapperStyle={{justifyContent: 'flex-start'}}
+        columnWrapperStyle={{justifyContent: 'center'}}
         keyExtractor={(item, index) => index + item.toString()}
         showsVerticalScrollIndicator={false}
         data={data()}

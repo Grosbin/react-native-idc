@@ -78,12 +78,12 @@ const styles = StyleSheet.create({
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
-      height: 0,
+      height: 2,
     },
     shadowOpacity: 0.25,
-    shadowRadius: 2,
+    shadowRadius: 3.84,
 
-    elevation: 2,
+    elevation: 5,
   },
   text: {
     fontFamily: 'Poppins-Medium',

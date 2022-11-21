@@ -42,6 +42,7 @@ const styles = StyleSheet.create({
   textBackground: {
     borderRadius: 50,
     height: 50,
+    marginHorizontal: 5,
     paddingHorizontal: 20,
     justifyContent: 'center',
     alignItems: 'center',
@@ -50,12 +51,12 @@ const styles = StyleSheet.create({
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
-      height: 0,
+      height: 1,
     },
-    shadowOpacity: 0.25,
-    shadowRadius: 2,
+    shadowOpacity: 0.22,
+    shadowRadius: 2.22,
 
-    elevation: 2,
+    elevation: 3,
   },
   textInput: {
     flex: 1,
