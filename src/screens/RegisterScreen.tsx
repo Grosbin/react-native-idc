@@ -3,37 +3,28 @@ import {
   Text,
   View,
   TextInput,
-  Platform,
-  KeyboardAvoidingView,
-  Keyboard,
-  Alert,
   TouchableOpacity,
   StyleSheet,
-  Image,
+  Platform,
 } from 'react-native';
 import {StackScreenProps} from '@react-navigation/stack';
 import {useForm} from '../hooks/useForm';
 import {ThemeContex} from '../context/ThemeContex';
-import changeNavigationBarColor, {
-  hideNavigationBar,
-  showNavigationBar,
-} from 'react-native-navigation-bar-color';
-import SplashScreen from 'react-native-splash-screen';
-// import { Background } from '../components/Background';
-// import { WhiteLogo } from '../components/WhiteLogo';
-// import { loginStyles } from '../theme/loginTheme';
-// import { AuthContext } from '../context/AuthContext';
 import {StatusBar} from 'react-native';
 import {LogoIDC} from '../components/ui/LogoIDC';
-import DatePicker from 'react-native-modern-datepicker-es';
-import {ScrollView} from 'react-native-gesture-handler';
 import {CalendarModal} from '../components/CalendarModal';
 import {SwitchFuntion} from '../components/ui/SwitchFuntion';
+import {Background} from '../components/ui/Background';
+import {register} from '../actions/auth';
+import {ScrollView} from 'react-native-gesture-handler';
+import Icon from 'react-native-vector-icons/Ionicons';
+import {AlertModal} from '../components/ui/AlertModal';
+import {addUser} from '../actions/user';
+import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 
 interface Props extends StackScreenProps<any, any> {}
 
 export const RegisterScreen = ({navigation}: Props) => {
-  // const { signIn, errorMessage, removeError } = useContext( AuthContext );
   const {
     theme: {colors},
   } = useContext(ThemeContex);
@@ -41,6 +32,8 @@ export const RegisterScreen = ({navigation}: Props) => {
   const [birthday, setBirthday] = useState('');
   const [isVisible, setIsVisible] = useState(false);
   const [isBaptized, setIsBaptized] = useState(false);
+  const [isVisiblePassword, setIsVisiblePassword] = useState(true);
+  const [isAlertModal, setIsAlertModal] = useState(false);
 
   const {name, email, password, onChange} = useForm({
     name: '',
@@ -49,146 +42,168 @@ export const RegisterScreen = ({navigation}: Props) => {
     birthday: birthday,
   });
 
-  // useEffect(() => {
-  //     if( errorMessage.length === 0 ) return;
+  useEffect(() => {}, []);
 
-  //     Alert.alert( 'Login incorrecto', errorMessage,[{
-  //         text: 'Ok',
-  //         onPress: removeError
-  //     }]);
-
-  // }, [ errorMessage ])
+  const onPasswordVisible = () => {
+    setIsVisiblePassword(!isVisiblePassword);
+    // Keyboard.dismiss();
+  };
 
   const onLogin = () => {
-    console.log({name, email, password, birthday, isBaptized});
-    Keyboard.dismiss();
-    // signIn({ correo: email, password });
+    const userAuth = {
+      email: email,
+      password: password,
+    };
+
+    const user = {
+      name: name,
+      email: email,
+      birthday: birthday,
+      baptized: isBaptized,
+    };
+
+    if (
+      email.length === 0 ||
+      password.length === 0 ||
+      name.length === 0 ||
+      birthday.length === 0
+    ) {
+      setIsAlertModal(true);
+      return;
+    }
+    register(userAuth);
+    addUser(user);
   };
   return (
-    <KeyboardAvoidingView
-      style={{flex: 1, backgroundColor: colors.primary}}
-      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
-      {/* Background */}
-      {/* <Background /> */}
+    <>
       <StatusBar backgroundColor={colors.primary} barStyle="light-content" />
-      <View
-        style={{
-          alignSelf: 'center',
-          justifyContent: 'center',
-        }}>
-        <CalendarModal
-          setDate={setBirthday}
-          isVisible={isVisible}
-          setIsVisible={setIsVisible}
-        />
-      </View>
-      <View style={loginStyles.formContainer}>
-        {/* Keyboard avoid view */}
-        <LogoIDC />
-
-        <Text style={loginStyles.title}>Registro</Text>
-
-        <View style={loginStyles.inputContainer}>
-          <TextInput
-            placeholder="Nombre:"
-            placeholderTextColor="rgba(0,0,0,0.4)"
-            //   underlineColorAndroid="white"
-            // secureTextEntry
-            style={[loginStyles.inputField]}
-            selectionColor="white"
-            onChangeText={value => onChange(value, 'name')}
-            value={name}
-            onSubmitEditing={onLogin}
-            autoCapitalize="none"
-            autoCorrect={false}
+      <Background />
+      <AlertModal
+        isVisible={isAlertModal}
+        setIsVisible={setIsAlertModal}
+        title="Tiene que llenar todos los campos"
+      />
+      {/* <ScrollView> */}
+      <KeyboardAwareScrollView>
+        <View
+          style={{
+            alignSelf: 'center',
+            justifyContent: 'center',
+          }}>
+          <CalendarModal
+            setDate={setBirthday}
+            isVisible={isVisible}
+            setIsVisible={setIsVisible}
           />
         </View>
+        <View style={loginStyles.formContainer}>
+          <LogoIDC />
 
-        {/* <Text style={loginStyles.label}>correo:</Text> */}
-        <View style={loginStyles.inputContainer}>
-          <TextInput
-            placeholder="Correo:"
-            placeholderTextColor="rgba(0,0,0,0.4)"
-            keyboardType="email-address"
-            style={[loginStyles.inputField]}
-            selectionColor="white"
-            onChangeText={value => onChange(value, 'email')}
-            value={email}
-            onSubmitEditing={onLogin}
-            autoCapitalize="none"
-            autoCorrect={false}
+          <Text style={loginStyles.title}>Registro</Text>
+
+          <View style={loginStyles.inputContainer}>
+            <TextInput
+              cursorColor={colors.primary}
+              placeholder="Nombre:"
+              placeholderTextColor={'rgba(0,0,0,0.4)'}
+              style={[loginStyles.inputField]}
+              selectionColor="white"
+              onChangeText={value => onChange(value, 'name')}
+              value={name}
+              autoCapitalize="none"
+              autoCorrect={false}
+            />
+          </View>
+
+          <View style={loginStyles.inputContainer}>
+            <TextInput
+              cursorColor={colors.primary}
+              placeholder="Correo:"
+              placeholderTextColor={'rgba(0,0,0,0.4)'}
+              keyboardType="email-address"
+              style={[loginStyles.inputField]}
+              selectionColor="white"
+              onChangeText={value => onChange(value, 'email')}
+              value={email}
+              autoCapitalize="none"
+              autoCorrect={false}
+            />
+          </View>
+
+          <View style={[loginStyles.inputContainer]}>
+            <TextInput
+              cursorColor={colors.primary}
+              placeholder="Contraseña:"
+              placeholderTextColor={'rgba(0,0,0,0.4)'}
+              secureTextEntry={isVisiblePassword}
+              style={[loginStyles.inputField]}
+              selectionColor="white"
+              onChangeText={value => onChange(value, 'password')}
+              value={password}
+              autoCapitalize="none"
+              autoCorrect={false}
+            />
+            <Icon
+              name={isVisiblePassword ? 'eye-off-outline' : 'eye-outline'}
+              size={25}
+              style={{position: 'absolute', right: 15, top: 12}}
+              onPress={onPasswordVisible}
+              color={'rgba(0,0,0,0.4)'}
+            />
+          </View>
+          <View style={{alignItems: 'flex-start'}}>
+            <TouchableOpacity
+              activeOpacity={0.8}
+              style={{
+                width: '100%',
+                height: 50,
+                backgroundColor: '#0dc4ae',
+                borderRadius: 10,
+                justifyContent: 'center',
+                alignItems: 'center',
+              }}
+              onPress={() => setIsVisible(true)}>
+              <Text
+                style={[
+                  {
+                    paddingVertical: 9,
+                    marginLeft: 5,
+                    fontFamily: 'Poppins-Bold',
+                    fontSize: 16,
+                    color: '#fff',
+                  },
+                ]}>
+                {birthday === '' ? 'Fecha de nacimiento' : birthday}
+              </Text>
+            </TouchableOpacity>
+          </View>
+
+          <SwitchFuntion
+            toggleSwitch={() => setIsBaptized(!isBaptized)}
+            title={isBaptized ? 'Si estoy bautizado' : 'No estoy bautizado'}
+            isEnabled={isBaptized}
           />
-        </View>
-        {/* <Text style={loginStyles.label}>Contraseña:</Text> */}
 
-        <View style={loginStyles.inputContainer}>
-          <TextInput
-            placeholder="Contraseña:"
-            placeholderTextColor="rgba(0,0,0,0.4)"
-            secureTextEntry
-            style={[loginStyles.inputField]}
-            selectionColor="white"
-            onChangeText={value => onChange(value, 'password')}
-            value={password}
-            onSubmitEditing={onLogin}
-            autoCapitalize="none"
-            autoCorrect={false}
-          />
-        </View>
-        <View style={{alignItems: 'flex-start'}}>
-          <TouchableOpacity
-            activeOpacity={0.8}
-            style={{
-              width: '100%',
-              height: 50,
-              backgroundColor: '#0dc4ae',
-              borderRadius: 10,
-              justifyContent: 'center',
-              alignItems: 'center',
-            }}
-            onPress={() => setIsVisible(true)}>
-            <Text
-              style={[
-                {
-                  paddingVertical: 9,
-                  marginLeft: 5,
-                  fontFamily: 'Poppins-Bold',
-                  fontSize: 16,
-                  color: '#fff',
-                },
-              ]}>
-              {birthday === '' ? 'Fecha de nacimiento' : birthday}
-            </Text>
-          </TouchableOpacity>
-        </View>
+          <View style={loginStyles.buttonContainer}>
+            <TouchableOpacity
+              activeOpacity={0.8}
+              style={loginStyles.button}
+              onPress={onLogin}>
+              <Text style={loginStyles.buttonText}>Crear cuenta</Text>
+            </TouchableOpacity>
+          </View>
 
-        <SwitchFuntion
-          toggleSwitch={() => setIsBaptized(!isBaptized)}
-          title={isBaptized ? 'Si estoy bautizado' : 'No estoy bautizado'}
-          isEnabled={isBaptized}
-          // setIsEnabled={setIsBaptized}
-        />
-
-        {/* Boton login */}
-        <View style={loginStyles.buttonContainer}>
-          <TouchableOpacity
-            activeOpacity={0.8}
-            style={loginStyles.button}
-            onPress={onLogin}>
-            <Text style={loginStyles.buttonText}>Crear cuenta</Text>
-          </TouchableOpacity>
+          <View style={loginStyles.newUserContainer}>
+            <TouchableOpacity
+              activeOpacity={0.8}
+              onPress={() => navigation.replace('LoginScreen')}>
+              <Text style={loginStyles.buttonText}>Iniciar Sesión</Text>
+            </TouchableOpacity>
+          </View>
         </View>
-
-        {/* Crear una nueva cuenta */}
-        <View style={loginStyles.newUserContainer}>
-          <TouchableOpacity
-            activeOpacity={0.8}
-            onPress={() => navigation.replace('LoginScreen')}>
-            <Text style={loginStyles.buttonText}>Iniciar Sesión</Text>
-          </TouchableOpacity>
-        </View>
-      </View>
-    </KeyboardAvoidingView>
+      </KeyboardAwareScrollView>
+      {/* </ScrollView> */}
+    </>
   );
 };
 
@@ -212,10 +227,11 @@ const loginStyles = StyleSheet.create({
     fontWeight: 'bold',
   },
   inputField: {
-    fontSize: 17,
+    fontSize: 16,
     fontFamily: 'Poppins-SemiBold',
     justifyContent: 'center',
     alignItems: 'center',
+    color: '#020052',
     top: 3,
   },
 
@@ -256,7 +272,7 @@ const loginStyles = StyleSheet.create({
     backgroundColor: 'white',
     // height: 50,
     // marginHorizontal: 5,
-    paddingHorizontal: 10,
+    paddingHorizontal: 12,
     // paddingVertical: 5,
     marginBottom: 15,
     // justifyContent: 'center',

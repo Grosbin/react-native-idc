@@ -27,7 +27,7 @@ export const Header = ({navigation}: Props) => {
 
         <Text style={[styles.nameProfile, {color: colors.fontPrimary}]}>
           {' '}
-          Grosbin Rivera
+          IDC
         </Text>
       </View>
 
@@ -64,6 +64,6 @@ const styles = StyleSheet.create({
     color: gbColor.fontPrimary,
     fontSize: 16,
     textAlign: 'center',
-    paddingTop: 5,
+    paddingTop: 11,
   },
 });

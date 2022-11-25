@@ -22,6 +22,7 @@ import {ThemeContex} from '../context/ThemeContex';
 import {NavigationContainer} from '@react-navigation/native';
 import {useLocalStorage} from '../hooks/useLocalStorage';
 import {SwitchFuntion} from '../components/ui/SwitchFuntion';
+import {logout} from '../actions/auth';
 
 const Drawer = createDrawerNavigator();
 
@@ -192,7 +193,29 @@ const MenuInterno = (props: DrawerContentComponentProps) => {
             Acerca de la app
           </Text>
         </TouchableOpacity>
+
+        <TouchableOpacity
+          style={{
+            width: '100%',
+            height: 50,
+            paddingTop: 10,
+            paddingHorizontal: 20,
+            flexDirection: 'row',
+          }}
+          onPress={logout}>
+          <Text
+            style={{
+              fontFamily: 'Poppins-Medium',
+              textAlign: 'center',
+              fontSize: 15,
+              color: gbColor.foco,
+            }}>
+            {' '}
+            Cerrar sesión
+          </Text>
+        </TouchableOpacity>
       </View>
+
       <View
         style={{
           justifyContent: 'center',

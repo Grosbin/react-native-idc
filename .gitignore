@@ -62,3 +62,6 @@ buck-out/
 # Ruby / CocoaPods
 /ios/Pods/
 /vendor/bundle/
+
+# Ignore uploaded files in development
+.env

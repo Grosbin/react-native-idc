@@ -1,22 +1,13 @@
-import React, {useState, useEffect} from 'react';
-import {
-  Alert,
-  Modal,
-  Pressable,
-  StyleSheet,
-  Text,
-  View,
-  TouchableOpacity,
-} from 'react-native';
-import DatePicker, {getFormatedDate} from 'react-native-modern-datepicker-es';
+import React from 'react';
+import {Modal, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 
 interface Props {
   isVisible: boolean;
   setIsVisible: (value: boolean) => void;
-  setDate: (date: string) => void;
+  title: string;
 }
 
-export const CalendarModal = ({isVisible, setDate, setIsVisible}: Props) => {
+export const AlertModal = ({isVisible, setIsVisible, title}: Props) => {
   return (
     <View style={styles.centeredView}>
       <Modal
@@ -26,16 +17,7 @@ export const CalendarModal = ({isVisible, setDate, setIsVisible}: Props) => {
         onRequestClose={() => setIsVisible(false)}
         visible={isVisible}>
         <View style={styles.modalView}>
-          <DatePicker
-            onSelectedChange={date => setDate(date)}
-            options={{
-              selectedTextColor: '#fff',
-              mainColor: '#3b46f1',
-            }}
-            mode="calendar"
-            style={{borderRadius: 10}}
-          />
-
+          <Text style={[styles.modalText]}>{title}</Text>
           <TouchableOpacity
             activeOpacity={0.8}
             style={[styles.button, styles.buttonClose]}
@@ -52,15 +34,12 @@ const styles = StyleSheet.create({
   centeredView: {
     justifyContent: 'center',
     alignItems: 'center',
-    // marginTop: 100,
-    // position: 'absolute',
-    // zIndex: 999,
   },
   modalView: {
-    margin: 20,
+    marginHorizontal: 20,
     backgroundColor: 'white',
     borderRadius: 10,
-    height: 420,
+    padding: 20,
     alignItems: 'center',
     shadowColor: '#000',
     shadowOffset: {
@@ -86,11 +65,13 @@ const styles = StyleSheet.create({
   },
   textStyle: {
     color: 'white',
-    fontWeight: 'bold',
+    fontFamily: 'Poppins-Bold',
     textAlign: 'center',
   },
   modalText: {
-    marginBottom: 15,
+    marginBottom: 50,
     textAlign: 'center',
+    fontFamily: 'Poppins-SemiBold',
+    color: '#020052',
   },
 });

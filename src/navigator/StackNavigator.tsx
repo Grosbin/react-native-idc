@@ -1,18 +1,16 @@
+import {useContext, useEffect, useState} from 'react';
 import {
   CardStyleInterpolators,
   createStackNavigator,
 } from '@react-navigation/stack';
-import {HomeScreen} from '../screens/HomeScreen';
 import {BottonTabs} from './BottonTabs';
 import {DetailPrayers} from '../screens/DetailPrayers';
-import {MenuLateral} from './DrawerNavigator';
 import {ContentChants} from '../screens/ContentChants';
-import {gbColor} from '../theme/themeGlobal';
-import {useContext} from 'react';
 import {ThemeContex} from '../context/ThemeContex';
 import {NavigationContainer} from '@react-navigation/native';
 import {LoginScreen} from '../screens/LoginScreen';
 import {RegisterScreen} from '../screens/RegisterScreen';
+import auth from '@react-native-firebase/auth';
 
 export type RootStackParams = {
   BottonTabs: undefined;
@@ -27,6 +25,20 @@ const Stack = createStackNavigator<RootStackParams>();
 
 export const StackNavigator = () => {
   const {theme} = useContext(ThemeContex);
+  const [initializing, setInitializing] = useState(true);
+  const [user, setUser] = useState();
+
+  const onAuthStateChanged = user => {
+    setUser(user);
+    if (initializing) setInitializing(false);
+  };
+
+  useEffect(() => {
+    const subscriber = auth().onAuthStateChanged(onAuthStateChanged);
+    return subscriber; // unsubscribe on unmount
+  }, []);
+
+  if (initializing) return null;
 
   return (
     <NavigationContainer theme={theme}>
@@ -43,7 +55,7 @@ export const StackNavigator = () => {
             backgroundColor: theme.colors.background,
           },
         }}>
-        {true ? (
+        {!user ? (
           <>
             <Stack.Screen name="LoginScreen" component={LoginScreen} />
             <Stack.Screen name="RegisterScreen" component={RegisterScreen} />

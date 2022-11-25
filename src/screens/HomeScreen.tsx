@@ -1,17 +1,17 @@
 import React, {useContext, useEffect, useState} from 'react';
 import {StyleSheet, Text, View, SafeAreaView, ScrollView} from 'react-native';
-import {gbColor} from '../theme/themeGlobal';
+
 import SplashScreen from 'react-native-splash-screen';
 import {HorizontalActivities} from '../components/home/HorizontalActivities';
-import {ListPrayers} from '../components/home/ListPrayers';
+
 import {Header} from '../components/Header';
-import Icon from 'react-native-vector-icons/Ionicons';
+
 import {ItemPrayers} from '../components/home/ItemPrayers';
-import {StackScreenProps} from '@react-navigation/stack';
+
 import {DrawerScreenProps} from '@react-navigation/drawer';
 import {ThemeContex} from '../context/ThemeContex';
 import {useLocalStorage} from '../hooks/useLocalStorage';
-import {ContentView} from './ContentView';
+import {getPrayers} from '../actions/prayers';
 
 // Generar objeto con id y nombre aleatorios
 const listPrayers = [
@@ -40,6 +40,30 @@ interface Props extends DrawerScreenProps<any, any> {}
 
 export const HomeScreen = ({navigation, route}: Props) => {
   const {getData} = useLocalStorage();
+
+  const [families, setFamilies] = useState([]);
+  const [fortress, setFortress] = useState([]);
+  const [health, setHealth] = useState([]);
+  const [security, setSecurity] = useState([]);
+
+  const loadPrayers = async () => {
+    const familiesData = await getPrayers('families');
+    const fortressData = await getPrayers('fortress');
+    const healthData = await getPrayers('health');
+    const securityData = await getPrayers('security');
+
+    // const promise = await Promise.all([
+    //   familiesData,
+    //   fortressData,
+    //   healthData,
+    //   securityData,
+    // ]);
+    setFamilies(familiesData);
+    setFortress(fortressData);
+    setHealth(healthData);
+    setSecurity(securityData);
+  };
+
   const {
     theme: {colors},
     setDarkTheme,
@@ -63,7 +87,12 @@ export const HomeScreen = ({navigation, route}: Props) => {
 
   useEffect(() => {
     getDataStorage();
+    loadPrayers();
   }, []);
+
+  // useEffect(() => {
+  //   loadPrayers();
+  // }, [families]);
 
   return (
     <View>
@@ -79,12 +108,8 @@ export const HomeScreen = ({navigation, route}: Props) => {
             },
             {backgroundColor: colors.foco},
           ]}>
-          {/* <View style={styles.itemSeparator}> */}
-          {/* </View> */}
-
           <View
             style={[
-              // styles.itemSeparator,
               {
                 padding: 18,
                 backgroundColor: colors.yellow,
@@ -105,25 +130,21 @@ export const HomeScreen = ({navigation, route}: Props) => {
             </Text>
           </View>
 
-          <ItemPrayers
-            title="Salud"
-            iconName="fitness"
-            listPrayers={listPrayers}
-          />
+          <ItemPrayers title="Salud" iconName="fitness" listPrayers={health} />
           <ItemPrayers
             title="Familias"
             iconName="people"
-            listPrayers={listLastNames}
+            listPrayers={families}
           />
           <ItemPrayers
             title="Seguridad"
             iconName="lock-closed"
-            listPrayers={listPrayers}
+            listPrayers={security}
           />
           <ItemPrayers
             title="Fortaleza"
             iconName="sad"
-            listPrayers={listPrayers}
+            listPrayers={fortress}
           />
         </View>
       </ScrollView>
@@ -134,24 +155,13 @@ export const HomeScreen = ({navigation, route}: Props) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    // backgroundColor: gbColor.foco,
   },
   nowActivitie: {
     height: 175,
   },
   itemSeparator: {
-    // backgroundColor: gbColor.background,
     borderRadius: 10,
     marginBottom: 15,
     marginHorizontal: 9,
   },
-  // textHeader: {
-  //   fontFamily: 'Poppins-Bold',
-  //   fontSize: 16,
-  //   color: gbColor.fontPrimary,
-  //   top: 10,
-  //   left: 10,
-  //   marginBottom: 10,
-  //   opacity: 0.7,
-  // },
 });

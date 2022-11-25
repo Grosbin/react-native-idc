@@ -1,4 +1,4 @@
-import React, {useContext, useEffect} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import {
   Text,
   View,
@@ -25,11 +25,16 @@ import SplashScreen from 'react-native-splash-screen';
 // import { AuthContext } from '../context/AuthContext';
 import {StatusBar} from 'react-native';
 import {LogoIDC} from '../components/ui/LogoIDC';
+import {Background} from '../components/ui/Background';
+import {login} from '../actions/auth';
+import {ScrollView} from 'react-native-gesture-handler';
+import Icon from 'react-native-vector-icons/Ionicons';
+import {AlertModal} from '../components/ui/AlertModal';
+import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 
 interface Props extends StackScreenProps<any, any> {}
 
 export const LoginScreen = ({navigation}: Props) => {
-  // const { signIn, errorMessage, removeError } = useContext( AuthContext );
   const {
     theme: {colors},
   } = useContext(ThemeContex);
@@ -39,35 +44,38 @@ export const LoginScreen = ({navigation}: Props) => {
     password: '',
   });
 
+  const [isVisiblePassword, setIsVisiblePassword] = useState(true);
+  const [isAlertModal, setIsAlertModal] = useState(false);
+
   useEffect(() => {
     changeNavigationBarColor(colors.primary, false, true);
     SplashScreen.hide();
   }, []);
 
-  // useEffect(() => {
-  //     if( errorMessage.length === 0 ) return;
+  const onPasswordVisible = () => {
+    setIsVisiblePassword(!isVisiblePassword);
+  };
 
-  //     Alert.alert( 'Login incorrecto', errorMessage,[{
-  //         text: 'Ok',
-  //         onPress: removeError
-  //     }]);
-
-  // }, [ errorMessage ])
-
-  const onLogin = () => {
+  const onLogin = async () => {
     console.log({email, password});
-    Keyboard.dismiss();
-    // signIn({ correo: email, password });
+    if (email.length === 0 || password.length === 0) {
+      setIsAlertModal(true);
+      return;
+    }
+    login(email, password);
   };
 
   return (
     <>
-      {/* Background */}
-      {/* <Background /> */}
       <StatusBar backgroundColor={colors.primary} barStyle="light-content" />
-      <KeyboardAvoidingView
-        style={{flex: 1, backgroundColor: colors.primary}}
-        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
+      <Background />
+      <AlertModal
+        isVisible={isAlertModal}
+        setIsVisible={setIsAlertModal}
+        title="Correo o contraseña incorrectos"
+      />
+      <KeyboardAwareScrollView>
+        {/* <ScrollView> */}
         <View style={loginStyles.formContainer}>
           {/* Keyboard avoid view */}
           <LogoIDC />
@@ -77,8 +85,9 @@ export const LoginScreen = ({navigation}: Props) => {
           {/* <Text style={loginStyles.label}>correo:</Text> */}
           <View style={loginStyles.inputContainer}>
             <TextInput
+              cursorColor={colors.primary}
               placeholder="Correo:"
-              //   placeholderTextColor="rgba(255,255,255,0.4)"
+              placeholderTextColor={'rgba(0,0,0,0.4)'}
               keyboardType="email-address"
               style={[loginStyles.inputField]}
               selectionColor="white"
@@ -89,13 +98,13 @@ export const LoginScreen = ({navigation}: Props) => {
               autoCorrect={false}
             />
           </View>
-          {/* <Text style={loginStyles.label}>Contraseña:</Text> */}
+
           <View style={loginStyles.inputContainer}>
             <TextInput
+              cursorColor={colors.primary}
               placeholder="Contraseña:"
-              //   placeholderTextColor="rgba(255,255,255,0.4)"
-              //   underlineColorAndroid="white"
-              secureTextEntry
+              placeholderTextColor={'rgba(0,0,0,0.4)'}
+              secureTextEntry={isVisiblePassword}
               style={[loginStyles.inputField]}
               selectionColor="white"
               onChangeText={value => onChange(value, 'password')}
@@ -103,6 +112,13 @@ export const LoginScreen = ({navigation}: Props) => {
               onSubmitEditing={onLogin}
               autoCapitalize="none"
               autoCorrect={false}
+            />
+            <Icon
+              name={isVisiblePassword ? 'eye-off-outline' : 'eye-outline'}
+              size={25}
+              style={{position: 'absolute', right: 15, top: 12}}
+              onPress={onPasswordVisible}
+              color={'rgba(0,0,0,0.4)'}
             />
           </View>
 
@@ -125,7 +141,8 @@ export const LoginScreen = ({navigation}: Props) => {
             </TouchableOpacity>
           </View>
         </View>
-      </KeyboardAvoidingView>
+        {/* </ScrollView> */}
+      </KeyboardAwareScrollView>
     </>
   );
 };
@@ -150,10 +167,11 @@ const loginStyles = StyleSheet.create({
     fontWeight: 'bold',
   },
   inputField: {
-    fontSize: 17,
+    fontSize: 16,
     fontFamily: 'Poppins-SemiBold',
     justifyContent: 'center',
     alignItems: 'center',
+    color: '#020052',
     top: 3,
   },
 
@@ -194,7 +212,7 @@ const loginStyles = StyleSheet.create({
     backgroundColor: 'white',
     // height: 50,
     // marginHorizontal: 5,
-    paddingHorizontal: 10,
+    paddingHorizontal: 12,
     // paddingVertical: 5,
     marginBottom: 15,
     // justifyContent: 'center',

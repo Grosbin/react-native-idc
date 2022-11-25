@@ -15,7 +15,6 @@ export const SwitchFuntion = ({
   isEnabled,
   setIsEnabled,
 }: Props) => {
-  console.log(isEnabled, 'isEnabled');
   return (
     <View
       style={{
