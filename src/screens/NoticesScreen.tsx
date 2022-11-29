@@ -1,49 +1,85 @@
-import React, {useState, useEffect} from 'react';
-import {Button, StyleSheet, Text, View} from 'react-native';
+import React, {useState, useEffect, useContext} from 'react';
+import {
+  Button,
+  Dimensions,
+  FlatList,
+  SafeAreaView,
+  StyleSheet,
+  Text,
+  View,
+} from 'react-native';
 import {ScrollView} from 'react-native-gesture-handler';
-import {addPrayer, getPrayers} from '../actions/prayers';
+import {ItemNotices} from '../components/notices/ItemNotices';
+import {ThemeContex} from '../context/ThemeContex';
+import {addFirebase, getFirebase} from '../database/firebase';
 
 export const NoticesScreen = () => {
-  const [prayers, setPrayers] = useState([]);
+  const [noticesLoading, setNoticesLoading] = useState(true);
+  const [notices, setNotices] = useState([]);
+  const {
+    theme: {colors},
+  } = useContext(ThemeContex);
 
-  const loadPrayers = async () => {
-    const prayers = await getPrayers('families');
-    setPrayers(prayers);
+  const loadNotices = async () => {
+    const notices = await getFirebase('notices');
+    console.log(notices, 'notices');
+    setNotices(notices);
+    setNoticesLoading(false);
   };
 
   useEffect(() => {
-    loadPrayers();
-  }, [prayers]);
+    loadNotices();
+    // addFirebase('notices', {
+    //   title: 'Anuncio 1',
+    //   description: 'Anuncio 1',
+    // });
+  }, []);
 
-  const addPrayerData = () => {
-    console.log('add prayer noticias');
-    addPrayer('families', {name: 'prayer 1'});
-  };
-
+  const renderItem = ({item}) => <ItemNotices {...item} />;
+  const keyExtractor = (item, index) => index + item.toString();
+  const listFooterComponent = () => <View style={{marginBottom: 50}}></View>;
+  // const ITEM_HEIGHT = 55;
+  // const getItemLayout = (data, index) => {
+  //   return {
+  //     length: ITEM_HEIGHT,
+  //     offset: ITEM_HEIGHT * data.length,
+  //     index,
+  //   };
+  // };
   return (
-    // <ScrollView>
-    //   <View style={styles.container}>
-    //     <Text style={styles.text}>Anuncios Screen</Text>
-    //     <Button onPress={addPrayerData} title="Agregar Oración" />
-    //     {<Text style={styles.text}>{JSON.stringify(prayers, null, 2)}</Text>}
-    //   </View>
-    // </ScrollView>
-
-    <View style={styles.container}>
-      <Text style={styles.text}>Anuncios Screen</Text>
-    </View>
+    <SafeAreaView style={[styles.container]}>
+      {notices.length === 0 ? (
+        <View style={styles.containerText}>
+          <Text style={[styles.text, {color: colors.blueSecondary}]}>
+            No hay Anuncios
+          </Text>
+        </View>
+      ) : (
+        <FlatList
+          keyboardShouldPersistTaps="always"
+          keyboardDismissMode="on-drag"
+          data={notices}
+          keyExtractor={keyExtractor}
+          renderItem={renderItem}
+          // getItemLayout={getItemLayout}
+          onEndReachedThreshold={0.4}
+          showsVerticalScrollIndicator={false}
+          // style={{marginTop: 10}}
+          ListFooterComponent={listFooterComponent}
+        />
+      )}
+    </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
+    marginHorizontal: 5,
   },
   text: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    color: 'white',
+    fontSize: 15,
+    fontFamily: 'Poppins-Regular',
   },
+  containerText: {flex: 1, justifyContent: 'center', alignItems: 'center'},
 });

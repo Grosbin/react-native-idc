@@ -1,12 +1,17 @@
-import React, {useContext} from 'react';
-import {StyleSheet, Text, View, TouchableOpacity, Keyboard} from 'react-native';
+import React, {useContext, useEffect, useState} from 'react';
+import {
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  Keyboard,
+  Dimensions,
+} from 'react-native';
 import {ThemeContex} from '../../context/ThemeContex';
-import {gbColor} from '../../theme/themeGlobal';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {RootStackParams} from '../../navigator/StackNavigator';
-
+import {ChantContext} from '../../context/ChantContext';
 interface Props {
   id: string;
   name: string;
@@ -15,23 +20,51 @@ interface Props {
 
 export const ItemChants = ({id, name, lyrics}: Props) => {
   const navigate = useNavigation<StackNavigationProp<RootStackParams>>();
+  const width = Dimensions.get('screen').width;
+
+  const [windowWidth, setWindowWidth] = useState(width);
 
   const {
     theme: {colors},
   } = useContext(ThemeContex);
+
+  const {
+    chantState: {chantsFavArray},
+  } = useContext(ChantContext);
+
+  useEffect(() => {
+    setWindowWidth(width);
+  }, []);
 
   const handleNavigate = () => {
     Keyboard.dismiss();
     navigate.navigate('ContentChants', {id, name, lyrics});
   };
 
+  let nameLength;
+
+  if (windowWidth < 300 && name.length > 25) {
+    nameLength = name.substring(0, 20) + '...';
+  } else if (windowWidth < 400 && name.length > 30) {
+    nameLength = name.substring(0, 25) + '...';
+  } else {
+    nameLength = name;
+  }
+
   return (
     <TouchableOpacity
       onPress={handleNavigate}
       activeOpacity={0.8}
       style={[styles.container, {backgroundColor: colors.foco}]}>
-      <Text style={[styles.text, {color: colors.fontPrimary}]}>{id}</Text>
-      <Text style={[styles.text, {color: colors.fontPrimary}]}>{name}</Text>
+      <Text style={[styles.text, {color: colors.fontPrimary}]}>
+        {chantsFavArray.includes(id) && (
+          <Icon name={'star'} size={15} color={colors.fontPrimary} />
+        )}
+        {`  ${id}`}
+      </Text>
+      <Text style={[styles.text, {color: colors.fontPrimary}]}>
+        {nameLength}
+      </Text>
       <Icon name="chevron-forward" size={25} color={colors.fontPrimary} />
     </TouchableOpacity>
   );

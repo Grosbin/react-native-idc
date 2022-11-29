@@ -19,11 +19,31 @@ export const useLocalStorage = () => {
     } catch (e) {
       console.log(e);
     }
-    // console.log('Entro al getData');
+    return '';
+  };
+
+  const storeDataObject = async (key: string, value: any) => {
+    try {
+      await AsyncStorage.setItem(key, JSON.stringify(value));
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  const removeData = async (key: string) => {
+    try {
+      await AsyncStorage.removeItem(key);
+    } catch (e) {
+      // remove error
+    }
+
+    console.log('Información Borrada.');
   };
 
   return {
     storeData,
+    storeDataObject,
     getData,
+    removeData,
   };
 };

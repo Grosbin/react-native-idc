@@ -1,39 +1,29 @@
 import 'react-native-gesture-handler';
-import React, {useContext} from 'react';
-import {NavigationContainer} from '@react-navigation/native';
-import {BottonTabs} from './src/navigator/BottonTabs';
+import React from 'react';
 import {BibleProvider} from './src/context/BibleContext';
-import {StatusBar} from 'react-native';
-import {color} from 'react-native-reanimated';
-import {MenuLateral} from './src/navigator/DrawerNavigator';
-import {ThemeContex, ThemeProvider} from './src/context/ThemeContex';
-import {ContentView} from './src/screens/ContentView';
+import {ThemeProvider} from './src/context/ThemeContex';
 import {StackNavigator} from './src/navigator/StackNavigator';
+import {AuthProvider} from './src/context/AuthContext';
+import {useLocalStorage} from './src/hooks/useLocalStorage';
+import {ChantProvider} from './src/context/ChantContext';
 
 const BibleState = ({children}: any) => {
-  // return <BibleProvider>{children}</BibleProvider>;
   return (
     <ThemeProvider>
-      <BibleProvider>{children}</BibleProvider>
+      <AuthProvider>
+        <ChantProvider>
+          <BibleProvider>{children}</BibleProvider>
+        </ChantProvider>
+      </AuthProvider>
     </ThemeProvider>
   );
 };
 
 const App = () => {
-  // const {
-  //   theme: {colors},
-  // } = useContext(ThemeContex);
-
   return (
-    // <NavigationContainer>
     <BibleState>
-      {/* <StatusBar backgroundColor={'white'} barStyle="dark-content" /> */}
-
-      {/* <BottonTabs /> */}
       <StackNavigator />
-      {/* <MenuLateral /> */}
     </BibleState>
-    // </NavigationContainer>
   );
 };
 

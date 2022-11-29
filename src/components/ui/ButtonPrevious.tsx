@@ -18,7 +18,6 @@ export const ButtonPrevious = ({navigation, title, sizeTitle}: Props) => {
   return (
     <View style={styles.containerButton}>
       <ButtonPressIcon
-        // style={styles.button}
         PressFuntion={() => navigation.pop()}
         nameIcon={'caret-back'}
         colorIcon={colors.fontPrimary}
@@ -38,7 +37,9 @@ export const ButtonPrevious = ({navigation, title, sizeTitle}: Props) => {
 
 const styles = StyleSheet.create({
   containerButton: {
-    marginHorizontal: 15,
+    marginHorizontal: 20,
+    // width: 250,
+    paddingRight: 30,
     marginTop: 15,
     marginBottom: 20,
     flexDirection: 'row',

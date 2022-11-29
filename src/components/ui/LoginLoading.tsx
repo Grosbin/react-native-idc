@@ -1,31 +1,32 @@
 import React, {useContext} from 'react';
-import {Modal, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {
+  ActivityIndicator,
+  Modal,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import {AuthContext} from '../../context/AuthContext';
 
-export const AlertModal = () => {
+interface Props {
+  message: string;
+}
+
+export const LoginLoading = ({message}: Props) => {
   const {
-    authState: {alertMessage, isAlert},
-    removeAlert,
+    authState: {isLoggedIn},
   } = useContext(AuthContext);
-  const closeModal = () => {
-    removeAlert();
-  };
   return (
     <View style={styles.centeredView}>
       <Modal
         animationType="fade"
         transparent
         presentationStyle="overFullScreen"
-        onRequestClose={closeModal}
-        visible={isAlert}>
+        visible={isLoggedIn}>
         <View style={styles.modalView}>
-          <Text style={[styles.modalText]}>{alertMessage}</Text>
-          <TouchableOpacity
-            activeOpacity={0.8}
-            style={[styles.button, styles.buttonClose]}
-            onPress={closeModal}>
-            <Text style={styles.textStyle}>Cerrar</Text>
-          </TouchableOpacity>
+          <Text style={[styles.modalText]}>{message}</Text>
+          <ActivityIndicator size={20} color="#3b46f1" />
         </View>
       </Modal>
     </View>
@@ -41,7 +42,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 20,
     backgroundColor: 'white',
     borderRadius: 10,
-    padding: 20,
+    padding: 10,
     alignItems: 'center',
     shadowColor: '#000',
     shadowOffset: {
@@ -71,7 +72,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   modalText: {
-    marginBottom: 50,
+    // marginBottom: 50,
     textAlign: 'center',
     fontFamily: 'Poppins-SemiBold',
     color: '#020052',

@@ -88,6 +88,7 @@ export const BottonTabs = () => {
       screenOptions={({route}) => ({
         lazy: false,
         headerShown: false,
+
         // tabBarActiveBackgroundColor: gbColor.primary,
         tabBarIcon: ({color, focused}) => tabBarIcon(route, focused),
         tabBarStyle: {
@@ -99,6 +100,11 @@ export const BottonTabs = () => {
           paddingVertical: 10,
         },
         tabBarItemStyle: {
+          // position: 'absolute',
+          // backgroundColor: 'red',
+          width: 90,
+          height: 50,
+          bottom: 0,
           borderRadius: 50,
           marginBottom: 5,
         },

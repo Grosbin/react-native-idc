@@ -3,34 +3,25 @@ import {
   Text,
   View,
   TextInput,
-  Platform,
-  KeyboardAvoidingView,
-  Keyboard,
-  Alert,
   TouchableOpacity,
   StyleSheet,
-  Image,
 } from 'react-native';
 import {StackScreenProps} from '@react-navigation/stack';
 import {useForm} from '../hooks/useForm';
 import {ThemeContex} from '../context/ThemeContex';
-import changeNavigationBarColor, {
-  hideNavigationBar,
-  showNavigationBar,
-} from 'react-native-navigation-bar-color';
+import changeNavigationBarColor from 'react-native-navigation-bar-color';
 import SplashScreen from 'react-native-splash-screen';
-// import { Background } from '../components/Background';
-// import { WhiteLogo } from '../components/WhiteLogo';
-// import { loginStyles } from '../theme/loginTheme';
-// import { AuthContext } from '../context/AuthContext';
+
 import {StatusBar} from 'react-native';
 import {LogoIDC} from '../components/ui/LogoIDC';
 import {Background} from '../components/ui/Background';
-import {login} from '../actions/auth';
-import {ScrollView} from 'react-native-gesture-handler';
+// import {login} from '../actions/auth';
+
 import Icon from 'react-native-vector-icons/Ionicons';
 import {AlertModal} from '../components/ui/AlertModal';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
+import {AuthContext} from '../context/AuthContext';
+import {LoginLoading} from '../components/ui/LoginLoading';
 
 interface Props extends StackScreenProps<any, any> {}
 
@@ -39,13 +30,14 @@ export const LoginScreen = ({navigation}: Props) => {
     theme: {colors},
   } = useContext(ThemeContex);
 
+  const {addAlert, login} = useContext(AuthContext);
+
   const {email, password, onChange} = useForm({
     email: '',
     password: '',
   });
 
   const [isVisiblePassword, setIsVisiblePassword] = useState(true);
-  const [isAlertModal, setIsAlertModal] = useState(false);
 
   useEffect(() => {
     changeNavigationBarColor(colors.primary, false, true);
@@ -59,22 +51,21 @@ export const LoginScreen = ({navigation}: Props) => {
   const onLogin = async () => {
     console.log({email, password});
     if (email.length === 0 || password.length === 0) {
-      setIsAlertModal(true);
+      addAlert('Todos los campos son obligatorios');
       return;
     }
-    login(email, password);
+    login({email, password});
   };
 
   return (
     <>
       <StatusBar backgroundColor={colors.primary} barStyle="light-content" />
       <Background />
-      <AlertModal
-        isVisible={isAlertModal}
-        setIsVisible={setIsAlertModal}
-        title="Correo o contraseña incorrectos"
-      />
-      <KeyboardAwareScrollView>
+      <AlertModal />
+      <LoginLoading message="Iniciando Sesión" />
+      <KeyboardAwareScrollView
+        keyboardShouldPersistTaps="always"
+        keyboardDismissMode="on-drag">
         {/* <ScrollView> */}
         <View style={loginStyles.formContainer}>
           {/* Keyboard avoid view */}

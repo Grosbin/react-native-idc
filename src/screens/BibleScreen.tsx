@@ -25,10 +25,10 @@ import {color} from 'react-native-reanimated';
 import {ThemeContex} from '../context/ThemeContex';
 import {useLocalStorage} from '../hooks/useLocalStorage';
 import {useCardAnimation} from '../hooks/useCardAnimation';
+import {SafeAreaView} from 'react-native';
 
 export const BibleScreen = () => {
   const [disabledButton, setDisabledButton] = useState(false);
-  // const [loading, setLoading] = useState(true);
   const ref = useRef<FlatList>(null);
 
   const {
@@ -40,6 +40,7 @@ export const BibleScreen = () => {
     getVerses,
     nextChapter,
     previousChapter,
+    getLengthChapter,
     bibleOpacityButtonOffset,
     buttonOpacityBibleStyle,
     buttonOpacityPreviousStyle,
@@ -78,16 +79,6 @@ export const BibleScreen = () => {
     }
   };
 
-  // const widthOffset = useSharedValue('0%');
-  // const heightOffset = useSharedValue('0%');
-
-  // const cardScaleStyle = useAnimatedStyle(() => {
-  //   return {
-  //     width: widthOffset.value,
-  //     height: heightOffset.value,
-  //   };
-  // });
-
   useEffect(() => {
     if (getVerses().length >= verse) {
       setIndex(verse - 1);
@@ -105,22 +96,11 @@ export const BibleScreen = () => {
     ref.current?.scrollToIndex({index: 0, animated: true});
   }, [chapter]);
 
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     setLoading(false);
-  //   }, 100);
-  // }, []);
-
-  // if (loading) {
-  //   return (
-  //     <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-  //       <ActivityIndicator size={50} color={'#3b46f1'} />
-  //     </View>
-  //   );
-  // }
+  const getChapterNumber = getChapter();
+  const lengthChapter = getLengthChapter();
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <View style={styles.titleContainer}>
         <Text
           style={[
@@ -128,30 +108,27 @@ export const BibleScreen = () => {
             book.length > 11 && {fontSize: 19},
             {color: colors.primary},
           ]}>
-          {getChapter()}
+          {getChapterNumber}
         </Text>
         <View style={styles.buttonContainer}>
           <Animated.View style={[buttonOpacityPreviousStyle]}>
             <ButtonPressIcon
               activeCard={chapter === 1 || activeCard}
-              style={[
-                styles.button,
-                styles.previousButton,
-                // {backgroundColor: colors.foco},
-              ]}
+              style={[styles.button, styles.previousButton]}
               PressFuntion={previousChapter}
               nameIcon={'caret-back'}
               colorIcon={colors.primary}
             />
           </Animated.View>
-
-          <ButtonPressIcon
-            activeCard={activeCard}
-            style={styles.button}
-            PressFuntion={nextChapter}
-            nameIcon={'caret-forward'}
-            colorIcon={colors.fontPrimary}
-          />
+          {lengthChapter > 1 && (
+            <ButtonPressIcon
+              activeCard={activeCard}
+              style={styles.button}
+              PressFuntion={nextChapter}
+              nameIcon={'caret-forward'}
+              colorIcon={colors.fontPrimary}
+            />
+          )}
         </View>
       </View>
 
@@ -198,7 +175,7 @@ export const BibleScreen = () => {
           heightOffset={heightOffsetCard}
         />
       )}
-    </View>
+    </SafeAreaView>
   );
 };
 

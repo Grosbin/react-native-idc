@@ -5,7 +5,6 @@ import {
   TextInput,
   TouchableOpacity,
   StyleSheet,
-  Platform,
 } from 'react-native';
 import {StackScreenProps} from '@react-navigation/stack';
 import {useForm} from '../hooks/useForm';
@@ -15,12 +14,13 @@ import {LogoIDC} from '../components/ui/LogoIDC';
 import {CalendarModal} from '../components/CalendarModal';
 import {SwitchFuntion} from '../components/ui/SwitchFuntion';
 import {Background} from '../components/ui/Background';
-import {register} from '../actions/auth';
-import {ScrollView} from 'react-native-gesture-handler';
+
 import Icon from 'react-native-vector-icons/Ionicons';
 import {AlertModal} from '../components/ui/AlertModal';
-import {addUser} from '../actions/user';
+
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
+import {AuthContext} from '../context/AuthContext';
+import {LoginLoading} from '../components/ui/LoginLoading';
 
 interface Props extends StackScreenProps<any, any> {}
 
@@ -29,16 +29,18 @@ export const RegisterScreen = ({navigation}: Props) => {
     theme: {colors},
   } = useContext(ThemeContex);
 
+  const {addAlert, register, addUser} = useContext(AuthContext);
+
   const [birthday, setBirthday] = useState('');
   const [isVisible, setIsVisible] = useState(false);
   const [isBaptized, setIsBaptized] = useState(false);
   const [isVisiblePassword, setIsVisiblePassword] = useState(true);
-  const [isAlertModal, setIsAlertModal] = useState(false);
 
-  const {name, email, password, onChange} = useForm({
+  const {name, email, password, number_phone, onChange} = useForm({
     name: '',
     email: '',
     password: '',
+    number_phone: '',
     birthday: birthday,
   });
 
@@ -51,26 +53,29 @@ export const RegisterScreen = ({navigation}: Props) => {
 
   const onLogin = () => {
     const userAuth = {
-      email: email,
-      password: password,
+      email,
+      password,
     };
 
     const user = {
-      name: name,
-      email: email,
-      birthday: birthday,
+      name,
+      email,
+      birthday,
       baptized: isBaptized,
+      number_phone,
     };
 
     if (
       email.length === 0 ||
       password.length === 0 ||
       name.length === 0 ||
-      birthday.length === 0
+      birthday.length === 0 ||
+      number_phone.length === 0
     ) {
-      setIsAlertModal(true);
+      addAlert('Todos los campos son obligatorios');
       return;
     }
+
     register(userAuth);
     addUser(user);
   };
@@ -78,13 +83,12 @@ export const RegisterScreen = ({navigation}: Props) => {
     <>
       <StatusBar backgroundColor={colors.primary} barStyle="light-content" />
       <Background />
-      <AlertModal
-        isVisible={isAlertModal}
-        setIsVisible={setIsAlertModal}
-        title="Tiene que llenar todos los campos"
-      />
+      <AlertModal />
+      <LoginLoading message="Creando cuenta" />
       {/* <ScrollView> */}
-      <KeyboardAwareScrollView>
+      <KeyboardAwareScrollView
+        keyboardShouldPersistTaps="always"
+        keyboardDismissMode="on-drag">
         <View
           style={{
             alignSelf: 'center',
@@ -125,6 +129,20 @@ export const RegisterScreen = ({navigation}: Props) => {
               selectionColor="white"
               onChangeText={value => onChange(value, 'email')}
               value={email}
+              autoCapitalize="none"
+              autoCorrect={false}
+            />
+          </View>
+          <View style={loginStyles.inputContainer}>
+            <TextInput
+              cursorColor={colors.primary}
+              placeholder="N. Celular:"
+              placeholderTextColor={'rgba(0,0,0,0.4)'}
+              keyboardType="number-pad"
+              style={[loginStyles.inputField]}
+              selectionColor="white"
+              onChangeText={value => onChange(value, 'number_phone')}
+              value={number_phone}
               autoCapitalize="none"
               autoCorrect={false}
             />
@@ -212,8 +230,6 @@ const loginStyles = StyleSheet.create({
     flex: 1,
     paddingHorizontal: 30,
     justifyContent: 'center',
-    height: 600,
-    marginBottom: 50,
   },
   title: {
     color: 'white',

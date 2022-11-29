@@ -21,10 +21,11 @@ export const ListPrayers = ({listPrayers, titleDetail}: Props) => {
     theme: {colors},
   } = useContext(ThemeContex);
   const paramers = {title: titleDetail, data: listPrayers};
+  const list = listPrayers.slice(0, 5);
   return (
     <View style={[styles.container, {backgroundColor: colors.background}]}>
       <View>
-        {listPrayers.map(item => (
+        {list.map(item => (
           // <View style={styles.containerText} key={item.id}>
           <Text
             key={item.id}
@@ -39,7 +40,7 @@ export const ListPrayers = ({listPrayers, titleDetail}: Props) => {
           onPress={() => navigate.navigate('DetailPrayers', paramers)}
           activeOpacity={0.8}
           style={{
-            width: 90,
+            width: 45,
             height: 35,
             borderRadius: 10,
             backgroundColor: colors.green,
@@ -49,7 +50,7 @@ export const ListPrayers = ({listPrayers, titleDetail}: Props) => {
             justifyContent: 'space-evenly',
             alignItems: 'center',
           }}>
-          <Text
+          {/* <Text
             style={{
               textAlign: 'center',
               fontFamily: 'Poppins-Bold',
@@ -59,7 +60,7 @@ export const ListPrayers = ({listPrayers, titleDetail}: Props) => {
               paddingTop: 2,
             }}>
             Ver todas
-          </Text>
+          </Text> */}
           <Icon name="chevron-forward" size={19} color={colors.background} />
         </TouchableOpacity>
       </View>

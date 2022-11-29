@@ -2,6 +2,7 @@ import React, {useContext, useEffect, useState} from 'react';
 import {Keyboard, StyleSheet, View} from 'react-native';
 import {TextInput} from 'react-native-gesture-handler';
 import Icon from 'react-native-vector-icons/Ionicons';
+import {ChantContext} from '../../context/ChantContext';
 import {ThemeContex} from '../../context/ThemeContex';
 import {useDeboucedValue} from '../../hooks/useDeboucedValue';
 
@@ -15,11 +16,19 @@ export const SearchInput = ({onChange}: Props) => {
     theme: {colors},
   } = useContext(ThemeContex);
 
+  const {
+    chantState: {chantsRemove, chantsFav},
+  } = useContext(ChantContext);
+
   const debouncedValue = useDeboucedValue(textValue);
 
   useEffect(() => {
     onChange(debouncedValue);
   }, [debouncedValue]);
+
+  useEffect(() => {
+    setTextValue('');
+  }, [chantsRemove, chantsFav]);
 
   return (
     <View style={[styles.textBackground, {backgroundColor: colors.foco}]}>

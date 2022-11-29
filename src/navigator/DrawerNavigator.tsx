@@ -22,7 +22,8 @@ import {ThemeContex} from '../context/ThemeContex';
 import {NavigationContainer} from '@react-navigation/native';
 import {useLocalStorage} from '../hooks/useLocalStorage';
 import {SwitchFuntion} from '../components/ui/SwitchFuntion';
-import {logout} from '../actions/auth';
+import {AuthContext} from '../context/AuthContext';
+// import {logout} from '../database/auth';
 
 const Drawer = createDrawerNavigator();
 
@@ -60,6 +61,8 @@ const MenuInterno = (props: DrawerContentComponentProps) => {
     setDarkTheme,
     setLightTheme,
   } = useContext(ThemeContex);
+
+  const {logout} = useContext(AuthContext);
 
   const {storeData, getData} = useLocalStorage();
 

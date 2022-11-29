@@ -16,9 +16,9 @@ export const ItemActivitie = ({title, day, hour}: Props) => {
   } = useContext(ThemeContex);
   return (
     <View style={[styles.container, {backgroundColor: colors.primary}]}>
-      <View style={[styles.hourContainer, {backgroundColor: colors.green}]}>
-        <Icon name="time" size={20} color={colors.background} />
-        <Text style={[styles.hour, {color: colors.background}]}>{hour}</Text>
+      <View style={[styles.hourContainer]}>
+        <Icon name="time" size={27} color={colors.green} />
+        <Text style={[styles.hour, {color: colors.white}]}>{hour}</Text>
       </View>
       <Text style={[styles.title, {color: colors.white}]}>{title}</Text>
       <Text style={[styles.day, {color: colors.white}]}>{day}</Text>
@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontFamily: 'Poppins-ExtraBold',
-    fontSize: 18,
+    fontSize: 19,
     top: 10,
     left: 10,
   },
@@ -69,6 +69,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   hour: {
+    fontSize: 15,
     fontFamily: 'Poppins-ExtraBold',
     alignSelf: 'center',
     textAlign: 'center',

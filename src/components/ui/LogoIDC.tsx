@@ -5,10 +5,7 @@ export const LogoIDC = () => {
   return (
     <View
       style={{
-        // justifyContent: 'center',
-        // alignItems: 'center',
         alignSelf: 'center',
-        //   position: 'absolute',
         marginBottom: 10,
       }}>
       <Image

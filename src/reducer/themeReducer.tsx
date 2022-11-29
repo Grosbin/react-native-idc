@@ -29,6 +29,7 @@ export const lightTheme: ThemeState = {
     green: '#0dc4ae',
     yellow: '#ffd554',
     white: '#FFFFFF',
+    skeleton: '#C3D0E6',
   },
 };
 
@@ -51,6 +52,7 @@ export const darkTheme: ThemeState = {
     yellow: '#ffd554',
     yellowSecondary: '#F2EA77',
     white: '#FFFFFF',
+    skeleton: '#4C5159',
   },
 };
 

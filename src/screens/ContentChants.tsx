@@ -1,18 +1,73 @@
 import {StackScreenProps} from '@react-navigation/stack';
-import React, {useContext} from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import React, {useContext, useEffect, useState} from 'react';
+import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 import {ButtonPrevious} from '../components/ui/ButtonPrevious';
 import {ThemeContex} from '../context/ThemeContex';
 import {RootStackParams} from '../navigator/StackNavigator';
 import {ScrollView} from 'react-native-gesture-handler';
+import Icon from 'react-native-vector-icons/Ionicons';
+import {useLocalStorage} from '../hooks/useLocalStorage';
+import {ChantContext} from '../context/ChantContext';
 
 interface Props extends StackScreenProps<RootStackParams, 'ContentChants'> {}
 
 export const ContentChants = ({route, navigation}: Props) => {
+  const {storeData, getData, removeData} = useLocalStorage();
   const {
     theme: {colors},
   } = useContext(ThemeContex);
+
+  const {
+    chantState: {chantsFav},
+    addChant,
+    removeChant,
+  } = useContext(ChantContext);
+
   const {id, name, lyrics} = route.params;
+
+  const [isFavorite, setIsFavorite] = useState(false);
+
+  const setFavoriteChants = async () => {
+    const dataFavorite = await getData('@favoritesChants');
+    const dataFavoriteArray = dataFavorite.split(',');
+    if (dataFavoriteArray.includes(id)) {
+      setIsFavorite(true);
+    }
+  };
+  useEffect(() => {
+    setFavoriteChants();
+  }, []);
+
+  // useEffect(() => {
+  //   setFavoriteChange();
+  // }, [chantsFav]);
+
+  const setFavoriteChange = async () => {
+    setIsFavorite(!isFavorite);
+    const dataFavorite = await getData('@favoritesChants');
+    const dataFavoriteArray = dataFavorite.split(',');
+
+    if (!isFavorite) {
+      if (!dataFavoriteArray.includes(id)) {
+        const data = dataFavorite + ',' + id;
+        storeData('@favoritesChants', data);
+        addChant(data);
+        // console.log(data, 'data ', isFavorite, 'isFavorite');
+      }
+    }
+
+    if (isFavorite) {
+      const dataFavoriteArrayFilter = dataFavoriteArray.filter(
+        item => item !== id,
+      );
+
+      const data = dataFavoriteArrayFilter.join(',');
+      storeData('@favoritesChants', data);
+      removeChant(data);
+      // console.log(data, 'data ', isFavorite, 'isFavorite');
+    }
+    // removeData('@favoritesChants');
+  };
   return (
     <View style={{flex: 1}}>
       <ButtonPrevious
@@ -20,6 +75,19 @@ export const ContentChants = ({route, navigation}: Props) => {
         title={`${name}`}
         sizeTitle={20}
       />
+      <TouchableOpacity
+        onPress={setFavoriteChange}
+        style={{
+          position: 'absolute',
+          right: 25,
+          top: 18,
+        }}>
+        <Icon
+          name={isFavorite ? 'star' : 'star-outline'}
+          size={20}
+          color={colors.fontPrimary}
+        />
+      </TouchableOpacity>
       <ScrollView showsVerticalScrollIndicator={true}>
         {lyrics.map((lyric, index) => (
           <View key={index} style={[styles.container]}>
