@@ -29,7 +29,7 @@ export const ThemeProvider = ({children}: any) => {
 
   const setDarkTheme = () => {
     dispatch({type: 'set_dark_theme'});
-    changeNavigationBarColor('#2f3136', false, true);
+    changeNavigationBarColor('#20262e', false, true);
     return console.log('SetDarkTheme Activado');
   };
   const setLightTheme = () => {

@@ -28,12 +28,12 @@ export const ItemBook = ({bookText, book}: Props) => {
 
   return (
     <TouchableHighlight
-      underlayColor={colors.background}
+      underlayColor={colors.foco}
       style={[
         styles.container,
         // bookData === book && {backgroundColor: gbColor.},
         {
-          backgroundColor: colors.background,
+          backgroundColor: colors.foco,
         },
       ]}
       onPress={() => {

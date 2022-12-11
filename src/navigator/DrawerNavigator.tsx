@@ -163,7 +163,7 @@ const MenuInterno = (props: DrawerContentComponentProps) => {
             paddingHorizontal: 20,
             flexDirection: 'row',
           }}
-          onPress={() => props.navigation.navigate('HomeScreen')}>
+          onPress={() => props.navigation.navigate('DetailBible')}>
           <Text
             style={{
               fontFamily: 'Poppins-Medium',
@@ -184,7 +184,7 @@ const MenuInterno = (props: DrawerContentComponentProps) => {
             paddingHorizontal: 20,
             flexDirection: 'row',
           }}
-          onPress={() => props.navigation.navigate('HomeScreen')}>
+          onPress={() => props.navigation.navigate('DetailApp')}>
           <Text
             style={{
               fontFamily: 'Poppins-Medium',

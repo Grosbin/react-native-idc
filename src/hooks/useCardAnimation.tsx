@@ -2,6 +2,7 @@ import Animated, {
   useAnimatedStyle,
   useSharedValue,
   withSpring,
+  withTiming,
 } from 'react-native-reanimated';
 
 export const useCardAnimation = () => {
@@ -18,9 +19,9 @@ export const useCardAnimation = () => {
   const closedCardOffset = useSharedValue(1);
 
   const closedCardScaleStyle = useAnimatedStyle(() => {
-    closedCardOffset.value = withSpring(1, {damping: 20});
+    closedCardOffset.value = 1;
     return {
-      transform: [{scale: withSpring(closedCardOffset.value)}],
+      transform: [{scale: closedCardOffset.value}],
     };
   });
 
@@ -28,7 +29,7 @@ export const useCardAnimation = () => {
     console.log('closedCard');
     closedCardOffset.value = 0.8;
     widthOffsetCard.value = '100%';
-    heightOffsetCard.value = withSpring('0%', {damping: 20});
+    heightOffsetCard.value = '0%';
   };
 
   return {

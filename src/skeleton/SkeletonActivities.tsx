@@ -4,7 +4,7 @@ import SkeletonContent from 'react-native-skeleton-content-nonexpo';
 import {ThemeContex} from '../context/ThemeContex';
 import {Background} from '../components/ui/Background';
 
-const activities = [0, 1, 2];
+const activities = [0, 1];
 
 export const SkeletonActivities = () => {
   const [loading, setLoading] = useState(true);
@@ -37,8 +37,8 @@ export const SkeletonActivities = () => {
         // },
         {
           key: 'someId',
-          width: 200,
-          height: 110,
+          width: 230,
+          height: 120,
           marginBottom: 5,
           borderRadius: 10,
         },
@@ -52,7 +52,7 @@ export const SkeletonActivities = () => {
         horizontal
         keyExtractor={index => index.toString()}
         data={activities}
-        renderItem={({item}) => <SkeletonActivities />}
+        renderItem={() => <SkeletonActivities />}
       />
     </View>
   );

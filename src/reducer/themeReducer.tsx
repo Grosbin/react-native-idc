@@ -1,5 +1,6 @@
 import {Theme} from '@react-navigation/native';
 import {colors} from '../theme/appTheme';
+import {Background} from '../components/ui/Background';
 
 type ThemeAction = {type: 'set_lingt_theme'} | {type: 'set_dark_theme'};
 
@@ -38,8 +39,8 @@ export const darkTheme: ThemeState = {
   dark: true,
   dividirColor: 'rgba(255, 255, 255, 0.7)',
   colors: {
-    background: '#2f3136',
-    foco: '#36393f',
+    foco: '#2a323d',
+    background: '#20262e',
     primary: '#3b46f1',
     secondary: '#2256F2',
     tertiary: '#AABCF2',
@@ -52,7 +53,7 @@ export const darkTheme: ThemeState = {
     yellow: '#ffd554',
     yellowSecondary: '#F2EA77',
     white: '#FFFFFF',
-    skeleton: '#4C5159',
+    skeleton: '#445163',
   },
 };
 

@@ -8,7 +8,7 @@ import {ListPrayers} from './ListPrayers';
 interface Props {
   title: string;
   iconName: string;
-  listPrayers: {id: number; name: string}[];
+  listPrayers: string[];
 }
 
 export const ItemPrayers = ({title, iconName, listPrayers}: Props) => {

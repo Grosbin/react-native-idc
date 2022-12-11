@@ -38,12 +38,12 @@ export const DetailPrayers = ({route, navigation}: Props) => {
           sizeTitle={20}
         />
 
-        {listPrayers.data.map(item => (
+        {listPrayers.data.map((item, i) => (
           <View
-            key={item.id}
+            key={i}
             style={[styles.containerText, {backgroundColor: colors.foco}]}>
             <Text style={[styles.text, {color: colors.fontPrimary}]}>
-              {item.name}
+              {item}
             </Text>
           </View>
         ))}

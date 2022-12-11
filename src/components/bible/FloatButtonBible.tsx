@@ -1,6 +1,6 @@
 import React, {useContext} from 'react';
 import {StyleProp, StyleSheet, ViewStyle} from 'react-native';
-import Animated, {withSpring} from 'react-native-reanimated';
+import Animated, {withSpring, withTiming} from 'react-native-reanimated';
 import {BibleContext} from '../../context/BibleContext';
 import {useBibleAnimation} from '../../hooks/useButtonAnimation';
 import {useCardAnimation} from '../../hooks/useCardAnimation';
@@ -48,7 +48,7 @@ export const FloatButtonBible = ({
   const handlerActiveCard = (active: boolean, subActive: boolean) => {
     if (!active) {
       widthOffset.value = '100%';
-      heightOffset.value = withSpring('100%', {damping: 20});
+      heightOffset.value = withTiming('100%', {duration: 300});
       onActiveCard(true);
     }
   };

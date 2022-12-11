@@ -57,7 +57,7 @@ export const ButtonBible = ({
           styles.button,
           styles.buttonShadow,
           activeCard && {
-            backgroundColor: colors.background,
+            backgroundColor: colors.foco,
           },
           onActive && {backgroundColor: colors.green},
           style,

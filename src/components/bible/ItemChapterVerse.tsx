@@ -24,7 +24,7 @@ export const ItemChapterVerse = ({chapterNum, onPress}: Props) => {
   return (
     <TouchableHighlight
       underlayColor={colors.background}
-      style={[styles.container, {backgroundColor: colors.background}]}
+      style={[styles.container, {backgroundColor: colors.foco}]}
       onPress={() => onPress(chapterNum)}>
       <Text
         style={[

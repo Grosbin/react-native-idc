@@ -28,7 +28,7 @@ export const TopTabsBible = ({widthOffset, heightOffset}: Props) => {
     <Tab.Navigator
       showPageIndicator={false}
       sceneContainerStyle={{
-        backgroundColor: colors.foco,
+        backgroundColor: colors.background,
         borderBottomEndRadius: 10,
         borderBottomStartRadius: 10,
       }}
@@ -60,11 +60,11 @@ export const TopTabsBible = ({widthOffset, heightOffset}: Props) => {
                 styles.textTitle,
                 // !focused && {color: 'rgba(34,86,242,0.5)'},
                 {
-                  color: colors.fontPrimary,
+                  color: colors.blueSecondary,
                 },
               ]}>
               {(chapterOnPress || verseOnPress) && (
-                <Icon name="search" size={20} color={colors.fontPrimary} />
+                <Icon name="search" size={20} color={colors.blueSecondary} />
               )}
               {title}
             </Text>
@@ -84,7 +84,7 @@ export const TopTabsBible = ({widthOffset, heightOffset}: Props) => {
 
         tabBarPressColor: 'transparent',
         tabBarStyle: {
-          backgroundColor: colors.foco,
+          backgroundColor: colors.background,
           borderTopWidth: 0,
           elevation: 0,
           borderRadius: 10,

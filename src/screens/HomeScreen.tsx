@@ -24,33 +24,77 @@ import {SkeletonActivities} from '../skeleton/SkeletonActivities';
 
 interface Props extends DrawerScreenProps<any, any> {}
 
+interface Prayers {
+  id: string;
+  names: string[];
+  type: string;
+}
+
 export const HomeScreen = ({navigation, route}: Props) => {
   const {getData} = useLocalStorage();
 
-  const [families, setFamilies] = useState([]);
-  const [fortress, setFortress] = useState([]);
-  const [health, setHealth] = useState([]);
-  const [security, setSecurity] = useState([]);
+  // const [families, setFamilies] = useState([]);
+  // const [fortress, setFortress] = useState([]);
+  // const [health, setHealth] = useState([]);
+  // const [security, setSecurity] = useState([]);
+  const [prayers, setPrayers] = useState([]);
   const [activities, setActivities] = useState([]);
   const [prayersLoading, setPrayersLoading] = useState(true);
   const [activitiesLoading, setActivitiesLoading] = useState(true);
 
   const loadPrayers = async () => {
-    const familiesData = await getFirebase('families');
-    const fortressData = await getFirebase('fortress');
-    const healthData = await getFirebase('health');
-    const securityData = await getFirebase('security');
+    // const familiesData = await getFirebase('families');
+    // const fortressData = await getFirebase('fortress');
+    // const healthData = await getFirebase('health');
+    // const securityData = await getFirebase('security');
 
-    setFamilies(familiesData);
-    setFortress(fortressData);
-    setHealth(healthData);
-    setSecurity(securityData);
+    // setFamilies(familiesData);
+    // setFortress(fortressData);
+    // setHealth(healthData);
+    // setSecurity(securityData);
+
+    const prayersData = await getFirebase('prayers');
+    setPrayers(prayersData);
+    // addFirebase('prayers', {
+    //   id: new Date(),
+    //   names: [
+    //     'Nombre 1',
+    //     'Nombre 2',
+    //     'Nombre 3',
+    //     'Nombre 1',
+    //     'Nombre 2',
+    //     'Nombre 3',
+    //     'Nombre 1',
+    //     'Nombre 2',
+    //     'Nombre 3',
+    //     'Nombre 1',
+    //     'Nombre 2',
+    //     'Nombre 3',
+    //     'Nombre 1',
+    //     'Nombre 2',
+    //     'Nombre 3',
+    //     'Nombre 1',
+    //     'Nombre 2',
+    //     'Nombre 3',
+    //     'Nombre 1',
+    //     'Nombre 2',
+    //     'Nombre 3',
+    //   ],
+    //   type: 'Fortalezas',
+    // });
+
     setPrayersLoading(false);
   };
 
   const loadActivities = async () => {
     const activities = await getFirebase('activities');
     setActivities(activities);
+    // addFirebase('activities', {
+    //   day: 'Martes 20 Dic',
+    //   description: 'Es una reunion que estara muy interesante',
+    //   hour: '02:00 PM',
+    //   title: 'Reunion de Damas que Oran',
+    // });
     setActivitiesLoading(false);
   };
 
@@ -122,7 +166,7 @@ export const HomeScreen = ({navigation, route}: Props) => {
             </View>
           ) : (
             <View>
-              <ItemPrayers
+              {/* <ItemPrayers
                 title="Salud"
                 iconName="fitness"
                 listPrayers={health}
@@ -141,7 +185,38 @@ export const HomeScreen = ({navigation, route}: Props) => {
                 title="Fortaleza"
                 iconName="sad"
                 listPrayers={fortress}
-              />
+              /> */}
+
+              {prayers.map((prayer: Prayers, i) => {
+                let icon: string = 'hand-left';
+
+                switch (prayer.type) {
+                  case 'Salud':
+                    icon = 'fitness';
+                    break;
+                  case 'Familias':
+                    icon = 'people';
+                    break;
+                  case 'Seguridad':
+                    icon = 'lock-closed';
+                    break;
+                  case 'Fortaleza':
+                    icon = 'sad';
+                    break;
+                  default:
+                    icon = 'hand-left';
+                    break;
+                }
+
+                return (
+                  <ItemPrayers
+                    key={i}
+                    title={prayer.type}
+                    iconName={icon}
+                    listPrayers={prayer.names}
+                  />
+                );
+              })}
             </View>
           )}
         </View>

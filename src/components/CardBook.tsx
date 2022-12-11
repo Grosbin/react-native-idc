@@ -16,7 +16,7 @@ export const CardBook = ({style, widthOffset, heightOffset}: Props) => {
   } = useContext(ThemeContex);
   return (
     <Animated.View
-      style={[styles.container, style, {backgroundColor: colors.foco}]}>
+      style={[styles.container, style, {backgroundColor: colors.background}]}>
       <TopTabsBible widthOffset={widthOffset} heightOffset={heightOffset} />
     </Animated.View>
   );

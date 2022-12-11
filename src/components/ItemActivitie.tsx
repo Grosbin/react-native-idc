@@ -20,8 +20,12 @@ export const ItemActivitie = ({title, day, hour}: Props) => {
         <Icon name="time" size={27} color={colors.green} />
         <Text style={[styles.hour, {color: colors.white}]}>{hour}</Text>
       </View>
-      <Text style={[styles.title, {color: colors.white}]}>{title}</Text>
-      <Text style={[styles.day, {color: colors.white}]}>{day}</Text>
+      <View style={{width: 200}}>
+        <Text style={[styles.title, {color: colors.white}]}>{title}</Text>
+      </View>
+      <Text style={[styles.day, {color: colors.white, paddingTop: 5}]}>
+        {day}
+      </Text>
     </View>
   );
 };
@@ -29,19 +33,19 @@ export const ItemActivitie = ({title, day, hour}: Props) => {
 const styles = StyleSheet.create({
   container: {
     marginHorizontal: 10,
-    height: 110,
-    width: 200,
+    height: 120,
+    width: 230,
     borderRadius: 10,
     // marginVertical: 8,
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
-      height: 3,
+      height: 0,
     },
-    shadowOpacity: 0.27,
-    shadowRadius: 4.65,
+    shadowOpacity: 0.25,
+    shadowRadius: 2,
 
-    elevation: 6,
+    elevation: 2,
   },
   title: {
     fontFamily: 'Poppins-ExtraBold',
@@ -58,8 +62,8 @@ const styles = StyleSheet.create({
   },
   hourContainer: {
     flexDirection: 'row',
-    width: 90,
-    height: 40,
+    // width: 90,
+    // height: 40,
     borderRadius: 10,
 
     position: 'absolute',
@@ -69,11 +73,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   hour: {
-    fontSize: 15,
+    fontSize: 18,
     fontFamily: 'Poppins-ExtraBold',
     alignSelf: 'center',
     textAlign: 'center',
     paddingTop: 3,
+    // marginRight: 10,
   },
   // button: {
   //   position: 'absolute',

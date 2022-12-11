@@ -11,14 +11,18 @@ import {NavigationContainer} from '@react-navigation/native';
 import {LoginScreen} from '../screens/LoginScreen';
 import {RegisterScreen} from '../screens/RegisterScreen';
 import auth from '@react-native-firebase/auth';
+import {DetailBible} from '../screens/DetailBible';
+import {DetailApp} from '../screens/DetailApp';
 
 export type RootStackParams = {
   BottonTabs: undefined;
   // MenuLateral: undefined;
-  DetailPrayers: {title: string; data: {id: number; name: string}[]};
+  DetailPrayers: {title: string; data: string[]};
   ContentChants: {id: string; name: string; lyrics: string[]};
   LoginScreen: undefined;
   RegisterScreen: undefined;
+  DetailBible: undefined;
+  DetailApp: undefined;
 };
 
 const Stack = createStackNavigator<RootStackParams>();
@@ -65,6 +69,8 @@ export const StackNavigator = () => {
             <Stack.Screen name="BottonTabs" component={BottonTabs} />
             <Stack.Screen name="DetailPrayers" component={DetailPrayers} />
             <Stack.Screen name="ContentChants" component={ContentChants} />
+            <Stack.Screen name="DetailBible" component={DetailBible} />
+            <Stack.Screen name="DetailApp" component={DetailApp} />
           </>
         )}
       </Stack.Navigator>

@@ -11,7 +11,7 @@ import {RootStackParams} from '../../navigator/StackNavigator';
 import {gbColor} from '../../theme/themeGlobal';
 
 interface Props {
-  listPrayers: {id: number; name: string}[];
+  listPrayers: string[];
   titleDetail: string;
 }
 
@@ -25,12 +25,10 @@ export const ListPrayers = ({listPrayers, titleDetail}: Props) => {
   return (
     <View style={[styles.container, {backgroundColor: colors.background}]}>
       <View>
-        {list.map(item => (
+        {list.map((item, i) => (
           // <View style={styles.containerText} key={item.id}>
-          <Text
-            key={item.id}
-            style={[styles.name, {color: colors.fontPrimary}]}>
-            {item.name}
+          <Text key={i} style={[styles.name, {color: colors.fontPrimary}]}>
+            {item}
           </Text>
           // </View>
         ))}
