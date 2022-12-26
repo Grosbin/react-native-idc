@@ -14,7 +14,11 @@ export const ItemNotices = ({title, description}: Props) => {
   } = useContext(ThemeContex);
   return (
     <View style={[styles.container, {backgroundColor: colors.foco}]}>
-      <Text style={[styles.title, {color: colors.blueSecondary}]}>{title}</Text>
+      {title && (
+        <Text style={[styles.title, {color: colors.blueSecondary}]}>
+          {title}
+        </Text>
+      )}
       <Text style={[styles.description, {color: colors.fontPrimary}]}>
         {description}
       </Text>

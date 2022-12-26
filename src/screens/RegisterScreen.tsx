@@ -100,17 +100,17 @@ export const RegisterScreen = ({navigation}: Props) => {
             setIsVisible={setIsVisible}
           />
         </View>
-        <View style={loginStyles.formContainer}>
+        <View style={registerStyles.formContainer}>
           <LogoIDC />
 
-          <Text style={loginStyles.title}>Registro</Text>
+          <Text style={registerStyles.title}>Registro</Text>
 
-          <View style={loginStyles.inputContainer}>
+          <View style={registerStyles.inputContainer}>
             <TextInput
               cursorColor={colors.primary}
               placeholder="Nombre:"
               placeholderTextColor={'rgba(0,0,0,0.4)'}
-              style={[loginStyles.inputField]}
+              style={[registerStyles.inputField]}
               selectionColor="white"
               onChangeText={value => onChange(value, 'name')}
               value={name}
@@ -119,13 +119,13 @@ export const RegisterScreen = ({navigation}: Props) => {
             />
           </View>
 
-          <View style={loginStyles.inputContainer}>
+          <View style={registerStyles.inputContainer}>
             <TextInput
               cursorColor={colors.primary}
               placeholder="Correo:"
               placeholderTextColor={'rgba(0,0,0,0.4)'}
               keyboardType="email-address"
-              style={[loginStyles.inputField]}
+              style={[registerStyles.inputField]}
               selectionColor="white"
               onChangeText={value => onChange(value, 'email')}
               value={email}
@@ -133,13 +133,13 @@ export const RegisterScreen = ({navigation}: Props) => {
               autoCorrect={false}
             />
           </View>
-          <View style={loginStyles.inputContainer}>
+          <View style={registerStyles.inputContainer}>
             <TextInput
               cursorColor={colors.primary}
               placeholder="N. Celular:"
               placeholderTextColor={'rgba(0,0,0,0.4)'}
               keyboardType="number-pad"
-              style={[loginStyles.inputField]}
+              style={[registerStyles.inputField]}
               selectionColor="white"
               onChangeText={value => onChange(value, 'number_phone')}
               value={number_phone}
@@ -148,13 +148,13 @@ export const RegisterScreen = ({navigation}: Props) => {
             />
           </View>
 
-          <View style={[loginStyles.inputContainer]}>
+          <View style={[registerStyles.inputContainer]}>
             <TextInput
               cursorColor={colors.primary}
               placeholder="Contraseña:"
               placeholderTextColor={'rgba(0,0,0,0.4)'}
               secureTextEntry={isVisiblePassword}
-              style={[loginStyles.inputField]}
+              style={[registerStyles.inputField]}
               selectionColor="white"
               onChangeText={value => onChange(value, 'password')}
               value={password}
@@ -198,24 +198,24 @@ export const RegisterScreen = ({navigation}: Props) => {
 
           <SwitchFuntion
             toggleSwitch={() => setIsBaptized(!isBaptized)}
-            title={isBaptized ? 'Si estoy bautizado' : 'No estoy bautizado'}
+            title={isBaptized ? '¿Esta bautizado? Si' : '¿Esta bautizado? No'}
             isEnabled={isBaptized}
           />
 
-          <View style={loginStyles.buttonContainer}>
+          <View style={registerStyles.buttonContainer}>
             <TouchableOpacity
               activeOpacity={0.8}
-              style={loginStyles.button}
+              style={registerStyles.button}
               onPress={onLogin}>
-              <Text style={loginStyles.buttonText}>Crear cuenta</Text>
+              <Text style={registerStyles.buttonText}>Crear cuenta</Text>
             </TouchableOpacity>
           </View>
 
-          <View style={loginStyles.newUserContainer}>
+          <View style={registerStyles.newUserContainer}>
             <TouchableOpacity
               activeOpacity={0.8}
               onPress={() => navigation.replace('LoginScreen')}>
-              <Text style={loginStyles.buttonText}>Iniciar Sesión</Text>
+              <Text style={registerStyles.buttonText}>Iniciar Sesión</Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -225,7 +225,7 @@ export const RegisterScreen = ({navigation}: Props) => {
   );
 };
 
-const loginStyles = StyleSheet.create({
+const registerStyles = StyleSheet.create({
   formContainer: {
     flex: 1,
     paddingHorizontal: 30,

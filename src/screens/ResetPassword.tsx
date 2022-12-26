@@ -15,9 +15,7 @@ import SplashScreen from 'react-native-splash-screen';
 import {StatusBar} from 'react-native';
 import {LogoIDC} from '../components/ui/LogoIDC';
 import {Background} from '../components/ui/Background';
-// import {login} from '../actions/auth';
 
-import Icon from 'react-native-vector-icons/Ionicons';
 import {AlertModal} from '../components/ui/AlertModal';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import {AuthContext} from '../context/AuthContext';
@@ -25,36 +23,30 @@ import {LoginLoading} from '../components/ui/LoginLoading';
 
 interface Props extends StackScreenProps<any, any> {}
 
-export const LoginScreen = ({navigation}: Props) => {
+export const ResetPassword = ({navigation}: Props) => {
   const {
     theme: {colors},
   } = useContext(ThemeContex);
 
-  const {addAlert, login} = useContext(AuthContext);
+  const {addAlert, resetPassword} = useContext(AuthContext);
 
-  const {email, password, onChange} = useForm({
+  const {email, onChange} = useForm({
     email: '',
-    password: '',
   });
-
-  const [isVisiblePassword, setIsVisiblePassword] = useState(true);
 
   useEffect(() => {
     changeNavigationBarColor(colors.primary, false, true);
     SplashScreen.hide();
   }, []);
 
-  const onPasswordVisible = () => {
-    setIsVisiblePassword(!isVisiblePassword);
-  };
-
-  const onLogin = async () => {
-    console.log({email, password});
-    if (email.length === 0 || password.length === 0) {
-      addAlert('Todos los campos son obligatorios');
+  const onResetPassword = async () => {
+    console.log({email});
+    if (email.length === 0) {
+      addAlert('El correo es requerido');
       return;
     }
-    login({email, password});
+
+    resetPassword(email);
   };
 
   return (
@@ -66,86 +58,46 @@ export const LoginScreen = ({navigation}: Props) => {
       <KeyboardAwareScrollView
         keyboardShouldPersistTaps="always"
         keyboardDismissMode="on-drag">
-        {/* <ScrollView> */}
-        <View style={loginStyles.formContainer}>
-          {/* Keyboard avoid view */}
+        <View style={resetStyles.formContainer}>
           <LogoIDC />
-
-          <Text style={loginStyles.title}>Iniciar Sesión</Text>
-
-          {/* <Text style={loginStyles.label}>correo:</Text> */}
-          <View style={loginStyles.inputContainer}>
+          <Text style={resetStyles.title}></Text>
+          <View style={resetStyles.inputContainer}>
             <TextInput
               cursorColor={colors.primary}
               placeholder="Correo:"
               placeholderTextColor={'rgba(0,0,0,0.4)'}
               keyboardType="email-address"
-              style={[loginStyles.inputField]}
+              style={[resetStyles.inputField]}
               selectionColor="white"
               onChangeText={value => onChange(value, 'email')}
               value={email}
-              onSubmitEditing={onLogin}
+              onSubmitEditing={onResetPassword}
               autoCapitalize="none"
               autoCorrect={false}
             />
           </View>
-
-          <View style={loginStyles.inputContainer}>
-            <TextInput
-              cursorColor={colors.primary}
-              placeholder="Contraseña:"
-              placeholderTextColor={'rgba(0,0,0,0.4)'}
-              secureTextEntry={isVisiblePassword}
-              style={[loginStyles.inputField]}
-              selectionColor="white"
-              onChangeText={value => onChange(value, 'password')}
-              value={password}
-              onSubmitEditing={onLogin}
-              autoCapitalize="none"
-              autoCorrect={false}
-            />
-            <Icon
-              name={isVisiblePassword ? 'eye-off-outline' : 'eye-outline'}
-              size={25}
-              style={{position: 'absolute', right: 15, top: 12}}
-              onPress={onPasswordVisible}
-              color={'rgba(0,0,0,0.4)'}
-            />
-          </View>
-          <View style={loginStyles.linkUserContainer}>
+          <View style={resetStyles.buttonContainer}>
             <TouchableOpacity
               activeOpacity={0.8}
-              onPress={() => navigation.replace('ResetPassword')}>
-              <Text style={loginStyles.linkText}>Olvide mi contraseña </Text>
+              style={resetStyles.button}
+              onPress={onResetPassword}>
+              <Text style={resetStyles.buttonText}>Enviar</Text>
             </TouchableOpacity>
           </View>
-
-          {/* Boton login */}
-          <View style={loginStyles.buttonContainer}>
-            <TouchableOpacity
-              activeOpacity={0.8}
-              style={loginStyles.button}
-              onPress={onLogin}>
-              <Text style={loginStyles.buttonText}>Entrar</Text>
-            </TouchableOpacity>
-          </View>
-
-          {/* Crear una nueva cuenta */}
           <View style={{alignItems: 'flex-end', paddingTop: 20}}>
             <TouchableOpacity
               activeOpacity={0.8}
-              onPress={() => navigation.replace('RegisterScreen')}>
-              <Text style={loginStyles.buttonText}>Registrarse</Text>
+              onPress={() => navigation.replace('LoginScreen')}>
+              <Text style={resetStyles.buttonText}>Iniciar Sesión</Text>
             </TouchableOpacity>
           </View>
         </View>
-        {/* </ScrollView> */}
       </KeyboardAwareScrollView>
     </>
   );
 };
 
-const loginStyles = StyleSheet.create({
+const resetStyles = StyleSheet.create({
   formContainer: {
     flex: 1,
     paddingHorizontal: 30,
@@ -175,7 +127,7 @@ const loginStyles = StyleSheet.create({
 
   buttonContainer: {
     alignItems: 'center',
-    marginTop: 20,
+    marginTop: 5,
   },
   button: {
     backgroundColor: '#0dc4ae',

@@ -13,6 +13,7 @@ import {RegisterScreen} from '../screens/RegisterScreen';
 import auth from '@react-native-firebase/auth';
 import {DetailBible} from '../screens/DetailBible';
 import {DetailApp} from '../screens/DetailApp';
+import {ResetPassword} from '../screens/ResetPassword';
 
 export type RootStackParams = {
   BottonTabs: undefined;
@@ -23,6 +24,7 @@ export type RootStackParams = {
   RegisterScreen: undefined;
   DetailBible: undefined;
   DetailApp: undefined;
+  ResetPassword: undefined;
 };
 
 const Stack = createStackNavigator<RootStackParams>();
@@ -63,6 +65,7 @@ export const StackNavigator = () => {
           <>
             <Stack.Screen name="LoginScreen" component={LoginScreen} />
             <Stack.Screen name="RegisterScreen" component={RegisterScreen} />
+            <Stack.Screen name="ResetPassword" component={ResetPassword} />
           </>
         ) : (
           <>

@@ -26,6 +26,7 @@ export interface AuthContextProps {
   authState: AuthState;
   removeAlert: () => void;
   login: (user: UserAUTH) => void;
+  resetPassword: (email: string) => void;
   register: (user: UserAUTH) => void;
   logout: () => void;
   loggedIn: (logeed: boolean) => void;
@@ -45,7 +46,6 @@ export const AuthProvider = ({children}: any) => {
   const [authState, dispatch] = useReducer(authReducer, initialStateAuth);
 
   const login = async (user: UserAUTH) => {
-    console.log('Entro a login');
     dispatch({type: 'isLoggedIn', payload: true});
 
     try {
@@ -53,7 +53,6 @@ export const AuthProvider = ({children}: any) => {
       console.log('Cuenta de usuario iniciada.');
     } catch (error: any) {
       if (error.code === 'auth/email-already-in-use') {
-        console.log('Esa dirección de correo electrónico ya está en uso.');
         dispatch({
           type: 'addAlert',
           payload: 'Esa dirección de correo electrónico ya está en uso.',
@@ -61,7 +60,6 @@ export const AuthProvider = ({children}: any) => {
       }
 
       if (error.code === 'auth/invalid-email') {
-        console.log('Esa dirección de correo electrónico no es válida.');
         dispatch({
           type: 'addAlert',
           payload: 'Esa dirección de correo electrónico no es válida.',
@@ -69,14 +67,10 @@ export const AuthProvider = ({children}: any) => {
       }
 
       if (error.code === 'auth/wrong-password') {
-        console.log('Contraseña incorrecta.');
         dispatch({type: 'addAlert', payload: 'Contraseña incorrecta.'});
       }
 
       if (error.code === 'auth/too-many-requests') {
-        console.log(
-          'Demasiados intentos de inicio de sesión fallidos. Inténtalo de nuevo más tarde.',
-        );
         dispatch({
           type: 'addAlert',
           payload:
@@ -88,7 +82,6 @@ export const AuthProvider = ({children}: any) => {
   };
 
   const register = async (user: UserAUTH) => {
-    console.log('Entro a register');
     dispatch({type: 'isLoggedIn', payload: true});
 
     try {
@@ -96,7 +89,6 @@ export const AuthProvider = ({children}: any) => {
       console.log('Cuenta de usuario creada e iniciada.');
     } catch (error: any) {
       if (error.code === 'auth/email-already-in-use') {
-        console.log('Esa dirección de correo electrónico ya está en uso.');
         dispatch({
           type: 'addAlert',
           payload: 'Esa dirección de correo electrónico ya está en uso.',
@@ -104,7 +96,6 @@ export const AuthProvider = ({children}: any) => {
       }
 
       if (error.code === 'auth/invalid-email') {
-        console.log('Esa dirección de correo electrónico no es válida.');
         dispatch({
           type: 'addAlert',
           payload: 'Esa dirección de correo electrónico no es válida.',
@@ -117,10 +108,21 @@ export const AuthProvider = ({children}: any) => {
   const logout = async () => {
     try {
       await auth().signOut();
-      console.log('Cuenta de usuario cerrada.');
     } catch (error: any) {
-      console.error(error);
       dispatch({type: 'addAlert', payload: 'Error al cerrar sesión.'});
+    }
+  };
+
+  const resetPassword = async (email: string) => {
+    try {
+      await auth().sendPasswordResetEmail(email);
+
+      dispatch({
+        type: 'addAlert',
+        payload: 'Correo de restablecimiento de contraseña enviado.',
+      });
+    } catch (error: any) {
+      dispatch({type: 'addAlert', payload: 'Error al enviar correo.'});
     }
   };
 
@@ -153,6 +155,7 @@ export const AuthProvider = ({children}: any) => {
         login,
         register,
         logout,
+        resetPassword,
         loggedIn,
         addUser,
         addAlert,

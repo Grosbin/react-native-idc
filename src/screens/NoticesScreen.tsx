@@ -1,17 +1,15 @@
 import React, {useState, useEffect, useContext} from 'react';
 import {
-  Button,
-  Dimensions,
   FlatList,
+  RefreshControl,
   SafeAreaView,
   StyleSheet,
   Text,
   View,
 } from 'react-native';
-import {ScrollView} from 'react-native-gesture-handler';
 import {ItemNotices} from '../components/notices/ItemNotices';
 import {ThemeContex} from '../context/ThemeContex';
-import {addFirebase, getFirebase} from '../database/firebase';
+import {getFirebase} from '../database/firebase';
 
 export const NoticesScreen = () => {
   const [noticesLoading, setNoticesLoading] = useState(true);
@@ -21,31 +19,20 @@ export const NoticesScreen = () => {
   } = useContext(ThemeContex);
 
   const loadNotices = async () => {
+    setNoticesLoading(true);
     const notices = await getFirebase('notices');
-    console.log(notices, 'notices');
     setNotices(notices);
     setNoticesLoading(false);
   };
 
   useEffect(() => {
     loadNotices();
-    // addFirebase('notices', {
-    //   title: 'Anuncio 1',
-    //   description: 'Anuncio 1',
-    // });
   }, []);
 
   const renderItem = ({item}) => <ItemNotices {...item} />;
   const keyExtractor = (item, index) => index + item.toString();
   const listFooterComponent = () => <View style={{marginBottom: 50}}></View>;
-  // const ITEM_HEIGHT = 55;
-  // const getItemLayout = (data, index) => {
-  //   return {
-  //     length: ITEM_HEIGHT,
-  //     offset: ITEM_HEIGHT * data.length,
-  //     index,
-  //   };
-  // };
+
   return (
     <SafeAreaView style={[styles.container]}>
       {notices.length === 0 ? (
@@ -61,11 +48,18 @@ export const NoticesScreen = () => {
           data={notices}
           keyExtractor={keyExtractor}
           renderItem={renderItem}
-          // getItemLayout={getItemLayout}
           onEndReachedThreshold={0.4}
           showsVerticalScrollIndicator={false}
-          // style={{marginTop: 10}}
           ListFooterComponent={listFooterComponent}
+          refreshControl={
+            <RefreshControl
+              refreshing={noticesLoading}
+              onRefresh={loadNotices}
+              colors={[colors.primary]}
+              progressBackgroundColor={colors.foco}
+              progressViewOffset={-20}
+            />
+          }
         />
       )}
     </SafeAreaView>

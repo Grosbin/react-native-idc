@@ -6,6 +6,7 @@ import {
   SafeAreaView,
   ScrollView,
   ActivityIndicator,
+  RefreshControl,
 } from 'react-native';
 
 import SplashScreen from 'react-native-splash-screen';
@@ -32,61 +33,21 @@ interface Prayers {
 
 export const HomeScreen = ({navigation, route}: Props) => {
   const {getData} = useLocalStorage();
-
-  // const [families, setFamilies] = useState([]);
-  // const [fortress, setFortress] = useState([]);
-  // const [health, setHealth] = useState([]);
-  // const [security, setSecurity] = useState([]);
   const [prayers, setPrayers] = useState([]);
   const [activities, setActivities] = useState([]);
   const [prayersLoading, setPrayersLoading] = useState(true);
   const [activitiesLoading, setActivitiesLoading] = useState(true);
 
   const loadPrayers = async () => {
-    // const familiesData = await getFirebase('families');
-    // const fortressData = await getFirebase('fortress');
-    // const healthData = await getFirebase('health');
-    // const securityData = await getFirebase('security');
-
-    // setFamilies(familiesData);
-    // setFortress(fortressData);
-    // setHealth(healthData);
-    // setSecurity(securityData);
-
+    setPrayersLoading(true);
     const prayersData = await getFirebase('prayers');
     setPrayers(prayersData);
-    // addFirebase('prayers', {
-    //   id: new Date(),
-    //   names: [
-    //     'Nombre 1',
-    //     'Nombre 2',
-    //     'Nombre 3',
-    //     'Nombre 1',
-    //     'Nombre 2',
-    //     'Nombre 3',
-    //     'Nombre 1',
-    //     'Nombre 2',
-    //     'Nombre 3',
-    //     'Nombre 1',
-    //     'Nombre 2',
-    //     'Nombre 3',
-    //     'Nombre 1',
-    //     'Nombre 2',
-    //     'Nombre 3',
-    //     'Nombre 1',
-    //     'Nombre 2',
-    //     'Nombre 3',
-    //     'Nombre 1',
-    //     'Nombre 2',
-    //     'Nombre 3',
-    //   ],
-    //   type: 'Fortalezas',
-    // });
 
     setPrayersLoading(false);
   };
 
   const loadActivities = async () => {
+    setActivitiesLoading(true);
     const activities = await getFirebase('activities');
     setActivities(activities);
     // addFirebase('activities', {
@@ -131,7 +92,20 @@ export const HomeScreen = ({navigation, route}: Props) => {
 
   return (
     <View>
-      <ScrollView showsVerticalScrollIndicator={false}>
+      <ScrollView
+        showsVerticalScrollIndicator={false}
+        refreshControl={
+          <RefreshControl
+            refreshing={prayersLoading || activitiesLoading}
+            onRefresh={() => {
+              loadActivities();
+              loadPrayers();
+            }}
+            colors={[colors.primary]}
+            progressBackgroundColor={colors.foco}
+            progressViewOffset={-20}
+          />
+        }>
         <Header navigation={navigation} route={route} />
         {activitiesLoading ? (
           <SkeletonActivities />
@@ -166,27 +140,6 @@ export const HomeScreen = ({navigation, route}: Props) => {
             </View>
           ) : (
             <View>
-              {/* <ItemPrayers
-                title="Salud"
-                iconName="fitness"
-                listPrayers={health}
-              />
-              <ItemPrayers
-                title="Familias"
-                iconName="people"
-                listPrayers={families}
-              />
-              <ItemPrayers
-                title="Seguridad"
-                iconName="lock-closed"
-                listPrayers={security}
-              />
-              <ItemPrayers
-                title="Fortaleza"
-                iconName="sad"
-                listPrayers={fortress}
-              /> */}
-
               {prayers.map((prayer: Prayers, i) => {
                 let icon: string = 'hand-left';
 
