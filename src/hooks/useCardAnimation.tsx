@@ -1,9 +1,4 @@
-import Animated, {
-  useAnimatedStyle,
-  useSharedValue,
-  withSpring,
-  withTiming,
-} from 'react-native-reanimated';
+import {useAnimatedStyle, useSharedValue} from 'react-native-reanimated';
 
 export const useCardAnimation = () => {
   const widthOffsetCard = useSharedValue('0%');
@@ -26,7 +21,6 @@ export const useCardAnimation = () => {
   });
 
   const closedCard = () => {
-    console.log('closedCard');
     closedCardOffset.value = 0.8;
     widthOffsetCard.value = '100%';
     heightOffsetCard.value = '0%';

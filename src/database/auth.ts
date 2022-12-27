@@ -8,14 +8,10 @@ interface UserAUTH {
 }
 
 export const register = async ({email, password}: UserAUTH) => {
-  console.log('Entro a register');
-
   try {
     await auth().createUserWithEmailAndPassword(email, password);
-    console.log('Cuenta de usuario creada e iniciada.');
   } catch (error: any) {
     if (error.code === 'auth/email-already-in-use') {
-      console.log('Esa dirección de correo electrónico ya está en uso.');
       return Alert.alert(
         'Error',
         'Esa dirección de correo electrónico ya está en uso.',
@@ -23,7 +19,6 @@ export const register = async ({email, password}: UserAUTH) => {
     }
 
     if (error.code === 'auth/invalid-email') {
-      console.log('Esa dirección de correo electrónico no es válida.');
       return Alert.alert(
         'Error',
         'Esa dirección de correo electrónico no es válida.',
@@ -33,19 +28,14 @@ export const register = async ({email, password}: UserAUTH) => {
 };
 
 export const login = async (email: string, password: string) => {
-  console.log('Entro a login');
-
   try {
     await auth().signInWithEmailAndPassword(email, password);
-    console.log('Cuenta de usuario iniciada.');
   } catch (error: any) {
     if (error.code === 'auth/email-already-in-use') {
-      console.log('Esa dirección de correo electrónico ya está en uso.');
       return Alert.alert('Esa dirección de correo electrónico ya está en uso.');
     }
 
     if (error.code === 'auth/invalid-email') {
-      console.log('Esa dirección de correo electrónico no es válida.');
       return Alert.alert(
         'Error',
         'Esa dirección de correo electrónico no es válida.',
@@ -53,7 +43,6 @@ export const login = async (email: string, password: string) => {
     }
 
     if (error.code === 'auth/wrong-password') {
-      console.log('Contraseña incorrecta.');
       return Alert.alert('Error', 'Contraseña incorrecta.');
     }
 
@@ -69,7 +58,6 @@ export const login = async (email: string, password: string) => {
 export const logout = async () => {
   try {
     await auth().signOut();
-    console.log('Cuenta de usuario cerrada.');
   } catch (error: any) {
     console.error(error);
   }

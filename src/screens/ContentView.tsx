@@ -8,9 +8,6 @@ export const ContentView = props => {
     <View
       style={[
         {
-          // marginLeft: safeInsets?.left,
-          // marginTop: safeInsets?.top,
-          // marginRight: safeInsets?.right,
           marginBottom: safeInsets?.bottom,
         },
       ]}>

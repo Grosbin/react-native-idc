@@ -1,10 +1,9 @@
 import 'react-native-gesture-handler';
 import React from 'react';
 import {BibleProvider} from './src/context/BibleContext';
-import {ThemeProvider} from './src/context/ThemeContex';
+import {ThemeProvider} from './src/context/ThemeContext';
 import {StackNavigator} from './src/navigator/StackNavigator';
 import {AuthProvider} from './src/context/AuthContext';
-import {useLocalStorage} from './src/hooks/useLocalStorage';
 import {ChantProvider} from './src/context/ChantContext';
 
 const BibleState = ({children}: any) => {

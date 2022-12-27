@@ -23,15 +23,6 @@ export const CloseCard = ({widthOffset, heightOffset}: Props) => {
 
   const {closedCardOffset, closedCardScaleStyle} = useCardAnimation();
 
-  // const closedOffset = useSharedValue(1);
-
-  // const closedScaleStyle = useAnimatedStyle(() => {
-  //   closedOffset.value = withSpring(1, {damping: 20});
-  //   return {
-  //     transform: [{scale: withSpring(closedOffset.value)}],
-  //   };
-  // });
-
   const onClosedCard = () => {
     closedCardOffset.value = 0.8;
 
@@ -57,13 +48,7 @@ export const CloseCard = ({widthOffset, heightOffset}: Props) => {
 
 const styles = StyleSheet.create({
   container: {
-    // alignItems: 'center',
-    // position: 'absolute',
     zIndex: 999,
-    // bottom: 0,
-    // marginHorizontal: 30,
-    // width: '100%',
-    // flex: 1,
   },
   containerText: {
     backgroundColor: gbColor.primary,

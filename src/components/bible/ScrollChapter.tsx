@@ -1,22 +1,13 @@
 import React from 'react';
-import {StyleProp, View, ViewStyle, FlatList, StyleSheet} from 'react-native';
+import {View, FlatList, StyleSheet} from 'react-native';
 import {ItemChapterVerse} from './ItemChapterVerse';
 
 import {useContext} from 'react';
 import {BibleContext} from '../../context/BibleContext';
 import {useBible} from '../../hooks/useBible';
 
-// interface Props {
-//   testament: {};
-//   style?: StyleProp<ViewStyle>;
-// }
-
 export const ScrollChapter = () => {
-  const {
-    onChangeChapter,
-    onPressVerseHandler,
-    bibleState: {book, chapter},
-  } = useContext(BibleContext);
+  const {onChangeChapter, onPressVerseHandler} = useContext(BibleContext);
 
   const {getLengthChapter} = useBible();
 
@@ -30,9 +21,7 @@ export const ScrollChapter = () => {
   };
 
   const chapterLength = getChapter(getLengthChapter());
-  // console.log(testament[book][1], " Estamento");
-  // console.log(chapterLength, ' Longitud');
-  // console.log(testament, ' Testamento');
+
   const onChange = (item: number) => {
     onChangeChapter(item);
     onPressVerseHandler(true);

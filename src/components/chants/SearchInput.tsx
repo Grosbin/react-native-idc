@@ -3,7 +3,7 @@ import {Keyboard, StyleSheet, View} from 'react-native';
 import {TextInput} from 'react-native-gesture-handler';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {ChantContext} from '../../context/ChantContext';
-import {ThemeContex} from '../../context/ThemeContex';
+import {ThemeContext} from '../../context/ThemeContext';
 import {useDeboucedValue} from '../../hooks/useDeboucedValue';
 
 interface Props {
@@ -14,7 +14,7 @@ export const SearchInput = ({onChange}: Props) => {
   const [textValue, setTextValue] = useState('');
   const {
     theme: {colors},
-  } = useContext(ThemeContex);
+  } = useContext(ThemeContext);
 
   const {
     chantState: {chantsRemove, chantsFav},

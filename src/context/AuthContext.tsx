@@ -50,7 +50,6 @@ export const AuthProvider = ({children}: any) => {
 
     try {
       await auth().signInWithEmailAndPassword(user.email, user.password);
-      console.log('Cuenta de usuario iniciada.');
     } catch (error: any) {
       if (error.code === 'auth/email-already-in-use') {
         dispatch({
@@ -86,7 +85,6 @@ export const AuthProvider = ({children}: any) => {
 
     try {
       await auth().createUserWithEmailAndPassword(user.email, user.password);
-      console.log('Cuenta de usuario creada e iniciada.');
     } catch (error: any) {
       if (error.code === 'auth/email-already-in-use') {
         dispatch({
@@ -128,10 +126,8 @@ export const AuthProvider = ({children}: any) => {
 
   const addUser = async (user: User) => {
     try {
-      const addUser = await firestore().collection('users').add(user);
-      console.log('Usuario agregado', addUser);
+      await firestore().collection('users').add(user);
     } catch (error) {
-      console.log('Error', error);
       dispatch({type: 'addAlert', payload: 'Error al agregar usuario.'});
     }
   };

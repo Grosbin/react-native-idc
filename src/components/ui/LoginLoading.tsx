@@ -1,12 +1,5 @@
 import React, {useContext} from 'react';
-import {
-  ActivityIndicator,
-  Modal,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+import {ActivityIndicator, Modal, StyleSheet, Text, View} from 'react-native';
 import {AuthContext} from '../../context/AuthContext';
 
 interface Props {
@@ -72,7 +65,6 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   modalText: {
-    // marginBottom: 50,
     textAlign: 'center',
     fontFamily: 'Poppins-SemiBold',
     color: '#020052',

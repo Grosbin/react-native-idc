@@ -8,16 +8,14 @@ import {
 } from 'react-native';
 import {StackScreenProps} from '@react-navigation/stack';
 import {useForm} from '../hooks/useForm';
-import {ThemeContex} from '../context/ThemeContex';
+import {ThemeContext} from '../context/ThemeContext';
 import {StatusBar} from 'react-native';
 import {LogoIDC} from '../components/ui/LogoIDC';
 import {CalendarModal} from '../components/CalendarModal';
 import {SwitchFuntion} from '../components/ui/SwitchFuntion';
 import {Background} from '../components/ui/Background';
-
 import Icon from 'react-native-vector-icons/Ionicons';
 import {AlertModal} from '../components/ui/AlertModal';
-
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import {AuthContext} from '../context/AuthContext';
 import {LoginLoading} from '../components/ui/LoginLoading';
@@ -27,7 +25,7 @@ interface Props extends StackScreenProps<any, any> {}
 export const RegisterScreen = ({navigation}: Props) => {
   const {
     theme: {colors},
-  } = useContext(ThemeContex);
+  } = useContext(ThemeContext);
 
   const {addAlert, register, addUser} = useContext(AuthContext);
 
@@ -48,7 +46,6 @@ export const RegisterScreen = ({navigation}: Props) => {
 
   const onPasswordVisible = () => {
     setIsVisiblePassword(!isVisiblePassword);
-    // Keyboard.dismiss();
   };
 
   const onLogin = () => {
@@ -85,7 +82,6 @@ export const RegisterScreen = ({navigation}: Props) => {
       <Background />
       <AlertModal />
       <LoginLoading message="Creando cuenta" />
-      {/* <ScrollView> */}
       <KeyboardAwareScrollView
         keyboardShouldPersistTaps="always"
         keyboardDismissMode="on-drag">
@@ -102,9 +98,7 @@ export const RegisterScreen = ({navigation}: Props) => {
         </View>
         <View style={registerStyles.formContainer}>
           <LogoIDC />
-
           <Text style={registerStyles.title}>Registro</Text>
-
           <View style={registerStyles.inputContainer}>
             <TextInput
               cursorColor={colors.primary}
@@ -195,7 +189,6 @@ export const RegisterScreen = ({navigation}: Props) => {
               </Text>
             </TouchableOpacity>
           </View>
-
           <SwitchFuntion
             toggleSwitch={() => setIsBaptized(!isBaptized)}
             title={isBaptized ? '¿Esta bautizado? Si' : '¿Esta bautizado? No'}
@@ -220,7 +213,6 @@ export const RegisterScreen = ({navigation}: Props) => {
           </View>
         </View>
       </KeyboardAwareScrollView>
-      {/* </ScrollView> */}
     </>
   );
 };
@@ -260,7 +252,6 @@ const registerStyles = StyleSheet.create({
     width: 200,
     height: 50,
     justifyContent: 'center',
-    // alignItems: 'center',
     borderRadius: 10,
   },
   buttonText: {
@@ -286,14 +277,8 @@ const registerStyles = StyleSheet.create({
   inputContainer: {
     borderRadius: 50,
     backgroundColor: 'white',
-    // height: 50,
-    // marginHorizontal: 5,
     paddingHorizontal: 12,
-    // paddingVertical: 5,
     marginBottom: 15,
-    // justifyContent: 'center',
-    // alignItems: 'center',
-    // flexDirection: 'row',
 
     shadowColor: '#000',
     shadowOffset: {

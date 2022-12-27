@@ -1,8 +1,7 @@
 import React, {useContext} from 'react';
 import {StyleSheet, Text, TouchableHighlight} from 'react-native';
 import {BibleContext} from '../../context/BibleContext';
-import {ThemeContex} from '../../context/ThemeContex';
-import {gbColor} from '../../theme/themeGlobal';
+import {ThemeContext} from '../../context/ThemeContext';
 
 interface Props {
   book: string;
@@ -13,7 +12,7 @@ interface Props {
 export const ItemBook = ({bookText, book}: Props) => {
   const {
     theme: {colors},
-  } = useContext(ThemeContex);
+  } = useContext(ThemeContext);
 
   const {
     onChangeBook,
@@ -31,7 +30,6 @@ export const ItemBook = ({bookText, book}: Props) => {
       underlayColor={colors.foco}
       style={[
         styles.container,
-        // bookData === book && {backgroundColor: gbColor.},
         {
           backgroundColor: colors.foco,
         },
@@ -55,14 +53,10 @@ export const ItemBook = ({bookText, book}: Props) => {
 
 const styles = StyleSheet.create({
   container: {
-    // backgroundColor: gbColor.foco,
     width: '40%',
-    // flex: 1,
     height: 60,
     borderRadius: 10,
     marginVertical: 5,
-    // marginHorizontal: 14,
-    // marginLeft: 15,
     marginHorizontal: 10,
     justifyContent: 'center',
 
@@ -79,7 +73,6 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 15,
     fontFamily: 'Poppins-Bold',
-    // color: gbColor.fontPrimary,
     textAlign: 'center',
   },
 });

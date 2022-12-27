@@ -9,10 +9,8 @@ interface User {
 }
 export const addUser = async (user: User) => {
   try {
-    const addUser = await firestore().collection('users').add(user);
-    console.log('Usuario agregado', addUser);
+    await firestore().collection('users').add(user);
   } catch (error) {
-    console.log('Error', error);
     Alert.alert('Error', 'No se pudo agregar el usuario');
   }
 };

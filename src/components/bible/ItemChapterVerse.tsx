@@ -3,7 +3,7 @@ import {StyleSheet, Text, TouchableHighlight} from 'react-native';
 import {gbColor} from '../../theme/themeGlobal';
 import {useContext} from 'react';
 import {BibleContext} from '../../context/BibleContext';
-import {ThemeContex} from '../../context/ThemeContex';
+import {ThemeContext} from '../../context/ThemeContext';
 
 interface Props {
   chapterNum: number;
@@ -17,7 +17,7 @@ export const ItemChapterVerse = ({chapterNum, onPress}: Props) => {
 
   const {
     theme: {colors},
-  } = useContext(ThemeContex);
+  } = useContext(ThemeContext);
 
   const validateChapterVerse = chapterOnPress ? chapter : verse;
 

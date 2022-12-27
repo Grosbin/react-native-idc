@@ -1,6 +1,6 @@
 import React, {useContext} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
-import {ThemeContex} from '../../context/ThemeContex';
+import {ThemeContext} from '../../context/ThemeContext';
 
 interface Props {
   id: string;
@@ -11,7 +11,7 @@ interface Props {
 export const ItemNotices = ({title, description}: Props) => {
   const {
     theme: {colors},
-  } = useContext(ThemeContex);
+  } = useContext(ThemeContext);
   return (
     <View style={[styles.container, {backgroundColor: colors.foco}]}>
       {title && (

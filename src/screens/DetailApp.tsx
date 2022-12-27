@@ -3,7 +3,7 @@ import React, {useContext} from 'react';
 import {StyleSheet, Text, View, SafeAreaView} from 'react-native';
 import {ScrollView} from 'react-native-gesture-handler';
 import {ButtonPrevious} from '../components/ui/ButtonPrevious';
-import {ThemeContex} from '../context/ThemeContex';
+import {ThemeContext} from '../context/ThemeContext';
 import {RootStackParams} from '../navigator/StackNavigator';
 
 interface Props extends StackScreenProps<RootStackParams, 'DetailApp'> {}
@@ -11,7 +11,7 @@ interface Props extends StackScreenProps<RootStackParams, 'DetailApp'> {}
 export const DetailApp = ({route, navigation}: Props) => {
   const {
     theme: {colors},
-  } = useContext(ThemeContex);
+  } = useContext(ThemeContext);
   return (
     <SafeAreaView style={{flex: 1}}>
       <ScrollView>

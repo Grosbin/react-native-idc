@@ -1,14 +1,10 @@
 import {useNavigation} from '@react-navigation/native';
-import {
-  StackNavigationProp,
-  StackScreenProps,
-} from '@react-navigation/stack/lib/typescript/src/types';
+import {StackNavigationProp} from '@react-navigation/stack/lib/typescript/src/types';
 import React, {useContext} from 'react';
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
-import {ThemeContex} from '../../context/ThemeContex';
+import {ThemeContext} from '../../context/ThemeContext';
 import {RootStackParams} from '../../navigator/StackNavigator';
-import {gbColor} from '../../theme/themeGlobal';
 
 interface Props {
   listPrayers: string[];
@@ -19,18 +15,16 @@ export const ListPrayers = ({listPrayers, titleDetail}: Props) => {
   const navigate = useNavigation<StackNavigationProp<RootStackParams>>();
   const {
     theme: {colors},
-  } = useContext(ThemeContex);
+  } = useContext(ThemeContext);
   const paramers = {title: titleDetail, data: listPrayers};
   const list = listPrayers.slice(0, 5);
   return (
     <View style={[styles.container, {backgroundColor: colors.background}]}>
       <View>
         {list.map((item, i) => (
-          // <View style={styles.containerText} key={item.id}>
           <Text key={i} style={[styles.name, {color: colors.fontPrimary}]}>
             {item}
           </Text>
-          // </View>
         ))}
       </View>
       <View>
@@ -48,17 +42,6 @@ export const ListPrayers = ({listPrayers, titleDetail}: Props) => {
             justifyContent: 'space-evenly',
             alignItems: 'center',
           }}>
-          {/* <Text
-            style={{
-              textAlign: 'center',
-              fontFamily: 'Poppins-Bold',
-              color: colors.background,
-              fontSize: 12,
-              marginLeft: 5,
-              paddingTop: 2,
-            }}>
-            Ver todas
-          </Text> */}
           <Icon name="chevron-forward" size={19} color={colors.background} />
         </TouchableOpacity>
       </View>
@@ -92,6 +75,5 @@ const styles = StyleSheet.create({
   name: {
     fontFamily: 'Poppins-Medium',
     fontSize: 15,
-    // color: gbColor.fontPrimary,
   },
 });

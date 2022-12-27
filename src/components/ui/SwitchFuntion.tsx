@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {StyleSheet, Switch, Text, View} from 'react-native';
 import {gbColor} from '../../theme/themeGlobal';
 
@@ -9,12 +9,7 @@ interface Props {
   setIsEnabled?: (value: boolean) => void;
 }
 
-export const SwitchFuntion = ({
-  toggleSwitch,
-  title,
-  isEnabled,
-  setIsEnabled,
-}: Props) => {
+export const SwitchFuntion = ({toggleSwitch, title, isEnabled}: Props) => {
   return (
     <View
       style={{
@@ -40,7 +35,6 @@ export const SwitchFuntion = ({
         trackColor={{false: gbColor.close, true: gbColor.green}}
         thumbColor={isEnabled ? gbColor.foco : gbColor.foco}
         onValueChange={toggleSwitch}
-        // onChange={toggleSwitch}
         value={isEnabled}
       />
     </View>

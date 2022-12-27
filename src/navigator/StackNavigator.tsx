@@ -6,7 +6,7 @@ import {
 import {BottonTabs} from './BottonTabs';
 import {DetailPrayers} from '../screens/DetailPrayers';
 import {ContentChants} from '../screens/ContentChants';
-import {ThemeContex} from '../context/ThemeContex';
+import {ThemeContext} from '../context/ThemeContext';
 import {NavigationContainer} from '@react-navigation/native';
 import {LoginScreen} from '../screens/LoginScreen';
 import {RegisterScreen} from '../screens/RegisterScreen';
@@ -14,10 +14,11 @@ import auth from '@react-native-firebase/auth';
 import {DetailBible} from '../screens/DetailBible';
 import {DetailApp} from '../screens/DetailApp';
 import {ResetPassword} from '../screens/ResetPassword';
+import {ProfileScreen} from '../screens/ProfileScreen';
+import {DonationsScreen} from '../screens/DonationsScreen';
 
 export type RootStackParams = {
   BottonTabs: undefined;
-  // MenuLateral: undefined;
   DetailPrayers: {title: string; data: string[]};
   ContentChants: {id: string; name: string; lyrics: string[]};
   LoginScreen: undefined;
@@ -25,12 +26,14 @@ export type RootStackParams = {
   DetailBible: undefined;
   DetailApp: undefined;
   ResetPassword: undefined;
+  ProfileScreen: undefined;
+  DonationsScreen: undefined;
 };
 
 const Stack = createStackNavigator<RootStackParams>();
 
 export const StackNavigator = () => {
-  const {theme} = useContext(ThemeContex);
+  const {theme} = useContext(ThemeContext);
   const [initializing, setInitializing] = useState(true);
   const [user, setUser] = useState();
 
@@ -41,7 +44,7 @@ export const StackNavigator = () => {
 
   useEffect(() => {
     const subscriber = auth().onAuthStateChanged(onAuthStateChanged);
-    return subscriber; // unsubscribe on unmount
+    return subscriber;
   }, []);
 
   if (initializing) return null;
@@ -74,6 +77,8 @@ export const StackNavigator = () => {
             <Stack.Screen name="ContentChants" component={ContentChants} />
             <Stack.Screen name="DetailBible" component={DetailBible} />
             <Stack.Screen name="DetailApp" component={DetailApp} />
+            <Stack.Screen name="ProfileScreen" component={ProfileScreen} />
+            <Stack.Screen name="DonationsScreen" component={DonationsScreen} />
           </>
         )}
       </Stack.Navigator>

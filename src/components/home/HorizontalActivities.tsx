@@ -1,28 +1,6 @@
 import React from 'react';
-import {FlatList, StyleSheet, Text, View} from 'react-native';
-import {gbColor} from '../../theme/themeGlobal';
+import {FlatList, View} from 'react-native';
 import {ItemActivitie} from '../ItemActivitie';
-
-// const activities = [
-//   {
-//     id: '1',
-//     title: 'Culto Dominical',
-//     day: 'Domingo 30',
-//     hour: '8:00 AM',
-//   },
-//   {
-//     id: '2',
-//     title: 'Culto Dominical',
-//     day: 'Domingo 30',
-//     hour: '10:00 AM',
-//   },
-//   {
-//     id: '3',
-//     title: 'Clase Bíblica',
-//     day: 'Miércoles 2',
-//     hour: '6:00 PM',
-//   },
-// ];
 
 interface Props {
   activities: {

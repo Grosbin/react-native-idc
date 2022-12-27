@@ -1,23 +1,11 @@
 import React, {useContext, useEffect, useState} from 'react';
-import {
-  StyleSheet,
-  Text,
-  View,
-  SafeAreaView,
-  ScrollView,
-  ActivityIndicator,
-  RefreshControl,
-} from 'react-native';
-
+import {StyleSheet, Text, View, ScrollView, RefreshControl} from 'react-native';
 import SplashScreen from 'react-native-splash-screen';
 import {HorizontalActivities} from '../components/home/HorizontalActivities';
-
 import {Header} from '../components/Header';
-
 import {ItemPrayers} from '../components/home/ItemPrayers';
-
 import {DrawerScreenProps} from '@react-navigation/drawer';
-import {ThemeContex} from '../context/ThemeContex';
+import {ThemeContext} from '../context/ThemeContext';
 import {useLocalStorage} from '../hooks/useLocalStorage';
 import {getFirebase, addFirebase} from '../database/firebase';
 import {SkeletonPrayers} from '../skeleton/SkeletonPrayers';
@@ -50,12 +38,6 @@ export const HomeScreen = ({navigation, route}: Props) => {
     setActivitiesLoading(true);
     const activities = await getFirebase('activities');
     setActivities(activities);
-    // addFirebase('activities', {
-    //   day: 'Martes 20 Dic',
-    //   description: 'Es una reunion que estara muy interesante',
-    //   hour: '02:00 PM',
-    //   title: 'Reunion de Damas que Oran',
-    // });
     setActivitiesLoading(false);
   };
 
@@ -63,7 +45,7 @@ export const HomeScreen = ({navigation, route}: Props) => {
     theme: {colors},
     setDarkTheme,
     setLightTheme,
-  } = useContext(ThemeContex);
+  } = useContext(ThemeContext);
 
   const getDataStorage = async () => {
     const data = await getData('@theme');
@@ -85,10 +67,6 @@ export const HomeScreen = ({navigation, route}: Props) => {
     loadPrayers();
     loadActivities();
   }, []);
-
-  // useEffect(() => {
-  //   loadPrayers();
-  // }, [families]);
 
   return (
     <View>
@@ -182,7 +160,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
-  nowActivitie: {
+  nowActivities: {
     height: 175,
   },
   itemSeparator: {

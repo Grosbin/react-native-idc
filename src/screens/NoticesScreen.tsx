@@ -8,7 +8,7 @@ import {
   View,
 } from 'react-native';
 import {ItemNotices} from '../components/notices/ItemNotices';
-import {ThemeContex} from '../context/ThemeContex';
+import {ThemeContext} from '../context/ThemeContext';
 import {getFirebase} from '../database/firebase';
 
 export const NoticesScreen = () => {
@@ -16,7 +16,7 @@ export const NoticesScreen = () => {
   const [notices, setNotices] = useState([]);
   const {
     theme: {colors},
-  } = useContext(ThemeContex);
+  } = useContext(ThemeContext);
 
   const loadNotices = async () => {
     setNoticesLoading(true);

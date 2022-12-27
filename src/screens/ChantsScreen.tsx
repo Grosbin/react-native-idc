@@ -2,23 +2,20 @@ import React, {useContext, useEffect, useState} from 'react';
 import {SafeAreaView, StyleSheet, Text, View} from 'react-native';
 import {FlatList} from 'react-native-gesture-handler';
 import {SearchInput} from '../components/chants/SearchInput';
-
 import {chants} from '../data/chant/chants';
 import {ItemChants} from '../components/chants/ItemChants';
 import {useLocalStorage} from '../hooks/useLocalStorage';
 import {ChantContext} from '../context/ChantContext';
-import {ThemeContex} from '../context/ThemeContex';
-// import {colors} from '../theme/appTheme';
+import {ThemeContext} from '../context/ThemeContext';
 
 export const ChantsScreen = () => {
   const {storeDataObject, getData} = useLocalStorage();
   const {
     theme: {colors},
-  } = useContext(ThemeContex);
+  } = useContext(ThemeContext);
 
   const [term, setTerm] = useState('');
   const [chantsFiltered, setChantsFiltered] = useState<any>([]);
-  // const [favoritesChantsArray, setFavoritesChantsArray] = useState<any>([]);
 
   const {
     chantState: {chantsRemove, chantsFav},
@@ -35,14 +32,8 @@ export const ChantsScreen = () => {
       }
     });
 
-    // setFavoritesChantsArray(favoritesChantsArrayData);
     setChantsFiltered(favoritesChantsArrayData);
     addChantArray(favoritesChantsArray);
-
-    // if (favoritesChantsData === '') {
-    //   const favorite = 111;
-    //   storeDataObject('@favoritesChants', favorite);
-    // }
   };
 
   useEffect(() => {
@@ -56,9 +47,7 @@ export const ChantsScreen = () => {
   useEffect(() => {
     if (term.length === 0) {
       getFavoritesChants();
-      // setChantsFiltered(favoritesChantsArray);
     }
-    // if (term.length === 0) return setChantsFiltered(favoritesChantsArray);
 
     if (isNaN(Number(term))) {
       setChantsFiltered(

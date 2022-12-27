@@ -1,12 +1,10 @@
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {BibleScreen} from '../screens/BibleScreen';
 import {ChantsScreen} from '../screens/ChantsScreen';
-import {HomeScreen} from '../screens/HomeScreen';
 import {NoticesScreen} from '../screens/NoticesScreen';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {ParamListBase, RouteProp} from '@react-navigation/native';
 import {StyleSheet, Text, View} from 'react-native';
-import {gbColor} from '../theme/themeGlobal';
 import Animated, {
   useAnimatedStyle,
   useSharedValue,
@@ -14,8 +12,7 @@ import Animated, {
   withTiming,
 } from 'react-native-reanimated';
 import {useContext} from 'react';
-import {ThemeContex} from '../context/ThemeContex';
-import {ContentView} from '../screens/ContentView';
+import {ThemeContext} from '../context/ThemeContext';
 import {MenuLateral} from './DrawerNavigator';
 
 const Tab = createBottomTabNavigator();
@@ -23,7 +20,7 @@ const Tab = createBottomTabNavigator();
 export const BottonTabs = () => {
   const {
     theme: {colors},
-  } = useContext(ThemeContex);
+  } = useContext(ThemeContext);
   const widthOffset = useSharedValue(90);
   const opacityOffset = useSharedValue(1);
 
@@ -66,7 +63,6 @@ export const BottonTabs = () => {
     }
 
     return (
-      // <TouchableWithoutFeedback onPress={() => onPress()}>
       <Animated.View style={[styles.focusedIcon, focused && focusedIconStyle]}>
         <Text>
           <Icon
@@ -76,7 +72,6 @@ export const BottonTabs = () => {
           />
         </Text>
       </Animated.View>
-      // </TouchableWithoutFeedback>
     );
   };
 
@@ -89,7 +84,6 @@ export const BottonTabs = () => {
         lazy: false,
         headerShown: false,
 
-        // tabBarActiveBackgroundColor: gbColor.primary,
         tabBarIcon: ({color, focused}) => tabBarIcon(route, focused),
         tabBarStyle: {
           backgroundColor: colors.background,
@@ -100,8 +94,6 @@ export const BottonTabs = () => {
           paddingVertical: 10,
         },
         tabBarItemStyle: {
-          // position: 'absolute',
-          // backgroundColor: 'red',
           width: 90,
           height: 50,
           bottom: 0,
@@ -110,13 +102,6 @@ export const BottonTabs = () => {
         },
         tabBarShowLabel: false,
       })}>
-      {/* <Tab.Screen
-        name="HomeScreen"
-        component={HomeScreen}
-        listeners={{
-          tabPress: () => onPress(),
-        }}
-      /> */}
       <Tab.Screen
         name="MenuLateral"
         component={MenuLateral}
@@ -130,7 +115,6 @@ export const BottonTabs = () => {
         listeners={{
           tabPress: () => onPress(),
         }}
-        // options={{tabBarStyle: {backgroundColor: gbColor.foco}}}
       />
       <Tab.Screen
         name="ChantsScreen"
@@ -154,7 +138,6 @@ const styles = StyleSheet.create({
   focusedIcon: {
     width: 90,
     height: 50,
-    // backgroundColor: gbColor.primary,
     borderRadius: 20,
     justifyContent: 'center',
     alignItems: 'center',

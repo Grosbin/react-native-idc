@@ -1,22 +1,16 @@
 import React from 'react';
-import {StyleProp, View, ViewStyle, FlatList, StyleSheet} from 'react-native';
+import {View, FlatList, StyleSheet} from 'react-native';
 import {ItemChapterVerse} from './ItemChapterVerse';
-
 import {useContext} from 'react';
 import {BibleContext} from '../../context/BibleContext';
 import {useBible} from '../../hooks/useBible';
-import {useCardAnimation} from '../../hooks/useCardAnimation';
 import {withSpring} from 'react-native-reanimated';
 interface Props {
   widthOffset: any;
   heightOffset: any;
 }
 export const ScrollVerse = ({widthOffset, heightOffset}: Props) => {
-  const {
-    onChangeVerse,
-    onActiveCard,
-    bibleState: {book, chapter, verse},
-  } = useContext(BibleContext);
+  const {onChangeVerse, onActiveCard} = useContext(BibleContext);
 
   const {getVerses} = useBible();
 

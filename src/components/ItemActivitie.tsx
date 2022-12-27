@@ -1,8 +1,7 @@
 import React, {useContext} from 'react';
-import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
-import {gbColor} from '../theme/themeGlobal';
+import {StyleSheet, Text, View} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
-import {ThemeContex} from '../context/ThemeContex';
+import {ThemeContext} from '../context/ThemeContext';
 
 interface Props {
   title: string;
@@ -13,7 +12,7 @@ interface Props {
 export const ItemActivitie = ({title, day, hour}: Props) => {
   const {
     theme: {colors},
-  } = useContext(ThemeContex);
+  } = useContext(ThemeContext);
   return (
     <View style={[styles.container, {backgroundColor: colors.primary}]}>
       <View style={[styles.hourContainer]}>
@@ -36,7 +35,6 @@ const styles = StyleSheet.create({
     height: 120,
     width: 230,
     borderRadius: 10,
-    // marginVertical: 8,
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
@@ -62,8 +60,6 @@ const styles = StyleSheet.create({
   },
   hourContainer: {
     flexDirection: 'row',
-    // width: 90,
-    // height: 40,
     borderRadius: 10,
 
     position: 'absolute',
@@ -78,24 +74,5 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     textAlign: 'center',
     paddingTop: 3,
-    // marginRight: 10,
   },
-  // button: {
-  //   position: 'absolute',
-  //   bottom: 15,
-  //   left: 10,
-  //   width: 120,
-  //   height: 40,
-  //   backgroundColor: gbColor.primary,
-  //   borderRadius: 10,
-  //   justifyContent: 'center',
-  //   alignItems: 'center',
-  // },
-  // textButton: {
-  //   fontFamily: 'Poppins-ExtraBold',
-  //   fontSize: 15,
-  //   paddingTop: 3,
-  //   color: 'white',
-  //   alignSelf: 'center',
-  // },
 });

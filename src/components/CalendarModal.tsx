@@ -1,14 +1,6 @@
-import React, {useState, useEffect} from 'react';
-import {
-  Alert,
-  Modal,
-  Pressable,
-  StyleSheet,
-  Text,
-  View,
-  TouchableOpacity,
-} from 'react-native';
-import DatePicker, {getFormatedDate} from 'react-native-modern-datepicker-es';
+import React from 'react';
+import {Modal, StyleSheet, Text, View, TouchableOpacity} from 'react-native';
+import DatePicker from 'react-native-modern-datepicker-es';
 
 interface Props {
   isVisible: boolean;
@@ -52,9 +44,6 @@ const styles = StyleSheet.create({
   centeredView: {
     justifyContent: 'center',
     alignItems: 'center',
-    // marginTop: 100,
-    // position: 'absolute',
-    // zIndex: 999,
   },
   modalView: {
     margin: 20,

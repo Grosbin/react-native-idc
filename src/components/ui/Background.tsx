@@ -7,10 +7,8 @@ export const Background = () => {
       style={{
         position: 'absolute',
         backgroundColor: '#3b46f1',
-        // top: -250,
         width: '100%',
         height: '100%',
-        // transform: [{rotate: '-70deg'}],
       }}
     />
   );

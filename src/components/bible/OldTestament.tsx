@@ -57,8 +57,6 @@ export const OldTestament = ({widthOffset, heightOffset}: Props) => {
     bibleState: {chapterOnPress, verseOnPress, book, chapter, verse},
   } = useContext(BibleContext);
 
-  // console.log(oldTestamentData, " oldTestamentData");
-
   if (chapterOnPress) {
     return <ScrollChapter />;
   }

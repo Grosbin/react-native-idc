@@ -1,7 +1,3 @@
-import {Theme} from '@react-navigation/native';
-import {colors} from '../theme/appTheme';
-import {Background} from '../components/ui/Background';
-
 type ThemeAction = {type: 'set_lingt_theme'} | {type: 'set_dark_theme'};
 
 export interface ThemeState {

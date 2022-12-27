@@ -8,15 +8,12 @@ import {
 } from 'react-native';
 import {StackScreenProps} from '@react-navigation/stack';
 import {useForm} from '../hooks/useForm';
-import {ThemeContex} from '../context/ThemeContex';
+import {ThemeContext} from '../context/ThemeContext';
 import changeNavigationBarColor from 'react-native-navigation-bar-color';
 import SplashScreen from 'react-native-splash-screen';
-
 import {StatusBar} from 'react-native';
 import {LogoIDC} from '../components/ui/LogoIDC';
 import {Background} from '../components/ui/Background';
-// import {login} from '../actions/auth';
-
 import Icon from 'react-native-vector-icons/Ionicons';
 import {AlertModal} from '../components/ui/AlertModal';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
@@ -28,7 +25,7 @@ interface Props extends StackScreenProps<any, any> {}
 export const LoginScreen = ({navigation}: Props) => {
   const {
     theme: {colors},
-  } = useContext(ThemeContex);
+  } = useContext(ThemeContext);
 
   const {addAlert, login} = useContext(AuthContext);
 
@@ -49,7 +46,6 @@ export const LoginScreen = ({navigation}: Props) => {
   };
 
   const onLogin = async () => {
-    console.log({email, password});
     if (email.length === 0 || password.length === 0) {
       addAlert('Todos los campos son obligatorios');
       return;
@@ -66,14 +62,9 @@ export const LoginScreen = ({navigation}: Props) => {
       <KeyboardAwareScrollView
         keyboardShouldPersistTaps="always"
         keyboardDismissMode="on-drag">
-        {/* <ScrollView> */}
         <View style={loginStyles.formContainer}>
-          {/* Keyboard avoid view */}
           <LogoIDC />
-
           <Text style={loginStyles.title}>Iniciar Sesión</Text>
-
-          {/* <Text style={loginStyles.label}>correo:</Text> */}
           <View style={loginStyles.inputContainer}>
             <TextInput
               cursorColor={colors.primary}
@@ -89,7 +80,6 @@ export const LoginScreen = ({navigation}: Props) => {
               autoCorrect={false}
             />
           </View>
-
           <View style={loginStyles.inputContainer}>
             <TextInput
               cursorColor={colors.primary}
@@ -119,8 +109,6 @@ export const LoginScreen = ({navigation}: Props) => {
               <Text style={loginStyles.linkText}>Olvide mi contraseña </Text>
             </TouchableOpacity>
           </View>
-
-          {/* Boton login */}
           <View style={loginStyles.buttonContainer}>
             <TouchableOpacity
               activeOpacity={0.8}
@@ -129,8 +117,6 @@ export const LoginScreen = ({navigation}: Props) => {
               <Text style={loginStyles.buttonText}>Entrar</Text>
             </TouchableOpacity>
           </View>
-
-          {/* Crear una nueva cuenta */}
           <View style={{alignItems: 'flex-end', paddingTop: 20}}>
             <TouchableOpacity
               activeOpacity={0.8}
@@ -139,7 +125,6 @@ export const LoginScreen = ({navigation}: Props) => {
             </TouchableOpacity>
           </View>
         </View>
-        {/* </ScrollView> */}
       </KeyboardAwareScrollView>
     </>
   );
@@ -182,7 +167,6 @@ const loginStyles = StyleSheet.create({
     width: '100%',
     height: 50,
     justifyContent: 'center',
-    // alignItems: 'center',
     borderRadius: 10,
   },
   buttonText: {
@@ -193,7 +177,6 @@ const loginStyles = StyleSheet.create({
   },
   linkUserContainer: {
     alignItems: 'flex-end',
-    // marginTop: 5,
   },
   linkText: {
     fontSize: 15,
@@ -213,14 +196,8 @@ const loginStyles = StyleSheet.create({
   inputContainer: {
     borderRadius: 50,
     backgroundColor: 'white',
-    // height: 50,
-    // marginHorizontal: 5,
     paddingHorizontal: 12,
-    // paddingVertical: 5,
     marginBottom: 15,
-    // justifyContent: 'center',
-    // alignItems: 'center',
-    // flexDirection: 'row',
 
     shadowColor: '#000',
     shadowOffset: {

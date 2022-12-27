@@ -1,15 +1,6 @@
 import React from 'react';
-import {
-  ColorValue,
-  StyleProp,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-  ViewStyle,
-} from 'react-native';
+import {ColorValue, StyleProp, TouchableOpacity, ViewStyle} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
-import {gbColor} from '../../theme/themeGlobal';
 
 interface Props {
   PressFuntion: () => void;
@@ -36,5 +27,3 @@ export const ButtonPressIcon = ({
     </TouchableOpacity>
   );
 };
-
-const styles = StyleSheet.create({});

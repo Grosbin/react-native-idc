@@ -1,9 +1,8 @@
 import React, {useContext} from 'react';
 import {StyleProp, StyleSheet, ViewStyle} from 'react-native';
-import Animated, {withSpring, withTiming} from 'react-native-reanimated';
+import Animated, {withTiming} from 'react-native-reanimated';
 import {BibleContext} from '../../context/BibleContext';
 import {useBibleAnimation} from '../../hooks/useButtonAnimation';
-import {useCardAnimation} from '../../hooks/useCardAnimation';
 import {ButtonBible} from './ButtonBible';
 
 interface Props {

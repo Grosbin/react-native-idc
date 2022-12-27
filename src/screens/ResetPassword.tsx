@@ -8,14 +8,12 @@ import {
 } from 'react-native';
 import {StackScreenProps} from '@react-navigation/stack';
 import {useForm} from '../hooks/useForm';
-import {ThemeContex} from '../context/ThemeContex';
+import {ThemeContext} from '../context/ThemeContext';
 import changeNavigationBarColor from 'react-native-navigation-bar-color';
 import SplashScreen from 'react-native-splash-screen';
-
 import {StatusBar} from 'react-native';
 import {LogoIDC} from '../components/ui/LogoIDC';
 import {Background} from '../components/ui/Background';
-
 import {AlertModal} from '../components/ui/AlertModal';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import {AuthContext} from '../context/AuthContext';
@@ -26,7 +24,7 @@ interface Props extends StackScreenProps<any, any> {}
 export const ResetPassword = ({navigation}: Props) => {
   const {
     theme: {colors},
-  } = useContext(ThemeContex);
+  } = useContext(ThemeContext);
 
   const {addAlert, resetPassword} = useContext(AuthContext);
 
@@ -40,7 +38,6 @@ export const ResetPassword = ({navigation}: Props) => {
   }, []);
 
   const onResetPassword = async () => {
-    console.log({email});
     if (email.length === 0) {
       addAlert('El correo es requerido');
       return;
@@ -134,7 +131,6 @@ const resetStyles = StyleSheet.create({
     width: '100%',
     height: 50,
     justifyContent: 'center',
-    // alignItems: 'center',
     borderRadius: 10,
   },
   buttonText: {
@@ -145,7 +141,6 @@ const resetStyles = StyleSheet.create({
   },
   linkUserContainer: {
     alignItems: 'flex-end',
-    // marginTop: 5,
   },
   linkText: {
     fontSize: 15,
@@ -165,14 +160,8 @@ const resetStyles = StyleSheet.create({
   inputContainer: {
     borderRadius: 50,
     backgroundColor: 'white',
-    // height: 50,
-    // marginHorizontal: 5,
     paddingHorizontal: 12,
-    // paddingVertical: 5,
     marginBottom: 15,
-    // justifyContent: 'center',
-    // alignItems: 'center',
-    // flexDirection: 'row',
 
     shadowColor: '#000',
     shadowOffset: {

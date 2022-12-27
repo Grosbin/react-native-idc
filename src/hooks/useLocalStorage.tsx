@@ -34,10 +34,8 @@ export const useLocalStorage = () => {
     try {
       await AsyncStorage.removeItem(key);
     } catch (e) {
-      // remove error
+      console.log(e);
     }
-
-    console.log('Información Borrada.');
   };
 
   return {

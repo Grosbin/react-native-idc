@@ -53,10 +53,5 @@ export const NewTestament = ({widthOffset, heightOffset}: Props) => {
     );
   }
 
-  return (
-    <ScrollSelectBook
-      testament={newTestamentData}
-      // style={{alignItems: 'flex-end', marginRight: 15}}
-    />
-  );
+  return <ScrollSelectBook testament={newTestamentData} />;
 };

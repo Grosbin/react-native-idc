@@ -2,7 +2,7 @@ import {StackScreenProps} from '@react-navigation/stack';
 import React, {useContext, useEffect, useState} from 'react';
 import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 import {ButtonPrevious} from '../components/ui/ButtonPrevious';
-import {ThemeContex} from '../context/ThemeContex';
+import {ThemeContext} from '../context/ThemeContext';
 import {RootStackParams} from '../navigator/StackNavigator';
 import {ScrollView} from 'react-native-gesture-handler';
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -15,7 +15,7 @@ export const ContentChants = ({route, navigation}: Props) => {
   const {storeData, getData, removeData} = useLocalStorage();
   const {
     theme: {colors},
-  } = useContext(ThemeContex);
+  } = useContext(ThemeContext);
 
   const {
     chantState: {chantsFav},
@@ -38,10 +38,6 @@ export const ContentChants = ({route, navigation}: Props) => {
     setFavoriteChants();
   }, []);
 
-  // useEffect(() => {
-  //   setFavoriteChange();
-  // }, [chantsFav]);
-
   const setFavoriteChange = async () => {
     setIsFavorite(!isFavorite);
     const dataFavorite = await getData('@favoritesChants');
@@ -52,7 +48,6 @@ export const ContentChants = ({route, navigation}: Props) => {
         const data = dataFavorite + ',' + id;
         storeData('@favoritesChants', data);
         addChant(data);
-        // console.log(data, 'data ', isFavorite, 'isFavorite');
       }
     }
 
@@ -64,9 +59,7 @@ export const ContentChants = ({route, navigation}: Props) => {
       const data = dataFavoriteArrayFilter.join(',');
       storeData('@favoritesChants', data);
       removeChant(data);
-      // console.log(data, 'data ', isFavorite, 'isFavorite');
     }
-    // removeData('@favoritesChants');
   };
   return (
     <View style={{flex: 1}}>

@@ -1,7 +1,6 @@
 import React, {useContext} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
-import {ThemeContex} from '../../context/ThemeContex';
-import {colors} from '../../theme/appTheme';
+import {ThemeContext} from '../../context/ThemeContext';
 import {gbColor} from '../../theme/themeGlobal';
 import {ButtonPressIcon} from './ButtonPressIcon';
 
@@ -14,7 +13,7 @@ interface Props {
 export const ButtonPrevious = ({navigation, title, sizeTitle}: Props) => {
   const {
     theme: {colors},
-  } = useContext(ThemeContex);
+  } = useContext(ThemeContext);
   return (
     <View style={styles.containerButton}>
       <ButtonPressIcon
@@ -38,7 +37,6 @@ export const ButtonPrevious = ({navigation, title, sizeTitle}: Props) => {
 const styles = StyleSheet.create({
   containerButton: {
     marginHorizontal: 20,
-    // width: 250,
     paddingRight: 30,
     marginTop: 15,
     marginBottom: 20,
@@ -59,6 +57,5 @@ const styles = StyleSheet.create({
   title: {
     fontFamily: 'Poppins-Bold',
     textAlign: 'center',
-    // fontSize: 20,
   },
 });

@@ -5,25 +5,17 @@ import {
   StyleSheet,
   FlatList,
   Text,
-  TouchableOpacity,
   View,
-  ActivityIndicator,
 } from 'react-native';
 import {gbColor} from '../theme/themeGlobal';
 import {FloatButtonBible} from '../components/bible/FloatButtonBible';
-import Icon from 'react-native-vector-icons/Ionicons';
 import {useBible} from '../hooks/useBible';
-import Animated, {
-  useAnimatedStyle,
-  useSharedValue,
-} from 'react-native-reanimated';
+import Animated from 'react-native-reanimated';
 import {CardBook} from '../components/CardBook';
 import {BibleContext} from '../context/BibleContext';
 import {CloseCard} from '../components/bible/CloseCard';
 import {ButtonPressIcon} from '../components/ui/ButtonPressIcon';
-import {color} from 'react-native-reanimated';
-import {ThemeContex} from '../context/ThemeContex';
-import {useLocalStorage} from '../hooks/useLocalStorage';
+import {ThemeContext} from '../context/ThemeContext';
 import {useCardAnimation} from '../hooks/useCardAnimation';
 import {SafeAreaView} from 'react-native';
 
@@ -33,7 +25,7 @@ export const BibleScreen = () => {
 
   const {
     theme: {colors},
-  } = useContext(ThemeContex);
+  } = useContext(ThemeContext);
 
   const {
     getChapter,
@@ -140,8 +132,6 @@ export const BibleScreen = () => {
           setIndex(0);
         }}
         keyExtractor={(item, index) => index + item.toString()}
-        // TODO: Valida Versiculos duplicados
-        // keyExtractor={(index) => index.toString()}
         scrollEnabled={!activeCard}
         showsVerticalScrollIndicator={false}
         data={getVerses()}
@@ -183,7 +173,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
-
   titleContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -193,7 +182,6 @@ const styles = StyleSheet.create({
   titleText: {
     fontFamily: 'Poppins-ExtraBold',
     fontSize: 20,
-    // color: gbColor.primary,
   },
   containerVerse: {
     flexDirection: 'row',
@@ -204,13 +192,11 @@ const styles = StyleSheet.create({
   numVerse: {
     fontFamily: 'Poppins-ExtraBold',
     fontSize: 16,
-    // color: gbColor.fontPrimary,
     marginRight: 10,
   },
   texVerse: {
     fontFamily: 'Poppins-Regular',
     fontSize: 16,
-    // color: gbColor.fontPrimary,
   },
   buttonContainer: {
     flexDirection: 'row',
@@ -218,14 +204,10 @@ const styles = StyleSheet.create({
   },
   button: {
     flexDirection: 'row',
-    // width: 35,
     height: 40,
     marginRight: 10,
     marginLeft: 15,
-    // backgroundColor: gbColor.primary,
     borderRadius: 10,
-    // justifyContent: 'center',
-    // alignItems: 'center',
   },
   textButton: {
     fontFamily: 'Poppins-ExtraBold',
@@ -241,6 +223,5 @@ const styles = StyleSheet.create({
   },
   previousButton: {
     marginRight: 10,
-    // backgroundColor: gbColor.background,
   },
 });

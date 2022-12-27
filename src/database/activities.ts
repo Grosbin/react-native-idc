@@ -13,15 +13,6 @@ export const getPrayers = async (collection: string) => {
 
     return data;
   } catch (error) {
-    console.log(`Error ${collection}`, error);
-  }
-};
-
-export const addPrayer = async (prayer: string, data: any) => {
-  try {
-    const addPrayer = await firestore().collection(prayer).add(data);
-    console.log('Oración agregada', addPrayer);
-  } catch (error) {
-    console.log('Error', error);
+    console.log(error);
   }
 };

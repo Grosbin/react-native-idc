@@ -2,7 +2,6 @@ import React, {useContext, useEffect, useState} from 'react';
 import {
   createDrawerNavigator,
   DrawerContentComponentProps,
-  DrawerContentScrollView,
 } from '@react-navigation/drawer';
 
 import {
@@ -11,31 +10,23 @@ import {
   useWindowDimensions,
   View,
   TouchableOpacity,
-  Switch,
   StatusBar,
 } from 'react-native';
-import Icon from 'react-native-vector-icons/Ionicons';
 import {HomeScreen} from '../screens/HomeScreen';
 import {gbColor} from '../theme/themeGlobal';
-import {StackNavigator} from './StackNavigator';
-import {ThemeContex} from '../context/ThemeContex';
-import {NavigationContainer} from '@react-navigation/native';
+import {ThemeContext} from '../context/ThemeContext';
 import {useLocalStorage} from '../hooks/useLocalStorage';
 import {SwitchFuntion} from '../components/ui/SwitchFuntion';
 import {AuthContext} from '../context/AuthContext';
-// import {logout} from '../database/auth';
 
 const Drawer = createDrawerNavigator();
 
 export const MenuLateral = () => {
   const dimension = useWindowDimensions();
-  const {theme} = useContext(ThemeContex);
+  const {theme} = useContext(ThemeContext);
 
   return (
-    // <NavigationContainer theme={theme}>
     <Drawer.Navigator
-      // detachInactiveScreens={false}
-      // defaultStatus="closed"
       drawerContent={props => <MenuInterno {...props} />}
       screenOptions={{
         headerShown: false,
@@ -51,7 +42,6 @@ export const MenuLateral = () => {
       }}>
       <Drawer.Screen name="HomeScreen" component={HomeScreen} />
     </Drawer.Navigator>
-    // </NavigationContainer>
   );
 };
 
@@ -60,7 +50,7 @@ const MenuInterno = (props: DrawerContentComponentProps) => {
     theme: {colors, dark},
     setDarkTheme,
     setLightTheme,
-  } = useContext(ThemeContex);
+  } = useContext(ThemeContext);
 
   const {logout} = useContext(AuthContext);
 
@@ -93,7 +83,6 @@ const MenuInterno = (props: DrawerContentComponentProps) => {
   }, []);
 
   return (
-    // <DrawerContentScrollView>
     <View
       style={{
         flex: 1,
@@ -120,34 +109,6 @@ const MenuInterno = (props: DrawerContentComponentProps) => {
           paddingTop: 20,
           flex: 1,
         }}>
-        {/* <View
-          style={{
-            width: '100%',
-            height: 50,
-            paddingTop: 10,
-            paddingHorizontal: 20,
-            flexDirection: 'row',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-          }}>
-          <Text
-            style={{
-              fontFamily: 'Poppins-Medium',
-              textAlign: 'center',
-              fontSize: 15,
-              color: gbColor.foco,
-            }}>
-            {' '}
-            Tema oscuro
-          </Text>
-          <Switch
-            trackColor={{false: gbColor.close, true: gbColor.green}}
-            thumbColor={isEnabled ? gbColor.foco : gbColor.foco}
-            onValueChange={toggleSwitch}
-            value={isEnabled}
-          />
-        </View> */}
-
         <SwitchFuntion
           title="Tema Oscuro"
           toggleSwitch={toggleSwitch}
@@ -205,6 +166,27 @@ const MenuInterno = (props: DrawerContentComponentProps) => {
             paddingHorizontal: 20,
             flexDirection: 'row',
           }}
+          onPress={() => props.navigation.navigate('DonationsScreen')}>
+          <Text
+            style={{
+              fontFamily: 'Poppins-Medium',
+              textAlign: 'center',
+              fontSize: 15,
+              color: gbColor.foco,
+            }}>
+            {' '}
+            Donaciones
+          </Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={{
+            width: '100%',
+            height: 50,
+            paddingTop: 10,
+            paddingHorizontal: 20,
+            flexDirection: 'row',
+          }}
           onPress={logout}>
           <Text
             style={{
@@ -224,16 +206,23 @@ const MenuInterno = (props: DrawerContentComponentProps) => {
           justifyContent: 'center',
           alignItems: 'center',
           marginBottom: 20,
+          marginHorizontal: 20,
         }}>
         <Text
           style={{
             textAlign: 'center',
             color: gbColor.foco,
           }}>
-          Desarrollada por el ministerio de medios, 2022
+          Ministerio de Medios
+        </Text>
+        <Text
+          style={{
+            textAlign: 'center',
+            color: gbColor.foco,
+          }}>
+          Todos los derechos reservados, 2023
         </Text>
       </View>
     </View>
-    // </DrawerContentScrollView>
   );
 };

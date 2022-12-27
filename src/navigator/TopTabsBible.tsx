@@ -1,14 +1,12 @@
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
 import {StyleSheet, Text} from 'react-native';
 import {NewTestament} from '../components/bible/NewTestament';
-import {gbColor} from '../theme/themeGlobal';
 import {OldTestament} from '../components/bible/OldTestament';
-import {color} from 'react-native-reanimated';
 import {useContext} from 'react';
 import {BibleContext} from '../context/BibleContext';
 import {newTestament, oldTestament} from '../types/bible';
 import Icon from 'react-native-vector-icons/Ionicons';
-import {ThemeContex} from '../context/ThemeContex';
+import {ThemeContext} from '../context/ThemeContext';
 
 const Tab = createMaterialTopTabNavigator();
 interface Props {
@@ -18,7 +16,7 @@ interface Props {
 export const TopTabsBible = ({widthOffset, heightOffset}: Props) => {
   const {
     theme: {colors},
-  } = useContext(ThemeContex);
+  } = useContext(ThemeContext);
 
   const {
     bibleState: {bookOnPress, verseOnPress, chapterOnPress, book},
@@ -58,7 +56,6 @@ export const TopTabsBible = ({widthOffset, heightOffset}: Props) => {
             <Text
               style={[
                 styles.textTitle,
-                // !focused && {color: 'rgba(34,86,242,0.5)'},
                 {
                   color: colors.blueSecondary,
                 },
@@ -139,6 +136,5 @@ const styles = StyleSheet.create({
   textTitle: {
     fontSize: 18,
     fontFamily: 'Poppins-ExtraBold',
-    // color: gbColor.fontPrimary,
   },
 });

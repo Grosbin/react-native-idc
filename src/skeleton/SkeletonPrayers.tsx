@@ -1,19 +1,15 @@
-import React, {useContext, useState} from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import React, {useContext} from 'react';
 import SkeletonContent from 'react-native-skeleton-content-nonexpo';
-import {ThemeContex} from '../context/ThemeContex';
+import {ThemeContext} from '../context/ThemeContext';
 
 export const SkeletonPrayers = () => {
-  const [loading, setLoading] = useState(true);
   const {
     theme: {colors},
-  } = useContext(ThemeContex);
+  } = useContext(ThemeContext);
   return (
     <SkeletonContent
       containerStyle={{
         flex: 1,
-
-        // width: '100%',
         marginHorizontal: 10,
         marginVertical: 5,
 

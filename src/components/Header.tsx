@@ -2,7 +2,7 @@ import {DrawerScreenProps} from '@react-navigation/drawer';
 import React, {useContext} from 'react';
 import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
-import {ThemeContex} from '../context/ThemeContex';
+import {ThemeContext} from '../context/ThemeContext';
 import {gbColor} from '../theme/themeGlobal';
 
 interface Props extends DrawerScreenProps<any, any> {}
@@ -10,26 +10,27 @@ interface Props extends DrawerScreenProps<any, any> {}
 export const Header = ({navigation}: Props) => {
   const {
     theme: {colors},
-  } = useContext(ThemeContex);
+  } = useContext(ThemeContext);
   return (
     <View style={styles.container}>
-      <View style={styles.containerIcon}>
-        <Image
-          style={{
-            // position: 'absolute',
-            // top: 0,
-            // left: 10,
-            width: 40,
-            height: 40,
-          }}
-          source={require('../assets/logo/Logo_Azul.png')}
-        />
+      <TouchableOpacity
+        activeOpacity={0.8}
+        onPress={() => navigation.navigate('ProfileScreen')}>
+        <View style={styles.containerIcon}>
+          <Image
+            style={{
+              width: 40,
+              height: 40,
+            }}
+            source={require('../assets/logo/Logo_Azul.png')}
+          />
 
-        <Text style={[styles.nameProfile, {color: colors.fontPrimary}]}>
-          {' '}
-          IDC
-        </Text>
-      </View>
+          <Text style={[styles.nameProfile, {color: colors.fontPrimary}]}>
+            {' '}
+            IDC
+          </Text>
+        </View>
+      </TouchableOpacity>
 
       <TouchableOpacity onPress={() => navigation.toggleDrawer()}>
         <Text>

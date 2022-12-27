@@ -6,7 +6,7 @@ import {
   Keyboard,
   Dimensions,
 } from 'react-native';
-import {ThemeContex} from '../../context/ThemeContex';
+import {ThemeContext} from '../../context/ThemeContext';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
@@ -26,7 +26,7 @@ export const ItemChants = ({id, name, lyrics}: Props) => {
 
   const {
     theme: {colors},
-  } = useContext(ThemeContex);
+  } = useContext(ThemeContext);
 
   const {
     chantState: {chantsFavArray},
@@ -73,7 +73,6 @@ export const ItemChants = ({id, name, lyrics}: Props) => {
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
-    // backgroundColor: gbColor.background,
     marginVertical: 5,
     marginHorizontal: 5,
     borderRadius: 10,

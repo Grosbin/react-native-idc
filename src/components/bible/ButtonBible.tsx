@@ -11,7 +11,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import {BibleContext} from '../../context/BibleContext';
 import {gbColor} from '../../theme/themeGlobal';
 import {View} from 'react-native';
-import {ThemeContex} from '../../context/ThemeContex';
+import {ThemeContext} from '../../context/ThemeContext';
 
 interface Props {
   onPress: () => void;
@@ -44,7 +44,7 @@ export const ButtonBible = ({
 
   const {
     theme: {colors},
-  } = useContext(ThemeContex);
+  } = useContext(ThemeContext);
 
   return (
     <TouchableOpacity
@@ -67,12 +67,7 @@ export const ButtonBible = ({
         <View
           style={{
             flexDirection: 'row',
-            // alignItems: 'center',
-            // justifyContent: 'center',
           }}>
-          {/* {iconSearch && (
-            <Icon name="search" size={20} color={colors.background} />
-          )} */}
           <Text
             style={[
               styles.buttonText,

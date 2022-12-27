@@ -1,12 +1,5 @@
-import React, {useCallback, useMemo} from 'react';
-import {
-  ScrollView,
-  StyleProp,
-  View,
-  ViewStyle,
-  FlatList,
-  Text,
-} from 'react-native';
+import React, {useCallback} from 'react';
+import {StyleProp, View, ViewStyle, FlatList} from 'react-native';
 import {ItemBook} from './ItemBook';
 
 interface Props {
@@ -15,8 +8,6 @@ interface Props {
 }
 
 export const ScrollSelectBook = ({testament, style}: Props) => {
-  // Memorizar getDataTestament
-
   const data = useCallback(() => getDataTestament(testament), [testament]);
 
   const getDataTestament = testament => {
@@ -31,27 +22,9 @@ export const ScrollSelectBook = ({testament, style}: Props) => {
   };
 
   return (
-    // <ScrollView
-    //   style={{marginBottom: 150}}
-    //   showsVerticalScrollIndicator={false}>
-    //   <View style={[{marginBottom: 0}, style]}>
-    //     {Object.keys(testament).map((key, index) => {
-    //       return (
-    //         <ItemBook
-    //           key={index}
-    //           book={key}
-    //           bookText={testament[key][0]}
-    //           chapters={testament[key][1]}
-    //         />
-    //       );
-    //     })}
-    //   </View>
-    // </ScrollView>
     <View
       style={{
         marginBottom: 150,
-        // justifyContent: 'center',
-        // alignItems: 'center',
       }}>
       <FlatList
         numColumns={2}
