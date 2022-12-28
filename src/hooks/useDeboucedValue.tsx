@@ -6,7 +6,6 @@ export const useDeboucedValue = (input: string = '', time: number = 300) => {
   useEffect(() => {
     const timeout = setTimeout(() => {
       setDebouncedValue(input);
-      console.log('useDeboucedValue', input);
     }, time);
     return () => {
       clearTimeout(timeout);
