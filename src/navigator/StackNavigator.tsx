@@ -16,6 +16,7 @@ import {DetailApp} from '../screens/DetailApp';
 import {ResetPassword} from '../screens/ResetPassword';
 import {ProfileScreen} from '../screens/ProfileScreen';
 import {DonationsScreen} from '../screens/DonationsScreen';
+import {PrivacyPolicy} from '../screens/PrivacyPolicy';
 
 export type RootStackParams = {
   BottonTabs: undefined;
@@ -28,6 +29,7 @@ export type RootStackParams = {
   ResetPassword: undefined;
   ProfileScreen: undefined;
   DonationsScreen: undefined;
+  PrivacyPolicy: undefined;
 };
 
 const Stack = createStackNavigator<RootStackParams>();
@@ -69,6 +71,7 @@ export const StackNavigator = () => {
             <Stack.Screen name="LoginScreen" component={LoginScreen} />
             <Stack.Screen name="RegisterScreen" component={RegisterScreen} />
             <Stack.Screen name="ResetPassword" component={ResetPassword} />
+            <Stack.Screen name="PrivacyPolicy" component={PrivacyPolicy} />
           </>
         ) : (
           <>

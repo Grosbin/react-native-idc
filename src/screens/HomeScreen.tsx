@@ -7,7 +7,7 @@ import {ItemPrayers} from '../components/home/ItemPrayers';
 import {DrawerScreenProps} from '@react-navigation/drawer';
 import {ThemeContext} from '../context/ThemeContext';
 import {useLocalStorage} from '../hooks/useLocalStorage';
-import {getFirebase, addFirebase} from '../database/firebase';
+import {getFirebase} from '../database/firebase';
 import {SkeletonPrayers} from '../skeleton/SkeletonPrayers';
 import {SkeletonActivities} from '../skeleton/SkeletonActivities';
 
@@ -138,7 +138,6 @@ export const HomeScreen = ({navigation, route}: Props) => {
                     icon = 'hand-left';
                     break;
                 }
-
                 return (
                   <ItemPrayers
                     key={i}

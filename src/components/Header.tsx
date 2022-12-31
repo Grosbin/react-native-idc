@@ -27,7 +27,7 @@ export const Header = ({navigation}: Props) => {
 
           <Text style={[styles.nameProfile, {color: colors.fontPrimary}]}>
             {' '}
-            IDC
+            IDC-SJV
           </Text>
         </View>
       </TouchableOpacity>
@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
   },
 
   nameProfile: {
-    fontFamily: 'Poppins-ExtraBold',
+    fontFamily: 'Poppins-Bold',
     color: gbColor.fontPrimary,
     fontSize: 16,
     textAlign: 'center',

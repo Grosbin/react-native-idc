@@ -19,6 +19,7 @@ import {AlertModal} from '../components/ui/AlertModal';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import {AuthContext} from '../context/AuthContext';
 import {LoginLoading} from '../components/ui/LoginLoading';
+import {CheckBox} from '../components/CheckBox';
 
 interface Props extends StackScreenProps<any, any> {}
 
@@ -33,6 +34,7 @@ export const RegisterScreen = ({navigation}: Props) => {
   const [isVisible, setIsVisible] = useState(false);
   const [isBaptized, setIsBaptized] = useState(false);
   const [isVisiblePassword, setIsVisiblePassword] = useState(true);
+  const [acceptPrivacyPolicy, setAcceptPrivacyPolicy] = useState(false);
 
   const {name, email, password, number_phone, onChange} = useForm({
     name: '',
@@ -49,6 +51,11 @@ export const RegisterScreen = ({navigation}: Props) => {
   };
 
   const onLogin = () => {
+    if (!acceptPrivacyPolicy) {
+      addAlert('Debe aceptar la política de privacidad');
+      return;
+    }
+
     const userAuth = {
       email,
       password,
@@ -70,6 +77,12 @@ export const RegisterScreen = ({navigation}: Props) => {
       number_phone.length === 0
     ) {
       addAlert('Todos los campos son obligatorios');
+      return;
+    } else if (number_phone.length < 8) {
+      addAlert('El número de celular debe tener 8 dígitos');
+      return;
+    } else if (password.length < 6) {
+      addAlert('La contraseña debe tener al menos 6 caracteres');
       return;
     }
 
@@ -166,34 +179,43 @@ export const RegisterScreen = ({navigation}: Props) => {
           <View style={{alignItems: 'flex-start'}}>
             <TouchableOpacity
               activeOpacity={0.8}
-              style={{
-                width: '100%',
-                height: 50,
-                backgroundColor: '#0dc4ae',
-                borderRadius: 10,
-                justifyContent: 'center',
-                alignItems: 'center',
-              }}
+              style={registerStyles.buttonDate}
               onPress={() => setIsVisible(true)}>
-              <Text
-                style={[
-                  {
-                    paddingVertical: 9,
-                    marginLeft: 5,
-                    fontFamily: 'Poppins-Bold',
-                    fontSize: 16,
-                    color: '#fff',
-                  },
-                ]}>
+              <Text style={registerStyles.buttonTextDate}>
                 {birthday === '' ? 'Fecha de nacimiento' : birthday}
               </Text>
             </TouchableOpacity>
           </View>
-          <SwitchFuntion
-            toggleSwitch={() => setIsBaptized(!isBaptized)}
-            title={isBaptized ? '¿Esta bautizado? Si' : '¿Esta bautizado? No'}
-            isEnabled={isBaptized}
-          />
+          <View style={registerStyles.inputContainerSelect}>
+            <Text style={registerStyles.inputTextSelect}>¿Esta Bautizado?</Text>
+            <SwitchFuntion
+              toggleSwitch={() => setIsBaptized(!isBaptized)}
+              title={'Si'}
+              isEnabled={isBaptized}
+              style={{width: '30%', paddingTop: 0}}
+            />
+            <SwitchFuntion
+              toggleSwitch={() => setIsBaptized(!isBaptized)}
+              title={'No'}
+              isEnabled={!isBaptized}
+              style={{width: '30%', paddingTop: 0}}
+            />
+          </View>
+          <View style={registerStyles.inputContainerSelect}>
+            <CheckBox
+              isChecked={acceptPrivacyPolicy}
+              setIsChecked={setAcceptPrivacyPolicy}
+            />
+            <Text
+              onPress={() => navigation.replace('PrivacyPolicy')}
+              style={{
+                fontFamily: 'Poppins-Regular',
+                fontSize: 13,
+                color: '#fff',
+              }}>
+              Políticas de privacidad
+            </Text>
+          </View>
 
           <View style={registerStyles.buttonContainer}>
             <TouchableOpacity
@@ -289,5 +311,32 @@ const registerStyles = StyleSheet.create({
     shadowRadius: 2.22,
 
     elevation: 3,
+  },
+
+  inputContainerSelect: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  inputTextSelect: {
+    fontFamily: 'Poppins-Bold',
+    fontSize: 15,
+    color: '#fff',
+  },
+  buttonDate: {
+    width: '100%',
+    height: 50,
+    backgroundColor: '#0dc4ae',
+    borderRadius: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  buttonTextDate: {
+    paddingVertical: 9,
+    marginLeft: 5,
+    fontFamily: 'Poppins-Bold',
+    fontSize: 16,
+    color: '#fff',
   },
 });

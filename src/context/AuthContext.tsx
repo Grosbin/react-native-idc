@@ -76,6 +76,27 @@ export const AuthProvider = ({children}: any) => {
             'Demasiados intentos fallidos. Inténtalo de nuevo más tarde.',
         });
       }
+
+      if (error.code === 'auth/user-not-found') {
+        dispatch({
+          type: 'addAlert',
+          payload: 'No hay ningún usuario registrado con ese correo.',
+        });
+      }
+
+      if (error.code === 'auth/invalid-credential') {
+        dispatch({
+          type: 'addAlert',
+          payload: 'Credenciales inválidas.',
+        });
+      }
+
+      if (error.code === 'auth/user-disabled') {
+        dispatch({
+          type: 'addAlert',
+          payload: 'El usuario ha sido deshabilitado.',
+        });
+      }
     }
     dispatch({type: 'isLoggedIn', payload: false});
   };
@@ -97,6 +118,43 @@ export const AuthProvider = ({children}: any) => {
         dispatch({
           type: 'addAlert',
           payload: 'Esa dirección de correo electrónico no es válida.',
+        });
+      }
+
+      if (error.code === 'auth/weak-password') {
+        dispatch({
+          type: 'addAlert',
+          payload: 'La contraseña debe tener al menos 6 caracteres.',
+        });
+      }
+
+      if (error.code === 'auth/too-many-requests') {
+        dispatch({
+          type: 'addAlert',
+          payload:
+            'Demasiados intentos fallidos. Inténtalo de nuevo más tarde.',
+        });
+      }
+
+      if (error.code === 'auth/operation-not-allowed') {
+        dispatch({
+          type: 'addAlert',
+          payload:
+            'La creación de cuentas de correo electrónico y contraseña no está habilitada.',
+        });
+      }
+
+      if (error.code === 'auth/invalid-credential') {
+        dispatch({
+          type: 'addAlert',
+          payload: 'Credenciales inválidas.',
+        });
+      }
+
+      if (error.code === 'auth/user-disabled') {
+        dispatch({
+          type: 'addAlert',
+          payload: 'El usuario ha sido deshabilitado.',
         });
       }
     }
