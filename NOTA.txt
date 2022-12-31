@@ -26,3 +26,10 @@ allprojects {
 
 // Error de compilacion <nombre libreria>:verifyReleaseResources
 ./gradlew app:assembleRelease -x bundleReleaseJsAndAssets
+
+
+// Genera apk
+./gradlew app:assembleRelease -x bundleReleaseJsAndAssets
+
+// Genera aab
+./gradlew app:bundleRelease -x bundleReleaseJsAndAssets

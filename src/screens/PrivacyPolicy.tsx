@@ -9,7 +9,6 @@ import {
   StatusBar,
 } from 'react-native';
 import {ScrollView} from 'react-native-gesture-handler';
-import {ButtonPrevious} from '../components/ui/ButtonPrevious';
 import {ThemeContext} from '../context/ThemeContext';
 import {RootStackParams} from '../navigator/StackNavigator';
 import {Background} from '../components/ui/Background';
@@ -36,7 +35,7 @@ export const PrivacyPolicy = ({navigation}: Props) => {
           </Text>
           <Text style={[styles.text]}>
             {
-              ' 1. Nombre\n 2. Correo\n 3. Numero de celular\n 4. Contraseña\n 5. Fecha de nacimiento\n 6. Confirmar si esta bautizado o no.'
+              ' 1. Nombre\n 2. Correo\n 3. Número de celular\n 4. Contraseña\n 5. Fecha de nacimiento\n 6. Confirmar si esta bautizado o no.'
             }
           </Text>
           <Text style={[styles.text]}>
@@ -48,12 +47,8 @@ export const PrivacyPolicy = ({navigation}: Props) => {
             usuario.
           </Text>
           <Text style={[styles.text]}>
-            En algunos casos se usará su numero de celular para comunicarse con
+            En algunos casos se usará su número de celular para comunicarse con
             el usuario.
-          </Text>
-          <Text style={[styles.text]}>
-            Cualquier duda, consulta, sugerencia o comentario puede contactarse
-            a:
           </Text>
           <Text style={[styles.text]}>
             Para borrar sus datos tiene que contactarse con el Ministerio de
