@@ -1,5 +1,11 @@
 import React, {useContext, useEffect, useState} from 'react';
-import {SafeAreaView, StyleSheet, Text, View} from 'react-native';
+import {
+  SafeAreaView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import {FlatList} from 'react-native-gesture-handler';
 import {SearchInput} from '../components/chants/SearchInput';
 import {chants} from '../data/chant/chants';
@@ -76,7 +82,52 @@ export const ChantsScreen = () => {
   return (
     <SafeAreaView style={[styles.container]}>
       <SearchInput onChange={setTerm} />
-
+      <View
+        style={{
+          width: '100%',
+          height: 35,
+          backgroundColor: 'red',
+          marginTop: 10,
+          flexDirection: 'row',
+          justifyContent: 'center',
+        }}>
+        <TouchableOpacity
+          style={{
+            width: '30%',
+            height: '100%',
+            borderRadius: 10,
+            marginHorizontal: 5,
+            backgroundColor: 'green',
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}>
+          <Text style={{color: 'white'}}>Favoritos</Text>
+        </TouchableOpacity>
+        {/* <TouchableOpacity
+          style={{
+            width: '30%',
+            height: '100%',
+            marginHorizontal: 5,
+            borderRadius: 10,
+            backgroundColor: 'green',
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}>
+          <Text style={{color: 'white'}}>Recientes</Text>
+        </TouchableOpacity> */}
+        <TouchableOpacity
+          style={{
+            width: '30%',
+            height: '100%',
+            marginHorizontal: 5,
+            borderRadius: 10,
+            backgroundColor: 'green',
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}>
+          <Text style={{color: 'white'}}>Todos</Text>
+        </TouchableOpacity>
+      </View>
       {chantsFiltered.length === 0 ? (
         <View style={styles.containerText}>
           <Text style={[styles.text, {color: colors.blueSecondary}]}>
