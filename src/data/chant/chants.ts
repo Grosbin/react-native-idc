@@ -759,7 +759,7 @@ export const chants = [
     name: 'En Momentos Así',
     lyrics: [
       'En momentos así, levanto mi voz Levanto mi alma a Cristo, En momentos así, levanto mi ser, Levanto mis manos a Él.',
-      '/¡Cuánto te amo, Dios// Cuánto te amo, Dios, te amo.',
+      '//Cuánto te amo, Dios// Cuánto te amo, Dios, te amo.',
     ],
   },
   {
@@ -1126,7 +1126,7 @@ export const chants = [
     name: 'Vengo A Ti, Señor',
     lyrics: [
       '//Gracias Señor, por el día tan lindo de hoy, Gracias Señor por la vida y la salud//',
-      'CORO: //Vengo, vengo a Ti/, Vengo a Ti Señor, a mostrar mi gratitud//',
+      'CORO: //Vengo, vengo a Ti//, Vengo a Ti Señor, a mostrar mi gratitud//',
     ],
   },
   {
@@ -1293,7 +1293,7 @@ export const chants = [
     id: '132',
     name: 'Bueno Es Alabarte Señor',
     lyrics: [
-      '//Bueno es alabarte Señor, Tu nombre, Darte Gloria, Honra y Honor, por siempre, Bueno es alabarte Jesús y gozarme en Tu    poder//.',
+      '//Bueno es alabarte Señor, Tu nombre, Darte Gloria, Honra y Honor, por siempre, Bueno es alabarte Jesús y gozarme en Tu poder//.',
       '///Porque grande eres Tú, grande son tus obras. Porque grande eres Tú, grande es tu amor, Grande es Tu Gloria/// Amén.',
     ],
   },
@@ -1888,7 +1888,7 @@ export const chants = [
     name: 'Porque Grande Es Jehová',
     lyrics: [
       '//Porque grande es Jehová, Y digno de suprema alabanza; Adorad a Jehová En la hermosura de su Santidad//.',
-      'CORO: //Y temed delante de Él, Toda la tierra///. ///Porque grande es Jehová/// Nuestro Dios.',
+      'CORO: ///Y temed delante de Él, Toda la tierra///. ///Porque grande es Jehová/// Nuestro Dios.',
     ],
   },
   {
@@ -2508,5 +2508,485 @@ export const chants = [
       'Allí donde el tiempo no cuenta más, Te escucho decir, Que soy tu tesoro más especial, Con tu tierna voz.',
       'Señor he venido con adoración, Desde mi corazón, Estoy anhelando y buscando de Ti, De tu unción y Poder Otra vez.',
     ],
+  },
+  {
+    id: '273',
+    name: 'Ama si quieres ser feliz',
+    lyrics: [
+      'Ama si quieres ser feliz',
+      'Ama y todo cambiará',
+      'Ama y así comprenderás',
+      'La alegría de amar',
+      'El que ama a su hermano',
+      'Un abrazo le dará',
+    ],
+  },
+  {
+    id: '274',
+    name: 'Señor tú me llamas',
+    lyrics: [
+      'Señor, tú me llamas por mi nombre desde lejos, por mi nombre cada día tú me llamas. \nSeñor, tú me ofreces una vida santa y limpia; una vida sin pecado, sin maldad.',
+
+      'CORO: Señor, nada tengo para darte; Solamente te ofrezco mi vida para que la uses tú. Señor, hazme hoy un siervo útil Que anuncie el mensaje, el mensaje de la cruz.',
+
+      'Señor, tú me llamas por mi nombre desde lejos, Por mi nombre cada día tú me llamas. \nSeñor, yo acudo a tu llamado a cada instante, pues mi gozo es servirte más y más.',
+
+      'Señor, tú me llamas por mi nombre desde lejos, Por mi nombre cada día tú me llamas, tú me llamas.',
+    ],
+  },
+  {
+    id: '275',
+    name: 'Yo te busco',
+    lyrics: [
+      'Yo te busco, yo te busco',
+      'Con fuego en mi corazón',
+      'Yo te busco, yo te busco',
+      'Recibe mi adoración',
+      'Te anhelo, te necesito',
+      'Te amo, más que a mi ser',
+    ],
+  },
+  {
+    id: '276',
+    name: 'Te pido la Paz',
+    lyrics: [
+      'Ayúdame a mirar con tus ojos, yo quiero sentir con tu corazón, no quiero vivir más siendo insensible. A la necesidad oh Jesucristo,',
+      'Te pido la paz para mi ciudad, te pido perdón por mi ciudad, ahora me humillo y busco tu rostro, a quien iré Señor si no a ti.',
+    ],
+  },
+  {
+    id: '277',
+    name: 'Dale tu ofrenda al Señor',
+    lyrics: [
+      'Dale tu ofrenda al Señor, dásela de corazón. Que cuando al cielo tú clames, te responda con amor, Que no te quede dolor cuando hayas ofrendado. //Dios bendice al dador alegre y da más de lo que ha dado.//',
+    ],
+  },
+  {
+    id: '278',
+    name: 'Gózate delante del Señor',
+    lyrics: [
+      'Gózate delante del Señor, porque él es tu rey. Él es, él es, él es, él es tu rey.',
+      'Gózate delante del Señor, porque él es tu roca. Él es, él es, él es, él es tu Roca.',
+      'Gózate delante del Señor, porque él es tu escudo. Él es, él es, él es, él es tu escudo.',
+    ],
+  },
+  {
+    id: '279',
+    name: 'Cristo nombre glorioso',
+    lyrics: [
+      'Cristo, nombre glorioso, Precioso Salvador, bello Señor. Emanuel, Dios con nosotros, Palabra viva, mi Jesús.',
+    ],
+  },
+  {
+    id: '280',
+    name: 'Es exaltado',
+    lyrics: [
+      'Es exaltado en lo alto, exaltado, es el rey, le alabaré. Es exaltado por siempre, exaltado y yo le alabaré. Él es Señor por siempre el reina ya, su creación, en él se goza ya. Es exaltado en lo alto, exaltado, es el rey.',
+    ],
+  },
+  {
+    id: '281',
+    name: '',
+    lyrics: [],
+  },
+  {
+    id: '282',
+    name: '',
+    lyrics: [],
+  },
+  {
+    id: '283',
+    name: '',
+    lyrics: [],
+  },
+  {
+    id: '284',
+    name: '',
+    lyrics: [],
+  },
+  {
+    id: '285',
+    name: '',
+    lyrics: [],
+  },
+  {
+    id: '286',
+    name: '',
+    lyrics: [],
+  },
+  {
+    id: '287',
+    name: '',
+    lyrics: [],
+  },
+  {
+    id: '288',
+    name: '',
+    lyrics: [],
+  },
+  {
+    id: '289',
+    name: '',
+    lyrics: [],
+  },
+  {
+    id: '290',
+    name: '',
+    lyrics: [],
+  },
+  {
+    id: '291',
+    name: '',
+    lyrics: [],
+  },
+  {
+    id: '292',
+    name: '',
+    lyrics: [],
+  },
+  {
+    id: '293',
+    name: '',
+    lyrics: [],
+  },
+  {
+    id: '294',
+    name: '',
+    lyrics: [],
+  },
+  {
+    id: '295',
+    name: '',
+    lyrics: [],
+  },
+  {
+    id: '296',
+    name: '',
+    lyrics: [],
+  },
+  {
+    id: '297',
+    name: '',
+    lyrics: [],
+  },
+  {
+    id: '298',
+    name: '',
+    lyrics: [],
+  },
+  {
+    id: '299',
+    name: '',
+    lyrics: [],
+  },
+  {
+    id: '300',
+    name: '',
+    lyrics: [],
+  },
+  {
+    id: '301',
+    name: '',
+    lyrics: [],
+  },
+  {
+    id: '302',
+    name: '',
+    lyrics: [],
+  },
+  {
+    id: '303',
+    name: '',
+    lyrics: [],
+  },
+  {
+    id: '304',
+    name: '',
+    lyrics: [],
+  },
+  {
+    id: '305',
+    name: '',
+    lyrics: [],
+  },
+  {
+    id: '306',
+    name: '',
+    lyrics: [],
+  },
+  {
+    id: '307',
+    name: '',
+    lyrics: [],
+  },
+  {
+    id: '308',
+    name: '',
+    lyrics: [],
+  },
+  {
+    id: '309',
+    name: '',
+    lyrics: [],
+  },
+
+  {
+    id: '310',
+    name: '',
+    lyrics: [],
+  },
+  {
+    id: '311',
+    name: '',
+    lyrics: [],
+  },
+  {
+    id: '312',
+    name: '',
+    lyrics: [],
+  },
+  {
+    id: '313',
+    name: '',
+    lyrics: [],
+  },
+  {
+    id: '314',
+    name: '',
+    lyrics: [],
+  },
+  {
+    id: '315',
+    name: '',
+    lyrics: [],
+  },
+  {
+    id: '316',
+    name: '',
+    lyrics: [],
+  },
+  {
+    id: '317',
+    name: '',
+    lyrics: [],
+  },
+  {
+    id: '318',
+    name: '',
+    lyrics: [],
+  },
+  {
+    id: '319',
+    name: '',
+    lyrics: [],
+  },
+
+  {
+    id: '320',
+    name: '',
+    lyrics: [],
+  },
+  {
+    id: '321',
+    name: '',
+    lyrics: [],
+  },
+  {
+    id: '322',
+    name: '',
+    lyrics: [],
+  },
+  {
+    id: '323',
+    name: '',
+    lyrics: [],
+  },
+  {
+    id: '324',
+    name: '',
+    lyrics: [],
+  },
+  {
+    id: '325',
+    name: '',
+    lyrics: [],
+  },
+  {
+    id: '326',
+    name: '',
+    lyrics: [],
+  },
+  {
+    id: '327',
+    name: '',
+    lyrics: [],
+  },
+  {
+    id: '328',
+    name: '',
+    lyrics: [],
+  },
+  {
+    id: '329',
+    name: '',
+    lyrics: [],
+  },
+
+  {
+    id: '330',
+    name: '',
+    lyrics: [],
+  },
+  {
+    id: '331',
+    name: '',
+    lyrics: [],
+  },
+  {
+    id: '332',
+    name: '',
+    lyrics: [],
+  },
+  {
+    id: '333',
+    name: '',
+    lyrics: [],
+  },
+  {
+    id: '334',
+    name: '',
+    lyrics: [],
+  },
+  {
+    id: '335',
+    name: '',
+    lyrics: [],
+  },
+  {
+    id: '336',
+    name: '',
+    lyrics: [],
+  },
+  {
+    id: '337',
+    name: '',
+    lyrics: [],
+  },
+  {
+    id: '338',
+    name: '',
+    lyrics: [],
+  },
+  {
+    id: '339',
+    name: '',
+    lyrics: [],
+  },
+
+  {
+    id: '340',
+    name: '',
+    lyrics: [],
+  },
+  {
+    id: '341',
+    name: '',
+    lyrics: [],
+  },
+  {
+    id: '342',
+    name: '',
+    lyrics: [],
+  },
+  {
+    id: '343',
+    name: '',
+    lyrics: [],
+  },
+  {
+    id: '344',
+    name: '',
+    lyrics: [],
+  },
+  {
+    id: '345',
+    name: '',
+    lyrics: [],
+  },
+  {
+    id: '346',
+    name: '',
+    lyrics: [],
+  },
+  {
+    id: '347',
+    name: '',
+    lyrics: [],
+  },
+  {
+    id: '348',
+    name: '',
+    lyrics: [],
+  },
+  {
+    id: '349',
+    name: '',
+    lyrics: [],
+  },
+
+  {
+    id: '350',
+    name: '',
+    lyrics: [],
+  },
+  {
+    id: '351',
+    name: '',
+    lyrics: [],
+  },
+  {
+    id: '352',
+    name: '',
+    lyrics: [],
+  },
+  {
+    id: '353',
+    name: '',
+    lyrics: [],
+  },
+  {
+    id: '354',
+    name: '',
+    lyrics: [],
+  },
+  {
+    id: '355',
+    name: '',
+    lyrics: [],
+  },
+  {
+    id: '356',
+    name: '',
+    lyrics: [],
+  },
+  {
+    id: '357',
+    name: '',
+    lyrics: [],
+  },
+  {
+    id: '358',
+    name: '',
+    lyrics: [],
+  },
+  {
+    id: '359',
+    name: '',
+    lyrics: [],
+  },
+  {
+    id: '360',
+    name: '',
+    lyrics: [],
   },
 ];

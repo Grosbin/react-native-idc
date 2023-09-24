@@ -53,6 +53,7 @@ const styles = StyleSheet.create({
     height: 50,
     marginHorizontal: 5,
     paddingHorizontal: 20,
+    marginTop: 10,
     justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'row',
