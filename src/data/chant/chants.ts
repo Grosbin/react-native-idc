@@ -2586,53 +2586,80 @@ export const chants = [
   },
   {
     id: '281',
-    name: '',
-    lyrics: [],
+    name: 'Alzaré mis ojos a los montes',
+    lyrics: [
+      'Digno, digno, digno, digno\nDigno, digno, digno, eres tú Jehová.\nJehová es la fortaleza de mi vida, De quien he de temer.\nAlzaré mis ojos a los montes, De donde vendrá mi socorro.\nMi socorro viene del Señor, Que hizo los cielos la tierra y el mar.',
+    ],
   },
   {
     id: '282',
-    name: '',
-    lyrics: [],
+    name: 'El nombre de Dios',
+    lyrics: [
+      'El nombre de Dios es, una torre fuerte\nLos justos entran en él, y salvo soy\nBendito es el nombre de Dios\nBendito es el nombre de Dios, oh Señor\nSanto es el nombre de Dios\nSanto es el nombre de Dios, Oh Señor\nGloria al nombre de Dios\nGloria al nombre de Dios, Oh Señor',
+    ],
   },
   {
     id: '283',
-    name: '',
-    lyrics: [],
+    name: 'El Todopoderoso reina',
+    lyrics: [
+      'Derramando nuestros corazones,\nDelante del trono\nCantemos como estruendo,\nDe grandes aguas\nPorque el Señor todopoderoso reina\nY la tierra se estremece\nComo un rio de alabanza\nCantando Aleluya, postrados ante el trono\nPorque el Señor, todopoderoso reina\nAleluya, Aleluya, pequeños y grandes\nAleluya, Aleluya, levanten su voz\nAleluya, Aleluya, destruyan tinieblas\nAleluya, Aleluya den gloria al Señor\nPorque el Señor, todopoderoso reina',
+    ],
   },
   {
     id: '284',
-    name: '',
-    lyrics: [],
+    name: 'Soy nueva criatura',
+    lyrics: [
+      'Soy nueva criatura, lo declara la escritura\nÉl me ha perdonado, con su sangre soy\nlavado\nTodos mis pecados, con su sangre son\nborrados\nLibre soy, del pecado',
+      'CORO: Libre, del pecado y la maldad\nSoy libre, él ha roto mis cadenas\nLibre, para dar mi vida al que me salvo',
+    ],
   },
   {
     id: '285',
-    name: '',
-    lyrics: [],
+    name: 'Tú eres escudo',
+    lyrics: [
+      'Tú eres escudo alrededor de mí\nEres mi gloria, el que levanta mi cabeza\nNo temeré a diez millares de pueblos\nQue hagan sitio, contra mí\nNo temeré a diez millares de pueblos\nQue hagan sitio, contra mí, porque\nTú eres escudo alrededor de mí…',
+    ],
   },
   {
     id: '286',
-    name: '',
-    lyrics: [],
+    name: 'Canten, amén, amén',
+    lyrics: [
+      'Canten, amén amén, alégrense amén\nGloria sea a Dios, amén amén\nCuando venga el Señor, que la gente\nCante con loor\nCanten, amén amén, alégrense amén\nQue la gente cante con loor',
+    ],
   },
   {
     id: '287',
-    name: '',
-    lyrics: [],
+    name: 'Tomado de la mano',
+    lyrics: [
+      'Tomado de la mano con él\nYo voy, por donde él va\nSi Jesús te dice amigo\nDeja todo y ven conmigo\nPon tu mano ahora en la suya,\nY ven a él\nYo te llevo dice amigo\nA un lugar, a un reino conmigo\nDonde todo es más hermoso\nY más feliz',
+    ],
   },
   {
     id: '288',
-    name: '',
-    lyrics: [],
+    name: 'El Señor es mi rey',
+    lyrics: [
+      'El Señor es mi Rey, mi todo\nEl Señor es mi luz, mi Rey\nEl que me hace vibrar de gozo\nEl que guía mis pasos\nEl que extiende sus brazos\nEl creador de los cielos',
+    ],
   },
   {
     id: '289',
-    name: '',
-    lyrics: [],
+    name: 'Cordero de Dios',
+    lyrics: [
+      'A un mundo sucio vino ya, aquel que sin\npecado fue y entre hombres camino\nLlego a ser cordero de Dios',
+
+      'CORO: Cordero de Dios, Oh dulce Amor\nAmo al cordero de mi Dios,\nOh, en tu sangre lávame\nSeñor Jesús, cordero de Dios',
+
+      'Tu don de amor se despreció, en una cruz\nse clavó, tu ira santa se calmó,\nSeñor Jesús Cordero de Dios',
+
+      'Perdido estaba cuando vi,\nQue ese castigo merecí,\nMás me llevaste junto a ti,\nLlamándome un cordero de Dios',
+    ],
   },
   {
     id: '290',
-    name: '',
-    lyrics: [],
+    name: 'Pon tus ojos en Cristo',
+    lyrics: [
+      'Pon tus ojos en Cristo,\nTan lleno de gracia y amor\nY lo terrenal sin valor será\nA la luz del glorioso Señor',
+    ],
   },
   {
     id: '291',

@@ -38,6 +38,7 @@ export const StackNavigator = () => {
   const {theme} = useContext(ThemeContext);
   const [initializing, setInitializing] = useState(true);
   const [user, setUser] = useState();
+  const [anyAccess, setAnyAccess] = useState(true);
 
   const onAuthStateChanged = user => {
     setUser(user);
@@ -66,7 +67,7 @@ export const StackNavigator = () => {
             backgroundColor: theme.colors.background,
           },
         }}>
-        {!user ? (
+        {!anyAccess ? (
           <>
             <Stack.Screen name="LoginScreen" component={LoginScreen} />
             <Stack.Screen name="RegisterScreen" component={RegisterScreen} />

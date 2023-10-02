@@ -115,7 +115,6 @@ const MenuInterno = (props: DrawerContentComponentProps) => {
           isEnabled={isEnabled}
           setIsEnabled={setIsEnabled}
         />
-
         <TouchableOpacity
           style={{
             width: '100%',
@@ -136,7 +135,6 @@ const MenuInterno = (props: DrawerContentComponentProps) => {
             Versión de la Biblia
           </Text>
         </TouchableOpacity>
-
         <TouchableOpacity
           style={{
             width: '100%',
@@ -157,7 +155,6 @@ const MenuInterno = (props: DrawerContentComponentProps) => {
             Acerca de la app
           </Text>
         </TouchableOpacity>
-
         <TouchableOpacity
           style={{
             width: '100%',
@@ -178,8 +175,8 @@ const MenuInterno = (props: DrawerContentComponentProps) => {
             Donaciones
           </Text>
         </TouchableOpacity>
-
-        <TouchableOpacity
+        {/* Cierre de Sesión con firebase  */}
+        {/* <TouchableOpacity
           style={{
             width: '100%',
             height: 50,
@@ -198,7 +195,7 @@ const MenuInterno = (props: DrawerContentComponentProps) => {
             {' '}
             Cerrar sesión
           </Text>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
       </View>
 
       <View
