@@ -10,6 +10,7 @@ import {useLocalStorage} from '../hooks/useLocalStorage';
 import {getFirebase} from '../database/firebase';
 import {SkeletonPrayers} from '../skeleton/SkeletonPrayers';
 import {SkeletonActivities} from '../skeleton/SkeletonActivities';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 interface Props extends DrawerScreenProps<any, any> {}
 
@@ -103,10 +104,15 @@ export const HomeScreen = ({navigation, route}: Props) => {
           <View
             style={[
               styles.alertTextContainer,
-              {backgroundColor: colors.yellow},
+              // {backgroundColor: colors.yellow},
             ]}>
-            <Text style={[styles.alertText, {color: colors.fontTertiary}]}>
-              Las oraciones se actualizan todos los domingos
+            <Text
+              style={[
+                styles.alertText,
+                // {color: colors.fontTertiary}
+                {color: colors.fontPrimary},
+              ]}>
+              <Icon name={'heart'} size={20} color={'#ff144e'} /> Orar por:
             </Text>
           </View>
           {prayersLoading ? (
@@ -168,16 +174,16 @@ const styles = StyleSheet.create({
     marginHorizontal: 9,
   },
   alertTextContainer: {
-    padding: 18,
-
+    // padding: 18,
     borderRadius: 10,
     marginHorizontal: 10,
-    marginVertical: 10,
+    // marginVertical: 10,
+    marginTop: 10,
   },
   alertText: {
     textAlign: 'center',
-    fontFamily: 'Poppins-Medium',
-    fontSize: 14,
-    opacity: 0.7,
+    fontFamily: 'Poppins-Bold',
+    fontSize: 17,
+    // opacity: 0.7,
   },
 });

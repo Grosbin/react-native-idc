@@ -27,12 +27,14 @@ export const Header = ({navigation}: Props) => {
 
           <Text style={[styles.nameProfile, {color: colors.fontPrimary}]}>
             {' '}
-            IDC-SJV
+            San José de la Vega
           </Text>
         </View>
       </TouchableOpacity>
 
-      <TouchableOpacity onPress={() => navigation.toggleDrawer()}>
+      <TouchableOpacity
+        style={styles.buttonMenu}
+        onPress={() => navigation.toggleDrawer()}>
         <Text>
           {' '}
           <Icon
@@ -66,5 +68,12 @@ const styles = StyleSheet.create({
     fontSize: 16,
     textAlign: 'center',
     paddingTop: 11,
+  },
+
+  buttonMenu: {
+    borderRadius: 10,
+    justifyContent: 'center',
+    alignItems: 'flex-end',
+    width: 60,
   },
 });

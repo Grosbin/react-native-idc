@@ -77,6 +77,7 @@ export const BottonTabs = () => {
 
   return (
     <Tab.Navigator
+      initialRouteName="MenuLateral"
       sceneContainerStyle={{
         backgroundColor: colors.background,
       }}
@@ -103,15 +104,15 @@ export const BottonTabs = () => {
         tabBarShowLabel: false,
       })}>
       <Tab.Screen
-        name="MenuLateral"
-        component={MenuLateral}
+        name="BibleScreen"
+        component={BibleScreen}
         listeners={{
           tabPress: () => onPress(),
         }}
       />
       <Tab.Screen
-        name="BibleScreen"
-        component={BibleScreen}
+        name="MenuLateral"
+        component={MenuLateral}
         listeners={{
           tabPress: () => onPress(),
         }}
@@ -123,13 +124,13 @@ export const BottonTabs = () => {
           tabPress: () => onPress(),
         }}
       />
-      <Tab.Screen
+      {/* <Tab.Screen
         name="NoticesScreen"
         component={NoticesScreen}
         listeners={{
           tabPress: () => onPress(),
         }}
-      />
+      /> */}
     </Tab.Navigator>
   );
 };

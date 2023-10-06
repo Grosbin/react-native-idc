@@ -1,5 +1,11 @@
 import React from 'react';
-import {ColorValue, StyleProp, TouchableOpacity, ViewStyle} from 'react-native';
+import {
+  ColorValue,
+  StyleProp,
+  TouchableOpacity,
+  ViewStyle,
+  StyleSheet,
+} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 interface Props {
@@ -21,9 +27,19 @@ export const ButtonPressIcon = ({
     <TouchableOpacity
       disabled={activeCard}
       activeOpacity={0.8}
-      style={style}
+      style={[styles.button, style]}
       onPress={PressFuntion}>
       <Icon name={nameIcon} size={20} color={colorIcon} />
     </TouchableOpacity>
   );
 };
+
+const styles = StyleSheet.create({
+  button: {
+    borderRadius: 10,
+    justifyContent: 'center',
+    alignItems: 'flex-start',
+    width: 60,
+    // backgroundColor: 'red',
+  },
+});

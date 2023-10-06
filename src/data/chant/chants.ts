@@ -2663,53 +2663,81 @@ export const chants = [
   },
   {
     id: '291',
-    name: '',
-    lyrics: [],
+    name: 'Majestad',
+    lyrics: [
+      'Majestad, excelsa majestad,\nTributadle la gloria y el honor\nMajestad por siempre ensalzad\nAl Salvador, digno Señor, el vencedor,',
+      'CORO: Alabab engrandeced, su santo nombre\nAdorad, magnificad, al gran Redentor\nMajestad, por siempre ensalzad\nAl Salvador, digno Señor, el vencedor',
+      'Majestad divina majestad\nDios eterno, es Jesucristo el Señor\nMajestad de su poder cantad\nÉl es creador, sustentador, Gobernador',
+      'Majestad eterna majestad,\nAl que era, que es, y que será\nMajestad, su triunfo proclamad\nPronto vendrá, nos llevará, y reinará',
+    ],
   },
   {
     id: '292',
-    name: '',
-    lyrics: [],
+    name: 'Grande es tu fidelidad',
+    lyrics: [
+      'Oh Dios eterno, tu misericordia,\nNi una sombra de duda tendrá\nTu compasión y bondad nunca fallan,\nY por los siglos el mismo serás',
+      'CORO: Oh tu fidelidad, Oh tu fidelidad\nCada momento la veo en mí\nNada me falta pues todo provees\nY por los siglos el mismo serás',
+      'Lo noche obscura el sol y la luna,\nLas estaciones del año también\nUnen su canto cual fieles criaturas,\nPorque eres bueno por siempre eres fiel',
+      'Tú me perdonas, me impartes el gozo,\nTierno me guías por sendas de paz\nEres mi fuerza, mi fe mi reposo,\nY por los siglos mi todo serás',
+    ],
   },
   {
     id: '293',
-    name: '',
-    lyrics: [],
+    name: 'Pon tus ojos en Cristo',
+    lyrics: [
+      'Pon tus ojos en Cristo,\nTan lleno de gracia y amor,\nY lo terrenal sin valor será,\nA la luz del glorioso Señor',
+    ],
   },
   {
     id: '294',
-    name: '',
-    lyrics: [],
+    name: 'Te adoro a ti',
+    lyrics: [
+      'Al estar en la presencia, de tu divinidad\nY contemplar la hermosura,\nDe tu santidad\nMi espíritu se alegra, en tu majestad\nTe adoro a ti, te adoro a ti\nY cuando veo la grandeza,\nDe tu dulce amor\nY compruebo la pureza, de tu corazón\nMi espíritu se alegra, en tu majestad\nTe adoro a ti, te adoro a ti',
+
+      'CORO: Y al estar aquí, delante de ti te adoraré\nPostrado ante ti, mi corazón\nTe adora Oh Dios\nY siempre quiero estar, para adorar\nY contemplar, tu majestad\nTe adoro a ti Señor, te adoro a ti\nTe adoro a ti Señor, te adoro a ti Señor',
+    ],
   },
   {
     id: '295',
-    name: '',
-    lyrics: [],
+    name: 'Orando',
+    lyrics: [
+      'Si tú hablas con Dios, las cosas cambiaran\nOrando, Cualquier necesidad,\nDios te responderá orando\nDescansa en el Señor, Tus penas dile a él,\nOrando\n\nBendita oración, Yo quiero hablar con\nDios, orando\nBendita oración, Yo quiero hablar con\nDios, orando',
+    ],
   },
   {
     id: '296',
-    name: '',
-    lyrics: [],
+    name: 'Santo Dios',
+    lyrics: [
+      'Santo Dios, Oh Santo Dios\nSolo tú eres digno de Loor\nSanto Dios, mi Santo Dios\nCon todo mi ser cantaré\n\nCORO: Grande eres tú, canto a ti\nSanto Señor, grande es tu amor\nMi santo Dios',
+    ],
   },
   {
     id: '297',
-    name: '',
-    lyrics: [],
+    name: 'Con mi vida',
+    lyrics: [
+      'Con mi vida te honraré, te honraré\nAlma y cuerpo te alabaré Señor\nAnte el mundo te honraré, te honraré\nSin reservas te alabaré, Señor\nEn la muerte te honraré, te honraré\nY en los cielos, te alabaré, Señor',
+    ],
   },
   {
     id: '298',
-    name: '',
-    lyrics: [],
+    name: 'Ámense todos',
+    lyrics: [
+      'Ámense todos, pues Dios es amor\nTodo aquel que ame, procede de Dios\nEl que no ama, a Dios no es de Él\nPues Dios es amor, Dios es amor',
+    ],
   },
   {
     id: '299',
-    name: '',
-    lyrics: [],
+    name: 'Lávame en tu sangre',
+    lyrics: [
+      'Lávame en tu sangre\nLávame en tu sangre carmesí\nLávame en tu sangre\nLávame en tu sangre carmesí.\nCon ella me salvaste\nCon ella pagaste tú por mí\n/// Lávame en tu sangre /// Señor',
+    ],
   },
   {
     id: '300',
-    name: '',
-    lyrics: [],
+    name: 'Enciende una luz',
+    lyrics: [
+      'Enciende una luz, déjala brillar\nLa luz de Jesús, brillar en todo lugar\nNo la puedes esconder\nNo te puedes callar\nAnte tal necesidad, enciende una luz\nEn la obscuridad, como pues invocarán\nAquel en el cual no han creído\nY cómo creerán en Aquel\nDe quien no han oído\nCómo oirán si nadie les predica\nHermosos son los pies\nDe los que anuncian la Paz\nLas buenas nuevas de Jesús',
+    ],
   },
   {
     id: '301',
