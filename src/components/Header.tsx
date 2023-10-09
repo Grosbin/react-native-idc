@@ -27,7 +27,7 @@ export const Header = ({navigation}: Props) => {
 
           <Text style={[styles.nameProfile, {color: colors.fontPrimary}]}>
             {' '}
-            San José de la Vega
+            San José De La Vega
           </Text>
         </View>
       </TouchableOpacity>
@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
   nameProfile: {
     fontFamily: 'Poppins-Bold',
     color: gbColor.fontPrimary,
-    fontSize: 16,
+    fontSize: 12,
     textAlign: 'center',
     paddingTop: 11,
   },

@@ -2741,54 +2741,88 @@ export const chants = [
   },
   {
     id: '301',
-    name: '',
-    lyrics: [],
+    name: 'Aleluya Aleluya',
+    lyrics: [
+      'Cada mañana al despertar\nY por la noche al descansar\nAgradezco tus bondades a mi vida\nPor todo lo que me permites disfrutar',
+      'CORO: Aleluya, Aleluya, Aleluya\nAgradecido estoy por tu bondad\nAgradecido estoy Por tu bondad',
+    ],
   },
   {
     id: '302',
-    name: '',
-    lyrics: [],
+    name: 'De tal manera me amó',
+    lyrics: [
+      'De tal manera me amó, que su vida no \nescatimó, hasta el final él se entregó\nY a la muerte fue porque él me amó\nDe tal manera me amó y no hay forma\nEn que podré pagar el precio de su grande \namor, pero toda mi alma quiero dar',
+      'CORO: Por su amor yo viviré, de su amor yo \ncantaré, con mi Jesús caminaré\nPorque él me amó a mí \nPorque él murió por mí, le seguiré',
+    ],
   },
   {
     id: '303',
-    name: '',
-    lyrics: [],
+    name: 'El Todopoderoso',
+    lyrics: [
+      'Eres es el todopoderoso, Señor de mi vida\nDios del cielo y de la tierra, \ncreador del universo\nEl principio y fin \nY el gran YO SOY eres tú\nEres Señor de Señores \nEl que era el que es\nY el que habrá de venir \nBendito sea tu nombre\nYo te canto a ti Tú reinas hoy con poder',
+      'CORO: Por siempre eres Dios, \npor siempre quiero alabarte\nPor siempre eres \nDios por siempre quiero adorarte \nCuando estaba en tinieblas \ntú me trajiste a la luz\nCuando estaba yo enfermo \ntú me diste sanidad\nCuando estaba yo perdido \ntú me diste nueva vida\nYo te entrego Dios Mi corazón\nYo te entrego Dios mi corazón',
+    ],
   },
   {
     id: '304',
-    name: '',
-    lyrics: [],
+    name: 'El ejército de Dios',
+    lyrics: [
+      'Una luz más allá, resplandece del cerro\nSon las fuerzas de Dios, que van a luchar\nGanarán la victoria, cederá el enemigo\nTodo caerá si está en contra de Dios ',
+    ],
   },
   {
     id: '305',
-    name: '',
-    lyrics: [],
+    name: 'Te adoro poderoso Dios',
+    lyrics: [
+      'Te adoro poderoso Dios, nadie es como tú\nTe adoro príncipe de Paz, \nEs lo que anhelo hacer\nTe doy loor, mi justicia eres tú \nTe adoro poderoso Dios, \nNadie es como tú',
+    ],
   },
   {
     id: '306',
-    name: '',
-    lyrics: [],
+    name: 'Oh Dios Eterno',
+    lyrics: [
+      'Oh Dios eterno te pido clemencia\nMe he revelado Señor contra ti\nNo me castigues tal como merezco\nPadre ten misericordia de mí\nYo me arrepiento con alma afligida\nNo me rechaces perezco sin ti\nLávame sáname borra mis culpas\nPadre ten misericordia de mí\nGracias que en Cristo me ofreces victoria\nHazme más fuerte más útil a ti\nQuiero honrarte con fiel obediencia\nVen yo te imploro habita en mí.',
+    ],
   },
   {
     id: '307',
-    name: '',
-    lyrics: [],
+    name: 'Bellas palabras de vida',
+    lyrics: [
+      'Oh, cantádmelas otra vez, \nBellas palabras de vida\nHallo en ellas mi gozo y luz\nBellas palabras de vida.\nSí de luz y vida; son sostén y guía.',
+      'CORO: ¡Qué bellas son! ¡Qué bellas son!\nBellas palabras de vida.\n¡Qué bellas son! ¡Qué bellas son!\nBellas palabras de vida.',
+      'Jesucristo a todos da \nBellas palabras de vida;\nHoy escúchalas, pecador, \nBellas palabras de vida.\nBondadoso te salva, y al cielo te llama.',
+      'Grato el cántico sonará \nBellas palabras de vida;\nTus pecados perdonará, \nBellas palabras de vida.\nSí, de luz y vida; son sostén y guía.',
+    ],
   },
   {
     id: '308',
-    name: '',
-    lyrics: [],
+    name: 'Canta Oh buen cristiano',
+    lyrics: [
+      'Canta, oh buen cristiano \nDulce será cantar.\nHace el camino llano; libra el pesar.\nCanta en las noches tristes.\nCanta en el sol y en luz.\nEl mal así resistes, canta de Jesús.\nCanta, oh buen cristiano. \nTempla tu corazón.\nAlza a tu Soberano tu feliz canción.\nSiempre está lleno el mundo, \nDe endechas y dolor.\nCanta el amor profundo de tu Salvador.\nCanta, oh buen cristiano. \nDios tu socorro es.\nÉl sostendrá tu mano hasta la vejez.\n¿Sabes que al diablo invitas,\ncuando medroso estás?\nDios quitará tus penas, si cantando vas',
+    ],
   },
   {
     id: '309',
-    name: '',
-    lyrics: [],
+    name: 'Lugar para Cristo',
+    lyrics: [
+      'Tú dejaste tu trono y corona por mí,\nAl venir a Belén a nacer;\nMás a ti no fue dado el entrar al mesón\nY en establo te hicieron nacer.',
+      'CORO: Ven a mí corazón, ¡oh Cristo!\nPues en él hay lugar para ti.',
+      'Alabanzas celestes los ángeles dan,\nEn que rinden al Verbo loor;\nMás humilde viniste a la tierra, Señor,\nA dar vida al más vil pecador.',
+      'Siempre pueden las zorras \nSus cuevas tener,\nY las aves sus nidos también;\nMás el Hijo del Hombre no tuvo un lugar\nEn el cual reclinara su sien.',
+      'Tú viniste, Señor, con tu gran bendición\nPara dar libertad y salud,\nMás con odio y desprecio \nTe hicieron morir,\nAunque vieron tu amor y virtud.',
+      'Alabanzas sublimes los cielos darán,\nCuando vengas glorioso de allí,\nY tu voz entre nubes dirá: "Ven a mí,\nQue hay lugar junto a mí para ti."',
+    ],
   },
 
   {
     id: '310',
-    name: '',
-    lyrics: [],
+    name: 'Hay un lugar do quiero estar',
+    lyrics: [
+      'Hay un lugar do quiero estar\nMuy cerca de mi redentor\nAllí podré yo descansar\nAl fiel amparo de su amor',
+      'CORO: Muy cerca de mi Redentor\nSeguro asilo encontraré\nMe guardará del tentador\nY ya de nada temeré',
+      'Quitarme el mundo no podrá\nLa paz que halló mi corazón\nJesús amante me dará\nLa más segura protección',
+      'Ni dudas ni temor tendré\nEstando cerca de Jesús\nRodeado siempre me veré\nCon los fulgores de su luz',
+    ],
   },
   {
     id: '311',

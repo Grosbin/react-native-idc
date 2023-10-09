@@ -205,9 +205,10 @@ const styles = StyleSheet.create({
   button: {
     flexDirection: 'row',
     height: 40,
-    marginRight: 10,
-    marginLeft: 15,
-    borderRadius: 10,
+    // marginRight: 5,
+    // marginLeft: 15,
+    // borderRadius: 10,
+    // backgroundColor: 'green',
   },
   textButton: {
     fontFamily: 'Poppins-ExtraBold',
