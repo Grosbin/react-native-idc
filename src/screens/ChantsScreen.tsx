@@ -15,12 +15,18 @@ import {ChantContext} from '../context/ChantContext';
 import {ThemeContext} from '../context/ThemeContext';
 import {ButtonChants} from '../components/chants/ButtonChants';
 import {FloatButtonChants} from '../components/chants/FloatButtonChants';
-import {set} from 'react-native-reanimated';
+import {Header} from '../components/Header';
+import {DrawerScreenProps} from '@react-navigation/drawer';
+import SplashScreen from 'react-native-splash-screen';
 
-export const ChantsScreen = () => {
+interface Props extends DrawerScreenProps<any, any> {}
+
+export const ChantsScreen = ({navigation, route}: Props) => {
   const {getData} = useLocalStorage();
   const {
     theme: {colors},
+    setDarkTheme,
+    setLightTheme,
   } = useContext(ThemeContext);
 
   const [term, setTerm] = useState('');
@@ -159,8 +165,28 @@ export const ChantsScreen = () => {
     };
   };
 
+  const getDataStorage = async () => {
+    const data = await getData('@theme');
+    if (data === 'dark') {
+      setDarkTheme();
+    }
+
+    if (data === 'light') {
+      setLightTheme();
+    }
+    if (data === '') {
+      setLightTheme();
+    }
+    SplashScreen.hide();
+  };
+
+  useEffect(() => {
+    getDataStorage();
+  }, []);
+
   return (
     <SafeAreaView style={[styles.container]}>
+      <Header navigation={navigation} route={route} />
       <View
         style={{
           width: '100%',

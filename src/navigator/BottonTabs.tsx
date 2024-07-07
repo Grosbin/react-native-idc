@@ -55,7 +55,8 @@ export const BottonTabs = () => {
         iconName = 'musical-notes';
         break;
       case 'MenuLateral':
-        iconName = 'home';
+        // iconName = 'home';
+        iconName = 'musical-notes';
         break;
       case 'NoticesScreen':
         iconName = 'notifications';
@@ -104,13 +105,6 @@ export const BottonTabs = () => {
         tabBarShowLabel: false,
       })}>
       <Tab.Screen
-        name="BibleScreen"
-        component={BibleScreen}
-        listeners={{
-          tabPress: () => onPress(),
-        }}
-      />
-      <Tab.Screen
         name="MenuLateral"
         component={MenuLateral}
         listeners={{
@@ -118,12 +112,19 @@ export const BottonTabs = () => {
         }}
       />
       <Tab.Screen
+        name="BibleScreen"
+        component={BibleScreen}
+        listeners={{
+          tabPress: () => onPress(),
+        }}
+      />
+      {/* <Tab.Screen
         name="ChantsScreen"
         component={ChantsScreen}
         listeners={{
           tabPress: () => onPress(),
         }}
-      />
+      /> */}
       {/* <Tab.Screen
         name="NoticesScreen"
         component={NoticesScreen}

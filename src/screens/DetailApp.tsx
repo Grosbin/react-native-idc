@@ -24,21 +24,20 @@ export const DetailApp = ({route, navigation}: Props) => {
                 color: colors.blueSecondary,
               },
             ]}>
-            Este software fue creado para el beneficio de la Iglesia de Cristo
-            en San José de La Vega, Tegucigalpa, Honduras.
+            Este software fue creado para el beneficio de la Iglesia de Cristo.
           </Text>
           <Text style={[styles.text, {color: colors.fontPrimary}]}>
             En ella podrá estar al pendiente de las actividades que se
             realizaran durante la semana.
           </Text>
-          <Text style={[styles.text, {color: colors.fontPrimary}]}>
+          {/* <Text style={[styles.text, {color: colors.fontPrimary}]}>
             Podrá saber quienes son los hermanos que necesitan de su oración.
-          </Text>
+          </Text> */}
           <Text style={[styles.text, {color: colors.fontPrimary}]}>
             Tendrá acceso a la biblia Nueva Traducción Viviente (NTV).
           </Text>
           <Text style={[styles.text, {color: colors.fontPrimary}]}>
-            Contara con un himnario el cual tiene 272 cantos.
+            Contara con un himnario el cual más 272 cantos.
           </Text>
           <Text style={[styles.text, {color: colors.fontPrimary}]}>
             También podrá estar al pendiente de los anuncios semanales.
@@ -52,6 +51,10 @@ export const DetailApp = ({route, navigation}: Props) => {
           </Text>
           <Text style={[styles.text, {color: colors.blueSecondary}]}>
             robertobetancourth96@gmail.com
+          </Text>
+          <Text style={[styles.text, {color: colors.fontPrimary}]}>
+            Desarrollado por Roberto Betancourth todos los derechos reservados
+            2024.
           </Text>
         </View>
       </ScrollView>

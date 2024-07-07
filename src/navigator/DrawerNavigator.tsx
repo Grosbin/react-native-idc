@@ -18,6 +18,7 @@ import {ThemeContext} from '../context/ThemeContext';
 import {useLocalStorage} from '../hooks/useLocalStorage';
 import {SwitchFuntion} from '../components/ui/SwitchFuntion';
 import {AuthContext} from '../context/AuthContext';
+import {ChantsScreen} from '../screens/ChantsScreen';
 
 const Drawer = createDrawerNavigator();
 
@@ -40,7 +41,7 @@ export const MenuLateral = () => {
           backfaceVisibility: 'visible',
         },
       }}>
-      <Drawer.Screen name="HomeScreen" component={HomeScreen} />
+      <Drawer.Screen name="ChantsScreen" component={ChantsScreen} />
     </Drawer.Navigator>
   );
 };
@@ -217,7 +218,7 @@ const MenuInterno = (props: DrawerContentComponentProps) => {
             textAlign: 'center',
             color: gbColor.foco,
           }}>
-          Todos los derechos reservados, 2023
+          Todos los derechos reservados, 2024
         </Text>
       </View>
     </View>
