@@ -36,21 +36,21 @@ const Stack = createStackNavigator<RootStackParams>();
 
 export const StackNavigator = () => {
   const {theme} = useContext(ThemeContext);
-  const [initializing, setInitializing] = useState(true);
-  const [user, setUser] = useState();
+  // const [initializing, setInitializing] = useState(true);
+  // const [user, setUser] = useState();
   const [anyAccess, setAnyAccess] = useState(true);
 
-  const onAuthStateChanged = user => {
-    setUser(user);
-    if (initializing) setInitializing(false);
-  };
+  // const onAuthStateChanged = user => {
+  //   setUser(user);
+  //   if (initializing) setInitializing(false);
+  // };
 
-  useEffect(() => {
-    const subscriber = auth().onAuthStateChanged(onAuthStateChanged);
-    return subscriber;
-  }, []);
+  // useEffect(() => {
+  //   const subscriber = auth().onAuthStateChanged(onAuthStateChanged);
+  //   return subscriber;
+  // }, []);
 
-  if (initializing) return null;
+  // if (initializing) return null;
 
   return (
     <NavigationContainer theme={theme}>

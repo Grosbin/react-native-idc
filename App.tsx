@@ -16,11 +16,11 @@ import {
 const BibleState = ({children}: any) => {
   return (
     <ThemeProvider>
-      <AuthProvider>
-        <ChantProvider>
-          <BibleProvider>{children}</BibleProvider>
-        </ChantProvider>
-      </AuthProvider>
+      {/* <AuthProvider> */}
+      <ChantProvider>
+        <BibleProvider>{children}</BibleProvider>
+      </ChantProvider>
+      {/* </AuthProvider> */}
     </ThemeProvider>
   );
 };
