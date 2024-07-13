@@ -36,7 +36,7 @@ export const SwitchFuntion = ({
         {title}
       </Text>
       <Switch
-        trackColor={{false: gbColor.close, true: gbColor.green}}
+        trackColor={{false: gbColor.close, true: gbColor.blueSecondary}}
         thumbColor={isEnabled ? gbColor.foco : gbColor.foco}
         onValueChange={toggleSwitch}
         value={isEnabled}

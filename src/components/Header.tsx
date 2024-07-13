@@ -50,10 +50,12 @@ export const Header = ({navigation}: Props) => {
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: 'row',
-    justifyContent: 'flex-end',
+    // flexDirection: 'row',
+    // justifyContent: 'flex-start',
     marginHorizontal: 20,
     marginTop: 8,
+    position: 'absolute',
+    right: 0,
   },
 
   containerIcon: {

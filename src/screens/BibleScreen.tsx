@@ -97,8 +97,8 @@ export const BibleScreen = () => {
         <Text
           style={[
             styles.titleText,
-            book.length > 11 && {fontSize: 19},
-            {color: colors.primary},
+            book.length > 11 && {fontSize: 17},
+            {color: colors.blueSecondary},
           ]}>
           {getChapterNumber}
         </Text>
@@ -137,7 +137,7 @@ export const BibleScreen = () => {
         data={getVerses()}
         renderItem={({item, index}) => (
           <View key={index} style={styles.containerVerse}>
-            <Text style={[styles.numVerse, {color: colors.fontPrimary}]}>
+            <Text style={[styles.numVerse, {color: colors.blueSecondary}]}>
               {index + 1}
             </Text>
             <Text style={[styles.texVerse, {color: colors.fontPrimary}]}>
@@ -181,7 +181,7 @@ const styles = StyleSheet.create({
   },
   titleText: {
     fontFamily: 'Poppins-ExtraBold',
-    fontSize: 20,
+    fontSize: 18,
   },
   containerVerse: {
     flexDirection: 'row',
@@ -208,7 +208,7 @@ const styles = StyleSheet.create({
     // marginRight: 5,
     // marginLeft: 15,
     // borderRadius: 10,
-    // backgroundColor: 'green',
+    // backgroundColor: 'blueSecondary',
   },
   textButton: {
     fontFamily: 'Poppins-ExtraBold',

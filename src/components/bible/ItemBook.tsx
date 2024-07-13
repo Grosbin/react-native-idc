@@ -71,8 +71,8 @@ const styles = StyleSheet.create({
     elevation: 2,
   },
   text: {
-    fontSize: 15,
-    fontFamily: 'Poppins-Bold',
+    fontSize: 14,
+    fontFamily: 'Poppins-Medium',
     textAlign: 'center',
   },
 });

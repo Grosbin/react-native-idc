@@ -324,11 +324,11 @@ const styles = StyleSheet.create({
   containerText: {flex: 1, justifyContent: 'center', alignItems: 'center'},
 
   styleButton: {
-    width: 80,
+    width: 60,
     height: 40,
     marginHorizontal: 5,
     borderRadius: 10,
-    // backgroundColor: colors.green,
+    // backgroundColor: colors.blueSecondary,
     justifyContent: 'center',
     alignItems: 'center',
     shadowColor: '#000',
@@ -340,6 +340,7 @@ const styles = StyleSheet.create({
     shadowRadius: 3.84,
 
     elevation: 5,
+    marginTop: 3,
   },
 
   styleButtonText: {

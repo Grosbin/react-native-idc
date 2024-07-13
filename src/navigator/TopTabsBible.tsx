@@ -61,7 +61,7 @@ export const TopTabsBible = ({widthOffset, heightOffset}: Props) => {
                 },
               ]}>
               {(chapterOnPress || verseOnPress) && (
-                <Icon name="search" size={20} color={colors.blueSecondary} />
+                <Icon name="search" size={20} color={colors.secondary} />
               )}
               {title}
             </Text>

@@ -66,7 +66,7 @@ export const ContentChants = ({route, navigation}: Props) => {
       <ButtonPrevious
         navigation={navigation}
         title={`${name}`}
-        sizeTitle={20}
+        sizeTitle={18}
       />
       <TouchableOpacity
         onPress={setFavoriteChange}
@@ -74,10 +74,12 @@ export const ContentChants = ({route, navigation}: Props) => {
           position: 'absolute',
           right: 25,
           top: 18,
+          width: 22,
+          height: 22,
         }}>
         <Icon
           name={isFavorite ? 'star' : 'star-outline'}
-          size={20}
+          size={22}
           color={colors.fontPrimary}
         />
       </TouchableOpacity>
