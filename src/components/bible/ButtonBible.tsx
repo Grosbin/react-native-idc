@@ -59,7 +59,7 @@ export const ButtonBible = ({
           activeCard && {
             backgroundColor: colors.foco,
           },
-          onActive && {backgroundColor: colors.green},
+          onActive && {backgroundColor: colors.blueSecondary},
           style,
           buttonScaleAnimation,
           buttonOpacityAnimation,
@@ -91,7 +91,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: gbColor.green,
+    backgroundColor: gbColor.blueSecondary,
     height: 60,
     marginHorizontal: 10,
   },

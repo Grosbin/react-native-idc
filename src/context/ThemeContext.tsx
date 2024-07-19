@@ -1,4 +1,4 @@
-import React, {createContext, useEffect, useReducer, useState} from 'react';
+import React, {createContext, useReducer} from 'react';
 import changeNavigationBarColor from 'react-native-navigation-bar-color';
 
 import {ThemeState, themeReducer, lightTheme} from '../reducer/themeReducer';

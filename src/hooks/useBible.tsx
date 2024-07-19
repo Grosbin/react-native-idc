@@ -11,7 +11,7 @@ export const useBible = () => {
   const {
     onChangeChapter,
     onChangeVerse,
-    bibleState: {book, chapter, verse},
+    bibleState: {book, chapter},
   } = useContext(BibleContext);
 
   let data = getBook(book);

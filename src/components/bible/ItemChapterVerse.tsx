@@ -59,8 +59,8 @@ const styles = StyleSheet.create({
     elevation: 6,
   },
   chapterText: {
-    fontSize: 19,
-    fontFamily: 'Poppins-Bold',
+    fontSize: 16,
+    fontFamily: 'Poppins-Medium',
     textAlign: 'center',
   },
 });

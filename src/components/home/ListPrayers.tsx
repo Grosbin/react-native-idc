@@ -35,7 +35,7 @@ export const ListPrayers = ({listPrayers, titleDetail}: Props) => {
             width: 45,
             height: 35,
             borderRadius: 10,
-            backgroundColor: colors.green,
+            backgroundColor: colors.blueSecondary,
 
             marginTop: 5,
             flexDirection: 'row',

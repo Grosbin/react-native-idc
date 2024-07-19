@@ -1,5 +1,5 @@
 import React, {useContext} from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, View, SafeAreaView} from 'react-native';
 import {ButtonPrevious} from '../components/ui/ButtonPrevious';
 import {StackScreenProps} from '@react-navigation/stack';
 import {RootStackParams} from '../navigator/StackNavigator';
@@ -12,7 +12,7 @@ export const DonationsScreen = ({navigation}: Props) => {
     theme: {colors},
   } = useContext(ThemeContext);
   return (
-    <>
+    <SafeAreaView style={{flex: 1}}>
       <ButtonPrevious navigation={navigation} title="" sizeTitle={2} />
       <View style={styles.container}>
         <View>
@@ -38,7 +38,7 @@ export const DonationsScreen = ({navigation}: Props) => {
           </Text>
         </View>
       </View>
-    </>
+    </SafeAreaView>
   );
 };
 

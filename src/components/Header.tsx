@@ -13,7 +13,7 @@ export const Header = ({navigation}: Props) => {
   } = useContext(ThemeContext);
   return (
     <View style={styles.container}>
-      <TouchableOpacity
+      {/* <TouchableOpacity
         activeOpacity={0.8}
         onPress={() => navigation.navigate('ProfileScreen')}>
         <View style={styles.containerIcon}>
@@ -30,7 +30,7 @@ export const Header = ({navigation}: Props) => {
             San José De La Vega
           </Text>
         </View>
-      </TouchableOpacity>
+      </TouchableOpacity> */}
 
       <TouchableOpacity
         style={styles.buttonMenu}
@@ -50,10 +50,12 @@ export const Header = ({navigation}: Props) => {
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
+    // flexDirection: 'row',
+    // justifyContent: 'flex-start',
     marginHorizontal: 20,
     marginTop: 8,
+    // position: 'absolute',
+    right: 0,
   },
 
   containerIcon: {

@@ -16,7 +16,7 @@ export const ItemActivitie = ({title, day, hour}: Props) => {
   return (
     <View style={[styles.container, {backgroundColor: colors.primary}]}>
       <View style={[styles.hourContainer]}>
-        <Icon name="time" size={27} color={colors.green} />
+        <Icon name="time" size={27} color={colors.blueSecondary} />
         <Text style={[styles.hour, {color: colors.white}]}>{hour}</Text>
       </View>
       <View style={{width: 200}}>

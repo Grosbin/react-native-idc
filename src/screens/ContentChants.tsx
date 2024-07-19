@@ -1,6 +1,12 @@
 import {StackScreenProps} from '@react-navigation/stack';
 import React, {useContext, useEffect, useState} from 'react';
-import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View,
+  TouchableOpacity,
+  SafeAreaView,
+} from 'react-native';
 import {ButtonPrevious} from '../components/ui/ButtonPrevious';
 import {ThemeContext} from '../context/ThemeContext';
 import {RootStackParams} from '../navigator/StackNavigator';
@@ -62,36 +68,39 @@ export const ContentChants = ({route, navigation}: Props) => {
     }
   };
   return (
-    <View style={{flex: 1}}>
-      <ButtonPrevious
-        navigation={navigation}
-        title={`${name}`}
-        sizeTitle={20}
-      />
-      <TouchableOpacity
-        onPress={setFavoriteChange}
-        style={{
-          position: 'absolute',
-          right: 25,
-          top: 18,
-        }}>
-        <Icon
-          name={isFavorite ? 'star' : 'star-outline'}
-          size={20}
-          color={colors.fontPrimary}
-        />
-      </TouchableOpacity>
-      <ScrollView showsVerticalScrollIndicator={true}>
-        {lyrics.map((lyric, index) => (
-          <View key={index} style={[styles.container]}>
-            <Text style={[styles.text, {color: colors.fontPrimary}]}>
-              {lyric}
-            </Text>
-          </View>
-        ))}
-        <View style={{marginBottom: 100}}></View>
-      </ScrollView>
-    </View>
+    <SafeAreaView style={{flex: 1}}>
+      <View style={{flex: 1}}>
+        <ButtonPrevious navigation={navigation} title={``} sizeTitle={18} />
+        <TouchableOpacity
+          onPress={setFavoriteChange}
+          style={{
+            position: 'absolute',
+            right: 25,
+            top: 18,
+            width: 22,
+            height: 22,
+          }}>
+          <Icon
+            name={isFavorite ? 'star' : 'star-outline'}
+            size={22}
+            color={colors.fontPrimary}
+          />
+        </TouchableOpacity>
+        <ScrollView showsVerticalScrollIndicator={true}>
+          <Text style={[styles.title, {color: colors.fontPrimary}]}>
+            {name}
+          </Text>
+          {lyrics.map((lyric, index) => (
+            <View key={index} style={[styles.container]}>
+              <Text style={[styles.text, {color: colors.fontPrimary}]}>
+                {lyric}
+              </Text>
+            </View>
+          ))}
+          <View style={{marginBottom: 100}}></View>
+        </ScrollView>
+      </View>
+    </SafeAreaView>
   );
 };
 
@@ -103,5 +112,11 @@ const styles = StyleSheet.create({
   text: {
     fontFamily: 'Poppins-Medium',
     fontSize: 15,
+  },
+  title: {
+    fontFamily: 'Poppins-Bold',
+    fontSize: 20,
+    marginHorizontal: 30,
+    marginVertical: 10,
   },
 });

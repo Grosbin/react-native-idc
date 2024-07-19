@@ -4,17 +4,6 @@
     <style name="AppTheme" parent="Theme.AppCompat.DayNight.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="android:editTextBackground">@drawable/rn_edit_text_material</item>
-        <!-- <item name="android:navigationBarColor">#3b46f1</item> -->
-        <!-- <item name="android:windowTranslucentNavigation">true</item> -->
-    
-        <!-- <item name="android:windowBackground">@drawable/rn_edit_text_material</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item> -->
-
-        <!-- <item name="android:windowNoTitle">true</item>
-        <item name="android:windowIsFloating">false</item>
-        <item name="android:windowBackground">@android:color/transparent</item>
-        <item name="android:statusBarColor">@android:color/transparent</item>
-        <item name="android:navigationBarColor">@android:color/transparent</item> -->
     </style>
 
 </resources>

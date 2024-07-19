@@ -1,10 +1,8 @@
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {BibleScreen} from '../screens/BibleScreen';
-import {ChantsScreen} from '../screens/ChantsScreen';
-import {NoticesScreen} from '../screens/NoticesScreen';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {ParamListBase, RouteProp} from '@react-navigation/native';
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text} from 'react-native';
 import Animated, {
   useAnimatedStyle,
   useSharedValue,
@@ -55,7 +53,8 @@ export const BottonTabs = () => {
         iconName = 'musical-notes';
         break;
       case 'MenuLateral':
-        iconName = 'home';
+        // iconName = 'home';
+        iconName = 'musical-notes';
         break;
       case 'NoticesScreen':
         iconName = 'notifications';
@@ -104,13 +103,6 @@ export const BottonTabs = () => {
         tabBarShowLabel: false,
       })}>
       <Tab.Screen
-        name="BibleScreen"
-        component={BibleScreen}
-        listeners={{
-          tabPress: () => onPress(),
-        }}
-      />
-      <Tab.Screen
         name="MenuLateral"
         component={MenuLateral}
         listeners={{
@@ -118,12 +110,19 @@ export const BottonTabs = () => {
         }}
       />
       <Tab.Screen
+        name="BibleScreen"
+        component={BibleScreen}
+        listeners={{
+          tabPress: () => onPress(),
+        }}
+      />
+      {/* <Tab.Screen
         name="ChantsScreen"
         component={ChantsScreen}
         listeners={{
           tabPress: () => onPress(),
         }}
-      />
+      /> */}
       {/* <Tab.Screen
         name="NoticesScreen"
         component={NoticesScreen}

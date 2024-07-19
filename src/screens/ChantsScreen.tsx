@@ -15,12 +15,18 @@ import {ChantContext} from '../context/ChantContext';
 import {ThemeContext} from '../context/ThemeContext';
 import {ButtonChants} from '../components/chants/ButtonChants';
 import {FloatButtonChants} from '../components/chants/FloatButtonChants';
-import {set} from 'react-native-reanimated';
+import {Header} from '../components/Header';
+import {DrawerScreenProps} from '@react-navigation/drawer';
+import SplashScreen from 'react-native-splash-screen';
 
-export const ChantsScreen = () => {
+interface Props extends DrawerScreenProps<any, any> {}
+
+export const ChantsScreen = ({navigation, route}: Props) => {
   const {getData} = useLocalStorage();
   const {
     theme: {colors},
+    setDarkTheme,
+    setLightTheme,
   } = useContext(ThemeContext);
 
   const [term, setTerm] = useState('');
@@ -159,6 +165,25 @@ export const ChantsScreen = () => {
     };
   };
 
+  const getDataStorage = async () => {
+    const data = await getData('@theme');
+    if (data === 'dark') {
+      setDarkTheme();
+    }
+
+    if (data === 'light') {
+      setLightTheme();
+    }
+    if (data === '') {
+      setLightTheme();
+    }
+    SplashScreen.hide();
+  };
+
+  useEffect(() => {
+    getDataStorage();
+  }, []);
+
   return (
     <SafeAreaView style={[styles.container]}>
       <View
@@ -167,32 +192,36 @@ export const ChantsScreen = () => {
           height: 35,
           // backgroundColor: 'red',
           // marginTop: 10,
+          display: 'flex',
           marginBottom: 10,
           flexDirection: 'row',
-          justifyContent: 'flex-start',
+          justifyContent: 'space-between',
         }}>
-        <ButtonChants
-          text="Favoritos"
-          onPress={() => {
-            setChantsFavorites(true);
-            setChantsAll(false);
-          }}
-          styleButton={styles.styleButton}
-          styleText={styles.styleButtonText}
-          icon="star"
-          colorIcon={colors.background}
-        />
-        <ButtonChants
-          text="Todos"
-          onPress={() => {
-            setChantsFavorites(false);
-            setChantsAll(true);
-          }}
-          styleButton={styles.styleButton}
-          styleText={styles.styleButtonText}
-          icon="list"
-          colorIcon={colors.background}
-        />
+        <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+          <ButtonChants
+            text="Favoritos"
+            onPress={() => {
+              setChantsFavorites(true);
+              setChantsAll(false);
+            }}
+            styleButton={styles.styleButton}
+            styleText={styles.styleButtonText}
+            icon="star"
+            colorIcon={colors.background}
+          />
+          <ButtonChants
+            text="Todos"
+            onPress={() => {
+              setChantsFavorites(false);
+              setChantsAll(true);
+            }}
+            styleButton={styles.styleButton}
+            styleText={styles.styleButtonText}
+            icon="list"
+            colorIcon={colors.background}
+          />
+        </View>
+        <Header navigation={navigation} route={route} />
       </View>
       {chantsFavorites && <SearchInput onChange={setTerm} />}
 
@@ -298,22 +327,23 @@ const styles = StyleSheet.create({
   containerText: {flex: 1, justifyContent: 'center', alignItems: 'center'},
 
   styleButton: {
-    width: 80,
+    width: 60,
     height: 40,
     marginHorizontal: 5,
     borderRadius: 10,
-    // backgroundColor: colors.green,
+    // backgroundColor: colors.blueSecondary,
     justifyContent: 'center',
     alignItems: 'center',
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
+    // shadowColor: '#000',
+    // shadowOffset: {
+    //   width: 0,
+    //   height: 2,
+    // },
+    // shadowOpacity: 0.25,
+    // shadowRadius: 3.84,
 
-    elevation: 5,
+    // elevation: 5,
+    marginTop: 3,
   },
 
   styleButtonText: {
