@@ -8,7 +8,9 @@
     "lint": "eslint .",
     "start": "react-native start",
     "test": "jest",
-    "start:ios": "npm run ios -- --simulator='iPhone 15'"
+    "start:ios": "npm run ios -- --simulator='iPhone 15'",
+    "build:android": "npx react-native build-android --mode=release",
+    "run-build:android": "npm run android -- --mode='release'"
   },
   "dependencies": {
     "@react-native-async-storage/async-storage": "^1.24.0",
