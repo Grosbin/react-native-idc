@@ -76,7 +76,7 @@ android {
 
     namespace "com.iglesiadecristoconnect"
     defaultConfig {
-        applicationId "com.iglesiadecristoconnect"
+        applicationId "com.iglesiadecristov1"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 5
