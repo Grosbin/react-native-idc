@@ -12,6 +12,7 @@ import {DetailBible} from '../screens/DetailBible';
 import {DetailApp} from '../screens/DetailApp';
 import {ProfileScreen} from '../screens/ProfileScreen';
 import {DonationsScreen} from '../screens/DonationsScreen';
+import {TermsConditions} from '../screens/TermsConditions';
 
 export type RootStackParams = {
   BottonTabs: undefined;
@@ -25,6 +26,7 @@ export type RootStackParams = {
   ProfileScreen: undefined;
   DonationsScreen: undefined;
   PrivacyPolicy: undefined;
+  TermsConditions: undefined;
 };
 
 const Stack = createStackNavigator<RootStackParams>();
@@ -69,6 +71,7 @@ export const StackNavigator = () => {
           <Stack.Screen name="DetailApp" component={DetailApp} />
           <Stack.Screen name="ProfileScreen" component={ProfileScreen} />
           <Stack.Screen name="DonationsScreen" component={DonationsScreen} />
+          <Stack.Screen name="TermsConditions" component={TermsConditions} />
         </>
       </Stack.Navigator>
     </NavigationContainer>

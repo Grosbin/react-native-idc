@@ -148,7 +148,7 @@ const MenuInterno = (props: DrawerContentComponentProps) => {
               color: gbColor.foco,
             }}>
             {' '}
-            Acerca de la app
+            Acerca del App
           </Text>
         </TouchableOpacity>
         <TouchableOpacity
@@ -169,6 +169,26 @@ const MenuInterno = (props: DrawerContentComponentProps) => {
             }}>
             {' '}
             Donaciones
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={{
+            width: '100%',
+            height: 50,
+            paddingTop: 10,
+            paddingHorizontal: 20,
+            flexDirection: 'row',
+          }}
+          onPress={() => props.navigation.navigate('TermsConditions')}>
+          <Text
+            style={{
+              fontFamily: 'Poppins-Medium',
+              textAlign: 'center',
+              fontSize: 15,
+              color: gbColor.foco,
+            }}>
+            {' '}
+            Términos y Condiciones
           </Text>
         </TouchableOpacity>
         {/* Cierre de Sesión con firebase  */}
