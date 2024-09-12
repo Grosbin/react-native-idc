@@ -1,22 +1,22 @@
-import React, {useContext} from 'react';
+import React from 'react';
 import {ActivityIndicator, Modal, StyleSheet, Text, View} from 'react-native';
-import {AuthContext} from '../../context/AuthContext';
+// import {AuthContext} from '../../context/AuthContext';
 
 interface Props {
   message: string;
 }
 
 export const LoginLoading = ({message}: Props) => {
-  const {
-    authState: {isLoggedIn},
-  } = useContext(AuthContext);
+  // const {
+  //   authState: {isLoggedIn},
+  // } = useContext(AuthContext);
   return (
     <View style={styles.centeredView}>
       <Modal
         animationType="fade"
         transparent
         presentationStyle="overFullScreen"
-        visible={isLoggedIn}>
+        visible={false}>
         <View style={styles.modalView}>
           <Text style={[styles.modalText]}>{message}</Text>
           <ActivityIndicator size={20} color="#3b46f1" />

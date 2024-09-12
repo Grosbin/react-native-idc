@@ -1,8 +1,4 @@
 {
-  "name": "IglesiaDeCristoV1",
-  "displayName": "IglesiaDeCristoV1",
-  "androidNavigationBar": {
-    "visible": "sticky-immersive",
-    "backgroundColor": "#000000"
-  }
+  "name": "iglesiaDeCristoConnect",
+  "displayName": "iglesiaDeCristoConnect"
 }

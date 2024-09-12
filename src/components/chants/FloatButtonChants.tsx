@@ -75,9 +75,9 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     justifyContent: 'center',
     alignItems: 'center',
-    // backgroundColor: gbColor.green,
-    height: 60,
-    width: 120,
+    // backgroundColor: gbColor.blueSecondary,
+    height: 55,
+    width: 90,
     marginHorizontal: 10,
   },
 

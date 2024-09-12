@@ -1,54 +1,48 @@
+/**
+ * Sample React Native App
+ * https://github.com/facebook/react-native
+ *
+ * @format
+ */
+// import 'react-native-gesture-handler';
+
+// import {NavigationContainer} from '@react-navigation/native';
+// import React from 'react';
+
+// import {SafeAreaView, Text, View} from 'react-native';
+
+// function App(): React.JSX.Element {
+//   return (
+//     <NavigationContainer>
+//       <SafeAreaView>
+//         <View>
+//           <Text>Hola Mundo</Text>
+//         </View>
+//       </SafeAreaView>
+//     </NavigationContainer>
+//   );
+// }
+
+// export default App;
+
 import 'react-native-gesture-handler';
-import React, {useEffect} from 'react';
+import React from 'react';
 import {BibleProvider} from './src/context/BibleContext';
 import {ThemeProvider} from './src/context/ThemeContext';
 import {StackNavigator} from './src/navigator/StackNavigator';
-import {AuthProvider} from './src/context/AuthContext';
 import {ChantProvider} from './src/context/ChantContext';
-import {Alert} from 'react-native';
-import messaging from '@react-native-firebase/messaging';
-import {
-  getFcmToken,
-  notificationListener,
-  requestUserPermission,
-} from './src/helpers/pushnotification';
 
 const BibleState = ({children}: any) => {
   return (
     <ThemeProvider>
-      <AuthProvider>
-        <ChantProvider>
-          <BibleProvider>{children}</BibleProvider>
-        </ChantProvider>
-      </AuthProvider>
+      <ChantProvider>
+        <BibleProvider>{children}</BibleProvider>
+      </ChantProvider>
     </ThemeProvider>
   );
 };
 
 const App = () => {
-  // useEffect(() => {
-  //   const foregroundSubscriber = messaging().onMessage(async remoteMessage => {
-  //     console.log('A new FCM message arrived!', JSON.stringify(remoteMessage));
-  //   });
-
-  //   const backgroundSubscriber = messaging().setBackgroundMessageHandler(
-  //     async remoteMessage => {
-  //       console.log('Message handled in the background!', remoteMessage);
-  //     },
-  //   );
-
-  //   return () => {
-  //     foregroundSubscriber();
-  //     backgroundSubscriber;
-  //   };
-  // }, []);
-
-  useEffect(() => {
-    // getFcmToken();
-    requestUserPermission();
-    notificationListener();
-  }, []);
-
   return (
     <BibleState>
       <StackNavigator />

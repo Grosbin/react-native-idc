@@ -58,7 +58,7 @@ export const ItemChants = ({id, name, lyrics}: Props) => {
       style={[styles.container, {backgroundColor: colors.foco}]}>
       <Text style={[styles.text, {color: colors.fontPrimary}]}>
         {chantsFavArray.includes(id) && (
-          <Icon name={'star'} size={15} color={colors.fontPrimary} />
+          <Icon name={'star'} size={12} color={colors.fontPrimary} />
         )}
         {`  ${id}`}
       </Text>

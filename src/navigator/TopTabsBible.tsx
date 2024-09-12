@@ -24,7 +24,7 @@ export const TopTabsBible = ({widthOffset, heightOffset}: Props) => {
 
   return (
     <Tab.Navigator
-      showPageIndicator={false}
+      // showPageIndicator={false}
       sceneContainerStyle={{
         backgroundColor: colors.background,
         borderBottomEndRadius: 10,
@@ -60,9 +60,9 @@ export const TopTabsBible = ({widthOffset, heightOffset}: Props) => {
                   color: colors.blueSecondary,
                 },
               ]}>
-              {(chapterOnPress || verseOnPress) && (
-                <Icon name="search" size={20} color={colors.blueSecondary} />
-              )}
+              {/* {(chapterOnPress || verseOnPress) && (
+                // <Icon name="search" size={20} color={colors.secondary} />
+              )} */}
               {title}
             </Text>
           );

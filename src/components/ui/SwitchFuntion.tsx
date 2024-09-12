@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {
   StyleProp,
   StyleSheet,
@@ -8,7 +8,8 @@ import {
   ViewStyle,
 } from 'react-native';
 import {gbColor} from '../../theme/themeGlobal';
-
+import {ThemeContext} from '../../context/ThemeContext';
+import {Background} from './Background';
 interface Props {
   toggleSwitch: () => void;
   title: string;
@@ -23,6 +24,8 @@ export const SwitchFuntion = ({
   isEnabled,
   style,
 }: Props) => {
+  const {theme} = useContext(ThemeContext);
+
   return (
     <View style={[styles.container, style && style]}>
       <Text
@@ -36,8 +39,11 @@ export const SwitchFuntion = ({
         {title}
       </Text>
       <Switch
-        trackColor={{false: gbColor.close, true: gbColor.green}}
-        thumbColor={isEnabled ? gbColor.foco : gbColor.foco}
+        // trackColor={{false: gbColor.yellow, true: gbColor.yellow}}
+        trackColor={{false: theme.colors.skeleton, true: theme.colors.skeleton}}
+        thumbColor={
+          isEnabled ? theme.colors.background : theme.colors.background
+        }
         onValueChange={toggleSwitch}
         value={isEnabled}
       />

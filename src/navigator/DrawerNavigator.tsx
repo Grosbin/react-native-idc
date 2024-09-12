@@ -7,22 +7,20 @@ import {
 import {
   Image,
   Text,
-  useWindowDimensions,
   View,
   TouchableOpacity,
   StatusBar,
+  SafeAreaView,
 } from 'react-native';
-import {HomeScreen} from '../screens/HomeScreen';
 import {gbColor} from '../theme/themeGlobal';
 import {ThemeContext} from '../context/ThemeContext';
 import {useLocalStorage} from '../hooks/useLocalStorage';
 import {SwitchFuntion} from '../components/ui/SwitchFuntion';
-import {AuthContext} from '../context/AuthContext';
+import {ChantsScreen} from '../screens/ChantsScreen';
 
 const Drawer = createDrawerNavigator();
 
 export const MenuLateral = () => {
-  const dimension = useWindowDimensions();
   const {theme} = useContext(ThemeContext);
 
   return (
@@ -40,7 +38,7 @@ export const MenuLateral = () => {
           backfaceVisibility: 'visible',
         },
       }}>
-      <Drawer.Screen name="HomeScreen" component={HomeScreen} />
+      <Drawer.Screen name="ChantsScreen" component={ChantsScreen} />
     </Drawer.Navigator>
   );
 };
@@ -51,8 +49,6 @@ const MenuInterno = (props: DrawerContentComponentProps) => {
     setDarkTheme,
     setLightTheme,
   } = useContext(ThemeContext);
-
-  const {logout} = useContext(AuthContext);
 
   const {storeData, getData} = useLocalStorage();
 
@@ -99,7 +95,7 @@ const MenuInterno = (props: DrawerContentComponentProps) => {
           style={{
             width: 90,
             height: 80,
-            marginTop: 20,
+            marginTop: 80,
           }}
         />
       </View>
@@ -152,7 +148,7 @@ const MenuInterno = (props: DrawerContentComponentProps) => {
               color: gbColor.foco,
             }}>
             {' '}
-            Acerca de la app
+            Acerca del App
           </Text>
         </TouchableOpacity>
         <TouchableOpacity
@@ -173,6 +169,26 @@ const MenuInterno = (props: DrawerContentComponentProps) => {
             }}>
             {' '}
             Donaciones
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={{
+            width: '100%',
+            height: 50,
+            paddingTop: 10,
+            paddingHorizontal: 20,
+            flexDirection: 'row',
+          }}
+          onPress={() => props.navigation.navigate('TermsConditions')}>
+          <Text
+            style={{
+              fontFamily: 'Poppins-Medium',
+              textAlign: 'center',
+              fontSize: 15,
+              color: gbColor.foco,
+            }}>
+            {' '}
+            Términos y Condiciones
           </Text>
         </TouchableOpacity>
         {/* Cierre de Sesión con firebase  */}
@@ -210,14 +226,14 @@ const MenuInterno = (props: DrawerContentComponentProps) => {
             textAlign: 'center',
             color: gbColor.foco,
           }}>
-          Ministerio de Medios
+          Roberto Betancourth
         </Text>
         <Text
           style={{
             textAlign: 'center',
             color: gbColor.foco,
           }}>
-          Todos los derechos reservados, 2023
+          Todos los derechos reservados, 2024
         </Text>
       </View>
     </View>

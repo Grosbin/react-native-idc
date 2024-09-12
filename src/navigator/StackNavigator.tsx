@@ -1,4 +1,4 @@
-import {useContext, useEffect, useState} from 'react';
+import {useContext} from 'react';
 import {
   CardStyleInterpolators,
   createStackNavigator,
@@ -8,15 +8,11 @@ import {DetailPrayers} from '../screens/DetailPrayers';
 import {ContentChants} from '../screens/ContentChants';
 import {ThemeContext} from '../context/ThemeContext';
 import {NavigationContainer} from '@react-navigation/native';
-import {LoginScreen} from '../screens/LoginScreen';
-import {RegisterScreen} from '../screens/RegisterScreen';
-import auth from '@react-native-firebase/auth';
 import {DetailBible} from '../screens/DetailBible';
 import {DetailApp} from '../screens/DetailApp';
-import {ResetPassword} from '../screens/ResetPassword';
 import {ProfileScreen} from '../screens/ProfileScreen';
 import {DonationsScreen} from '../screens/DonationsScreen';
-import {PrivacyPolicy} from '../screens/PrivacyPolicy';
+import {TermsConditions} from '../screens/TermsConditions';
 
 export type RootStackParams = {
   BottonTabs: undefined;
@@ -30,27 +26,27 @@ export type RootStackParams = {
   ProfileScreen: undefined;
   DonationsScreen: undefined;
   PrivacyPolicy: undefined;
+  TermsConditions: undefined;
 };
 
 const Stack = createStackNavigator<RootStackParams>();
 
 export const StackNavigator = () => {
   const {theme} = useContext(ThemeContext);
-  const [initializing, setInitializing] = useState(true);
-  const [user, setUser] = useState();
-  const [anyAccess, setAnyAccess] = useState(true);
+  // const [initializing, setInitializing] = useState(true);
+  // const [user, setUser] = useState();
 
-  const onAuthStateChanged = user => {
-    setUser(user);
-    if (initializing) setInitializing(false);
-  };
+  // const onAuthStateChanged = user => {
+  //   setUser(user);
+  //   if (initializing) setInitializing(false);
+  // };
 
-  useEffect(() => {
-    const subscriber = auth().onAuthStateChanged(onAuthStateChanged);
-    return subscriber;
-  }, []);
+  // useEffect(() => {
+  //   const subscriber = auth().onAuthStateChanged(onAuthStateChanged);
+  //   return subscriber;
+  // }, []);
 
-  if (initializing) return null;
+  // if (initializing) return null;
 
   return (
     <NavigationContainer theme={theme}>
@@ -67,24 +63,16 @@ export const StackNavigator = () => {
             backgroundColor: theme.colors.background,
           },
         }}>
-        {!anyAccess ? (
-          <>
-            <Stack.Screen name="LoginScreen" component={LoginScreen} />
-            <Stack.Screen name="RegisterScreen" component={RegisterScreen} />
-            <Stack.Screen name="ResetPassword" component={ResetPassword} />
-            <Stack.Screen name="PrivacyPolicy" component={PrivacyPolicy} />
-          </>
-        ) : (
-          <>
-            <Stack.Screen name="BottonTabs" component={BottonTabs} />
-            <Stack.Screen name="DetailPrayers" component={DetailPrayers} />
-            <Stack.Screen name="ContentChants" component={ContentChants} />
-            <Stack.Screen name="DetailBible" component={DetailBible} />
-            <Stack.Screen name="DetailApp" component={DetailApp} />
-            <Stack.Screen name="ProfileScreen" component={ProfileScreen} />
-            <Stack.Screen name="DonationsScreen" component={DonationsScreen} />
-          </>
-        )}
+        <>
+          <Stack.Screen name="BottonTabs" component={BottonTabs} />
+          <Stack.Screen name="DetailPrayers" component={DetailPrayers} />
+          <Stack.Screen name="ContentChants" component={ContentChants} />
+          <Stack.Screen name="DetailBible" component={DetailBible} />
+          <Stack.Screen name="DetailApp" component={DetailApp} />
+          <Stack.Screen name="ProfileScreen" component={ProfileScreen} />
+          <Stack.Screen name="DonationsScreen" component={DonationsScreen} />
+          <Stack.Screen name="TermsConditions" component={TermsConditions} />
+        </>
       </Stack.Navigator>
     </NavigationContainer>
   );

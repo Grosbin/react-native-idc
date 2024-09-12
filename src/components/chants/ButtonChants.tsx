@@ -40,7 +40,7 @@ export const ButtonChants = ({
       activeOpacity={0.8}
       disabled={disableButton}
       onPress={onPress}
-      style={[styleButton, {backgroundColor: colors.green}]}>
+      style={[styleButton, {backgroundColor: colors.blueSecondary}]}>
       {/* <Text style={[styleText, {color: colors.fontSecondary}]}>{text}</Text> */}
       {icon ? (
         <Icon name={icon} size={20} color={colorIcon} />
